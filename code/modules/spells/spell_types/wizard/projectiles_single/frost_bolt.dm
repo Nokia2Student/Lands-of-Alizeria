@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/frostbolt // to do: get scroll icon
-	name = "Frost Bolt"
-	desc = "Shoot a shard of ice. Its victim suffers slowness and fatigue, intensified by repeated casts."
+	name = "Ледяной снаряд"
+	desc = "Выпускает ледяной осколок. Жертва страдает от медлительности и усталости, усиливающихся при повторных попаданиях."
 	range = 8
 	projectile_type = /obj/projectile/magic/frostbolt
 	overlay_state = "frost_bolt"
@@ -31,11 +31,11 @@
 
 /obj/effect/proc_holder/spell/self/frostbolt/cast(mob/user = usr)
 	var/mob/living/target = user
-	target.visible_message(span_warning("[target] hurls a frosty beam!"), span_notice("You hurl a frosty beam!"))
+	target.visible_message(span_warning("[target] запускает ледяной луч!"), span_notice("Вы запускаете ледяной луч!"))
 	. = ..()
 
 /obj/projectile/magic/frostbolt
-	name = "Frost Dart"
+	name = "Ледяной дротик"
 	icon_state = "ice_2"
 	damage = 20
 	npc_damage_mult = 2
@@ -51,7 +51,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK

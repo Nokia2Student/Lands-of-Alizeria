@@ -1,7 +1,7 @@
 //forcewall
 /obj/effect/proc_holder/spell/invoked/forcewall
-	name = "Forcewall"
-	desc = "Conjure a 3x1 wall of arcyne force, preventing anyone and anything other than you from moving through it."
+	name = "Силовая стена"
+	desc = "Создаёт стену арканной силы 3x1, через которую не может пройти никто и ничто, кроме вас."
 	school = "transmutation"
 	releasedrain = 30
 	chargedrain = 1
@@ -27,8 +27,8 @@
 
 //adapted from forcefields.dm, this needs to be destructible
 /obj/structure/forcefield_weak
-	desc = "A wall of pure arcyne force."
-	name = "Arcyne Wall"
+	desc = "Стена чистой арканной силы."
+	name = "Арканная стена"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "arcynewall"
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
@@ -60,7 +60,7 @@
 		new /obj/effect/temp_visual/trap_wall(affected_turf)
 		addtimer(CALLBACK(src, PROC_REF(new_wall), affected_turf, user), wait = 1 SECONDS)
 
-	user.visible_message("[user] mutters an incantation and a wall of arcyne force manifests out of thin air!")
+	user.visible_message("[user] бормочет заклинание, и из воздуха возникает стена арканной силы!")
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/forcewall/proc/new_wall(var/turf/target, mob/user)

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/self/recall
-	name = "Recall"
-	desc = "Memorize your current location, allowing you to return to it after a delay."
+	name = "Возврат"
+	desc = "Запоминает ваше текущее местоположение, позволяя вернуться в него после задержки."
 	school = "transmutation"
 	charge_type = "recharge"
 	recharge_time = 3 MINUTES
@@ -27,13 +27,13 @@
 	if(!marked_location)
 		var/turf/T = get_turf(H)
 		marked_location = T
-		to_chat(H, span_notice("You attune yourself to this location. Future casts will return you here."))
+		to_chat(H, span_notice("Вы настраиваетесь на это место. Последующие применения вернут вас сюда."))
 		start_recharge()
 		revert_cast()
 		return TRUE
 
 	// Subsequent casts - begin channeling
-	H.visible_message(span_warning("[H] closes [H.p_their()] eyes and begins to focus intently..."))
+	H.visible_message(span_warning("[H] закрывает глаза и начинает сосредоточенно фокусироваться..."))
 	H.apply_status_effect(/datum/status_effect/buff/recalling)
 	if(do_after(H, recall_delay, target = H, progress = TRUE))
 		// Get any grabbed mobs
@@ -45,7 +45,7 @@
 		for(var/mob/living/L in to_teleport)
 			do_teleport(L, marked_location, no_effects = FALSE, channel = TELEPORT_CHANNEL_MAGIC)
 
-		H.visible_message(span_warning("[H] vanishes in a swirl of energy!"))
+		H.visible_message(span_warning("[H] исчезает в вихре энергии!"))
 		playsound(H, 'sound/magic/unmagnet.ogg', 50, TRUE)
 
 		// Visual effects at both locations
@@ -56,6 +56,6 @@
 		start_recharge()
 	else
 		H.remove_status_effect(/datum/status_effect/buff/recalling)
-		to_chat(H, span_warning("Your concentration was broken!"))
+		to_chat(H, span_warning("Ваша концентрация была прервана!"))
 		start_recharge()
 		revert_cast()

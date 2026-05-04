@@ -14,47 +14,47 @@
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/zagul)
 
 /datum/supply_pack/rogue/alcohol/blackgoat
-	name = "Пиво Чёрный козёл"
+	name = "Пиво «Чёрный козёл»"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/blackgoat)
 
 /datum/supply_pack/rogue/alcohol/onin
-	name = "Коньяк Крысиный Погреб"
+	name = "Коньяк «Крысиная заначка»"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/ratkept)
 
 /datum/supply_pack/rogue/alcohol/grenzelbeer
-	name = "Горькое пиво Грензельхофт"
+	name = "Горькое пиво Грензельхофта"
 	cost = 25
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/hagwoodbitter)
 
 /datum/supply_pack/rogue/alcohol/elfbeer
-	name = "Эльфийское аурорианское пиво"
+	name = "Эльфийский светлый «Аурориан»"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/aurorian)
 
 /datum/supply_pack/rogue/alcohol/elfcab
-	name = "Эльфийский Огненный Лист"
+	name = "Эльфийский огненный лист"
 	cost = 25
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/fireleaf)
 
 /datum/supply_pack/rogue/alcohol/butterhair
-	name = "Дварфийские Масляные Волосы"
+	name = "Дварфийское «Масляные косы»"
 	cost = 35
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/butterhairs)
 
 /datum/supply_pack/rogue/alcohol/stonebeard
-	name = "Запас Каменной Бороды"
+	name = "Резерв Каменной Бороды"
 	cost = 60
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/stonebeardreserve)
 
 /datum/supply_pack/rogue/alcohol/voddena
-	name = "Воддена Молотоборцев"
+	name = "Воддена «Молотоборец»"
 	cost = 25
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/voddena)
 
 /datum/supply_pack/rogue/alcohol/sazdistal
-	name = "Ликёр Чили Сац Дисталь"
+	name = "Ликёр Сац-Дисталь с перцем чили"
 	cost = 30
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/sazdistal)
 
@@ -64,17 +64,17 @@
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/wine)
 
 /datum/supply_pack/rogue/alcohol/winegrenzel
-	name = "Кислое вино Грензельхофт"
+	name = "Кислое вино Грензельхофта"
 	cost = 25
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine)
 
 /datum/supply_pack/rogue/alcohol/winevalorred
-	name = "Красное вино Отава"
+	name = "Красное вино Отавы"
 	cost = 30
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/redwine)
 
 /datum/supply_pack/rogue/alcohol/winevalorwhite
-	name = "Белое вино Отава"
+	name = "Белое вино Отавы"
 	cost = 35
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/whitewine)
 
@@ -84,28 +84,28 @@
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/elfred)
 
 /datum/supply_pack/rogue/alcohol/elfblue
-	name = "Синее вино Вальмора"
+	name = "Лазурное вино Вальмора"
 	cost = 400
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/elfblue)
 
 //AZURE DRINKS
 /datum/supply_pack/rogue/alcohol/jagdtrunk
-	name = "Травяной шнапс Ягдтрунк"
+	name = "Травяной шнапс «Ягдтрунк»"
 	cost = 80
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/jagdtrunk)
 
 /datum/supply_pack/rogue/alcohol/apfelweinheim
-	name = "Сидр Апфельвайнхайм"
+	name = "Апфельвайнхаймский сидр"
 	cost = 30
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/apfelweinheim)
 
 /datum/supply_pack/rogue/alcohol/rtoper
-	name = "Пиво Рокхилл Тоупер (Лирвас)"
+	name = "Пиво «Рокхилл Тоупер» (Лирвас)"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/rtoper)
 
 /datum/supply_pack/rogue/alcohol/nred
-	name = "Красный эль Норвандин"
+	name = "Красный эль Норвандина"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/nred)
 
@@ -115,27 +115,27 @@
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/gronnmead)
 
 /datum/supply_pack/rogue/alcohol/avarmead
-	name = "Зёгийн Бал (Аварский мёд)"
+	name = "Зёгийн бал (аварский мёд)"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/avarmead)
 
 /datum/supply_pack/rogue/alcohol/avarrice
-	name = "Макколир (Аварское рисовое вино)"
+	name = "Макколир (аварское рисовое вино)"
 	cost = 30
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/avarrice)
 
 /datum/supply_pack/rogue/alcohol/saigamilk
-	name = "Бёхийн Архи (Напиток из сайги)"
+	name = "Архи из сайги"
 	cost = 100
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/saigamilk)
 
 /datum/supply_pack/rogue/alcohol/kgunlager
-	name = "Ямагучи Пэйл (Кадзенгунский светлый лагер)"
+	name = "Ямагути Пэйл (кадзенгунский светлый лагер)"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/kgunlager)
 
 /datum/supply_pack/rogue/alcohol/kgunplum
-	name = "Умешу (Кадзенгунское сливовое вино)"
+	name = "Умешу (кадзенгунское сливовое вино)"
 	cost = 40
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/kgunplum)
 
@@ -151,21 +151,21 @@
 
 // Zhongese
 /datum/supply_pack/rogue/alcohol/zhonghuangjiu
-	name = "Хуанцзю (Чжунское жёлтое рисовое вино)"
+	name = "Хуанцзю (жёлтое рисовое вино Чжун)"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/huangjiu)
 
 /datum/supply_pack/rogue/alcohol/baijiu
-	name = "Байцзю (Чжунский сорговый ликёр)"
+	name = "Байцзю (сорговый ликёр Чжун)"
 	cost = 50
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/baijiu)
 
 /datum/supply_pack/rogue/alcohol/yaojiu
-	name = "Яоцзю (Чжунское травяное рисовое вино)"
+	name = "Яоцзю (травяное рисовое вино Чжун)"
 	cost = 150
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/yaojiu)
 
 /datum/supply_pack/rogue/alcohol/shejiu
-	name = "Шэцзю (Чжунское змеиное вино)"
+	name = "Шэцзю (змеиное вино Чжун)"
 	cost = 150
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/shejiu)

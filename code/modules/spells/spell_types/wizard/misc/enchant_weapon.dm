@@ -2,13 +2,13 @@
 #define ENCHANT_DURATION_GOLD 200 MINUTES
 
 /obj/effect/proc_holder/spell/invoked/enchant_weapon
-	name = "Enchant Weapon"
-	desc = "Enchant a weapon of your choice in your hand or on the ground, replacing any existing enchantment. \n\
-	The enchantment will lasts for 15 minutes, and will automatically refresh in the hand of an Arcyne user.\n\
-	If the enchanter is holding a piece of gold ore in their hand, it will be consumed to enchant the weapon permanently (200 minutes).\n\
-	An enchantment cannot be applied to an already enchanted weapon.\n\
-	Force Blade: Increases the force of the weapon by 5.\n\
-	Durability: Increases the integrity and max integrity of the weapon by 100."
+	name = "Зачаровать оружие"
+	desc = "Зачаровывает выбранное оружие в руке или на земле, заменяя существующие чары. \n\
+	Чары действуют 15 минут и автоматически обновляются в руке пользователя Арканы.\n\
+	Если заклинатель держит в руке кусок золотой руды, она поглощается, делая чары постоянными (200 минут).\n\
+	Нельзя наложить чары на уже зачарованное оружие.\n\
+	Силовой клинок: Увеличивает силу оружия на 5.\n\
+	Прочность: Увеличивает прочность и максимальную прочность оружия на 100."
 	overlay_state = "enchant_weapon"
 	sound = list('sound/magic/whiteflame.ogg')
 
@@ -37,8 +37,8 @@
 	var/obj/item/sacrifice
 
 	var/list/enchant_types = list(
-		"Force Blade" = FORCE_BLADE_ENCHANT,
-		"Durability" = DURABILITY_ENCHANT
+		"Силовой клинок" = FORCE_BLADE_ENCHANT,
+		"Прочность" = DURABILITY_ENCHANT
 	)
 
 	for(var/obj/item/I in user.held_items)
@@ -47,21 +47,21 @@
 
 	if(istype(target, /obj/item/rogueweapon))
 		var/obj/item/I = target
-		var/enchant_type = input(user, "Select the type of enchantment you want to apply:", "Enchant Weapon") as anything in enchant_types
+		var/enchant_type = input(user, "Выберите тип чар, которые хотите наложить:", "Зачаровать оружие") as anything in enchant_types
 		if(!enchant_type)
 			return
 		enchant_type = enchant_types[enchant_type]
 		var/enchant_duration = sacrifice ? ENCHANT_DURATION_GOLD : ENCHANT_DURATION
 		if(sacrifice)
 			qdel(sacrifice)
-			to_chat(user, "I consumes the [sacrifice] to enchant [I] permanently.")
+			to_chat(user, "Я использую [sacrifice], чтобы навсегда зачаровать [I].")
 		if(I.GetComponent(/datum/component/enchanted_weapon))
 			qdel(I.GetComponent(/datum/component/enchanted_weapon))
 		I.AddComponent(/datum/component/enchanted_weapon, enchant_duration, TRUE, /datum/skill/magic/arcane, enchant_type)
-		user.visible_message("[user] enchants the [I], enveloping it in a magical glow.")
+		user.visible_message("[user] зачаровывает [I], окутывая его магическим сиянием.")
 		return TRUE
 	else
-		to_chat(user, span_warning("That is not a valid target for enchantment! You need to enchant a weapon."))
+		to_chat(user, span_warning("Это неподходящая цель для чар! Вам нужно зачаровать оружие."))
 		revert_cast()
 		return FALSE
 		

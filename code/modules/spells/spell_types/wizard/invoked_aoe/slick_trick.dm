@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/slick_trick
-	name = "Slick Trick"
-	desc = "Temporarily create a slippery area that sends victims flying to the floor."
+	name = "Уловка"
+	desc = "Временно создаёт скользкую область, отправляющую жертв на пол."
 	cost = 5
 	range = 4
 	ignore_los = FALSE
@@ -34,7 +34,7 @@
 		affected_turfs += O
 
 	if(affected_turfs.len)
-		user.visible_message("<span class='warning'>[user] creates slick patches on the floor!</span>")
+		user.visible_message("<span class='warning'>[user] создаёт скользкие пятна на полу!</span>")
 
 		// Apply effect to all open turfs in range
 		for(var/turf/open/O in affected_turfs)
@@ -49,8 +49,8 @@
 	return FALSE
 
 /obj/effect/temp_visual/slick_warning
-	name = "slippery patch"
-	desc = "Watch your step!"
+	name = "скользкое пятно"
+	desc = "Смотри под ноги!"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "purplesparkles"
 	color = "#0099FF" // Blue tint for water-like appearance
@@ -61,8 +61,8 @@
 //smaller slick trick for arcane trickster
 
 /obj/effect/proc_holder/spell/invoked/slick_trick_small
-	name = "Calistra's Sneaky Slipsquare" //honoring DnD tradition of naming shit after some random MF. who's Calistra? who knows! make some shit up, roleplayer!
-	desc = "Sneakily create a temporary slippery square that sends victims flying to the floor."
+	name = "Каверза Калистры"
+	desc = "Скрытно создаёт временный скользкий квадрат, отправляющий жертв на пол."
 	cost = 2 
 	range = 6 //slightly bigger range for prank purposes
 	ignore_los = FALSE

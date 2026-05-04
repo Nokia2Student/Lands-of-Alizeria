@@ -4,12 +4,12 @@
 
 //Master wood crafting - standardizes all wood crafting.
 /datum/crafting_recipe/roguetown/turfs/wood
-	name = "wooden floor"
+	name = "деревянный пол"
 	result = /turf/open/floor/rogue/ruinedwood
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/turfs/wood/TurfCheck(mob/user, turf/T)
@@ -20,92 +20,92 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/wood/floor
-	name = "floor (crude wood)"
+	name = "пол (грубое дерево)"
 	result = /turf/open/floor/rogue/ruinedwood
 	reqs = list(/obj/item/natural/wood/plank = 1)
 
 /datum/crafting_recipe/roguetown/turfs/wood/floor
-	name = "floor (wood)"
+	name = "пол (деревянный)"
 	result = /turf/open/floor/rogue/wood
 	reqs = list(/obj/item/natural/wood/plank = 1)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/wood/platform
-	name = "platform (wood)"
+	name = "помост (деревянный)"
 	result = /turf/open/floor/rogue/ruinedwood/platform
 	reqs = list(/obj/item/natural/wood/plank = 2)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/wood/floorhw
-	name = "floor (herringbone weathered)"
+	name = "пол (ёлочка, потёртый)"
 	result = /turf/open/floor/rogue/ruinedwood/herringbone
 	reqs = list(/obj/item/natural/wood/plank = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/turfs/wood/floorhs
-	name = "floor (herringbone stamped)"
+	name = "пол (ёлочка, тиснёный)"
 	result = /turf/open/floor/rogue/ruinedwood/chevron
 	reqs = list(/obj/item/natural/wood/plank = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/turfs/wood/floorslanted
-	name = "floor (slanted)"
+	name = "пол (скошенный)"
 	result = /turf/open/floor/rogue/ruinedwood/spiral
 	reqs = list(/obj/item/natural/wood/plank = 1)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/carpet
-	name = "carpet(inn)"
+	name = "ковёр (таверна)"
 	result = /turf/open/floor/carpet/inn
 	reqs = list(/obj/item/natural/silk= 2)	
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/turfs/carpet/purple
-	name = "carpet(purple)"
+	name = "ковёр (пурпурный)"
 	result = /turf/open/floor/carpet/purple
 	reqs = list(/obj/item/natural/silk= 2)	
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/carpet/red
-	name = "carpet(red)"
+	name = "ковёр (красный)"
 	result = /turf/open/floor/carpet/red
 	reqs = list(/obj/item/natural/silk= 2)	
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/carpet/stellar
-	name = "carpet(stellar)"
+	name = "ковёр (звёздный)"
 	result = /turf/open/floor/carpet/stellar
 	reqs = list(/obj/item/natural/silk= 2)	
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/carpet/royalblack
-	name = "carpet(royal black)"
+	name = "ковёр (королевский чёрный)"
 	result = /turf/open/floor/carpet/royalblack
 	reqs = list(/obj/item/natural/silk= 2)	
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/redstone
-	name = "floor (red stone)"
+	name = "пол (красный камень)"
 	result = /turf/open/floor/rogue/blocks/stonered
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/stone/tinyredstone
-	name = "floor (tiny red stone)"
+	name = "пол (мелкий красный камень)"
 	result = /turf/open/floor/rogue/blocks/stonered/tiny
 	craftdiff = 2
 
@@ -119,7 +119,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/wood/wall
-	name = "wall (wood)"
+	name = "стена (деревянная)"
 	result = /turf/closed/wall/mineral/rogue/wood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	craftdiff = 2
@@ -128,36 +128,36 @@
 	reqs = list(/obj/item/natural/wood/plank = 2)
 
 /datum/crafting_recipe/roguetown/turfs/wood/fancy
-	name = "wall (fancy wood)"
+	name = "стена (нарядное дерево)"
 	result = /turf/closed/wall/mineral/rogue/decowood
 	reqs = list(/obj/item/natural/wood/plank = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/wood/murderhole
-	name = "murder hole (wood)"
+	name = "бойница (деревянная)"
 	result = /turf/closed/wall/mineral/rogue/wood/window
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/wood/darkwoodwall
-	name = "Dark Wood Wall"
+	name = "стена из тёмного дерева"
 	result = /turf/closed/wall/mineral/rogue/wooddark
 	reqs = list(/obj/item/natural/wood/plank = 2)
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/wood/darkwoodwindow
-	name =	"Dark Wood Murderhole"
+	name = "бойница из тёмного дерева"
 	result = /turf/closed/wall/mineral/rogue/wooddark/window
 	reqs = list(/obj/item/natural/wood/plank = 2)
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "соорудить"
+	verbage = "сооружает"
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/wood/murderhole/alt
@@ -168,8 +168,8 @@
 /datum/crafting_recipe/roguetown/turfs/stone
 	reqs = list(/obj/item/natural/stoneblock = 1)
 	skillcraft = /datum/skill/craft/masonry
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 
 /datum/crafting_recipe/roguetown/turfs/stone/TurfCheck(mob/user, turf/T)
 	if(isclosedturf(T))
@@ -179,7 +179,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/stone/cobblerock
-	name = "road (cobblerock)"
+	name = "дорога (булыжник)"
 	result = /turf/open/floor/rogue/cobblerock
 	reqs = list(/obj/item/natural/stone = 1)
 	craftdiff = 0
@@ -192,106 +192,106 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/stone/cobble
-	name = "floor (cobblestone)"
+	name = "пол (булыжный)"
 	result = /turf/open/floor/rogue/cobble
 	reqs = list(/obj/item/natural/stone = 1)
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/turfs/stone/block
-	name = "floor (stoneblock)"
+	name = "пол (каменный блок)"
 	result = /turf/open/floor/rogue/blocks
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/turfs/stone/newstone
-	name = "floor (newstone)"
+	name = "пол (новый камень)"
 	result = /turf/open/floor/rogue/blocks/newstone/alt
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/stone/herringbone
-	name = "floor (herringbone)"
+	name = "пол (каменная ёлочка)"
 	result = /turf/open/floor/rogue/herringbone
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/hexstone
-	name = "floor (hexstone)"
+	name = "пол (шестигранный камень)"
 	result = /turf/open/floor/rogue/hexstone
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/turfs/stone/platform
-	name = "platform (stone)"
+	name = "помост (каменный)"
 	result = /turf/open/floor/rogue/blocks/platform
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/stone/marblefloor
-	name = "Marble Floor (stone)"
+	name = "мраморный пол"
 	result = /turf/open/floor/rogue/churchmarble
 	reqs = list(/obj/item/natural/stoneblock = 4)
 	craftdiff = 4
 // intentionally expensive and hard to make, its marble
 
 /datum/crafting_recipe/roguetown/turfs/stone/bluestone2
-	name = "Bluestone Slabs"
+	name = "плиты из голубого камня"
 	result = /turf/open/floor/rogue/blocks/bluestone
 	reqs = list(/obj/item/natural/stoneblock = 3)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/concreteslab
-	name = "Large Stone Slabs"
+	name = "крупные каменные плиты"
 	result = /turf/open/floor/rogue/concrete
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/stone/masonic
-	name = "Masonic Decorative Floor"
+	name = "масонский декоративный пол"
 	result = /turf/open/floor/rogue/tile/masonic
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/masonicalt
-	name = "Masonic Inverse Decorative Floor"
+	name = "масонский декоративный пол (инверсия)"
 	result = /turf/open/floor/rogue/tile/masonic/inverted
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/masonicspiral
-	name = "Masonic Spiral Decorative Floor"
+	name = "масонский спиральный декоративный пол"
 	result = /turf/open/floor/rogue/tile/masonic/spiral
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/bluelargetile
-	name = "Blue Large Tiles"
+	name = "крупная голубая плитка"
 	result = /turf/open/floor/rogue/tile/bfloorz
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/churchredbrick
-	name = "Large Red Masonic Bricks"
+	name = "крупный красный масонский кирпич"
 	result = /turf/open/floor/rogue/churchbrick
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/haremgreenbricks
-	name = "Harm Green Bricks"
+	name = "зелёный кирпич гарема"
 	result = /turf/open/floor/rogue/tile/harem1
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/haremredbricks
-	name = "Harem Red Bricks"
+	name = "красный кирпич гарема"
 	result = /turf/open/floor/rogue/tile/harem
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/harempink
-	name = "Harem Pink Bricks"
+	name = "розовый кирпич гарема"
 	result = /turf/open/floor/rogue/tile/harem2
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turf/stone/glassfloors
-	name = "Stone Glass Flooring"
+	name = "стеклянный каменный пол"
 	result = /turf/open/transparent/glass
 	skillcraft = /datum/skill/craft/masonry
 	reqs = list(/obj/item/natural/stoneblock = 2, /obj/item/natural/glass = 2)
@@ -307,31 +307,31 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/stone/wall
-	name = "wall (stone)"
+	name = "стена (каменная)"
 	result = /turf/closed/wall/mineral/rogue/stone
 	reqs = list(/obj/item/natural/stone = 2)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/stone/brick
-	name = "wall (stonebrick)"
+	name = "стена (кирпичная)"
 	result = /turf/closed/wall/mineral/rogue/stonebrick
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/decorated
-	name = "wall (decorated stone)"
+	name = "стена (декорированный камень)"
 	result = /turf/closed/wall/mineral/rogue/decostone
 	reqs = list(/obj/item/natural/stone = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/stone/craft
-	name = "wall (craftstone)"
+	name = "стена (ремесленный камень)"
 	result = /turf/closed/wall/mineral/rogue/craftstone
 	reqs = list(/obj/item/natural/stoneblock = 3)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/turfs/stone/window
-	name = "murder hole (stone)"
+	name = "бойница (каменная)"
 	result = /turf/closed/wall/mineral/rogue/stone/window
 	reqs = list(/obj/item/natural/stoneblock = 2)
 	craftdiff = 2
@@ -342,8 +342,8 @@
 /datum/crafting_recipe/roguetown/turfs/brick
 	reqs = list(/obj/item/natural/brick = 1)
 	skillcraft = /datum/skill/craft/masonry
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 
 /datum/crafting_recipe/roguetown/turfs/brick/TurfCheck(mob/user, turf/T)
 	if(isclosedturf(T))
@@ -354,25 +354,25 @@
 
 //Needs brick walls, windows, and platforms added at some point but need sprites for this.
 /datum/crafting_recipe/roguetown/turfs/brick/floor
-	name = "floor (brick)"
+	name = "пол (кирпичный)"
 	result = /turf/open/floor/rogue/tile/brick
 	reqs = list(/obj/item/natural/brick = 1)
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/turfs/brick/wall
-	name = "wall (brick)"
+	name = "стена (кирпичная)"
 	result = /turf/closed/wall/mineral/rogue/brick
 	reqs = list(/obj/item/natural/brick = 1)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/brick/window
-	name = "murder hole (brick)"
+	name = "бойница (кирпичная)"
 	result = /turf/closed/wall/mineral/rogue/brick/window
 	reqs = list(/obj/item/natural/brick = 2)
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/brick/window/openclose
-	name = "reinforced window (brick)"
+	name = "укреплённое окно (кирпичное)"
 	result = /obj/structure/roguewindow/openclose/reinforced/brick
 	reqs = list(
 	  /obj/item/natural/brick = 2,
@@ -382,24 +382,24 @@
 	)
 	skillcraft = /datum/skill/craft/blacksmithing
 	craftsound = 'sound/items/bsmith1.ogg'
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 2
 
 /// WINDOWS
 
 /datum/crafting_recipe/roguetown/turfs/roguewindow
-	name = "wooden window"
+	name = "деревянное окно"
 	result = /obj/structure/roguewindow
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
 	craftsound = 'sound/foley/Building-01.ogg'
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/fancywindow/openclose
-	name = "fancy window"
+	name = "нарядное окно"
 	result = /obj/structure/roguewindow/openclose
 	reqs = list(
 	  /obj/item/grown/log/tree/small = 2,
@@ -409,12 +409,12 @@
 	)
 	skillcraft = /datum/skill/craft/carpentry
 	craftsound = 'sound/foley/Building-01.ogg'
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/reinforcedwindow/openclose
-	name = "reinforced window"
+	name = "укреплённое окно"
 	result = /obj/structure/roguewindow/openclose/reinforced
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
@@ -424,28 +424,28 @@
 	)
 	skillcraft = /datum/skill/craft/blacksmithing
 	craftsound = 'sound/items/bsmith1.ogg'
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 2
 	
 /// HAY, TWIG AND TENT
 
 /datum/crafting_recipe/roguetown/turfs/hay
-	name = "floor (hay)"
+	name = "пол (сено)"
 	result = /turf/open/floor/rogue/hay
 	reqs = list(/obj/item/natural/chaff/wheat = 2)
 	skillcraft = /datum/skill/craft/crafting
-	verbage_simple = "assemble"
-	verbage = "assembles"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/turfs/twig
-	name = "floor (twig)"
+	name = "пол (хворост)"
 	result = /turf/open/floor/rogue/twig
 	reqs = list(/obj/item/grown/log/tree/stick = 2)
 	skillcraft = /datum/skill/craft/crafting
-	verbage_simple = "assemble"
-	verbage = "assembles"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 	craftdiff = 0
 	loud = TRUE
 
@@ -458,12 +458,12 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/twigplatform
-	name = "platform (twig)"
+	name = "помост (хворост)"
 	result = /turf/open/floor/rogue/twig/platform
 	reqs = list(/obj/item/grown/log/tree/stick = 3)
 	skillcraft = /datum/skill/craft/crafting
-	verbage_simple = "assemble"
-	verbage = "assembles"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 	craftdiff = 1
 	loud = TRUE
 
@@ -476,13 +476,13 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/tentwall
-	name = "tent wall"
+	name = "стена палатки"
 	result = /turf/closed/wall/mineral/rogue/tent
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/cloth = 1)
 	skillcraft = /datum/skill/craft/crafting
-	verbage_simple = "set up"	
-	verbage = "sets up"
+	verbage_simple = "установить"	
+	verbage = "устанавливает"
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/turfs/tentwall/TurfCheck(mob/user, turf/T)
@@ -493,13 +493,13 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/tentdoor
-	name = "tent door"
+	name = "дверь палатки"
 	result = /obj/structure/roguetent
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/cloth = 1)
 	skillcraft = /datum/skill/craft/crafting
-	verbage_simple = "set up"
-	verbage = "sets up"
+	verbage_simple = "установить"
+	verbage = "устанавливает"
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/turfs/tentdoor/TurfCheck(mob/user, turf/T)
@@ -511,12 +511,12 @@
 
 // Normal, non-openable window
 /datum/crafting_recipe/roguetown/turfs/roguewindow
-	name = "static glass window"
+	name = "статичное стеклянное окно"
 	result = /obj/structure/roguewindow
 	reqs = list(/obj/item/grown/log/tree/small = 2, /obj/item/natural/glass = 1)
 	skillcraft = /datum/skill/craft/carpentry
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 3
 
 	/*
@@ -533,42 +533,42 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/roguewindow/harem1
-	name = "harem window"
+	name = "окно гарема"
 	result = /obj/structure/roguewindow/harem1
 	reqs = list(/obj/item/natural/stone = 2, /obj/item/natural/glass = 1)
 	skillcraft = /datum/skill/craft/masonry
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/roguewindow/harem2
-	name = "ornamental harem window"
+	name = "декоративное окно гарема"
 	result = /obj/structure/roguewindow/harem2
 	reqs = list(/obj/item/natural/stone = 2, /obj/item/natural/glass = 1, /obj/item/alch/rosa = 1)
 	skillcraft = /datum/skill/craft/masonry
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/roguewindow/harem3
-	name = "reinforced harem window"
+	name = "укреплённое окно гарема"
 	result = /obj/structure/roguewindow/harem3
 	reqs = list(/obj/item/natural/stone = 2, /obj/item/natural/glass =2)
 	skillcraft = /datum/skill/craft/masonry
-	verbage_simple = "build"
-	verbage = "builds"
+	verbage_simple = "построить"
+	verbage = "строит"
 	craftdiff = 4
 
 // The windows you can open and close
 /datum/crafting_recipe/roguetown/turfs/roguewindow/dynamic
-	name = "openable glass window"
+	name = "открываемое стеклянное окно"
 	result = /obj/structure/roguewindow/openclose
 	reqs = list(/obj/item/grown/log/tree/small = 2, /obj/item/natural/glass = 1)
 	craftdiff = 3
 
 // The 'windows' of the church that almost no one knows exists.
 /datum/crafting_recipe/roguetown/turfs/roguewindow/stone
-	name = "static glass window"
+	name = "статичное стеклянное окно"
 	result = /obj/structure/roguewindow/stained/silver
 	reqs = list(/obj/item/natural/stone = 2, /obj/item/natural/glass = 1)
 	skillcraft = /datum/skill/craft/masonry
@@ -576,7 +576,7 @@
 
 // Reinfored windows
 /datum/crafting_recipe/roguetown/turfs/roguewindow/reinforced
-	name = "reinforced glass window"
+	name = "укреплённое стеклянное окно"
 	result = /obj/structure/roguewindow/openclose/reinforced
 	reqs = list(/obj/item/grown/log/tree/small = 2, /obj/item/natural/glass = 1, /obj/item/ingot/iron = 1)
 	craftdiff = 3

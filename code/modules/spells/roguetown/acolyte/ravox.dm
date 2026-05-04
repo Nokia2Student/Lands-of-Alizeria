@@ -2,8 +2,8 @@
 
 //Divine Strike - Enhance your held weapon to have the next strike do extra damage and slow the target. Undead debuffed more.
 /obj/effect/proc_holder/spell/self/divine_strike
-	name = "Divine Strike"
-	desc = "Enhance your held weapon to deal additional damage and slow the victim. Undead take additional damage."
+	name = "Божественный удар"
+	desc = "Усиливает оружие в руке, чтобы следующий удар нанёс дополнительный урон и замедлил жертву. Нежить получает ещё больше урона."
 	overlay = "createlight"
 	recharge_time = 1 MINUTES
 	movement_interrupt = FALSE
@@ -62,7 +62,7 @@
 		return
 	var/mob/living/living_target = target
 	living_target.apply_status_effect(/datum/status_effect/debuff/ravox_burden)
-	living_target.visible_message(span_warning("The strike from [user]'s weapon causes [living_target] to go stiff!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	living_target.visible_message(span_warning("Удар оружия [user] заставляет [living_target] оцепенеть!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	qdel(src)
 
 /datum/status_effect/divine_strike/proc/hand_attack(datum/source, mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style)
@@ -73,7 +73,7 @@
 	if(!istype(M.used_intent, INTENT_HARM))
 		return
 	H.apply_status_effect(/datum/status_effect/debuff/ravox_burden)
-	H.visible_message(span_warning("The strike from [M]'s fist causes [H] to go stiff!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	H.visible_message(span_warning("Удар кулака [M] заставляет [H] оцепенеть!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	qdel(src)
 
 /obj/effect/proc_holder/spell/self/divine_strike/kazengun
@@ -81,8 +81,8 @@
 
 //Call to Arms - AoE buff for all people surrounding you.
 /obj/effect/proc_holder/spell/self/call_to_arms
-	name = "Call to Arms"
-	desc = "Grants you and all allies nearby a buff to their strength, endurance, and constitution."
+	name = "Призыв к оружию"
+	desc = "Дарует вам и всем союзникам поблизости усиление силы, выносливости и телосложения."
 	overlay_state = "call_to_arms"
 	recharge_time = 5 MINUTES
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
@@ -99,7 +99,7 @@
 			target.apply_status_effect(/datum/status_effect/debuff/call_to_arms)	//Debuffs inhumen worshipers.
 			return
 		if(istype(target.patron, /datum/patron/old_god))
-			to_chat(target, span_danger("You feel a hot-wave wash over you, leaving as quickly as it came.."))	//No effect on Psydonians!
+			to_chat(target, span_danger("Ты чувствуешь, как тебя омывает горячая волна, исчезая так же быстро, как появилась..."))	//No effect on Psydonians!
 			return
 		if(!user.faction_check_mob(target))
 			continue
@@ -110,8 +110,8 @@
 
 //Persistence - Harms the shit out of an undead mob/player while causing bleeding/pain wounds to clot at higher rate for living ones. Basically a 'shittier' yet still good greater heal effect.
 /obj/effect/proc_holder/spell/invoked/persistence
-	name = "Persistence"
-	desc = "Slows the target's bleeding. Harms the undead."
+	name = "Стойкость"
+	desc = "Замедляет кровотечение у цели. Наносит вред нежити."
 	overlay_state = "astrata"
 	releasedrain = 30
 	chargedrain = 0
@@ -164,17 +164,17 @@
 				phy.pain_mod *= 1.5
 				addtimer(VARSET_CALLBACK(phy, bleed_mod, phy.bleed_mod /= 1.5), 19 SECONDS)
 				addtimer(VARSET_CALLBACK(phy, pain_mod, phy.pain_mod /= 1.5), 19 SECONDS)
-				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("Ravox inflames my wounds and weakens my body!"))
+				human_target.visible_message(span_danger("Раны [target] воспаляются, а жизненные силы покидают его!"), span_userdanger("Равокс воспламеняет мои раны и ослабляет моё тело!"))
 				return ..()
 			return FALSE
 
 		// Healing case (non-undead)
-		target.visible_message(span_info("Warmth radiates from [target] as their wounds seal over!"), span_notice("The pain from my wounds fades as warmth radiates from my soul!"))
+		target.visible_message(span_info("Тепло исходит от [target], запечатывая его раны!"), span_notice("Боль от ран утихает, а из души исходит тепло!"))
 		var/situational_bonus = 0.25
 		for(var/obj/effect/decal/cleanable/blood/O in oview(5, target))
 			situational_bonus = min(situational_bonus + 0.015, 1)
 		if(situational_bonus > 0.25)
-			to_chat(user, "Channeling Ravox's power is easier in these conditions!")
+			to_chat(user, "Направлять силу Равокса легче в этих условиях!")
 
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
@@ -198,13 +198,13 @@
 	invocation = "Ratake deems your persistence worthy!"
 
 /atom/movable/screen/alert/status_effect/buff/divine_strike
-	name = "Divine Strike"
-	desc = "Your next attack deals additional damage and slows your target."
+	name = "Божественный удар"
+	desc = "Ваша следующая атака наносит дополнительный урон и замедляет цель."
 	icon_state = "stressvg"
 
 /obj/effect/proc_holder/spell/invoked/tug_of_war
-	name = "Tug of War"
-	desc = "Pull a target toward you."
+	name = "Перетягивание каната"
+	desc = "Притяните цель к себе."
 	overlay_state = "ravox_tug"
 	recharge_time = 1 MINUTES
 	movement_interrupt = TRUE
@@ -249,16 +249,16 @@
 			var/holymod = user.get_skill_level(/datum/skill/magic/holy) * 10
 			pull_distance += floor((user.get_skill_level(/datum/skill/magic/holy) - 1) / 2)	//+1 pull dist at Jman and Master Holy skill
 			chance += holymod
-			user.visible_message(span_boldwarning("[user] yanks on a transluscent chain sticking out of [target]!"))
+			user.visible_message(span_boldwarning("[user] дёргает полупрозрачную цепь, тянущуюся от [target]!"))
 			if(count > 3)	//More than half of the stats are in our favor.
 				pull_distance++
 				slowdown++
 			if(prob(chance))
 				H.throw_at(user, pull_distance, 1, H, FALSE)
-				H.visible_message(span_warning("[H]'s body moves on its own!"))
+				H.visible_message(span_warning("Тело [H] движется само по себе!"))
 				user.Beam(target,icon_state="chain",time=5)
 			else
-				H.visible_message(span_warning("[H] holds firm!"))
+				H.visible_message(span_warning("[H] держится твёрдо!"))
 			H.Slowdown(slowdown)
 			return TRUE
 		revert_cast()

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/thunderstrike
-	name = "Thunderstrike"
-	desc = "Call a high-damage strike of lightning onto an area, followed by lesser aftershocks that ripple outwards in concentric layers."
+	name = "Удар грома"
+	desc = "Призывает высокоуронный удар молнии в область, за которым следуют более слабые афтершоки, расходящиеся концентрическими слоями."
 	cost = 6 // High damage AOE
 	range = 7
 	releasedrain = 50
@@ -34,7 +34,7 @@
 	if(centerpoint.z < user.z)
 		source_turf = get_step_multiz(source_turf, DOWN)
 	if(!(centerpoint in view(source_turf)))
-		to_chat(user, span_warning("I can't cast where I can't see!"))
+		to_chat(user, span_warning("Я не могу колдовать туда, где не вижу!"))
 		return
 	new /obj/effect/temp_visual/trap/thunderstrike(centerpoint) // Setup warning icon
 	addtimer(CALLBACK(src, PROC_REF(thunderstrike_damage), centerpoint, 1), wait = delay1) // Prepare damage proc on a timer, baseline damage
@@ -61,7 +61,7 @@
 	playsound(effect_layer, 'sound/magic/lightning.ogg', 50)
 	for(var/mob/living/L in effect_layer.contents)
 		if(L.anti_magic_check())
-			visible_message(span_warning("The magic fades away around you [L] "))
+			visible_message(span_warning("Магия рассеивается вокруг [L]"))
 			playsound(effect_layer, 'sound/magic/magic_nulled.ogg', 100)
 			continue
 		L.electrocute_act(damage * damage_mod, src, 1, SHOCK_NOSTUN) // Hopefully the SHOCK_NOSTUN handles any CC effects this might otherwise cause

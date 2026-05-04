@@ -1,5 +1,5 @@
 /obj/effect/proc_holder/spell/self/create_abyssoid
-	name = "Create Abyssoid"
+	name = "Созвать абиссоида"
 	overlay_state = "bloodsteal"
 	chargedrain = 0
 	chargetime = 0
@@ -18,30 +18,30 @@
 		break
 
 	if(!target)
-		to_chat(user, span_warning("You must hold a leech in your hands to transform it!"))
+		to_chat(user, span_warning("Вы должны держать пиявку в руках, чтобы преобразить её!"))
 		return FALSE
 
 	if(istype(target, /obj/item/natural/worms/leech/abyssoid))
-		to_chat(user, span_warning("This leech is already blessed by Abyssor!"))
+		to_chat(user, span_warning("Эта пиявка уже благословлена Абиссором!"))
 		return FALSE
 
 	if(user.blood_volume < BLOOD_VOLUME_BAD)
-		to_chat(user, span_warning("You don't have enough blood to sacrifice!"))
+		to_chat(user, span_warning("У вас недостаточно крови для жертвоприношения!"))
 		return FALSE
 
-	user.visible_message(span_warning("[user] begins stragely murmuring over [target]..."), \
-						span_notice("You begin the transformation ritual, offering your blood to Abyssor."))
+	user.visible_message(span_warning("[user] начинает странно бормотать над [target]..."), \
+						span_notice("Вы начинаете ритуал преображения, поднося свою кровь Абиссору."))
 
 	if(!do_after(user, 10 SECONDS, target = user))
-		to_chat(user, span_warning("The ritual was interrupted!"))
+		to_chat(user, span_warning("Ритуал был прерван!"))
 		return FALSE
 
 	if(!(target in hand_items))
-		to_chat(user, span_warning("You must keep holding the leech during the ritual!"))
+		to_chat(user, span_warning("Вы должны продолжать держать пиявку во время ритуала!"))
 		return FALSE
 
 	if(user.blood_volume < BLOOD_VOLUME_BAD)
-		to_chat(user, span_warning("You don't have enough blood to complete the ritual!"))
+		to_chat(user, span_warning("У вас недостаточно крови для завершения ритуала!"))
 		return FALSE
 
 	user.blood_volume = max(user.blood_volume - 70, 0)
@@ -49,8 +49,8 @@
 	qdel(target)
 	user.put_in_hands(new_leech)
 
-	user.visible_message(span_warning("[user] completes the ritual, transforming the leech!"), \
-						span_red("The leech transforms into a holy abyssoid leech!"))
+	user.visible_message(span_warning("[user] завершает ритуал, преображая пиявку!"), \
+						span_red("Пиявка превращается в святую абиссоидную пиявку!"))
 	SEND_SIGNAL(user, COMSIG_ABYSSOID_CREATED)
 
 	return TRUE

@@ -1,7 +1,7 @@
 // Spell is disabled because of snap freeze + frost bolt existing at the same time
 /obj/effect/proc_holder/spell/invoked/frostbite
-	name = "Frostbite"
-	desc = "Freeze your enemy with an icy blast that does low damage, but reduces the target's Speed for a considerable length of time."
+	name = "Обморожение"
+	desc = "Поражает врага ледяным зарядом. Наносит низкий урон, но значительно снижает скорость цели на долгое время."
 	overlay_state = "null"
 	releasedrain = 50
 	chargetime = 8

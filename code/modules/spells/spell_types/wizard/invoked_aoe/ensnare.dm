@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/ensnare
-	name = "Ensnare"
-	desc = "Tendrils of arcyne force hold anyone in a small area in place for a short while."
+	name = "Опутывание"
+	desc = "Щупальца арканной силы удерживают всех в небольшой области на месте на короткое время."
 	cost = 3
 	xp_gain = TRUE
 	releasedrain = 20
@@ -41,12 +41,12 @@
 		animal.Paralyze(duration, updating = TRUE, ignore_canstun = TRUE)	//i think animal movement is coded weird, i cant seem to stun them
 	for(var/mob/living/L in range(area_of_effect, T))
 		if(L.anti_magic_check())
-			visible_message(span_warning("The tendrils of force can't seem to latch onto [L] "))  //antimagic needs some testing
+			visible_message(span_warning("Щупальца силы, похоже, не могут ухватиться за [L]"))  //antimagic needs some testing
 			playsound(L, 'sound/magic/magic_nulled.ogg', 100)
 			return
 		L.Immobilize(duration)
 		L.OffBalance(duration)
-		L.visible_message("<span class='warning'>[L] is held by tendrils of arcyne force!</span>")
+		L.visible_message("<span class='warning'>[L] схвачен щупальцами арканной силы!</span>")
 		new /obj/effect/temp_visual/ensnare/long(get_turf(L))
 
 /obj/effect/temp_visual/ensnare

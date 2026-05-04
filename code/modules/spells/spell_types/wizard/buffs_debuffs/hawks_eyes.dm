@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/hawks_eyes
-	name = "Hawk's Eyes"
+	name = "Зоркий глаз"
 	overlay_state = "hawks_eyes"
-	desc = "Sharpens the target's vision. (+5 Perception)"
+	desc = "Обостряет зрение цели. (+5 к Восприятию)"
 	cost = 2
 	xp_gain = TRUE
 	releasedrain = 60
@@ -32,19 +32,19 @@
 	playsound(spelltarget, 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)
-		user.visible_message("[user] mutters an incantation and [spelltarget] 's eyes glimmers.")
-		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		user.visible_message("[user] бормочет заклинание, и глаза [spelltarget] мерцают.")
+		to_chat(user, span_notice("С другим человеком как проводником, длительность моего заклинания удваивается."))
 		spelltarget.apply_status_effect(/datum/status_effect/buff/hawks_eyes/other)
 	else
-		user.visible_message("[user] mutters an incantation and their eyes glimmers.")
+		user.visible_message("[user] бормочет заклинание, и его глаза мерцают.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/hawks_eyes)
 
 	return TRUE
 
 #define HAWKSEYES_FILTER "hawkseyes_glow"
 /atom/movable/screen/alert/status_effect/buff/hawks_eyes
-	name = "Hawk's Eyes"
-	desc = "My vision is sharpened. (+5 Perception)"
+	name = "Зоркий глаз"
+	desc = "Моё зрение обострено. (+5 к Восприятию)"
 	icon_state = "buff"
 
 /datum/status_effect/buff/hawks_eyes
@@ -62,12 +62,12 @@
 	var/filter = owner.get_filter(HAWKSEYES_FILTER)
 	if (!filter)
 		owner.add_filter(HAWKSEYES_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 25, "size" = 1))
-	to_chat(owner, span_warning("My vision sharpens, like that of a hawk."))
+	to_chat(owner, span_warning("Моё зрение обостряется, словно у сокола."))
 
 
 /datum/status_effect/buff/hawks_eyes/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("My vision blurs, losing its unnatural keenness."))
+	to_chat(owner, span_warning("Моё зрение затуманивается, теряя неестественную остроту."))
 	owner.remove_filter(HAWKSEYES_FILTER)
 
 #undef HAWKSEYES_FILTER

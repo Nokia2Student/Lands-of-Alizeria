@@ -1,9 +1,9 @@
 /datum/crafting_recipe/roguetown/leather/container
 	abstract_type = /datum/crafting_recipe/roguetown/leather/container
-	category = "Container"
+	category = "Контейнеры"
 
 /datum/crafting_recipe/roguetown/leather/container/pouch
-	name = "pouch x2"
+	name = "подсумок (x2)"
 	result = list(/obj/item/storage/belt/rogue/pouch,
 				/obj/item/storage/belt/rogue/pouch)
 	reqs = list(/obj/item/natural/hide/cured = 1,
@@ -12,7 +12,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/leather/container/magepouch
-	name = "summoner's pouch"
+	name = "сумка заклинателя"
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
 		/obj/item/natural/fibers = 1,
@@ -21,7 +21,7 @@
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/container/meatbag
-	name = "game satchel"
+	name = "сумка для дичи"
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
 		/obj/item/natural/cloth = 1,
@@ -30,69 +30,69 @@
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/container/satchel
-	name = "satchel"
+	name = "сумка через плечо"
 	result = /obj/item/storage/backpack/rogue/satchel
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 1)
 
 /datum/crafting_recipe/roguetown/leather/container/satchelshort
-	name = "short satchel (1 fibers, 2 leather)"
+	name = "короткая сумка через плечо (1 волокно, 2 кожи)"
 	result = /obj/item/storage/backpack/rogue/satchel/short
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 1)
 	sellprice = 15
 
 /datum/crafting_recipe/roguetown/leather/container/backpack
-	name = "backpack"
+	name = "рюкзак"
 	result = /obj/item/storage/backpack/rogue/backpack
 	reqs = list(/obj/item/natural/hide/cured = 3,
 				/obj/item/natural/fibers = 1)
 
 /datum/crafting_recipe/roguetown/leather/container/waterskin
-	name = "waterskin"
+	name = "бурдюк для воды"
 	result = /obj/item/reagent_containers/glass/bottle/waterskin
 	reqs = list(/obj/item/natural/hide/cured = 1,
 				/obj/item/natural/fibers = 2)
 
 /datum/crafting_recipe/roguetown/leather/container/quiver
-	name = "quiver"
+	name = "колчан"
 	result = /obj/item/quiver
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 2)
 
 /datum/crafting_recipe/roguetown/leather/container/javelinbag
-	name = "javelin bag"
+	name = "мешок для дротиков"
 	result = /obj/item/quiver/javelin
 	reqs = list(/obj/item/reagent_containers/food/snacks/tallow = 1,
 				/obj/item/rope = 1)
 
 /datum/crafting_recipe/roguetown/leather/container/twstrap
-	name = "bandolier"
+	name = "перевязь"
 	result = /obj/item/twstrap
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/rope = 1)
 
 /datum/crafting_recipe/roguetown/leather/container/belt
-	name = "leather belt"
+	name = "кожаный пояс"
 	result = /obj/item/storage/belt/rogue/leather
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 2)
 
 /datum/crafting_recipe/roguetown/leather/container/belt/black
-	name = "black leather belt"
+	name = "чёрный кожаный пояс"
 	result = /obj/item/storage/belt/rogue/leather/black
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 2)
 
 /datum/crafting_recipe/roguetown/leather/container/belt/knifebelt
-	name = "tossblade belt"
+	name = "пояс для метательных ножей"
 	result = /obj/item/storage/belt/rogue/leather/knifebelt
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 2)
 
 
 /datum/crafting_recipe/roguetown/leather/container/scabbard/sword
-	name = "sword scabbard"
+	name = "ножны для меча"
 	result = list(/obj/item/rogueweapon/scabbard/sword)
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -102,7 +102,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/container/scabbard/dagger
-	name = "dagger sheath"
+	name = "ножны для кинжала"
 	result = list(/obj/item/rogueweapon/scabbard/sheath)
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -111,7 +111,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/container/beltogre
-	name = "collosal leather belt"
+	name = "огромный кожаный пояс"
 	result = /obj/item/storage/belt/rogue/leather/ogre
 	reqs = list(/obj/item/natural/hide/cured = 3,
 				/obj/item/natural/fibers = 2)

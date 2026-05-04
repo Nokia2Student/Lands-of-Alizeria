@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/wither
-	name = "Wither"
-	desc = "Lashes out a delayed line of dark magic, lowering the physical prowess of all in it's path."
+	name = "Иссушение"
+	desc = "Испускает запаздывающую линию тёмной магии, снижая физические способности всех на её пути."
 	cost = 6
 	releasedrain = 50
 	overlay_state = "wither" // just using the curse blob, it's placeholder.
@@ -30,7 +30,7 @@
 	var/turf/source_turf = get_turf(user)
 	
 	if(T.z != user.z)
-		to_chat(span_warning("You can't cast this spell on a different z-level!"))
+		to_chat(span_warning("Вы не можете применить это заклинание на другом Z-уровне!"))
 		return FALSE
 
 	var/list/affected_turfs = getline(source_turf, T)
@@ -51,7 +51,7 @@
 	playsound(damage_turf, 'sound/magic/shadowstep_destination.ogg', 50)
 	for(var/mob/living/L in damage_turf.contents)
 		if(L.anti_magic_check())
-			visible_message(span_warning("The magic fades away around you [L] "))  //antimagic needs some testing
+			visible_message(span_warning("Магия рассеивается вокруг [L]"))  //antimagic needs some testing
 			playsound(damage_turf, 'sound/magic/magic_nulled.ogg', 100)
 			return
 		L.adjustFireLoss(damage)

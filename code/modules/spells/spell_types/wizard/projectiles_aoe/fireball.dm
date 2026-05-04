@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/fireball
-	name = "Fireball"
-	desc = "Shoot out a ball of fire that emits a light explosion on impact, setting the target alight."
+	name = "Огненный шар"
+	desc = "Выпускает шар огня, который вызывает лёгкий взрыв при попадании, поджигая цель."
 	clothes_req = FALSE
 	range = 8
 	projectile_type = /obj/projectile/magic/aoe/fireball/rogue
@@ -25,7 +25,7 @@
 	xp_gain = TRUE
 
 /obj/projectile/magic/aoe/fireball/rogue
-	name = "fireball"
+	name = "огненный шар"
 	exp_heavy = 0
 	exp_light = 0
 	exp_flash = 0
@@ -40,7 +40,7 @@
 	aoe_range = 0
 
 /obj/projectile/magic/aoe/fireball/rogue/fireball_noc
-	name = "luaflame"
+	name = "лунное пламя"
 	damage = 80
 	damage_type = BURN
 	npc_damage_mult = 3 // STRAIGHTEST SHOOTER, FUCK YEAH, GYATDAMN!!
@@ -54,13 +54,13 @@
 	if(isliving(target))
 		var/mob/living/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
 		else
 			M.adjust_fire_stacks(2) //1 pats to put it out
-			visible_message(span_warning("[src] ignites [target]!"))
+			visible_message(span_warning("[src] воспламеняет [target]!"))
 			M.ignite_mob()
 	return FALSE
 

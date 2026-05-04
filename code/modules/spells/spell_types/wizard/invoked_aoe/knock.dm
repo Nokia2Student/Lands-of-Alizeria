@@ -1,7 +1,7 @@
 // Spell is perma disabled, consider a Hearthstone / Vanderlin / Whatever port at some point
 /obj/effect/proc_holder/spell/invoked/knock
-	name = "Knock"
-	desc = "Force open adjacent doors, windows and most containers."
+	name = "Отмыкание"
+	desc = "Силой открывает соседние двери, окна и большинство контейнеров."
 	cost = 3
 	xp_gain = TRUE
 	school = "transmutation"

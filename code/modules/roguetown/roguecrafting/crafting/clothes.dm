@@ -1,5 +1,5 @@
 /datum/crafting_recipe/roguetown/survival/skullmask
-	name = "skull mask"
+	name = "маска из черепа"
 	category = "Clothes"
 	result = /obj/item/clothing/mask/rogue/skullmask
 	reqs = list(
@@ -7,13 +7,13 @@
 		/obj/item/natural/fibers = 1,
 		)
 	sellprice = 10
-	verbage_simple = "craft"
-	verbage = "crafted"
+	verbage_simple = "изготовить"
+	verbage = "изготавливает"
 	craftdiff = 0
 
 
 /datum/crafting_recipe/roguetown/survival/antlerhood
-	name = "antlerhood"
+	name = "рогатый капюшон"
 	category = "Clothes"
 	result = /obj/item/clothing/head/roguetown/antlerhood
 	reqs = list(
@@ -23,12 +23,12 @@
 	sellprice = 12
 	tools = list(/obj/item/needle)
 	skillcraft = /datum/skill/misc/sewing
-	verbage_simple = "sew"
-	verbage = "sews"
+	verbage_simple = "шить"
+	verbage = "шьёт"
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/tribalrags
-	name = "tribal rags"
+	name = "племенные лохмотья"
 	category = "Clothes"
 	result = /obj/item/clothing/suit/roguetown/shirt/tribalrag
 	reqs = list(
@@ -38,53 +38,53 @@
 	sellprice = 6
 	tools = list(/obj/item/needle)
 	skillcraft = /datum/skill/misc/sewing
-	verbage_simple = "sew"
-	verbage = "sews"
+	verbage_simple = "шить"
+	verbage = "шьёт"
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/leather/neck/leather_collar
-	name = "leather collar"
+	name = "кожаный ошейник"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/collar/leather
 	reqs = list(/obj/item/natural/hide/cured = 1)
 	tools = list(/obj/item/needle)
 	time = 8 SECONDS
-	category = "Leatherwork"
+	category = "Кожевничество"
 	subcategory = CAT_NONE
 	always_availible = TRUE
 
 /datum/crafting_recipe/roguetown/leather/neck/catbell_collar
-	name = "catbell collar"
+	name = "ошейник с кошачьим бубенцом"
 	result = /obj/item/clothing/neck/roguetown/collar/catbell
 	reqs = list(/obj/item/natural/hide/cured = 1, /obj/item/catbell = 1)
 	tools = list(/obj/item/needle)
 	time = 10 SECONDS
-	category = "Leatherwork"
+	category = "Кожевничество"
 	subcategory = CAT_NONE
 	always_availible = TRUE
 
 /datum/crafting_recipe/roguetown/leather/neck/cowbell_collar
-	name = "cowbell collar"
+	name = "ошейник с коровьим бубенцом"
 	result = /obj/item/clothing/neck/roguetown/collar/cowbell
 	reqs = list(/obj/item/natural/hide/cured = 1, /obj/item/catbell/cow = 1)
 	tools = list(/obj/item/needle)
 	time = 10 SECONDS
-	category = "Leatherwork"
+	category = "Кожевничество"
 	subcategory = CAT_NONE
 	always_availible = TRUE
 
 /datum/crafting_recipe/roguetown/leather/neck/leather_leash
-	name = "leather leash"
+	name = "кожаный поводок"
 	result = /obj/item/leash/leather
 	reqs = list(/obj/item/natural/hide/cured = 1)
 	tools = list(/obj/item/needle)
 	time = 10 SECONDS
-	category = "Leatherwork"
+	category = "Кожевничество"
 	subcategory = CAT_NONE
 	always_availible = TRUE
 
 /datum/crafting_recipe/roguetown/survival/goodluckcharm
-	name = "cabbit's foot luck charm"
+	name = "счастливый амулет из заячьей лапки"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/luckcharm // +1 fortune when worn
 	reqs = list(
@@ -96,7 +96,7 @@
 // BOUQUETS & CROWNS
 
 /datum/crafting_recipe/roguetown/survival/bouquet_rosa
-	name = "rosa bouquet"
+	name = "букет из роз"
 	category = "Clothes"
 	result = /obj/item/bouquet/rosa
 	reqs = list(
@@ -105,11 +105,11 @@
 		/obj/item/paper/scroll = 1,
 		)
 	craftdiff = 0
-	verbage_simple = "arranged"
-	verbage = "arranges"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 
 /datum/crafting_recipe/roguetown/survival/bouquet_salvia
-	name = "salvia bouquet"
+	name = "букет из шалфея"
 	category = "Clothes"
 	result = /obj/item/bouquet/salvia
 	reqs = list(
@@ -118,11 +118,11 @@
 		/obj/item/paper/scroll = 1,
 		)
 	craftdiff = 0
-	verbage_simple = "arranged"
-	verbage = "arranges"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 
 /datum/crafting_recipe/roguetown/survival/bouquet_matricaria
-	name = "matricaria bouquet"
+	name = "букет из матрикарии"
 	category = "Clothes"
 	result = /obj/item/bouquet/matricaria
 	reqs = list(
@@ -131,11 +131,11 @@
 		/obj/item/paper/scroll = 1,
 		)
 	craftdiff = 0
-	verbage_simple = "arranged"
-	verbage = "arranges"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 
 /datum/crafting_recipe/roguetown/survival/bouquet_calendula
-	name = "calendula bouquet"
+	name = "букет из календулы"
 	category = "Clothes"
 	result = /obj/item/bouquet/calendula
 	reqs = list(
@@ -144,11 +144,11 @@
 		/obj/item/paper/scroll = 1,
 		)
 	craftdiff = 0
-	verbage_simple = "arranged"
-	verbage = "arranges"
+	verbage_simple = "собрать"
+	verbage = "собирает"
 
 /datum/crafting_recipe/roguetown/survival/flowercrown_rosa
-	name = "rosa crown"
+	name = "венок из роз"
 	category = "Clothes"
 	result = /obj/item/flowercrown/rosa
 	reqs = list(
@@ -156,11 +156,11 @@
 		/obj/item/natural/fibers = 2,
 		)
 	craftdiff = 0
-	verbage_simple = "tied"
-	verbage = "ties"
+	verbage_simple = "связать"
+	verbage = "связывает"
 
 /datum/crafting_recipe/roguetown/survival/flowercrown_thorn
-	name = "thorny crown"
+	name = "терновый венец"
 	category = "Clothes"
 	result = /obj/item/flowercrown/thorny
 	reqs = list(
@@ -168,11 +168,11 @@
 		/obj/item/natural/fibers = 2,
 		)
 	craftdiff = 0
-	verbage_simple = "tied"
-	verbage = "ties"
+	verbage_simple = "связать"
+	verbage = "связывает"
 
 /datum/crafting_recipe/roguetown/survival/flowercrown_salvia
-	name = "salvia crown"
+	name = "венок из шалфея"
 	category = "Clothes"
 	result = /obj/item/flowercrown/salvia
 	reqs = list(
@@ -180,12 +180,12 @@
 		/obj/item/natural/fibers = 2,
 		)
 	craftdiff = 0
-	verbage_simple = "tied"
-	verbage = "ties"
+	verbage_simple = "связать"
+	verbage = "связывает"
 
 // Amulet
 /datum/crafting_recipe/roguetown/survival/pearlcross
-	name = "amulet (pearls)"
+	name = "амулет (жемчуг)"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/pearl
 	reqs = list(
@@ -195,7 +195,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/bpearlcross
-	name = "amulet (blue pearls)"
+	name = "амулет (синий жемчуг)"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/bpearl
 	reqs = list(
@@ -205,7 +205,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/shellnecklace
-	name = "shell necklace"
+	name = "ожерелье из ракушек"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/shell
 	reqs = list(
@@ -214,7 +214,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/shellbracelet
-	name = "shell bracelet"
+	name = "браслет из ракушек"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/shell/bracelet
 	reqs = list(
@@ -223,7 +223,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/abyssoramulet
-	name = "amulet of abyssor"
+	name = "амулет Абиссора"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/abyssor
 	reqs = list(
@@ -232,7 +232,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodcross
-	name = "wooden amulet"
+	name = "деревянный амулет"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/wood
 	reqs = list(
@@ -241,7 +241,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/wickercloak
-	name = "wickercloak"
+	name = "плетёный плащ"
 	category = "Clothes"
 	result = /obj/item/clothing/cloak/wickercloak
 	reqs = list(
@@ -252,7 +252,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/briarthorns
-	name = "briar thorns"
+	name = "терновые шипы"
 	category = "Clothes"
 	result = /obj/item/clothing/head/roguetown/padded/briarthorns
 	reqs = list(

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/fetch
-	name = "Fetch"
-	desc = "Shoot out a magical bolt that draws in the target struck towards the caster."
+	name = "Притяжение"
+	desc = "Выпускает магическую руку, которая притягивает поражённую цель к заклинателю."
 	clothes_req = FALSE
 	range = 15
 	projectile_type = /obj/projectile/magic/fetch
@@ -27,7 +27,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[target] repells the fetch!"))
+			visible_message(span_warning("[target] отражает притяжение!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK

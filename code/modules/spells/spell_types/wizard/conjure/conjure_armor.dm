@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/self/conjure_armor
-	name = "Conjure Armor"
-	desc = "Conjure a fate weaver, a full-body protecting ring that breaks easily. Cannot be summoned if wearing anything heavier than light armor.\n\
-	The ring lasts until it is broken, a new one is summoned, or the spell is forgotten."
+	name = "Сотворение доспеха"
+	desc = "Создаёт Плетельщика Судеб — кольцо, полностью защищающее тело, но легко ломающееся. Нельзя призвать, если надето что-то тяжелее лёгкого доспеха.\n\
+	Кольцо существует, пока не сломается, не будет призвано новое или заклинание не будет забыто."
 	overlay_state = "conjure_armor"
 	sound = list('sound/magic/whiteflame.ogg')
 
@@ -29,21 +29,21 @@
 	var/mob/living/carbon/human/H = user
 	var/targetac = H.highest_ac_worn()
 	if(targetac > 1)
-		to_chat(user, span_warning("I must be wearing lighter armor!"))
+		to_chat(user, span_warning("Мне нужно носить более лёгкую броню!"))
 		revert_cast()
 		return FALSE
 	if(user.get_num_arms() <= 0)
-		to_chat(user, span_warning("I don't have any usable hands!"))
+		to_chat(user, span_warning("У меня нет действующих рук!"))
 		revert_cast()
 		return FALSE
 	if(src.conjured_armor)
 		qdel(src.conjured_armor)
 	if(H.wear_ring)
-		to_chat(user, span_warning("My ring finger must be free!"))
+		to_chat(user, span_warning("Мой палец должен быть свободен!"))
 		revert_cast()
 		return FALSE
 
-	user.visible_message("[user]'s existence briefly jitters, conjuring protection from doomed fates!")
+	user.visible_message("Сущность [user] на мгновение искажается, призывая защиту от обречённых судеб!")
 	var/ring = /obj/item/clothing/ring/fate_weaver
 	conjured_armor = new ring(user)
 	user.equip_to_slot_or_del(conjured_armor, SLOT_RING)
@@ -56,6 +56,6 @@
 
 /obj/effect/proc_holder/spell/self/conjure_armor/Destroy()
 	if(src.conjured_armor)
-		conjured_armor.visible_message(span_warning("The [conjured_armor]'s borders begin to shimmer and fade, before it vanishes entirely!"))
+		conjured_armor.visible_message(span_warning("Границы [conjured_armor] начинают мерцать и таять, пока оно полностью не исчезает!"))
 		qdel(conjured_armor)
 	return ..()

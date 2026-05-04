@@ -1,7 +1,7 @@
 // Druid
 /obj/effect/proc_holder/spell/targeted/blesscrop
-	name = "Bless Crops"
-	desc = "Bless up to 5 nearby crops to revive them and provide nutrition as well as water if they need it."
+	name = "Благословение посевов"
+	desc = "Благословляет до 5 ближайших посевов, воскрешая их и давая питание и воду, если нужно."
 	range = 5
 	overlay_state = "blesscrop"
 	releasedrain = 30
@@ -29,13 +29,13 @@
 		if(amount_blessed >= 5)
 			break
 	if(growed)
-		visible_message(span_green("[usr] blesses the nearby crops with the Treefather's Favour!"))
+		visible_message(span_green("[usr] благословляет ближайшие посевы Милостью Отца Древ!"))
 	return growed
 
 //At some point, this spell should Awaken beasts, allowing a ghost to possess them. Not for this PR though.
 /obj/effect/proc_holder/spell/targeted/beasttame
-	name = "Tame Beast"
-	desc = "Soothe a beast of its rage."
+	name = "Усмирение зверя"
+	desc = "Успокоить зверя, уняв его ярость."
 	range = 5
 	overlay_state = "tamebeast"
 	releasedrain = 30
@@ -53,7 +53,7 @@
 
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	. = ..()
-	visible_message(span_green("[usr] soothes the beastblood with the Treefather's whisper."))
+	visible_message(span_green("[usr] успокаивает звериную кровь шёпотом Отца Древ."))
 	var/tamed = FALSE
 	for(var/mob/living/simple_animal/hostile/retaliate/animal in get_hearers_in_view(2, usr))
 		if((animal.mob_biotypes & MOB_UNDEAD))
@@ -65,12 +65,12 @@
 				animal.ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
 				animal.ai_controller.clear_blackboard_key(BB_BASIC_MOB_RETALIATE_LIST)
 				animal.ai_controller.set_blackboard_key(BB_BASIC_MOB_TAMED, TRUE)
-			to_chat(usr, "With the Treefather's aide, you soothe [animal] of their anger.")
+			to_chat(usr, "С помощью Отца Древ вы унимаете гнев [animal].")
 	return tamed
 
 /obj/effect/proc_holder/spell/targeted/conjure_glowshroom
-	name = "Summon Kneestingers"
-	desc = "Summon kneestingers to electrocute those not loyal to Dendor."
+	name = "Призыв Жалоносцев"
+	desc = "Призывает жалоносцев, чтобы поразить электричеством тех, кто не верен Дендору."
 	range = 1
 	overlay_state = "blesscrop"
 	releasedrain = 30
@@ -89,7 +89,7 @@
 /obj/effect/proc_holder/spell/targeted/conjure_glowshroom/cast(list/targets, mob/user = usr)
 	// Prevent wildshape forms from casting
 	if(istype(user, /mob/living/carbon/human/species/wildshape))
-		to_chat(user, span_warning("I cannot cast this in beast form!"))
+		to_chat(user, span_warning("Я не могу применить это в звериной форме!"))
 		revert_cast()
 		return FALSE
 	. = ..()
@@ -109,8 +109,8 @@
 
 
 /obj/effect/proc_holder/spell/targeted/conjure_vines
-	name = "Vine Sprout"
-	desc = "Summon vines nearby."
+	name = "Росток лозы"
+	desc = "Вырастить лозы поблизости."
 	overlay_state = "blesscrop"
 	releasedrain = 90
 	invocation = "Treefather, bring forth vines."
@@ -141,8 +141,8 @@
 
 
 /obj/effect/proc_holder/spell/self/howl/call_of_the_moon
-	name = "Call of the Moon"
-	desc = "Draw upon the the secrets of the hidden firmament to converse with the mooncursed."
+	name = "Зов Луны"
+	desc = "Воззвать к тайнам скрытой тверди, чтобы говорить с проклятыми луной."
 	overlay_state = "howl"
 	antimagic_allowed = FALSE
 	recharge_time = 600
@@ -154,23 +154,23 @@
 /obj/effect/proc_holder/spell/self/howl/call_of_the_moon/cast(mob/living/carbon/human/user)
 	// only usable at night
 	if (!GLOB.tod == "night")
-		to_chat(user, span_warning("I must wait for the hidden moon to rise before I may call upon it."))
+		to_chat(user, span_warning("Я должен дождаться восхода скрытой луны, чтобы воззвать к ней."))
 		revert_cast()
 		return
 	// if they don't have beast language somehow, give it to them
 	if (!user.has_language(/datum/language/beast))
 		user.grant_language(/datum/language/beast)
-		to_chat(user, span_boldnotice("The vestige of the hidden moon high above reveals His truth: the knowledge of beast-tongue was in me all along."))
+		to_chat(user, span_boldnotice("Остаток скрытой луны высоко в небе открывает Его истину: знание звериного языка всегда было во мне."))
 
 	if (!first_cast)
-		to_chat(user, span_boldwarning("So it is murmured in the Earth and Air: the Call of the Moon is sacred, and to share knowledge gleaned from it with those not of Him is a SIN."))
-		to_chat(user, span_boldwarning("Ware thee well, child of the Treefather."))
+		to_chat(user, span_boldwarning("Так шепчут Земля и Воздух: Зов Луны священен, и делиться знаниями, полученными от него, с теми, кто не от Него, — ГРЕХ."))
+		to_chat(user, span_boldwarning("Берегись, дитя Отца Древ."))
 		first_cast = TRUE
 	. = ..()
 
 /obj/effect/proc_holder/spell/invoked/spiderspeak
-	name = "Spider Speak"
-	desc = "Allow a target to speak with spiders, allowing them to avoid attack."
+	name = "Речь пауков"
+	desc = "Позволяет цели говорить с пауками, избегая их атак."
 	overlay_state = "tamebeast"
 	releasedrain = 15
 	chargedrain = 0
@@ -191,8 +191,8 @@
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		user.visible_message("<font color='yellow'>[user] infuses [target] with swirling strands of spectral webs!</font>")
-		target.visible_message("<font color='yellow'>You feel your tongue shift strangely, producing odd clicking noises.</font>")
+		user.visible_message("<font color='yellow'>[user] наполняет [target] вьющимися прядями спектральной паутины!</font>")
+		target.visible_message("<font color='yellow'>Вы чувствуете, как ваш язык странно меняется, издавая необычные щёлкающие звуки.</font>")
 		target.apply_status_effect(/datum/status_effect/buff/spider_speak)
 		return TRUE
 	revert_cast()

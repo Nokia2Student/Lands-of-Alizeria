@@ -4,12 +4,12 @@
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/luxury/sigs
-	name = "Зиг самокрутка"
+	name = "Сигарета-самокрутка"
 	cost = 3
 	contains = list(/obj/item/clothing/mask/cigarette/rollie/nicotine)
 
 /datum/supply_pack/rogue/luxury/msigs
-	name = "Мятная зиг"
+	name = "Мятная сигарета"
 	cost = 4
 	contains = list(/obj/item/clothing/mask/cigarette/rollie/mentha)
 

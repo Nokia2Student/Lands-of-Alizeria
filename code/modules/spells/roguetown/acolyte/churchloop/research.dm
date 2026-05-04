@@ -118,8 +118,8 @@ var/global/list/PATRON_ARTIFACTS = list(
 	if(!user || !user.mind) return
 	var/mob/living/carbon/human/H = istype(user, /mob/living/carbon/human) ? user : null
 	if(!H) return
-	if(!HAS_TRAIT(user, TRAIT_CLERGY)) { to_chat(user, span_warning("Only clergy may contemplate new miracles.")); return }
-	if(!H.devotion || !H.devotion.patron) { to_chat(user, span_warning("Your faith has no patron.")); return }
+	if(!HAS_TRAIT(user, TRAIT_CLERGY)) { to_chat(user, span_warning("Только духовенство может размышлять о новых чудесах.")); return }
+	if(!H.devotion || !H.devotion.patron) { to_chat(user, span_warning("У вашей веры нет покровителя.")); return }
 	open_learn_ui(H)
 
 /proc/build_divine_patrons_index()
@@ -198,7 +198,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 	return result
 /proc/status_yn(flag)
-	return flag ? "<span style='color:#2ecc71'>Unlocked</span>" : "<span style='color:#e67e22'>Locked</span>"
+	return flag ? "<span style='color:#2ecc71'>Разблокировано</span>" : "<span style='color:#e67e22'>Заблокировано</span>"
 
 /proc/html_attr(t as text)
 	if(!istext(t)) return ""
@@ -375,20 +375,20 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 // CODE DONT MIND
 /obj/item/church_artefact
-	name = "sacred artefact"
-	desc = "A token blessed by a patron."
+	name = "священный артефакт"
+	desc = "Жетон, благословлённый покровителем."
 	var/patron_name = ""
 
 /obj/item/church_artefact/New(loc, p_name)
 	. = ..()
 	if(istext(p_name))
 		patron_name = p_name
-		name = "Sacred Artefact of [p_name]"
+		name = "Священный Артефакт [p_name]"
 
 // SPELL
 /obj/effect/proc_holder/spell/self/learnmiracle
-	name = "Miracles"
-	desc = "Open miracle actions."
+	name = "Чудеса"
+	desc = "Открыть действия чудес."
 	overlay_state = "startmiracle"
 
 	var/current_org_tab = "none"   // none | t1 | t2 | t3
@@ -458,7 +458,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 			continue
 
 		for(var/owner_name in owners)
-			// *** inhumen unlocks “Shunned” 
+			// *** inhumen unlocks "Shunned" 
 			if(_is_inhumen_patron_name(owner_name) && !_shunned_relations_unlocked(H))
 				continue
 
@@ -507,16 +507,16 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 	var/sh_unl = _shunned_relations_unlocked(H)
 
-	var/html = "<center><h3>Learn Miracles</h3></center><hr>"
-	html += "Favor: <b>[H.church_favor]</b> | MP: <b>[H.miracle_points]</b><hr>"
+	var/html = "<center><h3>Изучение Чудес</h3></center><hr>"
+	html += "Милость: <b>[H.church_favor]</b> | MP: <b>[H.miracle_points]</b><hr>"
 
 	var/list/nav = list()
 
 	// None
 	if(src.current_learn_tab == "none")
-		nav += "<b>None</b>"
+		nav += "<b>Нет</b>"
 	else
-		nav += "<a href='?src=[REF(src)];learntab=none'>None</a>"
+		nav += "<a href='?src=[REF(src)];learntab=none'>Нет</a>"
 
 	// --- divine
 	for(var/n in names_div)
@@ -544,16 +544,16 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 	if(!show_list.len)
 		if(src.current_learn_tab == "none")
-			html += "<i>Select a patron above to see their miracles.</i>"
+			html += "<i>Выберите покровителя выше, чтобы увидеть его чудеса.</i>"
 		else
-			html += "<i>No miracles available for this patron.</i>"
+			html += "<i>Нет доступных чудес для этого покровителя.</i>"
 	else
 		for(var/pn3 in show_list)
 			var/list/L = buckets[pn3]
 			if(!islist(L) || !L.len) continue
 			html += "<b>[html_attr(pn3)]</b><br>"
 			html += "<table width='100%' cellspacing='2' cellpadding='2'>"
-			html += "<tr><th align='left'>Miracle</th><th>Description</th><th width='50'>Tier</th><th width='100'>Cost</th><th width='140'>Action</th></tr>"
+			html += "<tr><th align='left'>Чудо</th><th>Описание</th><th width='50'>Тир</th><th width='100'>Стоимость</th><th width='140'>Действие</th></tr>"
 
 			for(var/entry in L)
 				var/list/E = entry
@@ -572,11 +572,11 @@ var/global/list/PATRON_ARTIFACTS = list(
 				html += "<td align='center'>"
 
 				if(is_learned)
-					html += "<span style='color:#2ecc71'>Learned</span>"
+					html += "<span style='color:#2ecc71'>Изучено</span>"
 				else if(H.miracle_points >= cost)
-					html += "<a href='?src=[REF(src)];learnspell=[txtpath]'>Learn</a>"
+					html += "<a href='?src=[REF(src)];learnspell=[txtpath]'>Изучить</a>"
 				else
-					html += "<span style='color:#7f8c8d'>Not enough MP</span>"
+					html += "<span style='color:#7f8c8d'>Недостаточно MP</span>"
 
 				html += "</td></tr>"
 			html += "</table><br>"
@@ -592,11 +592,11 @@ var/global/list/PATRON_ARTIFACTS = list(
 	if(!any_unlocked)
 		return html
 
-	html += "<hr><b>Organs</b><br>"
+	html += "<hr><b>Органы</b><br>"
 
 	var/list/navO = list()
-	if(src.current_org_tab == "none") navO += "<b>None</b>"
-	else navO += "<a href='?src=[REF(src)];orgtab=none'>None</a>"
+	if(src.current_org_tab == "none") navO += "<b>Нет</b>"
+	else navO += "<a href='?src=[REF(src)];orgtab=none'>Нет</a>"
 
 	if(H.unlocked_research_org_t1)
 		navO += (src.current_org_tab == "t1") ? "<b>T1</b>" : "<a href='?src=[REF(src)];orgtab=t1'>T1</a>"
@@ -608,7 +608,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 	html += jointext(navO, " | ") + "<br><br>"
 
 	if(src.current_org_tab == "none")
-		html += "<i>Choose a tier to buy organs.</i>"
+		html += "<i>Выберите тир для покупки органов.</i>"
 		return html
 
 	var/price = 0
@@ -617,15 +617,15 @@ var/global/list/PATRON_ARTIFACTS = list(
 	else if(src.current_org_tab == "t3") price = ORG_PRICE_T3
 
 	html += "<table width='100%' cellspacing='2' cellpadding='2'>"
-	html += "<tr><th align='left'>Organ</th><th width='180'>Action</th></tr>"
+	html += "<tr><th align='left'>Орган</th><th width='180'>Действие</th></tr>"
 
 	var/list/labels = list("eyes","stomach","liver","heart","lungs")
 	for(var/L in labels)
 		html += "<tr><td>[capitalize(L)]</td><td align='center'>"
 		if(HAS_TRAIT(H, TRAIT_CLERGY) && H.church_favor >= price)
-			html += "<a href='?src=[REF(src)];buyorg=[src.current_org_tab];item=[L]'>Buy ([price] Favor)</a>"
+			html += "<a href='?src=[REF(src)];buyorg=[src.current_org_tab];item=[L]'>Купить ([price] Милости)</a>"
 		else
-			html += "<span style='color:#7f8c8d'>Buy ([price] Favor)</span>"
+			html += "<span style='color:#7f8c8d'>Купить ([price] Милости)</span>"
 		html += "</td></tr>"
 
 	html += "</table>"
@@ -641,66 +641,66 @@ var/global/list/PATRON_ARTIFACTS = list(
 	var/fv = H.church_favor
 	var/mp = H.miracle_points
 
-	var/html = "<center><h3>Miracle Research</h3></center><hr>"
-	html += "<b>Research Points:</b> [rp]<br>"
-	html += "<b>Favor:</b> [fv]<br>"
-	html += "<b>Miracle Points:</b> [mp]<br>"
+	var/html = "<center><h3>Исследование Чудес</h3></center><hr>"
+	html += "<b>Очки Исследований:</b> [rp]<br>"
+	html += "<b>Милость:</b> [fv]<br>"
+	html += "<b>Очки Чудес:</b> [mp]<br>"
 	html += "<hr>"
 
 	// Miracle point gimme
 	if(HAS_TRAIT(H, TRAIT_CLERGY))
-		if(fv >= RESEARCH_RP_PRICE_FLAVOR) html += "<a href='?src=[REF(src)];buyrp=1'>Buy 1 RP ([RESEARCH_RP_PRICE_FLAVOR] Favor)</a><br>"
-		else html += "<span style='color:#7f8c8d'>Buy 1 RP ([RESEARCH_RP_PRICE_FLAVOR] Favor)</span><br>"
+		if(fv >= RESEARCH_RP_PRICE_FLAVOR) html += "<a href='?src=[REF(src)];buyrp=1'>Купить 1 RP ([RESEARCH_RP_PRICE_FLAVOR] Милости)</a><br>"
+		else html += "<span style='color:#7f8c8d'>Купить 1 RP ([RESEARCH_RP_PRICE_FLAVOR] Милости)</span><br>"
 
-		if(fv >= MIRACLE_MP_PRICE_FLAVOR) html += "<a href='?src=[REF(src)];buymp=1'>Buy 1 MP ([MIRACLE_MP_PRICE_FLAVOR] Favor)</a><br>"
-		else html += "<span style='color:#7f8c8d'>Buy 1 MP ([MIRACLE_MP_PRICE_FLAVOR] Favor)</span><br>"
+		if(fv >= MIRACLE_MP_PRICE_FLAVOR) html += "<a href='?src=[REF(src)];buymp=1'>Купить 1 MP ([MIRACLE_MP_PRICE_FLAVOR] Милости)</a><br>"
+		else html += "<span style='color:#7f8c8d'>Купить 1 MP ([MIRACLE_MP_PRICE_FLAVOR] Милости)</span><br>"
 	else
-		html += "<span style='color:#7f8c8d'>Only clergy can buy RP/MP.</span><br>"
+		html += "<span style='color:#7f8c8d'>Только духовенство может покупать RP/MP.</span><br>"
 
 	// Studies general shit
-	html += "<hr><b>Studies</b><br>"
+	html += "<hr><b>Исследования</b><br>"
 	html += "<table width='100%' cellspacing='2' cellpadding='2'>"
-	html += "<tr><th align='left'>Study</th><th width='110'>Status</th><th width='220'>Action</th></tr>"
+	html += "<tr><th align='left'>Изучение</th><th width='110'>Статус</th><th width='220'>Действие</th></tr>"
 
 	// Artefacts
-	html += "<tr><td>Artefacts</td><td>[status_yn(H.unlocked_research_artefacts)]</td><td align='center'>"
+	html += "<tr><td>Артефакты</td><td>[status_yn(H.unlocked_research_artefacts)]</td><td align='center'>"
 	if(!H.unlocked_research_artefacts)
-		if(rp >= COST_ARTEFACTS)	html += "<a href='?src=[REF(src)];unlock=artefacts'>Unlock ([COST_ARTEFACTS] RP)</a>"
-		else						html += "<span style='color:#7f8c8d'>Unlock ([COST_ARTEFACTS] RP)</span>"
+		if(rp >= COST_ARTEFACTS)	html += "<a href='?src=[REF(src)];unlock=artefacts'>Разблокировать ([COST_ARTEFACTS] RP)</a>"
+		else						html += "<span style='color:#7f8c8d'>Разблокировать ([COST_ARTEFACTS] RP)</span>"
 	else
 		html += "<span style='color:#7f8c8d'>-</span>"
 	html += "</td></tr>"
 
 	// Organs slops
-	html += "<tr><td>Organs T1</td><td>[status_yn(H.unlocked_research_org_t1)]</td><td align='center'>"
+	html += "<tr><td>Органы Т1</td><td>[status_yn(H.unlocked_research_org_t1)]</td><td align='center'>"
 	if(!H.unlocked_research_org_t1)
-		if(rp >= COST_ORG_T1)	html += "<a href='?src=[REF(src)];unlock=org_t1'>Unlock ([COST_ORG_T1] RP)</a>"
-		else					html += "<span style='color:#7f8c8d'>Unlock ([COST_ORG_T1] RP)</span>"
+		if(rp >= COST_ORG_T1)	html += "<a href='?src=[REF(src)];unlock=org_t1'>Разблокировать ([COST_ORG_T1] RP)</a>"
+		else					html += "<span style='color:#7f8c8d'>Разблокировать ([COST_ORG_T1] RP)</span>"
 	else html += "<span style='color:#7f8c8d'>-</span>"
 	html += "</td></tr>"
 
-	html += "<tr><td>Organs T2</td><td>[status_yn(H.unlocked_research_org_t2)]</td><td align='center'>"
+	html += "<tr><td>Органы Т2</td><td>[status_yn(H.unlocked_research_org_t2)]</td><td align='center'>"
 	if(!H.unlocked_research_org_t2)
-		if(rp >= COST_ORG_T2)	html += "<a href='?src=[REF(src)];unlock=org_t2'>Unlock ([COST_ORG_T2] RP)</a>"
-		else					html += "<span style='color:#7f8c8d'>Unlock ([COST_ORG_T2] RP)</span>"
+		if(rp >= COST_ORG_T2)	html += "<a href='?src=[REF(src)];unlock=org_t2'>Разблокировать ([COST_ORG_T2] RP)</a>"
+		else					html += "<span style='color:#7f8c8d'>Разблокировать ([COST_ORG_T2] RP)</span>"
 	else html += "<span style='color:#7f8c8d'>-</span>"
 	html += "</td></tr>"
 
-	html += "<tr><td>Organs T3</td><td>[status_yn(H.unlocked_research_org_t3)]</td><td align='center'>"
+	html += "<tr><td>Органы Т3</td><td>[status_yn(H.unlocked_research_org_t3)]</td><td align='center'>"
 	if(!H.unlocked_research_org_t3)
-		if(rp >= COST_ORG_T3)	html += "<a href='?src=[REF(src)];unlock=org_t3'>Unlock ([COST_ORG_T3] RP)</a>"
-		else					html += "<span style='color:#7f8c8d'>Unlock ([COST_ORG_T3] RP)</span>"
+		if(rp >= COST_ORG_T3)	html += "<a href='?src=[REF(src)];unlock=org_t3'>Разблокировать ([COST_ORG_T3] RP)</a>"
+		else					html += "<span style='color:#7f8c8d'>Разблокировать ([COST_ORG_T3] RP)</span>"
 	else html += "<span style='color:#7f8c8d'>-</span>"
 	html += "</td></tr>"
 
 	// Unlockshynned
 	var/sh_unl = _shunned_relations_unlocked(H)
-	html += "<tr><td>Shunned Knowledges</td><td>[status_yn(sh_unl)]</td><td align='center'>"
+	html += "<tr><td>Запретные Знания</td><td>[status_yn(sh_unl)]</td><td align='center'>"
 	if(!sh_unl)
 		if(H.personal_research_points >= UNLOCK_SHUNNED_RP)
-			html += "<a href='?src=[REF(src)];unlock_shunned_rel=1'>Unlock ([UNLOCK_SHUNNED_RP] RP)</a>"
+			html += "<a href='?src=[REF(src)];unlock_shunned_rel=1'>Разблокировать ([UNLOCK_SHUNNED_RP] RP)</a>"
 		else
-			html += "<span style='color:#7f8c8d'>Unlock ([UNLOCK_SHUNNED_RP] RP)</span>"
+			html += "<span style='color:#7f8c8d'>Разблокировать ([UNLOCK_SHUNNED_RP] RP)</span>"
 	else
 		html += "<span style='color:#7f8c8d'>-</span>"
 	html += "</td></tr>"
@@ -709,14 +709,14 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 	// THIS SHIT RELATED TO FEAR AND HUNGER STARTS HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 	var/list/nav_bits = list()
-	nav_bits += (src.current_rel_tab == "none") ? "<b>Relations: None</b>" : "<a href='?src=[REF(src)];reltab=none'>Relations: None</a>"
-	nav_bits += (src.current_rel_tab == "ten")  ? "<b>Ten</b>" : "<a href='?src=[REF(src)];reltab=ten'>Ten</a>"
+	nav_bits += (src.current_rel_tab == "none") ? "<b>Отношения: Нет</b>" : "<a href='?src=[REF(src)];reltab=none'>Отношения: Нет</a>"
+	nav_bits += (src.current_rel_tab == "ten")  ? "<b>Десять</b>" : "<a href='?src=[REF(src)];reltab=ten'>Десять</a>"
 
 	// + shunned
 	if(_shunned_relations_unlocked(H))
-		nav_bits += (src.current_rel_tab == "shunned") ? "<b>Ascendants</b>" : "<a href='?src=[REF(src)];reltab=shunned'>Shunned</a>"
+		nav_bits += (src.current_rel_tab == "shunned") ? "<b>Возвысившиеся</b>" : "<a href='?src=[REF(src)];reltab=shunned'>Отвергнутые</a>"
 	else
-		nav_bits += "<span style='color:#7f8c8d'>Ascendants</span>"
+		nav_bits += "<span style='color:#7f8c8d'>Возвысившиеся</span>"
 
 	html += "<hr>" + jointext(nav_bits, " | ") + "<br>"
 
@@ -730,9 +730,9 @@ var/global/list/PATRON_ARTIFACTS = list(
 		var/list/idx = (src.current_rel_tab == "shunned") ? inhumen_patrons_index : divine_patrons_index
 		if(idx && idx.len)
 			// To be or not to be
-			html += "<br><b>[src.current_rel_tab == "shunned" ? "Shunned" : "Ten"] - Patron Relationships</b><br>"
+			html += "<br><b>[src.current_rel_tab == "shunned" ? "Отношения с Отвергнутыми Покровителями" : "Отношения с Покровителями Десяти"]</b><br>"
 			html += "<div style='margin:6px 0; padding:8px; background:#222831; border-radius:6px;'>"
-			html += "<div><i>Relation chart (0..[rel_cap]):</i></div>"
+			html += "<div><i>График отношений (0..[rel_cap]):</i></div>"
 
 			var/list/names_chart = list()
 			for(var/nc in idx) names_chart += "[nc]"
@@ -761,7 +761,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 			// Upgraded Yus
 			html += "<table width='100%' cellspacing='2' cellpadding='2'>"
-			html += "<tr><th align='left'>Patron</th><th>Domain</th><th width='80'>Level</th><th width='220'>Action</th></tr>"
+			html += "<tr><th align='left'>Покровитель</th><th>Домен</th><th width='80'>Уровень</th><th width='220'>Действие</th></tr>"
 
 			var/list/names = list()
 			for(var/n in idx) names += "[n]"
@@ -780,10 +780,10 @@ var/global/list/PATRON_ARTIFACTS = list(
 				html += "<td align='center'>"
 
 				if(H.devotion && H.devotion.patron && ("name" in H.devotion.patron.vars) && ("[H.devotion.patron.vars["name"]]" == n))
-					html += "<span style='color:#2ecc71'>Own patron (max).</span>"
+					html += "<span style='color:#2ecc71'>Свой покровитель (макс.).</span>"
 				else
 					if(cur >= rel_cap)
-						html += "<span style='color:#2ecc71'>Maxed</span>"
+						html += "<span style='color:#2ecc71'>Максимум</span>"
 					else
 						var/next = cur + 1
 						if(next > rel_cap) next = rel_cap
@@ -791,27 +791,27 @@ var/global/list/PATRON_ARTIFACTS = list(
 						var/can = TRUE
 						if(src.current_rel_tab == "shunned" && !_shunned_relations_unlocked(H)) can = FALSE
 						if(can && H.personal_research_points >= cost)
-							html += "<a href='?src=[REF(src)];relten_up=[n]'>Upgrade to [next] ([cost] RP)</a>"
+							html += "<a href='?src=[REF(src)];relten_up=[n]'>Улучшить до [next] ([cost] RP)</a>"
 						else
-							html += "<span style='color:#7f8c8d'>Upgrade to [next] ([cost] RP)</span>"
+							html += "<span style='color:#7f8c8d'>Улучшить до [next] ([cost] RP)</span>"
 
 				html += "</td></tr>"
 
 			html += "</table>"
 		else
-			html += "<i>No patrons found.</i>"
+			html += "<i>Покровители не найдены.</i>"
 	else
-		html += "<i>Relations hidden (None).</i>"
+		html += "<i>Отношения скрыты (Нет).</i>"
 
 	// Artefacts
 	if(H.unlocked_research_artefacts)
 		build_divine_patrons_index()
 		if(divine_patrons_index && length(divine_patrons_index))
-			html += "<hr><b>Artefacts</b><br>"
+			html += "<hr><b>Артефакты</b><br>"
 
 			var/list/nav = list()
-			if(src.current_art_tab == "none") nav += "<b>None</b>"
-			else nav += "<a href='?src=[REF(src)];arttab=none'>None</a>"
+			if(src.current_art_tab == "none") nav += "<b>Нет</b>"
+			else nav += "<a href='?src=[REF(src)];arttab=none'>Нет</a>"
 
 			var/list/names2 = list()
 			for(var/n2 in divine_patrons_index) names2 += "[n2]"
@@ -824,7 +824,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 			html += jointext(nav, " | ") + "<br><br>"
 
 			if(src.current_art_tab == "none")
-				html += "<i>Artefacts list hidden (None).</i>"
+				html += "<i>Список артефактов скрыт (Нет).</i>"
 			else
 				var/rec2 = divine_patrons_index[src.current_art_tab]
 				if(rec2)
@@ -839,7 +839,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 					var/list/art_list = PATRON_ARTIFACTS ? PATRON_ARTIFACTS[src.current_art_tab] : null
 					if(islist(art_list) && art_list.len)
 						html += "<table width='100%' cellspacing='2' cellpadding='2'>"
-						html += "<tr><th align='left'>Artefact</th><th width='160'>Action</th></tr>"
+						html += "<tr><th align='left'>Артефакт</th><th width='160'>Действие</th></tr>"
 						for(var/T in art_list)
 							var/name_txt = "[T]"
 							var/obj/O = new T
@@ -848,15 +848,15 @@ var/global/list/PATRON_ARTIFACTS = list(
 							html += "<tr><td>[html_attr(name_txt)]</td><td align='center'>"
 							if(HAS_TRAIT(H, TRAIT_CLERGY))
 								if(H.church_favor >= ARTEFACT_PRICE_FAVOR)
-									html += "<a href='?src=[REF(src)];buyart=[src.current_art_tab];item=[T]'>Buy ([ARTEFACT_PRICE_FAVOR] Favor)</a>"
+									html += "<a href='?src=[REF(src)];buyart=[src.current_art_tab];item=[T]'>Купить ([ARTEFACT_PRICE_FAVOR] Милости)</a>"
 								else
-									html += "<span style='color:#7f8c8d'>Buy ([ARTEFACT_PRICE_FAVOR] Favor)</span>"
+									html += "<span style='color:#7f8c8d'>Купить ([ARTEFACT_PRICE_FAVOR] Милости)</span>"
 							else
-								html += "<span style='color:#7f8c8d'>Only clergy may buy artefacts.</span>"
+								html += "<span style='color:#7f8c8d'>Только духовенство может покупать артефакты.</span>"
 							html += "</td></tr>"
 						html += "</table>"
 					else
-						html += "<i>No artefacts listed for this patron.</i>"
+						html += "<i>Нет артефактов для этого покровителя.</i>"
 
 	// Organs slop
 	html += _organs_shop_block(H)
@@ -887,19 +887,19 @@ var/global/list/PATRON_ARTIFACTS = list(
 	var/secs    = left_s % 60
 	var/secs_str = (secs < 10) ? "0[secs]" : "[secs]"
 
-	var/html = "<center><h3 style='color:#3498db;margin:6px 0;'>Parish Assignments</h3>"
+	var/html = "<center><h3 style='color:#3498db;margin:6px 0;'>Приходские Поручения</h3>"
 	if(charges >= 1)
-		html += "<div style='margin-top:6px;'><a href='?src=[REF(src)];q_reroll=1' style='background:#8e44ad;color:#fff;padding:3px 8px;border-radius:6px;text-decoration:none;'><b>Reroll (charges: [charges])</b></a></div>"
+		html += "<div style='margin-top:6px;'><a href='?src=[REF(src)];q_reroll=1' style='background:#8e44ad;color:#fff;padding:3px 8px;border-radius:6px;text-decoration:none;'><b>Обновить (заряды: [charges])</b></a></div>"
 	else
-		html += "<div style='margin-top:6px;color:#9b59b6;'>Next charge in: <b>[mins]:[secs_str]</b></div>"
+		html += "<div style='margin-top:6px;color:#9b59b6;'>Следующий заряд через: <b>[mins]:[secs_str]</b></div>"
 
 	html += "<div style='color:#e74c3c; text-align:center; margin:6px 0;'>"
-	html += "<b>How it works:</b><br>"
-	html += "You get three different quest themes.<br>"
-	html += "Each quest can have <u>Easy / Medium / Hard</u> variants, or just one special task.<br>"
-	html += "When you click <b>Get special item</b> on one row, you lock that quest to that difficulty and receive a quest item.<br>"
-	html += "Other rows for that quest lock until reroll.<br>"
-	html += "Use the item under listed conditions to gain Favor. The item self-destructs in ~3 minutes."
+	html += "<b>Как это работает:</b><br>"
+	html += "Вы получаете три разные темы заданий.<br>"
+	html += "Каждое задание может иметь <u>Лёгкий / Средний / Сложный</u> варианты, или только одну особую задачу.<br>"
+	html += "Когда вы нажимаете <b>Получить особый предмет</b> в одном ряду, вы фиксируете это задание на этой сложности и получаете предмет задания.<br>"
+	html += "Другие варианты этого задания блокируются до обновления.<br>"
+	html += "Используйте предмет в указанных условиях, чтобы получить Милость. Предмет самоуничтожается примерно через 3 минуты."
 	html += "</div></center><hr>"
 
 	// *** BYOND says we cannot have at home "?.len" . Like the code works well ok buttttttttttttttttttttttttttttttttt
@@ -917,7 +917,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 		html += "<br>"
 
 		html += "<table width='100%' cellspacing='2' cellpadding='2' style='text-align:center;'>"
-		html += "<tr style='background:#2c3e50;color:#ecf0f1;'><th>Difficulty</th><th>Task</th><th>Reward</th><th>Action</th></tr>"
+		html += "<tr style='background:#2c3e50;color:#ecf0f1;'><th>Сложность</th><th>Задача</th><th>Награда</th><th>Действие</th></tr>"
 
 		var/list/diffs = slot["difficulties"]
 		if(islist(diffs))
@@ -940,16 +940,16 @@ var/global/list/PATRON_ARTIFACTS = list(
 				html += "<tr>"
 				html += "<td><b>[diff_label]</b></td>"
 				html += "<td>[desc_txt]</td>"
-				html += "<td style='color:#2ecc71'><b>[reward_txt]</b> Favor</td>"
+				html += "<td style='color:#2ecc71'><b>[reward_txt]</b> Милости</td>"
 				html += "<td>"
 
 				if(locked)
-					html += "<span style='display:inline-block; padding:4px 10px; border-radius:6px; background:#7f8c8d; color:#ecf0f1;'>Locked</span>"
+					html += "<span style='display:inline-block; padding:4px 10px; border-radius:6px; background:#7f8c8d; color:#ecf0f1;'>Заблокировано</span>"
 				else
 					if(spawned)
-						html += "<span style='display:inline-block; padding:4px 10px; border-radius:6px; background:#7f8c8d; color:#ecf0f1;'>Item spawned</span>"
+						html += "<span style='display:inline-block; padding:4px 10px; border-radius:6px; background:#7f8c8d; color:#ecf0f1;'>Предмет создан</span>"
 					else
-						html += "<a href='?src=[REF(src)];q_spawn=[i];diff=[diff_key]' style='display:inline-block; padding:4px 10px; border-radius:6px; background:#1abc9c; color:#ffffff; text-decoration:none;'>Get special item</a>"
+						html += "<a href='?src=[REF(src)];q_spawn=[i];diff=[diff_key]' style='display:inline-block; padding:4px 10px; border-radius:6px; background:#1abc9c; color:#ffffff; text-decoration:none;'>Получить особый предмет</a>"
 
 				html += "</td></tr>"
 
@@ -976,16 +976,16 @@ var/global/list/PATRON_ARTIFACTS = list(
 			if(istype(S, /obj/effect/proc_holder/spell/invoked/diagnose)) has_diag = TRUE
 			if(istype(S, /obj/effect/proc_holder/spell/invoked/diagnose/greater)) has_diag_g = TRUE
 
-	var/html = "<center><h3>Upgrades</h3></center><hr>"
+	var/html = "<center><h3>Улучшения</h3></center><hr>"
 	html += "<b>Diagnose → Greater Diagnose</b><br>"
 
-	if(has_diag_g) html += "<span style='color:#2ecc71'>Already upgraded.</span>"
+	if(has_diag_g) html += "<span style='color:#2ecc71'>Уже улучшено.</span>"
 	else if(has_diag)
 		if(H.miracle_points >= 2)
-			html += "<a href='?src=[REF(src)];upgrade_diag=1'>Upgrade now (2 MP)</a>"
+			html += "<a href='?src=[REF(src)];upgrade_diag=1'>Улучшить сейчас (2 MP)</a>"
 		else
-			html += "<span style='color:#7f8c8d'>Upgrade now (2 MP)</span>"
-	else html += "<span style='color:#7f8c8d'>You must learn \"Diagnose\" first.</span>"
+			html += "<span style='color:#7f8c8d'>Улучшить сейчас (2 MP)</span>"
+	else html += "<span style='color:#7f8c8d'>Сначала нужно изучить \"Диагноз\".</span>"
 
 	var/datum/browser/B = new(user, "MIRACLE_UPGRADES", "", 420, 200)
 	B.set_content(html)
@@ -1006,7 +1006,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 			return
 		H.quest_ui_entries = _rt_build_player_quest_set(H)
 		H.quest_reroll_charges = max(0, H.quest_reroll_charges - 1)
-		to_chat(H, span_notice("Quests rerolled. Charges left: [H.quest_reroll_charges]."))
+		to_chat(H, span_notice("Задания обновлены. Осталось зарядов: [H.quest_reroll_charges]."))
 		open_quests_ui(H)
 		return
 
@@ -1019,14 +1019,14 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 		var/accepted_diff = slot["accepted_diff"]; if(!istext(accepted_diff)) accepted_diff = ""
 		if(length(accepted_diff) && accepted_diff != diff_key)
-			to_chat(H, span_warning("This quest is already locked to [uppertext(accepted_diff)]."))
+			to_chat(H, span_warning("Это задание уже зафиксировано на сложности [uppertext(accepted_diff)]."))
 			open_quests_ui(H); return
 
 		var/list/D = diffs[diff_key]; if(!islist(D)) { open_quests_ui(H); return }
-		if(D["spawned"]) { to_chat(H, span_warning("The quest item has already been granted.")); open_quests_ui(H); return }
+		if(D["spawned"]) { to_chat(H, span_warning("Предмет задания уже был выдан.")); open_quests_ui(H); return }
 
-		var/typepath = D["token_path"]; if(!typepath) { to_chat(H, span_warning("Token type not found.")); open_quests_ui(H); return }
-		var/obj/item/quest_token/QI = new typepath(H); if(!QI) { to_chat(H, span_warning("Failed to spawn the quest item.")); open_quests_ui(H); return }
+		var/typepath = D["token_path"]; if(!typepath) { to_chat(H, span_warning("Тип жетона не найден.")); open_quests_ui(H); return }
+		var/obj/item/quest_token/QI = new typepath(H); if(!QI) { to_chat(H, span_warning("Не удалось создать предмет задания.")); open_quests_ui(H); return }
 
 		var/success = FALSE
 		if(ismob(H) && hascall(H, "put_in_hands")) success = call(H, "put_in_hands")(QI)
@@ -1070,7 +1070,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 		slot["difficulties"]  = diffs
 		H.quest_ui_entries[q_index] = slot
 
-		to_chat(H, span_notice("A special quest item has been granted: [QI.name]."))
+		to_chat(H, span_notice("Выдан особый предмет задания: [QI.name]."))
 		open_quests_ui(H)
 		return
 
@@ -1125,7 +1125,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 		H.personal_research_points = max(0, H.personal_research_points - cost)
 		H.patron_relations[god] = next
-		to_chat(H, span_notice("Relations with [god] increased to [next]."))
+		to_chat(H, span_notice("Отношения с [god] повышены до [next]."))
 		open_research_ui(H)
 		return
 
@@ -1179,7 +1179,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 			for(var/obj/effect/proc_holder/spell/K in H.mind.spell_list)
 				if(K.type == typepath)
 					qdel(S)
-					to_chat(H, span_warning("You already know this one!"))
+					to_chat(H, span_warning("Вы уже знаете это!"))
 					open_learn_ui(H)
 					return
 
@@ -1223,7 +1223,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 		if(tier > max_allowed)
 			qdel(S)
-			to_chat(H, span_warning("You lack the relation level for this miracle."))
+			to_chat(H, span_warning("У вас недостаточно высокий уровень отношений для этого чуда."))
 			open_learn_ui(H)
 			return
 
@@ -1240,7 +1240,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 		if(H.miracle_points < cost)
 			qdel(S)
-			to_chat(H, span_warning("Not enough Miracle Points."))
+			to_chat(H, span_warning("Недостаточно Очков Чудес."))
 			open_learn_ui(H)
 			return
 
@@ -1249,13 +1249,13 @@ var/global/list/PATRON_ARTIFACTS = list(
 			for(var/obj/effect/proc_holder/spell/K in H.mind.spell_list)
 				if(K.type == typepath)
 					qdel(S)
-					to_chat(H, span_warning("You already know this one!"))
+					to_chat(H, span_warning("Вы уже знаете это!"))
 					open_learn_ui(H)
 					return
 
 		H.miracle_points = max(0, H.miracle_points - cost)
 		H.mind.AddSpell(S)
-		to_chat(H, span_notice("You have learned [S.name]."))
+		to_chat(H, span_notice("Вы изучили [S.name]."))
 		open_learn_ui(H)
 		return
 
@@ -1284,15 +1284,15 @@ var/global/list/PATRON_ARTIFACTS = list(
 		if(!(god2 in divine_patrons_index)) { open_research_ui(H); return }
 		if(item_txt)
 			var/item_path = text2path(item_txt)
-			if(!ispath(item_path, /obj/item)) { to_chat(H, span_warning("Invalid artefact type.")); open_research_ui(H); return }
+			if(!ispath(item_path, /obj/item)) { to_chat(H, span_warning("Неверный тип артефакта.")); open_research_ui(H); return }
 			var/list/art_list = PATRON_ARTIFACTS ? PATRON_ARTIFACTS[god2] : null
-			if(!islist(art_list) || !art_list.Find(item_path)) { to_chat(H, span_warning("This artefact does not belong to [god2].")); open_research_ui(H); return }
+			if(!islist(art_list) || !art_list.Find(item_path)) { to_chat(H, span_warning("Этот артефакт не принадлежит [god2].")); open_research_ui(H); return }
 			if(H.church_favor < ARTEFACT_PRICE_FAVOR) { open_research_ui(H); return }
-			if(alert(H, "Buy [item_txt] of [god2] for [ARTEFACT_PRICE_FAVOR] Favor?", "Confirm", "Buy", "Cancel") != "Buy") { open_research_ui(H); return }
+			if(alert(H, "Купить [item_txt] у [god2] за [ARTEFACT_PRICE_FAVOR] Милости?", "Confirm", "Buy", "Cancel") != "Buy") { open_research_ui(H); return }
 			var/turf/T1 = get_step(H, H.dir); if(!T1) T1 = get_turf(H)
 			new item_path(T1)
 			H.church_favor = max(0, H.church_favor - ARTEFACT_PRICE_FAVOR)
-			to_chat(H, span_notice("You acquired an artefact of [god2]."))
+			to_chat(H, span_notice("Вы получили артефакт [god2]."))
 			open_research_ui(H); return
 		open_research_ui(H); return
 
@@ -1310,25 +1310,25 @@ var/global/list/PATRON_ARTIFACTS = list(
 		if(!unlocked || H.church_favor < price) { open_research_ui(H); return }
 		var/path_text = "/obj/item/organ/[label]/[tier]"
 		var/typepath2 = text2path(path_text)
-		if(!typepath2) { to_chat(H, span_warning("Organ type not found: [path_text]")); open_research_ui(H); return }
+		if(!typepath2) { to_chat(H, span_warning("Тип органа не найден: [path_text]")); open_research_ui(H); return }
 		var/turf/T2 = get_step(H, H.dir); if(!T2) T2 = get_turf(H)
 		new typepath2(T2)
 		H.church_favor = max(0, H.church_favor - price)
-		to_chat(H, span_notice("[capitalize(label)] [uppertext(tier)] spawned for [price] Favor."))
+		to_chat(H, span_notice("Орган [capitalize(label)] [uppertext(tier)] создан за [price] Милости."))
 		open_research_ui(H); return
 
 	if(href_list["buyrp"])
 		if(!HAS_TRAIT(H, TRAIT_CLERGY) || H.church_favor < RESEARCH_RP_PRICE_FLAVOR) { open_research_ui(H); return }
 		H.church_favor = max(0, H.church_favor - RESEARCH_RP_PRICE_FLAVOR)
 		H.personal_research_points++
-		to_chat(H, span_notice("You gained +1 Research Point."))
+		to_chat(H, span_notice("Вы получили +1 Очко Исследований."))
 		open_research_ui(H); return
 
 	if(href_list["buymp"])
 		if(!HAS_TRAIT(H, TRAIT_CLERGY) || H.church_favor < MIRACLE_MP_PRICE_FLAVOR) { open_research_ui(H); return }
 		H.church_favor = max(0, H.church_favor - MIRACLE_MP_PRICE_FLAVOR)
 		H.miracle_points++
-		to_chat(H, span_notice("You gained +1 Miracle Point."))
+		to_chat(H, span_notice("Вы получили +1 Очко Чудес."))
 		open_research_ui(H); return
 
 	if(href_list["unlock"])
@@ -1345,7 +1345,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 		else if(key == "org_t1")    H.unlocked_research_org_t1   = TRUE
 		else if(key == "org_t2")    H.unlocked_research_org_t2   = TRUE
 		else if(key == "org_t3")    H.unlocked_research_org_t3   = TRUE
-		to_chat(H, span_notice("Study unlocked: [key]."))
+		to_chat(H, span_notice("Исследование разблокировано: [key]."))
 		open_research_ui(H); return
 
 	// --- Unlock shunned
@@ -1357,26 +1357,26 @@ var/global/list/PATRON_ARTIFACTS = list(
 		for(var/n in inhumen_patrons_index)
 			if(!(n in H.patron_relations))
 				H.patron_relations[n] = 0
-		to_chat(H, span_notice("Shunned knowledges unlocked."))
+		to_chat(H, span_notice("Запретные знания разблокированы."))
 		open_research_ui(H); return
 
 	// --- Upgrade: Diagnose (2 MP) -
 	if(href_list["upgrade_diag"])
 		if(!istype(H) || !H?.mind) { open_upgrade_ui(H); return }
-		if(H.miracle_points < 2) { to_chat(H, span_warning("Not enough Miracle Points.")); open_upgrade_ui(H); return }
+		if(H.miracle_points < 2) { to_chat(H, span_warning("Недостаточно Очков Чудес.")); open_upgrade_ui(H); return }
 		var/obj/effect/proc_holder/spell/baseS = null
 		var/obj/effect/proc_holder/spell/greaterS = null
 		for(var/obj/effect/proc_holder/spell/S in H.mind.spell_list)
 			if(istype(S, /obj/effect/proc_holder/spell/invoked/diagnose)) baseS = S
 			if(istype(S, /obj/effect/proc_holder/spell/invoked/diagnose/greater)) greaterS = S
-		if(greaterS) { to_chat(H, span_info("You already know Greater Diagnose.")); open_upgrade_ui(H); return }
-		if(!baseS) { to_chat(H, span_warning("You must learn Diagnose first.")); open_upgrade_ui(H); return }
+		if(greaterS) { to_chat(H, span_info("Вы уже знаете Greater Diagnose.")); open_upgrade_ui(H); return }
+		if(!baseS) { to_chat(H, span_warning("Сначала нужно изучить Diagnose.")); open_upgrade_ui(H); return }
 		if(hascall(H.mind, "RemoveSpell")) call(H.mind, "RemoveSpell")(baseS)
 		else qdel(baseS)
 		var/obj/effect/proc_holder/spell/invoked/diagnose/greater/N = new
 		H.mind.AddSpell(N)
 		H.miracle_points = max(0, H.miracle_points - 2)
-		to_chat(H, span_notice("Your Diagnose has been upgraded to Greater Diagnose (-2 MP)."))
+		to_chat(H, span_notice("Ваш Диагноз улучшен до Великого Диагноза (-2 MP)."))
 		open_upgrade_ui(H); return
 
 // DONT CHANGE IT PLEASE1111
@@ -1385,14 +1385,14 @@ var/global/list/PATRON_ARTIFACTS = list(
 	if(!user) return
 
 	var/list/rad = list()
-	rad["Learn"]    = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "learnmiracle")
-	rad["Upgrade"]  = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "upgrademiracle")
-	rad["Quests"]   = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "questmiracle")
-	rad["Research"] = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "researchmiracle")
+	rad["Изучить"]       = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "learnmiracle")
+	rad["Улучшить"]      = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "upgrademiracle")
+	rad["Задания"]       = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "questmiracle")
+	rad["Исследования"]  = icon(icon = MIRACLE_RADIAL_DMI, icon_state = "researchmiracle")
 
 	var/choice = show_radial_menu(user, user, rad, require_near = FALSE)
-	if(choice == "Learn")        do_learn_miracle(user)
-	else if(choice == "Research") open_research_ui(user)
-	else if(choice == "Quests")   open_quests_ui(user)
-	else if(choice == "Upgrade")  open_upgrade_ui(user)
+	if(choice == "Изучить")          do_learn_miracle(user)
+	else if(choice == "Исследования") open_research_ui(user)
+	else if(choice == "Задания")      open_quests_ui(user)
+	else if(choice == "Улучшить")     open_upgrade_ui(user)
 	return

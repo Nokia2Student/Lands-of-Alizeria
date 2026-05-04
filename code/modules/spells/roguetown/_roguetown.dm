@@ -2,7 +2,7 @@
 
 
 /obj/effect/proc_holder/spell/invoked
-	name = "invoked spell"
+	name = "призывное заклинание"
 	range = 7
 	selection_type = "range"
 	no_early_release = TRUE

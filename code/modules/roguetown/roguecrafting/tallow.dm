@@ -7,7 +7,7 @@
 	skillcraft = /datum/skill/craft/cooking
 
 /datum/crafting_recipe/roguetown/tallow/hearth_tallow
-	name = "render tallow over the hearth"
+	name = "вытопить жир на очаге"
 	result = list(
 				/obj/item/reagent_containers/food/snacks/tallow,
 				/obj/item/reagent_containers/food/snacks/tallow,
@@ -19,11 +19,11 @@
 	structurecraft = /obj/machinery/light/rogue/hearth
 	craftdiff = 0
 	craftsound = 'sound/misc/frying.ogg'
-	verbage_simple = "render"
-	verbage = "renders"
+	verbage_simple = "вытопить"
+	verbage = "вытапливает"
 
 /datum/crafting_recipe/roguetown/tallow/campfire_tallow
-	name = "render tallow over the campfire"
+	name = "вытопить жир на костре"
 	result = list(
 				/obj/item/reagent_containers/food/snacks/tallow,
 				/obj/item/reagent_containers/food/snacks/tallow,
@@ -34,11 +34,11 @@
 	structurecraft = /obj/machinery/light/rogue/campfire
 	craftdiff = 0
 	craftsound = 'sound/misc/frying.ogg'
-	verbage_simple = "render"
-	verbage = "renders"
+	verbage_simple = "вытопить"
+	verbage = "вытапливает"
 
 /datum/crafting_recipe/roguetown/cooking/mobilestove_tallow
-	name = "render tallow over the mobile stove"
+	name = "вытопить жир на походной печи"
 	result = list(
 				/obj/item/reagent_containers/food/snacks/tallow,
 				/obj/item/reagent_containers/food/snacks/tallow,
@@ -50,6 +50,5 @@
 	craftdiff = 0
 	craftsound = 'sound/misc/frying.ogg'
 	req_table = FALSE
-	verbage_simple = "render"
-	verbage = "renders"
-    
+	verbage_simple = "вытопить"
+	verbage = "вытапливает"

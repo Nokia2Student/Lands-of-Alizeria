@@ -1,5 +1,5 @@
 /obj/effect/proc_holder/spell/targeted/area_teleport
-	name = "Area teleport"
+	name = "Зональный телепорт"
 	desc = ""
 	nonabstract_req = TRUE
 
@@ -25,7 +25,7 @@
 	var/A = null
 
 	if(!randomise_selection)
-		A = input("Area to teleport to", "Teleport", A) as null|anything in GLOB.teleportlocs
+		A = input("Область для телепортации", "Телепорт", A) as null|anything in GLOB.teleportlocs
 	else
 		A = pick(GLOB.teleportlocs)
 	if(!A)
@@ -49,7 +49,7 @@
 					L+=T
 
 		if(!L.len)
-			to_chat(usr, span_warning("The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry."))
+			to_chat(usr, span_warning("Матрица заклинания не смогла найти подходящее место для телепортации по неизвестной причине. Извините."))
 			return
 
 		if(target && target.buckled)

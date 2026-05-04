@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/self/message
-	name = "Message"
-	desc = "Latch onto the mind of one who is familiar to you, whispering a message or sending an intuitive projection into their head."
+	name = "Шёпот"
+	desc = "Проникает в разум знакомого вам человека, передавая шёпотом сообщение или отправляя интуитивную проекцию в его голову."
 	cost = 2
 	xp_gain = TRUE
 	releasedrain = 30
@@ -21,20 +21,20 @@
 		for(var/people in user.mind.known_people)
 			eligible_players += people
 	else
-		to_chat(user, span_warning("I don't know anyone."))
+		to_chat(user, span_warning("Я никого не знаю."))
 		revert_cast()
 		return
 
 	eligible_players = sortList(eligible_players)
-	var/input = input(user, "Who do you wish to contact?", src) as null|anything in eligible_players
+	var/input = input(user, "С кем вы хотите связаться?", src) as null|anything in eligible_players
 	if(isnull(input))
-		to_chat(user, span_warning("No target selected."))
+		to_chat(user, span_warning("Цель не выбрана."))
 		revert_cast()
 		return
 
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.real_name == input)
-			user.emote("me", 1, "mutters an incantation, their mouth briefly flashing white!", TRUE, custom_me = TRUE)
+			user.emote("me", 1, "бормочет заклинание, и его рот ненадолго вспыхивает белым!", TRUE, custom_me = TRUE)
 
 			// Standard message color, for anonymous communications.
 			var/message_color = "7246ff"
@@ -45,16 +45,16 @@
 			var/is_projection = FALSE
 
 			// Are we sending a message or a projection?
-			if(alert(user, "Transmit as a worldessly projected vision or as a whispered message?", "", "Projection", "Message") == "Projection")
+			if(alert(user, "Передать как бессловесную проекцию или шёпотом?", "", "Проекция", "Сообщение") == "Проекция")
 				is_projection = TRUE
 
-			var/message = input(user, "You successfully make a connection! [is_projection == TRUE ? "What sensory vision are you trying to send into their mind?" : "What are you trying to whisper into their mind?"]")
+			var/message = input(user, "[is_projection == TRUE ? "Какое сенсорное видение вы пытаетесь отправить в их разум?" : "Что вы пытаетесь прошептать в их разум?"]")
 
 			if(!message)
 				revert_cast()
 				return
 
-			if(alert(user, "Send anonymously?", "", "Yes", "No") == "No") //yes or no popup, if you say No run this code
+			if(alert(user, "Отправить анонимно?", "", "Да", "Нет") == "Нет") //yes or no popup, if you say No run this code
 				identify_difficulty = 0 //anyone can clear this
 
 			HL.playsound_local(HL, 'sound/magic/message.ogg', 100)
@@ -74,31 +74,31 @@
 
 						// If this a projection or not?
 						if(!is_projection)
-							to_chat(HL, span_big("Arcyne whispers slip into my mind, resolving into [user]'s voice: <font color=#[message_color]><i>\"[message]\"</i></font>"))
-							to_chat(user, span_big("You whisper into [HL]'s mind, identifying yourself in the process: <font color=#[message_color]><i>\"[message]\"</i></font>"))
+							to_chat(HL, span_big("Арканный шёпот проникает в мой разум, превращаясь в голос [user]: <font color=#[message_color]><i>\"[message]\"</i></font>"))
+							to_chat(user, span_big("Вы шепчете в разум [HL], раскрывая себя: <font color=#[message_color]><i>\"[message]\"</i></font>"))
 						else
-							to_chat(HL, span_big("A brief vision suddenly flashes in my mind, familiar as originating from [user]'s headspace: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
-							to_chat(user, span_big("You slip a brief vision into [HL]'s mind, identifying yourself in the process: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
+							to_chat(HL, span_big("В моём разуме внезапно вспыхивает видение, знакомое как исходящее из сознания [user]: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
+							to_chat(user, span_big("Вы отправляете краткое видение в разум [HL], раскрывая себя: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
 
 			// We failed the check OR we just dont know who that is
 			if(!identified)
 				if(!is_projection)
-					to_chat(HL, span_big("Arcyne whispers slip into my mind, resolving into an unknown [user.gender == FEMALE ? "woman" : "man"]'s voice: <font color=#[message_color]><i>\"[message]\"</i></font>"))
-					to_chat(user, span_big("You whisper anonymously into [HL]'s mind: <font color=#[message_color]><i>\"[message]\"</i></font>"))
+					to_chat(HL, span_big("Арканный шёпот проникает в мой разум, превращаясь в голос неизвестной [user.gender == FEMALE ? "женщины" : "мужчины"]: <font color=#[message_color]><i>\"[message]\"</i></font>"))
+					to_chat(user, span_big("Вы анонимно шепчете в разум [HL]: <font color=#[message_color]><i>\"[message]\"</i></font>"))
 				else
-					to_chat(HL, span_big("A brief vision suddenly flashes in my mind, originating from an unknown source: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
-					to_chat(user, span_big("You slip a brief vision anonymously into [HL]'s mind: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
+					to_chat(HL, span_big("Внезапная вспышка видения в моём разуме, источник неизвестен: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
+					to_chat(user, span_big("Вы анонимно отправляете краткое видение в разум [HL]: <font color=#[message_color]>\[<b>[message]</b>\]</font>"))
 
 			// Messages are whispered out loud, projections are just a silent murmur.
 			if(!is_projection)
 				user.whisper(message)
 			else
-				user.emote("me", 1, "silently murmurs something resembling speech...", TRUE, custom_me = TRUE)
+				user.emote("me", 1, "тихо бормочет что-то похожее на речь...", TRUE, custom_me = TRUE)
 			log_game("[key_name(user)] sent a message to [key_name(HL)] with contents [message]")
-			to_chat(user, span_notice("I close my eyes and focus my mind towards [HL.real_name]... The words I speak enter their head."))
+			to_chat(user, span_notice("Я закрываю глаза и сосредотачиваю свой разум на [HL.real_name]... Мои слова проникают в их голову."))
 			// maybe an option to return a message, here?
 			return TRUE
 			
-	to_chat(user, span_warning("I seek a mental connection, but can't find [input]."))
+	to_chat(user, span_warning("Я ищу ментальную связь, но не могу найти [input]."))
 	revert_cast()
 	return

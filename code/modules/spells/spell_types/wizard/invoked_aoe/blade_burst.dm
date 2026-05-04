@@ -1,7 +1,7 @@
 
 /obj/effect/proc_holder/spell/invoked/blade_burst
-	name = "Blade Burst"
-	desc = "Summon a storm of arcyne force in an area, wounding anything in that location after a delay."
+	name = "Клинковый взрыв"
+	desc = "Призывает бурю арканной силы в области, раня всё на этом месте после небольшой задержки."
 	cost = 3
 	range = 7
 	xp_gain = TRUE
@@ -38,8 +38,8 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "stab"
 	dir = NORTH
-	name = "rippling arcyne energy"
-	desc = "Get out of the way!"
+	name = "пульсирующая арканная энергия"
+	desc = "Прочь с дороги!"
 	randomdir = FALSE
 	duration = 1 SECONDS
 	layer = MASSIVE_OBJ_LAYER
@@ -71,7 +71,7 @@
 			play_cleave = TRUE
 			L.adjustBruteLoss(damage)
 			playsound(affected_turf, "genslash", 80, TRUE)
-			to_chat(L, "<span class='userdanger'>You're cut by arcyne force!</span>")
+			to_chat(L, "<span class='userdanger'>Вас режет арканная сила!</span>")
 
 	if(play_cleave)
 		playsound(T, 'sound/combat/newstuck.ogg', 80, TRUE, soundping = TRUE)

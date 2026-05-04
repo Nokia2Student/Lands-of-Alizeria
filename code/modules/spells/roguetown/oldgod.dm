@@ -1,12 +1,12 @@
 /obj/effect/proc_holder/spell/invoked/psydonlux_tamper
-	name = "WEEP"
+	name = "ПЛАЧ"
 	overlay_state = "psydonweeps"
 	releasedrain = 20
 	chargedrain = 0
 	chargetime = 0
 	range = 2
 	warnie = "sydwarning"
-	desc = "Bleed for the target, taking their wounds and refilling their blood level."
+	desc = "Истекайте кровью за цель, забирая их раны и восполняя их уровень крови."
 	movement_interrupt = FALSE
 	sound = 'sound/magic/psydonbleeds.ogg'
 	invocation = "I BLEED, SO THAT YOU MIGHT ENDURE!"
@@ -19,19 +19,19 @@
 
 /obj/effect/proc_holder/spell/invoked/psydonlux_tamper/cast(list/targets, mob/living/user)
 	if(!ishuman(targets[1]))
-		to_chat(user, span_warning("Their Lux doesn't need to be purified."))
+		to_chat(user, span_warning("Их Люкс не нуждается в очищении."))
 		revert_cast()
 		return FALSE
 	
 	var/mob/living/carbon/human/H = targets[1]
 	
 	if(H == user)
-		to_chat(user, span_warning("My own Lux maintains purity."))
+		to_chat(user, span_warning("Мой собственный Люкс сохраняет чистоту."))
 		revert_cast()
 		return FALSE
 
 	if(H.stat == DEAD)
-		to_chat(user, span_warning("[H]'s Lux is gone. I can't do anything, anymore."))
+		to_chat(user, span_warning("[H] Люкс исчез. Я больше ничего не могу сделать."))
 		user.emote("cry")
 		revert_cast()
 		return FALSE	
@@ -69,11 +69,11 @@
 		blood_transfer = BLOOD_VOLUME_NORMAL - H.blood_volume
 		H.blood_volume = BLOOD_VOLUME_NORMAL
 		user.blood_volume -= blood_transfer
-		to_chat(user, span_warning("You feel your blood drain into [H]!"))
-		to_chat(H, span_notice("You feel your blood replenish!"))
+		to_chat(user, span_warning("Вы чувствуете, как ваша кровь перетекает в [H]!"))
+		to_chat(H, span_notice("Вы чувствуете, как ваша кровь восполняется!"))
 
 	// Visual effects
-	user.visible_message(span_danger("[user] purifies [H]'s wounds!"))
+	user.visible_message(span_danger("[user] очищает раны [H]!"))
 	playsound(user, 'sound/magic/psydonbleeds.ogg', 50, TRUE)
 	
 	new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#487e97") 
@@ -84,13 +84,13 @@
 	new /obj/effect/temp_visual/psyheal_rogue(get_turf(user), "#487e97") 
 	
 	// Notify the user and target
-	to_chat(user, span_notice("You purify their Lux with the merging of theirs and your own, for a mote."))
-	to_chat(H, span_info("You feel a strange stirring sensation pour over your Lux, stealing your wounds."))
+	to_chat(user, span_notice("Вы очищаете их Люкс, сливая его со своим, ради искры."))
+	to_chat(H, span_info("Вы чувствуете, как странное волнение охватывает ваш Люкс, забирая ваши раны."))
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/psydonrespite
-	name = "RESPITE"
-	desc = "Stand still to focus on mending your injuries."
+	name = "ПЕРЕДЫШКА"
+	desc = "Стойте неподвижно, чтобы сосредоточиться на исцелении своих ран."
 	overlay_state = "RESPITE"
 	releasedrain = 20
 	chargedrain = 0
@@ -169,9 +169,9 @@
 	var/bruthealval = -7 + psicross_bonus + sit_bonus1
 	var/burnhealval = -7 + psicross_bonus + sit_bonus2
 
-	to_chat(H, span_info("I take a moment to collect myself..."))
+	to_chat(H, span_info("Я беру момент, чтобы собраться..."))
 	if(zcross_trigger)
-		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
+		user.visible_message(span_warning("[user] содрогнулся. Что-то очень неправильно."), span_userdanger("Холод пронзает мой позвоночник. Что-то смеётся над моей попыткой."))
 		user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
 		user.adjustBruteLoss(25)		
 		return FALSE
@@ -183,19 +183,19 @@
 		H.adjustBruteLoss(bruthealval)
 		H.adjustFireLoss(burnhealval)
 		if (conditional_buff)
-			to_chat(user, span_info("My pain gives way to a sense of furthered clarity before returning again, dulled."))
+			to_chat(user, span_info("Моя боль уступает место ощущению усиленной ясности, прежде чем вернуться снова, притуплённой."))
 		user.devotion?.update_devotion(-20)
-		to_chat(user, "<font color='purple'>I lose 20 devotion!</font>")
+		to_chat(user, "<font color='purple'>Я теряю 20 преданности!</font>")
 		cast(user)	
 		return TRUE
 	else
-		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))	
+		to_chat(H, span_warning("Мои мысли и чувство покоя покидают меня."))	
 		return FALSE					
 
 
 /obj/effect/proc_holder/spell/self/psydonpersist
-	name = "PERSIST"
-	desc = "Stand still to focus on mending your injuries. You shall PERSIST."
+	name = "УПОРСТВО"
+	desc = "Стойте неподвижно, чтобы сосредоточиться на исцелении своих ран. Вы будете УПОРСТВОВАТЬ."
 	overlay_state = "PERSIST"
 	releasedrain = 20
 	chargedrain = 0
@@ -274,9 +274,9 @@
 	var/bruthealval = -14 + psicross_bonus + sit_bonus1
 	var/burnhealval = -14 + psicross_bonus + sit_bonus2
 
-	to_chat(H, span_info("I take a moment to collect myself..."))
+	to_chat(H, span_info("Я беру момент, чтобы собраться..."))
 	if(zcross_trigger)
-		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
+		user.visible_message(span_warning("[user] содрогнулся. Что-то очень неправильно."), span_userdanger("Холод пронзает мой позвоночник. Что-то смеётся над моей попыткой."))
 		user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
 		user.adjustBruteLoss(25)		
 		return FALSE
@@ -288,19 +288,19 @@
 		H.adjustBruteLoss(bruthealval)
 		H.adjustFireLoss(burnhealval)
 		if (conditional_buff)
-			to_chat(user, span_info("My pain gives way to a sense of furthered clarity before returning again, dulled."))
+			to_chat(user, span_info("Моя боль уступает место ощущению усиленной ясности, прежде чем вернуться снова, притуплённой."))
 		user.devotion?.update_devotion(-60)
-		to_chat(user, "<font color='purple'>I lose 60 devotion!</font>")
+		to_chat(user, "<font color='purple'>Я теряю 60 преданности!</font>")
 		cast(user)	
 		return TRUE
 	else
-		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))	
+		to_chat(H, span_warning("Мои мысли и чувство покоя покидают меня."))	
 		return FALSE					
 
 /obj/effect/proc_holder/spell/invoked/psydonabsolve	
-	name = "ABSOLVE"
+	name = "ОТПУЩЕНИЕ"
 	overlay_state = "ABSOLVE"
-	desc = "Absolve the target, taking their damage as your own, potentially even shouldering their death at the cost of your Lyfe."
+	desc = "Отпускает цель, беря их урон на себя, возможно, даже принимая их смерть ценой вашей Жизни."
 	releasedrain = 20
 	chargedrain = 0
 	chargetime = 0
@@ -319,14 +319,14 @@
 /obj/effect/proc_holder/spell/invoked/psydonabsolve/cast(list/targets, mob/living/user)
 
 	if(!ishuman(targets[1]))
-		to_chat(user, span_warning("ABSOLUTION is for those who walk in HIS image!"))
+		to_chat(user, span_warning("ОТПУЩЕНИЕ — для тех, кто ходит в ЕГО образе!"))
 		revert_cast()
 		return FALSE
 	
 	var/mob/living/carbon/human/H = targets[1]
 	
 	if(H == user)
-		to_chat(user, span_warning("You cannot ABSOLVE yourself!"))
+		to_chat(user, span_warning("Вы не можете ОТПУСТИТЬ себя!"))
 		revert_cast()
 		return FALSE
 	
@@ -340,23 +340,23 @@
 		
 		if(head && brain && heart)
 			if(!H.mind)
-				to_chat(user, span_warning("You sense not the spark of PSYDON's gift left in this one..."))
+				to_chat(user, span_warning("Вы не чувствуете искры дара ПСАЙДОНА, оставшейся в этом..."))
 				attempting_rez = FALSE
 
 			if(HAS_TRAIT(H, TRAIT_NECRAS_VOW))
-				to_chat(user, "This one has pledged themselves whole. There's nothing to ABSOLVE.")
+				to_chat(user, "Этот отдался целиком. Здесь нечего ОТПУСКАТЬ.")
 				attempting_rez = FALSE
 
 			if(attempting_rez)
-				if (alert(user, "REACH OUT AND PULL?", "THERE'S NO LUX IN THERE", "YES", "NO") != "YES")	
+				if (alert(user, "ПРОТЯНУТЬ РУКУ И ВЫТАЩИТЬ?", "ТАМ НЕТ ЛЮКСА", "ДА", "НЕТ") != "ДА")	
 					attempting_rez = FALSE
 			
 			if (attempting_rez)
-				to_chat(user, span_warning("You attempt to revive [H] by ABSOLVING them!"))
+				to_chat(user, span_warning("Вы пытаетесь воскресить [H], ОТПУСКАЯ их!"))
 				// Dramatic effect
-				user.visible_message(span_danger("[user] grabs [H] by the wrists, attempting to ABSOLVE them!"))
-				if(alert(H, "They want to ABSOLVE you. Will you let them?", "ABSOLUTION", "I'll allow it", "I refuse") != "I'll allow it")
-					H.visible_message(span_notice("Nothing happens."))
+				user.visible_message(span_danger("[user] хватает [H] за запястья, пытаясь ОТПУСТИТЬ их!"))
+				if(alert(H, "Они хотят ОТПУСТИТЬ вас. Вы позволите им?", "ОТПУЩЕНИЕ", "Я позволю это", "Я отказываюсь") != "Я позволю это")
+					H.visible_message(span_notice("Ничего не происходит."))
 					return FALSE
 				// Create visual effects
 				H.apply_status_effect(/datum/status_effect/buff/psyvived)
@@ -364,11 +364,11 @@
 				if (user.has_status_effect(/datum/status_effect/debuff/psydon_devitalized))
 					user.say("MY LYFE FOR YOURS! LYVE, AS DOES HE!", forced = TRUE)
 					user.death()
-					user.visible_message(span_warning("A single silvery tear beads at the edge of [user]'s lifeless eyes as they slump to the ground."))
+					user.visible_message(span_warning("Одинокая серебристая слеза скатывается с края безжизненных глаз [user], когда они оседают на землю."))
 				else
 					user.apply_status_effect(/datum/status_effect/debuff/psydon_devitalized)
-					user.visible_message(span_warning("Winding strands of silvery lux snake from [user]'s touch along [H]'s arm, sinking and writhing beneath their skin in fitful bursts!"))
-					to_chat(user, span_boldwarning("A whisper of emptiness settles beneath your heart as your overtaxed lux wanes concerningly low..."))
+					user.visible_message(span_warning("Вьющиеся серебристые пряди люкса змеятся от прикосновения [user] по руке [H], проникая и извиваясь под их кожей в судорожных всплесках!"))
+					to_chat(user, span_boldwarning("Шёпот пустоты поселяется под вашим сердцем, пока ваш перенапряжённый люкс тревожно угасает..."))
 				// Revive the target
 				H.adjustOxyLoss(-H.getOxyLoss())
 				H.revive(admin_revive = FALSE)
@@ -380,13 +380,13 @@
 				ADD_TRAIT(H, TRAIT_IWASREVIVED, "[type]")
 				H.apply_status_effect(/datum/status_effect/buff/psyvived)
 				user.apply_status_effect(/datum/status_effect/buff/psyvived)
-				H.visible_message(span_notice("[H] is ABSOLVED!"), span_green("I awake from the void."))		
+				H.visible_message(span_notice("[H] ОТПУЩЕН!"), span_green("Я пробуждаюсь из пустоты."))		
 				H.mind.remove_antag_datum(/datum/antagonist/zombie)
 				H.remove_status_effect(/datum/status_effect/debuff/rotted_zombie)	//Removes the rotted-zombie debuff if they have it - Failsafe for it.
 				H.apply_status_effect(/datum/status_effect/debuff/revived)	//Temp debuff on revive, your stats get hit temporarily. Doubly so if having rotted.
 				return TRUE
 		else
-			to_chat(user, span_warning("[H] is missing vital organs and cannot be revived!"))
+			to_chat(user, span_warning("[H] отсутствуют жизненно важные органы, и они не могут быть воскрешены!"))
 			revert_cast(user)
 			return FALSE
 	
@@ -400,7 +400,7 @@
 	var/clone_transfer = H.getCloneLoss()
 
 	if (oxy_transfer >= 150)
-		if (alert(user, "THEY ARE ASHEN WITH STILLED BREATH. ABSOLUTION MAY INSTANTLY KILL YOU, LAMB. PROCEED?", "SELF-PRESERVATION", "YES", "NO") != "YES")
+		if (alert(user, "ОНИ ПЕПЕЛЬНЫ С ЗАМЕРШИМ ДЫХАНИЕМ. ОТПУЩЕНИЕ МОЖЕТ МГНОВЕННО УБИТЬ ТЕБЯ, АГНЕЦ. ПРОДОЛЖИТЬ?", "САМОСОХРАНЕНИЕ", "ДА", "НЕТ") != "ДА")
 			revert_cast()
 			return
 	
@@ -419,7 +419,7 @@
 	user.adjustCloneLoss(clone_transfer)
 
 	// Visual effects
-	user.visible_message(span_danger("[user] absolves [H]'s suffering!"))
+	user.visible_message(span_danger("[user] отпускает страдания [H]!"))
 	new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#aa1717") 
 	new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#aa1717") 
 	new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#aa1717") 
@@ -429,8 +429,8 @@
 	new /obj/effect/temp_visual/psyheal_rogue(get_turf(user), "#aa1717") 
 	
 	// Notify the user and target
-	to_chat(user, span_warning("You absolve [H] of their injuries!"))
-	to_chat(H, span_notice("[user] absolves you of your injuries!"))
+	to_chat(user, span_warning("Вы отпускаете [H] от их ран!"))
+	to_chat(H, span_notice("[user] отпускает вас от ваших ран!"))
 	
 	return TRUE
 
@@ -441,6 +441,6 @@
 	duration = 10 MINUTES 
 
 /atom/movable/screen/alert/status_effect/debuff/psydon_devitalized
-	name = "ABSOLUTION'S TOLL"
-	desc = "A cold chill settles by your heart. Taxing your lux further before you recover is sure to be your end..."
+	name = "ЦЕНА ОТПУЩЕНИЯ"
+	desc = "Холодный озноб поселяется у вашего сердца. Напрягать люкс ещё до восстановления — верный путь к концу..."
 	icon_state = "revived"

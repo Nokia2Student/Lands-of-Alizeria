@@ -1,30 +1,30 @@
 //Dummy fluid for effect
 /datum/reagent/medicine/revival_fluid
-	name = "Eoran Balm"
-	description = "A miraculous fluid that slowly heals the dead, bringing them back to life when their wounds are mended."
+	name = "Эоранский бальзам"
+	description = "Чудесная жидкость, медленно исцеляющая мёртвых и возвращающая их к жизни, когда их раны залечены."
 	color = "#cd2be2"
 	metabolization_rate = REAGENTS_METABOLISM
-	taste_description = "cold hope"
+	taste_description = "холодная надежда"
 
 /obj/item/reagent_containers/glass/bottle/revival
-	name = "vial of Eoran Balm"
-	desc = "An ominous violet fluid that seems to pulse with faint light. It's made out of strange shimmering glass. Looks fragile."
+	name = "фиал Эоранского бальзама"
+	desc = "Зловещая фиолетовая жидкость, которая, кажется, пульсирует тусклым светом. Она заключена в странное мерцающее стекло. Выглядит хрупкой."
 	list_reagents = list(/datum/reagent/medicine/revival_fluid = 48)
 
 /obj/item/reagent_containers/glass/bottle/revival/attack(mob/living/M, mob/living/user)
 	if(M.stat < DEAD)
-		to_chat(user, "They're not dead!")
+		to_chat(user, "Они не мертвы!")
 		return FALSE
 	if(!M.mind)
-		to_chat(user, "[M]'s heart is inert.")
+		to_chat(user, "Сердце [M] бездействует.")
 		return FALSE
 
 	. = ..()
 	if(iscarbon(M))
 		if(HAS_TRAIT(M, TRAIT_DNR) && M.stat == DEAD)
-			to_chat(user, span_warning("[M] will never come back again."))
+			to_chat(user, span_warning("[M] никогда не вернётся."))
 			return FALSE
 		M.apply_status_effect(/datum/status_effect/buff/eoran_balm_effect)
-	to_chat(user, span_notice("The bottle shatters after use!"))
+	to_chat(user, span_notice("Фиал разбивается после использования!"))
 	qdel(src)
 	return TRUE

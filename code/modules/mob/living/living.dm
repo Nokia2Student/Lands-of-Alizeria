@@ -112,14 +112,14 @@
 		//Should stop you pushing a restrained person out of the way
 		if(L.pulledby && L.pulledby != src && L.pulledby != L && L.restrained())
 			if(!(world.time % 5))
-				to_chat(src, span_warning("[L] is restrained, you cannot push past."))
+				to_chat(src, span_warning("[L] скован, не пролезть."))
 			return TRUE
 
 		if(L.pulling)
 			if(ismob(L.pulling) && L.pulling != L)
 				var/mob/P = L.pulling
 				if(!(world.time % 5))
-					to_chat(src, span_warning("[L] is grabbing [P], you cannot push past."))
+					to_chat(src, span_warning("[L] держит [P], не пролезть."))
 				return TRUE
 
 	if(moving_diagonally)//no mob swap during diagonal moves.
@@ -332,7 +332,7 @@
 	if(HAS_TRAIT(L, TRAIT_CIVILIZEDBARBARIAN))
 		acceptable.Add(BODY_ZONE_HEAD)
 	if( !(check_zone(L.zone_selected) in acceptable) )
-		to_chat(L, span_warning("I can't reach that."))
+		to_chat(L, span_warning("Не дотянуться."))
 		return FALSE
 	return TRUE
 
@@ -497,8 +497,8 @@
 
 /mob/living/proc/send_pull_message(mob/living/target)
 	target.visible_message(span_warning("[src] хватает [target]."), \
-					span_warning("[src] хватает меня"), span_hear("I hear shuffling."), null, src)
-	to_chat(src, span_info("I grab [target]."))
+					span_warning("[src] хватает меня"), span_hear("Слышу шум борьбы."), null, src)
+	to_chat(src, span_info("Я хватаю [target]."))
 
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
 	if(M.buckled)
@@ -666,10 +666,10 @@
 		return
 
 	if(IsSleeping())
-		to_chat(src, span_warning("I am already sleeping!"))
+		to_chat(src, span_warning("Я и так уже сплю!"))
 		return
 	else
-		if(alert(src, "You sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
+		if(alert(src, "Точно хочешь немного поспать?", "Sleep", "Yes", "No") == "Yes")
 			SetSleeping(400) //Short nap
 	update_mobility()
 
@@ -742,7 +742,7 @@
 			else
 				playsound(src, 'sound/foley/toggleup.ogg', 100, FALSE)
 		else
-			to_chat(src, span_warning("I fail to get up!"))
+			to_chat(src, span_warning("Не получается подняться!"))
 	update_cone_show()
 
 /mob/living/proc/update_resting()
@@ -787,19 +787,19 @@
 	if(!mind)
 		return FALSE
 	if(!mind.active)
-		to_chat(user, span_warning("Necra is not done with [src], yet."))
+		to_chat(user, span_warning("Некра ещё не закончила с [src]."))
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_DNR))
-		to_chat(user, span_danger("None of the Ten have them. Their only chance is spent. Where did they go?"))
+		to_chat(user, span_danger("Никто из Десяти не держит их. Единственный шанс упущен. Куда они ушли?"))
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_NECRAS_VOW))
-		to_chat(user, span_warning("This one has pledged themselves whole to Necra. They are Hers."))
+		to_chat(user, span_warning("Этот целиком и полностью посвятил себя Некре. Теперь он принадлежит Ей."))
 		return FALSE
 	if(stat < DEAD)
-		to_chat(user, span_warning("Nothing happens."))
+		to_chat(user, span_warning("Ничего не происходит."))
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_HOLLOW_LIFE))
-		to_chat(user, span_bloody("Astrata scorns this one, for reasons unknown. Lux infusal is the only option."))
+		to_chat(user, span_bloody("Астрата отвернулась от этого существа по неведомой причине. Остаётся лишь влить Люкс."))
 		src.adjustFireLoss(30)
 		src.fire_act(1,5)
 	return TRUE
@@ -821,8 +821,8 @@
 		reload_fullscreen()
 		remove_client_colour(/datum/client_colour/monochrome)
 		// Add message about struggling to recall death circumstances
-		to_chat(src, "<span class='notice'><b>As you return to life, you struggle to recall the circumstances of your death...</b></span>")
-		to_chat(src, "<span class='italic'>Your memories of your final moments are hazy and fragmented.</span>")
+		to_chat(src, "<span class='notice'><b>Возвращаясь к жизни, ты с трудом вспоминаешь, как умер...</b></span>")
+		to_chat(src, "<span class='italic'>Воспоминания о последних мгновениях словно в тумане и обрывочны.</span>")
 		. = TRUE
 		if(mind)
 			if(admin_revive)
@@ -1086,7 +1086,7 @@
 	if(surrendering || stat)
 		return
 	if(!instant)
-		if(alert(src, "Do you yield?", "SURRENDER", "Yes", "No") == "No")
+		if(alert(src, "Сдаться?", "СДАЧА", "Да", "Нет") == "Нет")
 			return
 	log_combat(src, null, "surrendered")
 	surrendering = 1
@@ -1121,19 +1121,19 @@
 		src.compliance = 0
 		remove_status_effect(/datum/status_effect/compliance)
 		if(notifyme)
-			to_chat(src, span_info("I will struggle against grabs as usual."))
+			to_chat(src, span_info("Я снова буду вырываться из захватов."))
 	else
 		src.compliance = 1
 		apply_status_effect(/datum/status_effect/compliance)
 		if(notifyme)
-			to_chat(src, span_info("I will allow all grabs and resistance attempts by others."))
+			to_chat(src, span_info("Я позволю себя хватать и не буду сопротивляться."))
 
 
 /mob/proc/stop_attack(message = FALSE)
 	if(atkswinging)
 		atkswinging = FALSE
 		if(message)
-			to_chat(src, span_warning("Attack stopped."))
+			to_chat(src, span_warning("Атака прервана."))
 	if(client)
 		client.charging = 0
 		client.chargedprog = 0
@@ -1454,10 +1454,10 @@
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
-		to_chat(src, span_warning("I are unable to fire this!"))
+		to_chat(src, span_warning("Я не могу выстрелить из этого!"))
 		return FALSE
 	if(G.trigger_guard != TRIGGER_GUARD_ALLOW_ALL && !IsAdvancedToolUser())
-		to_chat(src, span_warning("I try to fire [G], but can't use the trigger!"))
+		to_chat(src, span_warning("Пытаюсь спустить курок [G], но не выходит!"))
 		return FALSE
 	return TRUE
 
@@ -1636,12 +1636,12 @@
 /mob/living/proc/knockOver(mob/living/carbon/C)
 	if(C.key) //save us from monkey hordes
 		C.visible_message("<span class='warning'>[pick( \
-						"[C] dives out of [src]'s way!", \
-						"[C] stumbles over [src]!", \
-						"[C] jumps out of [src]'s path!", \
-						"[C] trips over [src] and falls!", \
-						"[C] topples over [src]!", \
-						"[C] leaps out of [src]'s way!")]</span>")
+						"[C] уворачивается от [src]!", \
+						"[C] спотыкается о [src]!", \
+						"[C] выпрыгивает с дороги [src]!", \
+						"[C] запинается о [src] и падает!", \
+						"[C] опрокидывается на [src]!", \
+						"[C] отпрыгивает в сторону от [src]!")]</span>")
 	C.Paralyze(40)
 
 /mob/living/ConveyorMove()
@@ -2050,22 +2050,22 @@
 		if(T.can_see_sky())
 			switch(GLOB.forecast)
 				if("prerain")
-					to_chat(src, span_warning("Dark clouds gather..."))
+					to_chat(src, span_warning("Сгущаются чёрные тучи..."))
 					return
 				if("rain")
-					to_chat(src, span_warning("A wet wind blows."))
+					to_chat(src, span_warning("Дует влажный ветер."))
 					return
 				if("rainbow")
-					to_chat(src, span_notice("A beautiful rainbow!"))
+					to_chat(src, span_notice("Красивая радуга!"))
 					return
 				if("fog")
-					to_chat(src, span_warning("I can't see anything, the fog has set in."))
+					to_chat(src, span_warning("Ничего не видно — опустился туман."))
 					return
-			to_chat(src, span_warning("There is nothing special to say about this weather."))
+			to_chat(src, span_warning("Ничего особенного о погоде не скажешь."))
 			do_time_change()
 		return
 	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
-		to_chat(src, span_warning("A ceiling above my head."))
+		to_chat(src, span_warning("Прямо надо мной потолок."))
 		return
 
 	if(T.can_see_sky())
@@ -2100,7 +2100,7 @@
 	var/_x = T.x-loc.x
 	var/_y = T.y-loc.y
 	var/dist = get_dist(src, T)
-	var/message = span_info("[src] смотрит вдаль.")
+	var/message = span_info("[src] всматривается вдаль.")
 	if(dist > 7 || dist  <= 2)
 		return
 	hide_cone()
@@ -2112,7 +2112,7 @@
 		if(STAPER == 10)
 			offset = 1
 		else
-			message = span_info("[src] оглядывает округу.")
+			message = span_info("[src] осматривает окрестности.")
 		if(_x > 0)
 			_x -= offset
 			_x = max(0, _x)
@@ -2130,7 +2130,7 @@
 		if(offset > 5)	//Caps the bonus at 15 PER, which is a whole extra screen in an orthogonal direction. Anymore will get disorienting.
 			offset = 5
 		if(STAPER >= 12)
-			message = span_info("[src] быстро оглядывает округу.")
+			message = span_info("[src] быстрым взглядом окидывает округу.")
 		if(_x > 0)
 			_x += offset
 		else if(_x != 0)
@@ -2141,7 +2141,7 @@
 			_y -= offset
 	if(m_intent != MOVE_INTENT_SNEAK)
 		if(_y == 0 && _x == 0)	//Their PER was too low to see anything.
-			message = span_info("[src] неуклюже смотрят перед собой.")
+			message = span_info("[src] неуклюже пялится перед собой.")
 		visible_message(message)
 	animate(client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, ttime)
 //	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(stop_looking))
