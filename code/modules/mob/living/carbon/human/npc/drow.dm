@@ -56,9 +56,9 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 						/datum/sprite_accessory/hair/head/countryponytailalt,
 						/datum/sprite_accessory/hair/head/stacy,
 						/datum/sprite_accessory/hair/head/kusanagi_alt))
-	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailyeager, 
-						/datum/sprite_accessory/hair/head/dave, 
-						/datum/sprite_accessory/hair/head/emo, 
+	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailyeager,
+						/datum/sprite_accessory/hair/head/dave,
+						/datum/sprite_accessory/hair/head/emo,
 						/datum/sprite_accessory/hair/head/sabitsuki))
 
 	var/datum/bodypart_feature/hair/head/new_hair = new()
@@ -85,6 +85,15 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 		organ_ears.accessory_colors = "#5f5f70"
 
 	skin_tone = "5f5f70"
+
+	if(gender == FEMALE)
+		var/obj/item/organ/breasts/breasts = new()
+		breasts.Insert(src, TRUE, FALSE)
+		breasts.accessory_type = pick(subtypesof(/datum/sprite_accessory/breasts/pair))
+		breasts.breast_size = 0
+
+		var/obj/item/organ/vagina/vagina = new()
+		vagina.Insert(src, TRUE, FALSE)
 
 	if(gender == FEMALE)
 		real_name = pick(world.file2list("strings/rt/names/elf/elfdf.txt"))

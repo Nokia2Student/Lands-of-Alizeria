@@ -132,7 +132,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			return
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
-		user.visible_message(span_warning("[user] starts to climb down."), span_warning("I start to climb down."))
+		user.visible_message(span_warning("[user] starts to climb down."), span_warning("Я начинаю спускаться вниз."))
 		var/climber2wall_dir = get_dir(src, L)
 		if(do_after(L, (HAS_TRAIT(L, TRAIT_WOODWALKER) ? 15 : 30), target = src))
 			if(user.m_intent != MOVE_INTENT_SNEAK)

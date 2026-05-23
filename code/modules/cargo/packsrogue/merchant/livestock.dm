@@ -1,11 +1,11 @@
 
 /datum/supply_pack/rogue/livestock
-	group = "Livestock"
+	group = "Скот"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/livestock/saiga
-	name = "Saiga"
+	name = "Сайга"
 	cost = 150
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled,
@@ -13,63 +13,63 @@
 
 
 /datum/supply_pack/rogue/livestock/chicken
-	name = "Chicken"
+	name = "Курица"
 	cost = 50
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/chicken,
 				)
 
 /datum/supply_pack/rogue/livestock/cow
-	name = "Cow"
+	name = "Корова"
 	cost = 80
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/cow,
 				)
 
 /datum/supply_pack/rogue/livestock/goat
-	name = "Goat"
+	name = "Коза"
 	cost = 80
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/goat,
 				)
 
 /datum/supply_pack/rogue/livestock/cat
-	name = "Cat"
+	name = "Кот"
 	cost = 50
 	contains = list(
 					/mob/living/simple_animal/pet/cat,
 				)
 
 /datum/supply_pack/rogue/livestock/pig
-	name = "Pig (Truffle)"
+	name = "Свинья (трюфельная)"
 	cost = 80
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/trufflepig,
 				)
 
 /datum/supply_pack/rogue/livestock/swine
-	name = "Swine"
+	name = "Свинья"
 	cost = 100
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/swine,
 				)
 
 /datum/supply_pack/rogue/livestock/hog
-	name = "Hog"
+	name = "Боров"
 	cost = 100
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/swine/hog,
 				)
 
 /datum/supply_pack/rogue/livestock/hog_rider
-	name = "Hog (Saddled)"
+	name = "Боров (осёдланный)"
 	cost = 125
 	contains = list(
 					/mob/living/simple_animal/hostile/retaliate/rogue/swine/hog/tame/saddled,
 				)
 
 /datum/supply_pack/rogue/livestock/queen_bee
-	name = "Queen Bee"
+	name = "Пчелиная матка"
 	cost = 80
 	contains = list(
 					/obj/item/queen_bee,
@@ -77,19 +77,19 @@
 
 
 /datum/supply_pack/rogue/livestock/antiviral
-	name = "foulbrood tincture"
+	name = "Настойка от гнильца"
 	cost = 40
 	contains = list(
 					/obj/item/bee_treatment/antiviral,
 				)
 /datum/supply_pack/rogue/livestock/miticide
-	name = "mitebane tincture"
+	name = "Настойка против клещей"
 	cost = 40
 	contains = list(
 					/obj/item/bee_treatment/miticide,
 				)
 /datum/supply_pack/rogue/livestock/insecticide
-	name = "mothbane tincture"
+	name = "Настойка против моли"
 	cost = 40
 	contains = list(
 					/obj/item/bee_treatment/insecticide,

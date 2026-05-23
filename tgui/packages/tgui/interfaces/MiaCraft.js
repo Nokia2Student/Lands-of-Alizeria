@@ -43,26 +43,26 @@ const CraftingCategory = ({ crafties, key3, onlyCraftable, craftability, key, ac
         <Stack.Item basis="80%">
           <Collapsible title={recipe.name} style={{ backgroundColor: craftability.some(object => object[0] === recipe.name && object[1] === 1) ? "" : "grey" }}>
             <LabeledList >
-              <LabeledList.Item label="Ingredients" style={{ 'margin-left': '20px' }}>
+              <LabeledList.Item label="Ингредиенты" style={{ 'margin-left': '20px' }}>
                 {recipe.req_text}
               </LabeledList.Item>
-              <LabeledList.Item label="Difficulty" style={{ 'margin-left': '20px' }}>
+              <LabeledList.Item label="Сложность" style={{ 'margin-left': '20px' }}>
                 {recipe.craftingdifficulty}
               </LabeledList.Item>
               { recipe.tool_text &&
-                <LabeledList.Item label="Tool" style={{ 'margin-left': '20px' }}>
+                <LabeledList.Item label="Инструмент" style={{ 'margin-left': '20px' }}>
                   {recipe.tool_text}
                 </LabeledList.Item>
               }
               {recipe.catalyst_text && 
-                  <LabeledList.Item label="Catalyst" style={{ 'margin-left': '20px' }}>
+                  <LabeledList.Item label="Катализатор" style={{ 'margin-left': '20px' }}>
                     {recipe.catalyst_text}
                   </LabeledList.Item>
               }
-              <LabeledList.Item label="Sell Price" style={{ 'margin-left': '20px' }}>
+              <LabeledList.Item label="Цена продажи" style={{ 'margin-left': '20px' }}>
                 {recipe.sellprice}
               </LabeledList.Item>
-              <LabeledList.Item label="Craft it!" style={{ 'margin-left': '20px', 'gap': '4px' }}>
+              <LabeledList.Item label="Создать" style={{ 'margin-left': '20px', 'gap': '4px' }}>
                 <Button content="1x" onClick={() => {
                   actfunc('craft', {
                     item : recipe.path,
@@ -129,10 +129,10 @@ export const MiaCraft = (props, context) => {
           <Stack.Item style={{ 'position': 'sticky' }}>
               <Stack>
                 <Stack.Item>
-                  <Input placeholder="Search..." autoFocus value={searchText} onInput={(e) => SearchTextModify(e.target.value.toLowerCase())} />
+                  <Input placeholder="Поиск..." autoFocus value={searchText} onInput={(e) => SearchTextModify(e.target.value.toLowerCase())} />
                 </Stack.Item>
                 <Stack.Item>
-                  <label>Show only craftables</label>
+                  <label>Показывать только доступные</label>
                   <input type="checkbox" checked={onlyCraftable} onClick={() => ToggleOnlyCraftable()} />
                 </Stack.Item>
               </Stack>

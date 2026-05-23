@@ -3,13 +3,13 @@
 // The Gronn stuff is all-in-one due to laziness, not as a standard.
 
 /datum/supply_pack/rogue/armor_exotic
-	group = "Armor (Exotic)"
+	group = "Доспехи (экзотика)"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 	no_name_quantity = TRUE
 
 /datum/supply_pack/rogue/armor_exotic/gronn_pack_light
-	name = "Gronnic Ravager Leather Set (Light)"
+	name = "Кожаный набор гроннского разорителя (лёгкий)"
 	cost = 125
 	contains = list(
 		/obj/item/clothing/head/roguetown/helmet/bascinet/atgervi/gronn,
@@ -19,7 +19,7 @@
 		)
 
 /datum/supply_pack/rogue/armor_exotic/gronn_pack_medium
-	name = "Gronnic Byrine Chain Set (Medium)"
+	name = "Кольчужный набор гроннского бирина (средний)"
 	cost = 225
 	contains = list(
 		/obj/item/clothing/head/roguetown/helmet/bascinet/atgervi/gronn/ownel,
@@ -29,7 +29,7 @@
 		)
 
 /datum/supply_pack/rogue/armor_exotic/gronn_pack_heavy
-	name = "Gronnic Norsii Plate Set (Heavy)"
+	name = "Латный набор гроннского норси (тяжёлый)"
 	cost = 400
 	contains = list(
 		/obj/item/clothing/head/roguetown/helmet/heavy/bucket/gronn,

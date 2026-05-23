@@ -43,7 +43,7 @@
 					for(var/trait in required_traits)
 						if(!HAS_TRAIT(mind.current, trait))
 							if(COOLDOWN_FINISHED(src, trait_block_warning))
-								to_chat(mind.current, span_warning("My [S.name] knowledge feels... blocked. Perhaps I need some natural talent for this."))
+								to_chat(mind.current, span_warning("Мои познания в [S.name] словно упираются в стену... Возможно, мне не хватает природного дара."))
 								COOLDOWN_START(src, trait_block_warning, 60 SECONDS)
 							return FALSE // Return FALSE to indicate XP was blocked
 	
@@ -118,34 +118,34 @@
 	if(!can_advance_pre && can_advance_post && !silent)
 		if(mind.current.construct)
 			to_chat(mind.current, span_nicegreen(pick(list(
-			"I'm getting a better grasp at [lowertext(skillref.name)].",
-			"With an engineer's help, I feel like I can get better at [lowertext(skillref.name)].",
-			"[skillref.name] starts making more sense to me.",
+			"Я начинаю лучше понимать [lowertext(skillref.name)].",
+			"С помощью инженера я, кажется, смогу улучшить свои навыки в [lowertext(skillref.name)].",
+			"[skillref.name] начинает обретать для меня смысл.",
 			))))
 			return
 		to_chat(mind.current, span_nicegreen(pick(list(
-			"I'm getting a better grasp at [lowertext(skillref.name)]...",
-			"With some rest, I feel like I can get better at [lowertext(skillref.name)]...",
-			"[skillref.name] starts making more sense to me...",
+			"Я начинаю лучше понимать [lowertext(skillref.name)]...",
+			"Немного отдохнув, я, кажется, смогу улучшить свои навыки в [lowertext(skillref.name)]...",
+			"[skillref.name] начинает обретать для меня смысл...",
 		))))
 		if(!COOLDOWN_FINISHED(src, level_up))
 			if((L.client?.prefs.floating_text_toggles & XP_TEXT))
-				L.balloon_alert(L, "<font color = '#9BCCD0'>Level up...</font>")
+				L.balloon_alert(L, "<font color = '#9BCCD0'>Новый уровень...</font>")
 			L.playsound_local(L, pick(LEVEL_UP_SOUNDS), 100, TRUE)
 			COOLDOWN_START(src, level_up, XP_SHOW_COOLDOWN)
 		show_xp = FALSE
 	if(!capped_pre && capped_post && !silent)
 		if(mind.current.construct)
 			to_chat(mind.current, span_nicegreen(pick(list(
-			"My [lowertext(skillref.name)] cannot improve without a skill exhibitor.",
+			"Мои навыки [lowertext(skillref.name)] не могут улучшиться без наставника.",
 			))))
 			return
 		to_chat(mind.current, span_nicegreen(pick(list(
-			"My [lowertext(skillref.name)] can no longer improve without some rest and meditation...",
+			"Мои навыки [lowertext(skillref.name)] уже не улучшатся без отдыха и размышлений...",
 		))))
 		if(!COOLDOWN_FINISHED(src, level_up))
 			if((L.client?.prefs.floating_text_toggles & XP_TEXT))
-				L.balloon_alert(L, "<font color = '#9BCCD0'>Level up...</font>")
+				L.balloon_alert(L, "<font color = '#9BCCD0'>Новый уровень...</font>")
 			L.playsound_local(L, pick(LEVEL_UP_SOUNDS), 100, TRUE)
 			COOLDOWN_START(src, level_up, XP_SHOW_COOLDOWN)
 		show_xp = FALSE
@@ -161,7 +161,7 @@
 	if(prob(0)) //TODO SLEEP ADV SPECIALS
 		rolled_specials++
 	var/inspirations = 1
-	to_chat(mind.current, span_notice("My consciousness slips and I start dreaming..."))
+	to_chat(mind.current, span_notice("Сознание ускользает, и я начинаю видеть сны..."))
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
@@ -169,22 +169,22 @@
 	var/int = mind.current.STAINT
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
 	if(int < 10)
-		to_chat(mind.current, span_boldwarning("My shallow imagination makes them dull..."))
+		to_chat(mind.current, span_boldwarning("Скудное воображение делает их тусклыми..."))
 	else if (int > 10)
-		to_chat(mind.current, span_notice("My creative thinking enhances them..."))
+		to_chat(mind.current, span_notice("Мой креатив наполняет их красками..."))
 
 	var/stress_median = stress_amount / stress_cycles
 	if(HAS_TRAIT(mind.current, TRAIT_NOCINSPIRE))
-		to_chat(mind.current, span_notice("Noc grants me a lucid vision from another perspective. I understand more, now."))
+		to_chat(mind.current, span_notice("Нок дарует мне ясное видение с иной стороны. Теперь я понимаю больше."))
 		inspirations++
 	if(stress_median <= -1)
 		// Unstressed, happy
-		to_chat(mind.current, span_notice("With no stresses throughout the day I dream vividly..."))
+		to_chat(mind.current, span_notice("Без какого-либо стресса в течение дня я вижу яркие сны..."))
 		dream_dust += 100
 		inspirations++
 	else if (stress_median >= 5.0)
 		// Stressed, unhappy
-		to_chat(mind.current, span_boldwarning("Bothered by the stresses of the day my dreams are short..."))
+		to_chat(mind.current, span_boldwarning("Дневные заботы не отпускают — сны коротки и обрывочны..."))
 		dream_dust -= 100
 
 	grant_inspiration_xp(inspirations)
@@ -204,8 +204,8 @@
 
 /datum/sleep_adv/proc/show_ui(mob/living/user)
 	var/list/dat = list()
-	dat += "<center>Cycle \Roman[sleep_adv_cycle]</center>"
-	dat += "<br><center>Dream, for those who dream may reach higher heights</center><br>"
+	dat += "<center>Цикл \Roman[sleep_adv_cycle]</center>"
+	dat += "<br><center>Спи, ибо спящий способен достичь больших высот</center><br>"
 	dat += "<center>\Roman[sleep_adv_points]</center>"
 	for(var/skill_type in SSskills.all_skills)
 		var/datum/skill/skill = GetSkillRef(skill_type)
@@ -218,10 +218,10 @@
 	dat += "<br>"
 	if(rolled_specials > 0)
 		var/can_buy = can_buy_special()
-		dat += "<br><a [can_buy ? "" : "class='linkOff'"] href='?src=[REF(src)];task=buy_special'>Dream something <b>special</b></a> - \Roman[get_special_cost()]"
-		dat += "<br>Specials can have negative or positive effects"
-	dat += "<br><br><center>Your points will be retained<br><a href='?src=[REF(src)];task=continue'>Continue</a></center>"
-	var/datum/browser/popup = new(user, "dreams", "<center>Dreams</center>", 350, 450)
+		dat += "<br><a [can_buy ? "" : "class='linkOff'"] href='?src=[REF(src)];task=buy_special'>Увидеть нечто <b>особенное</b> во сне</a> - \Roman[get_special_cost()]"
+		dat += "<br>Особенные сны могут нести как благо, так и проклятие"
+	dat += "<br><br><center>Очки снов сохранятся<br><a href='?src=[REF(src)];task=continue'>Продолжить</a></center>"
+	var/datum/browser/popup = new(user, "dreams", "<center>Сны</center>", 350, 450)
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
@@ -278,7 +278,7 @@
 
 	// Notify player if they're benefiting from Malum's blessing for craft skills or sewing
 	if(HAS_TRAIT(mind.current, TRAIT_FORGEBLESSED) && (istype(skill, /datum/skill/craft) || istype(skill, /datum/skill/misc/sewing)))
-		to_chat(mind.current, span_notice("Malum's blessing reduces the dream point cost of your crafting training."))
+		to_chat(mind.current, span_notice("Благословение Малума снижает стоимость обучения ремеслу во сне."))
 
 	sleep_adv_points -= get_skill_cost(skill_type)
 	adjust_sleep_xp(skill_type, -get_requried_sleep_xp_for_skill(skill_type, 1))
@@ -315,11 +315,11 @@
 	for(var/i in 1 to inspired_skill_names.len)
 		var/skill_name = inspired_skill_names[i]
 		if(i > 1 && i == inspired_skill_names.len)
-			skill_string += " and "
+			skill_string += " и "
 		else if(i != 1)
 			skill_string += ", "
 		skill_string += lowertext(skill_name)
-	to_chat(mind.current, span_notice("I feel inspired about [skill_string]..."))
+	to_chat(mind.current, span_notice("Меня посетило озарение насчёт [skill_string]..."))
 
 
 /datum/sleep_adv/proc/buy_special()
@@ -334,18 +334,18 @@
 		return
 	if(mind.has_changed_spell)
 		mind.has_changed_spell = FALSE
-		to_chat(mind.current, span_smallnotice("I feel like I can change my spells again."))
+		to_chat(mind.current, span_smallnotice("Я чувствую, что снова могу менять свои заклинания."))
 	if(mind.has_rituos)
 		mind.has_rituos = FALSE
-		to_chat(mind.current, span_smallnotice("The toil of invoking Her Lesser Work has fled my feeble form. I can continue my transfiguration..."))
+		to_chat(mind.current, span_smallnotice("Бремя воззвания к Её Малой Работе покинуло моё слабое тело. Я могу продолжить преображение..."))
 	if (mind.rituos_spell)
-		to_chat(mind.current, span_warning("My glimpse of [mind.rituos_spell.name] flees my slumbering mind..."))
+		to_chat(mind.current, span_warning("Видение [mind.rituos_spell.name] ускользает из моего спящего разума..."))
 		mind.RemoveSpell(mind.rituos_spell)
 		mind.rituos_spell = null
-	to_chat(mind.current, span_notice("...and that's all I dreamt of."))
+	to_chat(mind.current, span_notice("...и на этом сны мои закончились."))
 	if(HAS_TRAIT(mind.current, TRAIT_STUDENT))
 		REMOVE_TRAIT(mind.current, TRAIT_STUDENT, TRAIT_GENERIC)
-		to_chat(mind.current, span_nicegreen("I feel that I can be educated in a skill once more."))
+		to_chat(mind.current, span_nicegreen("Я чувствую, что снова могу обучиться навыку."))
 	close_ui()
 
 /datum/sleep_adv/Topic(href, list/href_list)

@@ -91,7 +91,7 @@
 
 /datum/charflaw/addiction/smoker
 	name = "Курильщик"
-	desc = "Меня постоянно тянет на зигареты..."
+	desc = "Меня постоянно тянет на сигареты..."
 	time = 40 MINUTES
 	needsate_text = "Время закурить..."
 

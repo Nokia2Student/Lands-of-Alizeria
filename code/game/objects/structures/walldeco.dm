@@ -190,6 +190,21 @@
 /obj/structure/fluff/walldeco/bigpainting/lake
 	icon_state = "lake"
 
+/obj/structure/fluff/walldeco/bigpainting/rose
+	icon_state = "rose"
+
+/obj/structure/fluff/walldeco/bigpainting/ruins
+	icon_state = "ruins"
+
+/obj/structure/fluff/walldeco/bigpainting/moon
+	icon_state = "moon"
+
+/obj/structure/fluff/walldeco/bigpainting/factory
+	icon_state = "factory"
+
+/obj/structure/fluff/walldeco/bigpainting/high
+	icon_state = "high"
+
 /obj/structure/fluff/walldeco/mona
 	name = "painting"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
@@ -249,6 +264,33 @@
 
 /obj/structure/fluff/walldeco/rpainting/crown
 	icon_state = "painting_3"
+
+/obj/structure/fluff/walldeco/rpainting/roses
+	icon_state = "painting_4"
+
+/obj/structure/fluff/walldeco/rpainting/sea
+	icon_state = "painting_5"
+
+/obj/structure/fluff/walldeco/rpainting/high
+	icon_state = "painting_6"
+
+/obj/structure/fluff/walldeco/rpainting/dragon
+	icon_state = "painting_7"
+
+/obj/structure/fluff/walldeco/rpainting/lady
+	icon_state = "painting_8"
+
+/obj/structure/fluff/walldeco/rpainting/sword
+	icon_state = "painting_9"
+
+/obj/structure/fluff/walldeco/rpainting/ship
+	icon_state = "painting_10"
+
+/obj/structure/fluff/walldeco/rpainting/wine
+	icon_state = "painting_11"
+
+/obj/structure/fluff/walldeco/rpainting/greenforest
+	icon_state = "painting_12"
 
 /obj/structure/fluff/walldeco/med
 	name = "diagram"

@@ -1603,7 +1603,7 @@
 			state2use = "mood_starsugar"
 		if(H.has_status_effect(/datum/status_effect/buff/bloodrage))
 			state2use = "mood_ult"
-		
+
 		//We go down a janky list of exceptions for total overrides
 		if(HAS_TRAIT(H, TRAIT_NOMOOD))
 			state2use = "mood_hopeless"

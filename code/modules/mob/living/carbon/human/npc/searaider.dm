@@ -52,7 +52,7 @@ GLOBAL_LIST_INIT(searaider_aggro, world.file2list("strings/rt/searaideraggroline
 	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
 	var/hairf = pick(list(/datum/sprite_accessory/hair/head/lowbraid,
 						/datum/sprite_accessory/hair/head/countryponytailalt))
-	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailyeager, 
+	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytailyeager,
 						/datum/sprite_accessory/hair/head/lowbraid))
 	var/beard = pick(list(/datum/sprite_accessory/hair/facial/viking,
 						/datum/sprite_accessory/hair/facial/manly,
@@ -80,6 +80,19 @@ GLOBAL_LIST_INIT(searaider_aggro, world.file2list("strings/rt/searaideraggroline
 		new_facial.accessory_colors = "#A56B3D"
 		new_facial.hair_color = "#A56B3D"
 		hair_color = "#A56B3D"
+
+	if(gender == FEMALE)
+		var/obj/item/organ/breasts/breasts = new()
+		breasts.Insert(src, TRUE, FALSE)
+
+		var/obj/item/organ/vagina/vagina = new()
+		vagina.Insert(src, TRUE, FALSE)
+	else
+		var/obj/item/organ/penis/penis = new()
+		penis.Insert(src, TRUE, FALSE)
+
+		var/obj/item/organ/testicles/testicles = new()
+		testicles.Insert(src, TRUE, FALSE)
 
 	head.add_bodypart_feature(new_hair)
 	head.add_bodypart_feature(new_facial)

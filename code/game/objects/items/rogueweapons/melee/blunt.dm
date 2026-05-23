@@ -51,7 +51,7 @@
 //blunt objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/mace
-	force = 20
+	force = 40
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze)
@@ -102,15 +102,15 @@
 	desc = "A decrepit old mace. Aeon's grasp is upon it."
 	icon_state = "amace"
 	smeltresult = /obj/item/ingot/aalloy
-	force = 17
-	force_wielded = 21
+	force = 34
+	force_wielded = 74
 	max_integrity = 180
 	blade_dulling = DULLING_SHAFT_CONJURED
 
 
 /obj/item/rogueweapon/mace/church
-	force = 25
-	force_wielded = 30
+	force = 50
+	force_wielded = 70
 	name = "bell ringer"
 	desc = "This heavy hammer is used to ring the church's bell."
 	icon_state = "churchmace"
@@ -119,8 +119,8 @@
 	wdefense = 3
 
 /obj/item/rogueweapon/mace/steel
-	force = 25
-	force_wielded = 32
+	force = 50
+	force_wielded = 72
 	name = "steel mace"
 	desc = "This steel mace is objectively superior to an iron one."
 	icon_state = "smace"
@@ -140,8 +140,8 @@
 	name = "silver war hammer"
 	desc = "A light war hammer forged of silver."
 	icon_state = "silverhammer"
-	force = 18
-	force_wielded = 20
+	force = 36
+	force_wielded = 56
 	minstr = 9
 	wdefense = 5
 	gripped_intents = null
@@ -174,8 +174,8 @@
 
 
 /obj/item/rogueweapon/mace/woodclub
-	force = 15
-	force_wielded = 18
+	force = 30
+	force_wielded = 46
 	name = "wooden club"
 	desc = "A primitive cudgel carved of a stout piece of treefall."
 	icon_state = "club1"
@@ -207,9 +207,9 @@
 /obj/item/rogueweapon/mace/cudgel
 	name = "cudgel"
 	desc = "A stubby little club for brigands or thieves. Attempting parries with this is a bad idea."
-	force = 25
+	force = 50
 	icon_state = "cudgel"
-	force_wielded = 25
+	force_wielded = 60
 	possible_item_intents = list(/datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/mace/smash, /datum/intent/mace/strike)
 	smeltresult = /obj/item/ash
@@ -235,8 +235,8 @@
 	name = "psydonian handmace"
 	desc = "A shorthanded mace, a convenient sleeping aid, or a means to root out heresy. It's all in the wrist."
 	icon_state = "psyflangedmace"
-	force = 20
-	force_wielded = 20
+	force = 40
+	force_wielded = 45
 	minstr = 9
 	wdefense = 5
 	wbalance = WBALANCE_SWIFT
@@ -270,25 +270,25 @@
 /obj/item/rogueweapon/mace/cudgel/psy/old
 	name = "old psydonian handmace"
 	desc = "A shorthanded mace and convenient sleeping aid, its grown harder to swing with age, though it hasn't lost reliability."
-	force = 20
+	force = 40
 	wbalance = WBALANCE_NORMAL
 	icon_state = "opsyflangedmace"
 
 /obj/item/rogueweapon/mace/cudgel/copper
 	name = "copper bludgeon"
 	desc = "An extremely crude weapon for cruder bastards."
-	force = 15
+	force = 30
 	icon_state = "cbludgeon"
-	force_wielded = 20
+	force_wielded = 50
 	smeltresult = /obj/item/ingot/copper
 	wdefense = 2
 
 /obj/item/rogueweapon/mace/cudgel/justice
 	name = "'Justice'"
 	desc = "The icon of the right of office of the Marshal. While mostly ceremonial in design, it serves it's purpose in dishing out some much needed justice."
-	force = 30
+	force = 60
 	icon_state = "justice"
-	force_wielded = 30
+	force_wielded = 80
 	gripped_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
 	smeltresult = /obj/item/ingot/steel
 	wlength = WLENGTH_SHORT
@@ -379,8 +379,8 @@
 
 
 /obj/item/rogueweapon/mace/goden
-	force = 15
-	force_wielded = 30
+	force = 30
+	force_wielded = 50
 	possible_item_intents = list(/datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/rangedthrust, /datum/intent/effect/daze)
 	name = "Goedendag"
@@ -419,8 +419,8 @@
 /obj/item/rogueweapon/mace/goden/aalloy
 	name = "decrepit grand mace"
 	desc = "A decrepit old grand mace. Aeon's grasp is upon it."
-	force = 12
-	force_wielded = 22
+	force = 24
+	force_wielded = 42
 	icon_state = "ancient_supermace"
 	smeltresult = /obj/item/ingot/aalloy
 	blade_dulling = DULLING_SHAFT_CONJURED
@@ -429,8 +429,8 @@
 	name = "grand mace"
 	desc = "Good morning, sire."
 	icon_state = "polemace"
-	force = 15
-	force_wielded = 35
+	force = 30
+	force_wielded = 55
 	gripped_intents = list(/datum/intent/mace/strike/reach, /datum/intent/mace/smash/reach, /datum/intent/mace/rangedthrust, /datum/intent/effect/daze)
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
@@ -447,8 +447,8 @@
 	desc = "A staff made of seaglass and sturdy but unusual metal, holding no power after its misled owner's death. More useful as a bashing tool than a magic focus."
 	icon = 'icons/roguetown/mob/monster/pufferboss.dmi'
 	icon_state = "pufferprod"
-	force = 15
-	force_wielded = 35
+	force = 30
+	force_wielded = 55
 	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash/reach, /datum/intent/mace/rangedthrust, /datum/intent/effect/daze)
 	minstr = 11
 	max_integrity = 900
@@ -465,8 +465,8 @@
 	name = "tetsubo"
 	desc = "A heavier variant of the kanabo, fitted with a steel sleeve bearing menacing spikes and favored by Ogrun Warlords. Requires immense strength to use, but hits like a raging bull."
 	icon_state = "tetsubo"
-	force = 20
-	force_wielded = 40 //Minotaur greataxe, but for blunt weapons
+	force = 40
+	force_wielded = 60 //Minotaur greataxe, but for blunt weapons
 	possible_item_intents = list(/datum/intent/mace/strike/reach)
 	gripped_intents = list(/datum/intent/mace/strike/reach, /datum/intent/mace/smash/reach, /datum/intent/effect/daze)
 	sharpness = IS_SHARP
@@ -479,8 +479,8 @@
 	name = "psydonian mace"
 	desc = "An ornate mace, plated in a ceremonial veneer of silver. Even the unholy aren't immune to discombobulation."
 	icon_state = "psymace"
-	force = 20
-	force_wielded = 25
+	force = 40
+	force_wielded = 65
 	minstr = 12
 	wdefense = 6
 	wbalance = WBALANCE_HEAVY
@@ -518,7 +518,7 @@
 	icon_state = "morningstar"
 
 /obj/item/rogueweapon/mace/warhammer
-	force = 20
+	force = 40
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/warhammer/pick)
 	gripped_intents = null
 	name = "warhammer"
@@ -534,12 +534,12 @@
 	desc = "A decrepit old warhammer. Aeon's grasp is upon it."
 	icon_state = "awarhammer"
 	smeltresult = /obj/item/ingot/aalloy
-	force = 17
+	force = 34
 	max_integrity = 180
 	blade_dulling = DULLING_SHAFT_CONJURED
 
 /obj/item/rogueweapon/mace/warhammer/steel
-	force = 25
+	force = 50
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/warhammer/pick, /datum/intent/mace/warhammer/stab)
 	name = "steel warhammer"
 	desc = "A fine steel warhammer, makes a satisfying sound when paired with a knight's helm."
@@ -593,7 +593,7 @@
 /obj/item/rogueweapon/mace/cudgel/ogre
 	name = "Head Knockah"
 	desc = "A bell ringer that's been repurposed by a crafty set of hands, its size can only be wielded effectively by a giant."
-	force = 25
+	force = 50
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "ogre_cudgel"
 	minstr = 13

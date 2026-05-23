@@ -110,7 +110,7 @@
 	. = ..()
 	if(get_dist(user, target) > 7)
 		return
-	
+
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(ishuman(user))
@@ -134,7 +134,7 @@
 			if(H.anti_magic_check())
 				to_chat(user, span_danger("Something is disrupting the rod's power!"))
 				return
-		
+
 			if(!(H in SStreasury.bank_accounts))
 				to_chat(user, span_danger("The target must have a Meister account!"))
 				return
@@ -153,8 +153,8 @@
 				return
 
 /obj/item/rogueweapon/mace/stunmace
-	force = 15
-	force_wielded = 15
+	force = 30
+	force_wielded = 30
 	name = "stunmace"
 	icon_state = "stunmace0"
 	desc = "Pain is our currency here."
@@ -261,7 +261,7 @@
 
 /obj/item/rogueweapon/katar
 	slot_flags = ITEM_SLOT_HIP
-	force = 22
+	force = 44
 	possible_item_intents = list(/datum/intent/katar/cut, /datum/intent/katar/thrust, /datum/intent/sword/peel)
 	name = "katar"
 	desc = "A blade that sits above the users fist. Commonly used by those proficient at unarmed fighting"
@@ -276,7 +276,7 @@
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
-	throwforce = 12
+	throwforce = 24
 	wdefense = 4
 	wbalance = WBALANCE_NORMAL
 	thrown_bclass = BCLASS_CUT
@@ -301,7 +301,7 @@
 	desc = "A gift from a creature of the sea. The claw is sharpened to a wicked edge."
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
 	icon_state = "abyssorclaw"
-	force = 25	
+	force = 50
 	max_integrity = 120
 
 /datum/intent/dagger/thrust/pick/punchdagger
@@ -313,8 +313,8 @@
 	desc = "A weapon that combines the ergonomics of the Ranesheni katar with the capabilities of the Western Psydonian \"knight-killers\"."
 	slot_flags = ITEM_SLOT_HIP
 	max_integrity = 120		//Steel dagger -30
-	force = 15		//Steel dagger -5
-	throwforce = 8
+	force = 30		//Steel dagger -5
+	throwforce = 16
 	wdefense = 1	//Hell no!
 	thrown_bclass = BCLASS_STAB
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/thrust/pick/punchdagger)
@@ -330,7 +330,7 @@
 	name = "psydonian katar"
 	desc = "An exotic weapon taken from the hands of wandering monks, an esoteric design to the Otavan Holy See. Special care was taken into account towards the user's knuckles: silver-tipped steel from tip to edges, and His holy cross reinforcing the heart of the weapon, with curved shoulders to allow its user to deflect incoming blows - provided they lead it in with the blade."
 	icon_state = "psykatar"
-	force = 19
+	force = 38
 	wdefense = 3
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silver
@@ -350,7 +350,7 @@
 	name = "psydonian knuckles"
 	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - Psydon's crown - to crush the heretics' garments and armor into smithereens."
 	icon_state = "psyknuckle"
-	force = 17
+	force = 34
 	wdefense = 5
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silver
@@ -369,7 +369,7 @@
 /obj/item/rogueweapon/knuckles
 	name = "steel knuckles"
 	desc = "A mean looking pair of steel knuckles."
-	force = 25
+	force = 50
 	possible_item_intents = list(/datum/intent/knuckles/strike,/datum/intent/knuckles/smash)
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
 	icon_state = "steelknuckle"
@@ -382,7 +382,7 @@
 	max_integrity = 200
 	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
-	throwforce = 12
+	throwforce = 24
 	wdefense = 6
 	wbalance = WBALANCE_SWIFT
 	anvilrepair = /datum/skill/craft/weaponsmithing
@@ -403,7 +403,7 @@
 /obj/item/rogueweapon/knuckles/bronzeknuckles
 	name = "bronze knuckles"
 	desc = "A mean looking pair of bronze knuckles. Mildly heavier than it's steel counterpart, making it a solid defensive option, if less wieldy."
-	force = 22
+	force = 44
 	possible_item_intents = list(/datum/intent/knuckles/strike,/datum/intent/knuckles/smash)
 	icon_state = "bronzeknuckle"
 	gripsprite = FALSE
@@ -415,7 +415,7 @@
 	max_integrity = 250
 	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
-	throwforce = 12
+	throwforce = 24
 	wdefense = 7.5	//literally no clue how else to balance these
 	wbalance = WBALANCE_NORMAL
 	blade_dulling = DULLING_SHAFT_WOOD
@@ -427,7 +427,7 @@
 	name = "decrepit knuckles"
 	desc = "a set of knuckles made of ancient metals, Aeon's grasp wither their form."
 	icon_state = "aknuckle"
-	force = 15
+	force = 30
 	max_integrity = 150
 	wdefense = 5
 	smeltresult = /obj/item/ingot/aalloy
@@ -443,13 +443,13 @@
 /obj/item/rogueweapon/knuckles/eora
 	name = "close caress"
 	desc = "Some times call for a more intimate approach."
-	force = 27
+	force = 54
 	icon_state = "eoraknuckle"
 
 ///Peasantry / Militia Weapon Pack///
 
 /obj/item/rogueweapon/woodstaff/militia
-	force = 20
+	force = 40
 	force_wielded = 30
 	item_flags = PEASANT_WEAPON
 	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_CUT_1H)
@@ -480,7 +480,7 @@
 	item_flags = PEASANT_WEAPON
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(/datum/intent/rend/reach, /datum/intent/axe/chop/battle/greataxe, /datum/intent/sword/peel/big, SPEAR_BASH)
-	force = 15
+	force = 30
 	force_wielded = 25
 	minstr = 10
 	max_blade_int = 130
@@ -490,8 +490,8 @@
 	wbalance = WBALANCE_HEAVY
 
 /obj/item/rogueweapon/spear/militia
-	force = 18
-	force_wielded = 30
+	force = 36
+	force_wielded = 56
 	possible_item_intents = list(SPEAR_THRUST, SPEAR_BASH)
 	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, SPEAR_BASH)
 	item_flags = PEASANT_WEAPON
@@ -510,7 +510,7 @@
 	light_outer_range = 5
 	light_on = FALSE
 	light_color = "#db892b"
-	var/is_loaded = FALSE 
+	var/is_loaded = FALSE
 	var/list/hay_types = list(/obj/structure/fluff/nest, /obj/structure/composter, /obj/structure/flora/roguegrass, /obj/item/reagent_containers/food/snacks/grown/wheat)
 
 /obj/item/rogueweapon/spear/militia/ComponentInitialize()
@@ -625,13 +625,13 @@
 					user.regenerate_icons()
 
 
-	
+
 /datum/component/ignitable/proc/on_examine(datum/source, mob/user, list/examine_list)
 	return
 
 /obj/item/rogueweapon/scythe
-	force = 15
-	force_wielded = 25
+	force = 30
+	force_wielded = 55
 	possible_item_intents = list(SPEAR_BASH)
 	gripped_intents = list(/datum/intent/spear/cut/scythe, SPEAR_BASH, MACE_STRIKE)
 	item_flags = PEASANT_WEAPON
@@ -655,7 +655,7 @@
 	walking_stick = TRUE
 	wdefense = 6
 	thrown_bclass = BCLASS_BLUNT
-	throwforce = 10
+	throwforce = 20
 	resistance_flags = FLAMMABLE
 	pickup_sound = 'modular_helmsguard/sound/sheath_sounds/draw_greatsword.ogg'
 	sheathe_sound = 'modular_helmsguard/sound/sheath_sounds/put_back_to_leather.ogg'
@@ -676,8 +676,8 @@
 /obj/item/rogueweapon/pick/militia
 	name = "militia warpick"
 	desc = "At the end of the dae, a knight's bascinet isn't much different than a particularly large stone. After all, both tend to rupture with sobering ease when introduced to a sharpened pickend."
-	force = 20
-	force_wielded = 25
+	force = 40
+	force_wielded = 65
 	item_flags = PEASANT_WEAPON
 	possible_item_intents = list(/datum/intent/pick)
 	gripped_intents = list(/datum/intent/pick, /datum/intent/stab/militia)
@@ -695,8 +695,8 @@
 	wbalance = WBALANCE_NORMAL
 
 /obj/item/rogueweapon/pick/militia/steel
-	force = 25
-	force_wielded = 30
+	force = 50
+	force_wielded = 60
 	item_flags = PEASANT_WEAPON
 	name = "militia steel warpick"
 	desc = "At the end of the dae, a knight's bascinet isn't much different than a particularly large stone. After all, both tend to rupture with sobering ease when introduced to a sharpened pickend. This one is honed out of steel parts."
@@ -715,8 +715,8 @@
 	icon_state = "warpick"
 	possible_item_intents = list(/datum/intent/pick/heavy, /datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/pick/heavy, /datum/intent/mace/strike, /datum/intent/stab/militia)
-	force = 20
-	force_wielded = 25
+	force = 40
+	force_wielded = 60
 	max_blade_int = 150
 	max_integrity = 500
 	associated_skill = /datum/skill/combat/axes
@@ -730,7 +730,7 @@
 	name = "heavy steel warpick"
 	desc = "A well-made and refined way to split a knight's helm or hardened ground in two, properly balanced to ensure effortless splitting. After all, both tend to rupture with sobering ease when introduced to a sharpened pickend. This one is honed out of steel parts."
 	icon_state = "steelwarpick"
-	force = 25
+	force = 50
 	force_wielded = 30
 	max_blade_int = 200
 	max_integrity = 600
@@ -740,7 +740,7 @@
 	name = "heavy dwarven warpick"
 	desc = "A hardy repurposed dwarven mining pick. Made to handle the dwellers above and below, both clad in rock and forged rock."
 	icon_state = "dwarpick"
-	force = 27 //10% More damage
+	force = 54 //10% More damage
 	force_wielded = 33 // 10% More damage
 	max_blade_int = 250 // Bit more Blade Integrity. Needs less sharpens.
 	max_integrity = 600
@@ -753,7 +753,7 @@
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike)
 	icon_state = "maciejowski"
 	gripped_intents = list(/datum/intent/rend, /datum/intent/sword/chop/militia, /datum/intent/sword/peel, /datum/intent/sword/strike)
-	force = 18
+	force = 36
 	force_wielded = 25
 	item_flags = PEASANT_WEAPON
 	anvilrepair = /datum/skill/craft/carpentry
@@ -770,7 +770,7 @@
 	icon_state = "ironclaws"
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
 	wdefense = 5
-	force = 30
+	force = 60
 	possible_item_intents = list(/datum/intent/claw/cut/iron, /datum/intent/claw/lunge/iron, /datum/intent/claw/rend)
 	wbalance = WBALANCE_NORMAL
 	max_blade_int = 300
@@ -783,7 +783,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	associated_skill = /datum/skill/combat/unarmed
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
-	throwforce = 12
+	throwforce = 24
 	thrown_bclass = BCLASS_CUT
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/iron
@@ -797,7 +797,7 @@
 	icon_state = "steelclaws"
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
 	wdefense = 6
-	force = 35
+	force = 60
 	possible_item_intents = list(/datum/intent/claw/cut/steel, /datum/intent/claw/lunge/steel, /datum/intent/claw/rend/steel)
 	wbalance = WBALANCE_HEAVY
 	max_blade_int = 180
@@ -813,7 +813,7 @@
 	icon_state = "gronnclaws"
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
 	wdefense = 3
-	force = 25
+	force = 50
 	possible_item_intents = list(/datum/intent/claw/cut/gronn, /datum/intent/claw/lunge/gronn, /datum/intent/claw/rend)
 	wbalance = WBALANCE_SWIFT
 	max_blade_int = 200

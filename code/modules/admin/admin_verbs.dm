@@ -42,6 +42,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	// RATWOOD MODULAR START
 	/client/proc/bunker_bypass,
 	/client/proc/agevet_player,
+	/datum/admins/proc/royal_announcement_monfor,
 	// RATWOOD MODULAR END
 	)
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
@@ -890,7 +891,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			scom_announce("An unknown force has erased the bounty on [target_name]. The gods are displeased.")
 			message_admins("[ADMIN_LOOKUPFLW(src)] has removed the bounty on [ADMIN_LOOKUPFLW(target_name)]")
 			return
-	to_chat(src, "Error. Bounty no longer active.") 
+	to_chat(src, "Error. Bounty no longer active.")
 
 /client/proc/enable_browser_debug()
 	set category = "Debug"

@@ -711,8 +711,8 @@
 	var/mob/living/carbon/human/climber
 
 /datum/status_effect/debuff/climbing_lfwb/on_creation(mob/living/new_owner, new_stamcost)
-    stamcost = new_stamcost
-    return ..()
+	stamcost = new_stamcost
+	return ..()
 
 /datum/status_effect/debuff/climbing_lfwb/on_apply()
 	. = ..()
@@ -743,7 +743,7 @@
 	if(random_shit_under_climber.len) // branches dont remove open space turf, so we have to check for it separately
 		climber.remove_status_effect(/datum/status_effect/debuff/climbing_lfwb)
 	else if(climber.stamina >= climber.max_stamina) // if we run out of green bar stamina, we fall
-		to_chat(climber, span_dead("I can't hold onto the ledge for any longer!"))
+		to_chat(climber, span_dead("Я не могу больше держаться на стене!"))
 		climber.remove_status_effect(/datum/status_effect/debuff/climbing_lfwb)
 		tile_under_climber.zFall(climber)
 
@@ -761,7 +761,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/climbing_lfwb
 	name = "Climbing..."
-	desc = ""
+	desc = "Guess what, you are climbing, buddy."
 	icon_state = "muscles"
 
 /datum/status_effect/debuff/mesmerised

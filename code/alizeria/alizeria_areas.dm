@@ -118,3 +118,56 @@
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/alizeria/areas/iceland.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
+
+/area/rogue/indoors/shelter/alizeria/niztown
+	icon_state = "ntown"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = 'sound/alizeria/areas/ntowno.ogg'
+	droning_sound_dusk = 'sound/alizeria/areas/ntownt.ogg'
+	droning_sound_night = 'sound/alizeria/areas/ntowno.ogg'
+	first_time_text = "Õ»∆Õ»… √Œ–Œƒ"
+
+/area/rogue/indoors/shelter/alizeria/kabare
+	icon_state = "kab"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = null
+	droning_sound_dusk = null
+	droning_sound_night = null
+	first_time_text = " ¿¡¿–≈"
+
+/area/rogue/indoors/shelter/alizeria/kykolmain
+	icon_state = "kykol1"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = 'sound/alizeria/kykol/main.ogg'
+	droning_sound_dusk = 'sound/alizeria/kykol/main.ogg'
+	droning_sound_night = 'sound/alizeria/kykol/main.ogg'
+	first_time_text = " ” ŒÀ‹Õ€… ƒŒÃ"
+
+/area/rogue/indoors/shelter/alizeria/kykolroom
+	icon_state = "kykol2"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = 'sound/alizeria/kykol/room.ogg'
+	droning_sound_dusk = 'sound/alizeria/kykol/room.ogg'
+	droning_sound_night = 'sound/alizeria/kykol/room.ogg'
+
+/area/rogue/indoors/shelter/alizeria/kykoltreasure
+	icon_state = "kykol3"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = 'sound/alizeria/kykol/treasure.ogg'
+	droning_sound_dusk = 'sound/alizeria/kykol/treasure.ogg'
+	droning_sound_night = 'sound/alizeria/kykol/treasure.ogg'
+
+/area/rogue/indoors/shelter/alizeria/kykolunder
+	icon_state = "kykol4"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = 'sound/alizeria/kykol/under.ogg'
+	droning_sound_dusk = 'sound/alizeria/kykol/under.ogg'
+	droning_sound_night = 'sound/alizeria/kykol/under.ogg'
+
+/area/rogue/indoors/shelter/alizeria/podzem
+	icon_state = "podzem"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	droning_sound = 'sound/alizeria/sklep.ogg'
+	droning_sound_dusk = 'sound/alizeria/sklep.ogg'
+	droning_sound_night = 'sound/alizeria/sklep.ogg'
+	first_time_text = "«¿¡–Œÿ≈ÕÕ€… — À≈œ"

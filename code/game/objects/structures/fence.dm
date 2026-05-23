@@ -129,10 +129,10 @@
 /obj/structure/fence/door/proc/toggle(mob/user)
 	switch(open)
 		if(FALSE)
-			visible_message(span_notice("\The [user] opens \the [src]."))
+			visible_message(span_notice("\[user] открывает \[src]."))
 			open = TRUE
 		if(TRUE)
-			visible_message(span_notice("\The [user] closes \the [src]."))
+			visible_message(span_notice("\[user] закрывает \[src]."))
 			open = FALSE
 
 	update_door_status()

@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(migrants)
 	name = "Migrants"
-	wait = 2 SECONDS
+	wait = 900 MINUTES
 	runlevels = RUNLEVEL_GAME
 	var/wave_number = 1
 	var/current_wave = null
@@ -286,7 +286,7 @@ SUBSYSTEM_DEF(migrants)
 	to_chat(character, span_notice(role.greet_text))
 
 	ADD_TRAIT(character, TRAIT_OUTLANDER, TRAIT_GENERIC)
-	
+
 	if(role.outfit)
 		var/datum/outfit/outfit = new role.outfit()
 		outfit.equip(character)

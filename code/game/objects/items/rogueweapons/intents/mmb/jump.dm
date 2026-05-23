@@ -12,40 +12,44 @@
 
 /mob/living/proc/jump_action(atom/A)
 	if(istype(get_turf(src), /turf/open/water))
-		to_chat(src, span_warning("Я не могу прыгать будучи в воде."))
-		return
+		to_chat(src, span_warning("I can't jump while floating."))
+		return FALSE
 
 	if(!A || QDELETED(A) || !A.loc)
-		return
+		return FALSE
 
 	if(A == src || A == loc)
-		return
+		return FALSE
 
 	if(src.get_num_legs() < 2)
-		return
+		return FALSE
 
 	if(pulledby && pulledby != src)
-		to_chat(src, span_warning("Меня держут!"))
+		to_chat(src, span_warning("I'm being grabbed."))
 		changeNext_move(mmb_intent.clickcd)
 		resist_grab()
-		return
+		return FALSE
 
 	if(IsOffBalanced())
-		to_chat(src, span_warning("Я ещё не восстановил равновесие"))
-		return
+		to_chat(src, span_warning("I haven't regained my balance yet."))
+		return FALSE
 
 	if(!(mobility_flags & MOBILITY_STAND))
 		if(!HAS_TRAIT(src, TRAIT_LEAPER))// The Jester cares not for such social convention.
-			to_chat(src, span_warning("Мне следует сначала встать."))
-			return
+			to_chat(src, span_warning("I should stand up first."))
+			return FALSE
 
 	if(!isatom(A))
-		return
+		return FALSE
 
 	if(A.z != z)
 		if(!HAS_TRAIT(src, TRAIT_ZJUMP))
-			to_chat(src, span_warning("Это слишком высоко для меня.."))
-			return
+			to_chat(src, span_warning("That's too high for me..."))
+			return FALSE
+
+	if(has_status_effect(/datum/status_effect/debuff/exposed))
+		to_chat(src, span_warning("I'm exposed and lost my footing! I can't jump!"))
+		return FALSE
 
 	SEND_SIGNAL(src, COMSIG_LIVING_ONJUMP, A)
 
@@ -56,52 +60,43 @@
 	var/jadded
 	var/jrange
 	var/jextra = FALSE
+	var/jroot = FALSE
 
 	if(m_intent == MOVE_INTENT_RUN)
-		jrange = 3
-		if(!HAS_TRAIT(src, TRAIT_NOBREATH) && !HAS_TRAIT(src, TRAIT_WINGS))
-			emote("leap", forced = TRUE)
-		else
-			if(HAS_TRAIT(src, TRAIT_WINGS))
-				emote("flap", forced = TRUE)
-				jrange += 1
-			else
-				emote("leap_deathless", forced = TRUE)
+		emote("leap", forced = TRUE)
 		OffBalance(30)
 		jadded = 45
+		jrange = 3
+		jroot = TRUE
 
 		if(!HAS_TRAIT(src, TRAIT_LEAPER))// The Jester lands where the Jester wants.
 			jextra = TRUE
 	else
-		jrange = 2
-		if(!HAS_TRAIT(src, TRAIT_NOBREATH) && !HAS_TRAIT(src, TRAIT_WINGS))
-			emote("jump_fixed", forced = TRUE)
-		else
-			if(HAS_TRAIT(src, TRAIT_WINGS))
-				emote("flutter", forced = TRUE)
-				jrange += 1
-			else
-				emote("jump_deathless", forced = TRUE)
+		emote("jump", forced = TRUE)
 		OffBalance(20)
 		jadded = 20
+		jrange = 2
+
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		jadded += H.get_complex_pain()/50
 		if(!H.check_armor_skill() || H.legcuffed)
 			jadded += 50
 			jrange = 1
+			to_chat(H, span_warning("My armor is too heavy to jump effectively!"))
 
-	jump_action_resolve(A, jadded, jrange, jextra)
+	jump_action_resolve(A, jadded, jrange, jextra, jroot)
+	return TRUE
 
 #define FLIP_DIRECTION_CLOCKWISE 1
 #define FLIP_DIRECTION_ANTICLOCKWISE 0
 
-/mob/living/proc/jump_action_resolve(atom/A, jadded, jrange, jextra)
+/mob/living/proc/jump_action_resolve(atom/A, jadded, jrange, jextra, jroot)
 	var/do_a_flip
 	var/flip_direction = FLIP_DIRECTION_CLOCKWISE
 	var/prev_pixel_z = pixel_z
 	var/prev_transform = transform
-	if((get_skill_level(/datum/skill/misc/athletics) > 4 || HAS_TRAIT(src, TRAIT_LEAPER)) && cmode)
+	if(get_skill_level(/datum/skill/misc/athletics) > 4)
 		do_a_flip = TRUE
 		if((dir & SOUTH) || (dir & WEST))
 			flip_direction = FLIP_DIRECTION_ANTICLOCKWISE
@@ -118,12 +113,36 @@
 			animate(pixel_z = prev_pixel_z, transform = turn(transform, pick(-12, 0, 12)), time=2)
 			animate(transform = prev_transform, time = 0)
 
-		throw_at(A, jrange, 1, src, spin = FALSE, callback = CALLBACK(src, PROC_REF(after_jump), jextra))
+		is_jumping = TRUE // Mark as jumping to differentiate from being thrown
+		if(jextra)
+			throw_at(A, jrange, 1, src, spin = FALSE)
+			while(src.throwing)
+				sleep(1)
+			throw_at(get_step(src, src.dir), 1, 1, src, spin = FALSE)
+		else
+			throw_at(A, jrange, 1, src, spin = FALSE)
+			while(src.throwing)
+				sleep(1)
+		is_jumping = FALSE
+		if(jroot && !HAS_TRAIT(src, TRAIT_ZJUMP))	//Jesters and werewolves don't get immobilized at all
+			Immobilize((HAS_TRAIT(src, TRAIT_LEAPER) ? 5 : 10))	//Acrobatics get half the time
+		if(isopenturf(src.loc))
+			var/turf/open/T = src.loc
+			if(T.landsound)
+				playsound(T, T.landsound, 100, FALSE)
+			T.Entered(src)
 	else
 		animate(src, pixel_z = pixel_z + 6, time = 1)
 		animate(pixel_z = prev_pixel_z, transform = turn(transform, pick(-12, 0, 12)), time=2)
 		animate(transform = prev_transform, time = 0)
+		is_jumping = TRUE
 		throw_at(A, 1, 1, src, spin = FALSE)
+		is_jumping = FALSE
+
+	if(mob_offsets)
+		for(var/o in mob_offsets)
+			if(mob_offsets[o])
+				reset_offsets(o)
 
 #undef FLIP_DIRECTION_CLOCKWISE
 #undef FLIP_DIRECTION_ANTICLOCKWISE
@@ -156,7 +175,7 @@
 /mob/living/proc/can_jump(atom/A)
 	var/turf/our_turf = get_turf(src)
 	if(istype(our_turf, /turf/open/water))
-		to_chat(src, span_warning("Я плаваю в [our_turf]."))
+		to_chat(src, span_warning("I'm floating in [our_turf]."))
 		return FALSE
 	if(!A || QDELETED(A) || !A.loc)
 		return FALSE
@@ -165,25 +184,14 @@
 	if(get_num_legs() < 2)
 		return FALSE
 	if(pulledby && pulledby != src)
-		to_chat(src, span_warning("Меня держут!"))
+		to_chat(src, span_warning("I'm being grabbed."))
 		return FALSE
 	if(IsOffBalanced())
-		to_chat(src, span_warning("Я ещё не восстановил равновесие"))
+		to_chat(src, span_warning("I haven't regained my balance yet."))
 		return FALSE
 	if(!(mobility_flags & MOBILITY_STAND) && !HAS_TRAIT(src, TRAIT_LEAPER))// The Jester cares not for such social convention.
-		to_chat(src, span_warning("Я должен сначала встать"))
+		to_chat(src, span_warning("I should stand up first."))
 		return FALSE
 	if(A.z != z && !HAS_TRAIT(src, TRAIT_ZJUMP))
 		return FALSE
 	return TRUE
-
-/mob/living/proc/after_jump(stumble)
-	if(stumble)
-		throw_at(get_step(src, src.dir), 1, 1, src, spin = FALSE)
-	if(!HAS_TRAIT(src, TRAIT_ZJUMP) && (m_intent == MOVE_INTENT_RUN))	//Jesters and werewolves don't get immobilized at all
-		Immobilize((HAS_TRAIT(src, TRAIT_LEAPER) ? 2 : 5))	//Acrobatics get half the time 🤫
-	if(isopenturf(src.loc))
-		var/turf/open/T = src.loc
-		if(T.landsound)
-			playsound(T, T.landsound, 100, FALSE)
-		T.Entered(src)

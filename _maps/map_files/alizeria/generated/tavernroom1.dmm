@@ -1,0 +1,20 @@
+"a" = (/obj/effect/decal/cleanable/blood/drip,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"f" = (/obj/structure/closet/crate/roguecloset,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"o" = (/obj/structure/rack/rogue,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"r" = (/obj/effect/decal/cleanable/vomit,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"B" = (/turf/closed/wall/mineral/rogue/decowood,/area/rogue)
+"E" = (/obj/structure/table/wood{icon_state = "tablewood3"},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"G" = (/turf/closed/wall/mineral/rogue/wooddark,/area/rogue)
+"K" = (/obj/effect/decal/cleanable/blood,/obj/item/bedsheet/rogue/wool{dir = 1},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"P" = (/obj/structure/bed/rogue/inn{dir = 1},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"Q" = (/obj/structure/mineral_door/wood,/turf/open/floor/rogue/concrete,/area/rogue)
+"T" = (/obj/structure/fluff/walldeco/rpainting{pixel_y = -32},/obj/structure/chair/stool/rogue,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"V" = (/obj/machinery/light/rogue/wallfire/candle{pixel_x = -26; pixel_y = 0},/obj/structure/closet/crate/drawer,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+
+(1,1,1) = {"
+GBBBG
+BPKfB
+BVraQ
+BEToB
+GBBBG
+"}

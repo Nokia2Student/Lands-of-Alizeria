@@ -329,12 +329,30 @@
 		. += how_cool_are_your_threads.Join()
 */
 
+/// Modified breaking behavior for clothing with 50/50 chance of complete destruction
 /obj/item/clothing/obj_break(damage_flag)
 	original_armor = armor
 	var/list/armorlist = armor.getList()
 	for(var/x in armorlist)
 		if(armorlist[x] > 0)
 			armorlist[x] = 0
+
+	// Check if item is worn by a mob
+	if(ismob(loc))
+		var/mob/M = loc
+
+		// 50/50 chance: either become broken (current behavior) or completely destroyed
+		if(prob(50))
+			// Item is completely destroyed
+			M.visible_message(span_danger("[M]'s [src] ломается полностью!"))
+			to_chat(M, span_danger("\The [src] ломается полностью от полученного урона!"))
+
+			// Remove from inventory and delete
+			M.temporarilyRemoveItemFromInventory(src, TRUE)
+			qdel(src)
+			return
+
+	// Normal break behavior (becomes damaged but repairable)
 	..()
 
 /obj/item/clothing/obj_fix()

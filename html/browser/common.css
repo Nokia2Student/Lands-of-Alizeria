@@ -5,7 +5,7 @@ body
 	margin: 0;
 	background-color: #000000;
 	font-size: 14px;
-	color: #897472;
+	color: #718b94;
 	line-height: 170%;
 }
 
@@ -18,7 +18,7 @@ hr
 a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 {
 	font-family: Pterra, TrueType;
-	color: #7b5353;
+	color: #6ea6b4;
 	text-decoration: none;
 	background: #000000;
 	border: 1px solid #000000;
@@ -29,7 +29,7 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 
 a:hover
 {
-	color: #eac0b9;
+	color: #b8e0ea;
 	background: #000000;
 	border-color: #000000;
 	text-decoration-line: underline; 
@@ -37,7 +37,7 @@ a:hover
 
 a.white, a.white:link, a.white:visited, a.white:active
 {
-	color: #7b5353;
+	color: #6ea6b4;
 	text-decoration: none;
 	background: #000000;
 	border: 1px solid #000000;
@@ -48,21 +48,21 @@ a.white, a.white:link, a.white:visited, a.white:active
 
 a.white:hover
 {
-	color: #eac0b9;
+	color: #b8e0ea;
 	background: #000000;
 	text-decoration-line: underline; 
 }
 
 .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover
 {
-	color: #7b5353;
+	color: #6ea6b4;
 	background: #000000;
-	border-color: #7b5353;
+	border-color: #6ea6b4;
 }
 
 .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover
 {
-	color: #5e5959;
+	color: #9d7bc6;
 	background: #000000;
 	border-color: #000000;
 }
@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6
 	font-family: Pterra, TrueType;
 	margin: 0;
 	padding: 16px 0 8px 0;
-	color: #ae3636;
+	color: #e2ebee;
 }
 
 h1
@@ -140,7 +140,7 @@ h4
 	padding: 6px 8px 6px 8px;
 	border-bottom: 2px solid #161616;
 	background: #000000;
-	color: #ae3636;
+	color: #e2ebee;
 	font-size: 18px;
 }
 
@@ -175,7 +175,7 @@ h4
 
 .highlight
 {
-	color: #7b5353;
+	color: #6ea6b4;
 }
 
 .dark
@@ -187,7 +187,7 @@ h4
 {
 	position: relative;
 	background: #000000;
-	color: #ae3636;
+	color: #e2ebee;
 	font-size: 10px;
 	font-style: italic;
 	padding: 2px 4px 0 4px;

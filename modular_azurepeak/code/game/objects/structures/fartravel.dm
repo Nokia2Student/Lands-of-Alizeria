@@ -55,7 +55,7 @@
 	if(departing_mob.mind)
 		// Remove from knowledge cache so they don't appear in other people's lists
 		SSjob.remove_mind_from_cache(departing_mob.mind)
-		
+
 		departing_mob.mind.unknow_all_people()
 		for(var/datum/mind/MF in get_minds())
 			departing_mob.mind.become_unknown_to(MF)
@@ -71,7 +71,7 @@
 		departing_mob.visible_message("<span class='notice'>[user] sends the body of [departing_mob] away. They're someone else's problem now.</span>")
 	else
 		departing_mob.visible_message("<span class='notice'>[departing_mob == user ? "Out of their own volition, " : "Ushered by [user], "][departing_mob] leaves Scarlet Reach.</span>")
-	
+
 	// If departure is a lord, remove them from found_lords to prevent false omen triggers
 	if(departing_mob.mind && departing_mob.ckey)
 		if(departing_mob.mind.assigned_role == "Mercenary")
@@ -83,9 +83,9 @@
 				qdel(saved_post)
 				SEND_GLOBAL_SIGNAL(COMSIG_NOTICEBOARD_POST_REMOVED, src)
 
-		if(departing_mob.mind.assigned_role == "Grand Duke" || departing_mob.mind.assigned_role == "Grand Duchess")
+		if(departing_mob.mind.assigned_role == "Landowner")
 			if(found_lords[departing_mob.ckey])
 				found_lords -= departing_mob.ckey
-	
+
 	qdel(departing_mob)
 

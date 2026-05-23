@@ -1,0 +1,18 @@
+"a" = (/obj/structure/mineral_door/wood,/turf/open/floor/rogue/concrete,/area/rogue)
+"e" = (/obj/machinery/light/rogue/wallfire/candle{pixel_x = -26; pixel_y = 0},/obj/structure/closet/crate/drawer,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"g" = (/obj/structure/bed/rogue/inn{dir = 1},/obj/item/bedsheet/rogue/wool{dir = 1},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"j" = (/obj/structure/closet/crate/roguecloset,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"k" = (/obj/structure/table/wood{icon_state = "tablewood3"},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"l" = (/obj/structure/fluff/walldeco/rpainting{pixel_y = -32},/obj/structure/chair/stool/rogue,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"C" = (/turf/closed/wall/mineral/rogue/decowood,/area/rogue)
+"D" = (/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"E" = (/obj/structure/rack/rogue,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"U" = (/turf/closed/wall/mineral/rogue/wooddark,/area/rogue)
+
+(1,1,1) = {"
+UCCCU
+CgDjC
+CeDDa
+CklEC
+UCCCU
+"}

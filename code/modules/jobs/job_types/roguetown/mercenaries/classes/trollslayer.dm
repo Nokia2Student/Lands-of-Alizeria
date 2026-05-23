@@ -13,8 +13,8 @@
 	extra_context = "Only the dwarves who swore an Oath to Ravox may become Trollslayers." // dwarf exclusive and will force Ravox
 
 	traits_applied = list(TRAIT_SLAYER, TRAIT_CRITICAL_RESISTANCE, TRAIT_NOPAINSTUN, TRAIT_CALTROPIMMUNE) //TRAIT_SLAYER prevents equip on the head, armor and shirt slots and enables class-specific weapons
-	subclass_stats = list( 
-		STATKEY_STR = 3, 
+	subclass_stats = list(
+		STATKEY_STR = 3,
 		STATKEY_CON = 3,
 		STATKEY_END = 2,
 		STATKEY_INT = -2,
@@ -27,7 +27,7 @@
 		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
-		/datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/climbing = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/tracking = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/labor/butchering = SKILL_LEVEL_NOVICE,
 	)
@@ -106,7 +106,7 @@
             wlength = original_wlength
         to_chat(user, span_notice("You feel the axe become an extension of your rage!"))
 
-    else 
+    else
         if(!debuffed)
             debuffed = TRUE
             force = original_force / 2
@@ -173,7 +173,7 @@
     if(!user) return
 
     if(original_force == null)
-        original_force = force 
+        original_force = force
         original_force_wielded = force_wielded
         original_wlength = wlength
 
@@ -185,7 +185,7 @@
             wlength = original_wlength
         to_chat(user, span_notice("You feel the axe become an extension of your rage!"))
 
-    else 
+    else
         if(!debuffed)
             debuffed = TRUE
             force = original_force / 2
@@ -218,12 +218,12 @@
         /datum/species/dwarf,
         /datum/species/dwarf/mountain
         )
-    surgery_cover = FALSE 
+    surgery_cover = FALSE
     max_integrity = 200
     sewrepair = FALSE
-    var/repair_amount = 10 
-    var/repair_time = 50 
-    var/last_repair 
+    var/repair_amount = 10
+    var/repair_time = 50
+    var/last_repair
 
 /obj/item/clothing/suit/roguetown/armor/skin_armor/slayer/Initialize(mapload)
 	. = ..()
@@ -245,7 +245,7 @@
 	visible_message(span_bloody("The dwarf flinches from the blow!"), vision_distance = 3) // visual que for breaking
 
 /obj/item/clothing/suit/roguetown/armor/skin_armor/slayer/process()
-	if(obj_integrity >= max_integrity) 
+	if(obj_integrity >= max_integrity)
 		STOP_PROCESSING(SSobj, src)
 		src.visible_message(span_notice("Cuts and bruises on the [src] scarify."), vision_distance = 1) // visual que for full repair
 		return
@@ -275,7 +275,7 @@
     name = "Dance of the Axes"
     desc = span_bloody("I AM AN AVATAR OF RAVOXIAN MIGHT")
     icon_state = "buff"
-    
+
 /datum/status_effect/buff/axedance
     var/outline_colour = "#EB4445"
     id = "axedance"
@@ -312,7 +312,7 @@
     name = "rugged dwarven belt"
     desc = "The golden beard of the face plate doubles as a codpiece."
     icon_state = "slayer"
-    item_state = "slayer" // only has dwarven onmob sprites. for whatever reason it doesn't compile if I race restrict it 
+    item_state = "slayer" // only has dwarven onmob sprites. for whatever reason it doesn't compile if I race restrict it
     sellprice = 50
     detail_tag = "_belt"
     sewrepair = FALSE

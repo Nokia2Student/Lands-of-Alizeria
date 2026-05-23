@@ -475,7 +475,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	get_message_output("watchlist entry", ckey)
 	check_ip_intel()
 	validate_key_in_db()
-	
+
 	// Queue all player data (PQ, Triumphs, Curses, Rounds) for batched loading
 	// to avoid file handle exhaustion during mass reconnects (e.g., server restart)
 	SSplayer_data_loader?.queue_player(ckey)
@@ -1044,7 +1044,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if(length(movement_keys))
 			log_game("WARNING: [ckey] has empty key_bindings, preserving existing movement_keys")
 		return
-		
+
 	movement_keys = list()
 	for(var/key in prefs.key_bindings)
 		for(var/kb_name in prefs.key_bindings[key])
@@ -1139,7 +1139,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if(byond_version >= 516) // Enable 516 compat browser storage mechanisms
 		winset(src, null, "browser-options=find,byondstorage")
 		// byondstorage,devtools <- other options
-		
+
 /client/proc/give_award(achievement_type, mob/user)
 	return	player_details.achievements.unlock(achievement_type, mob/user)
 

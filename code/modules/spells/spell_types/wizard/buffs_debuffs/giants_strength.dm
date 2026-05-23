@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/giants_strength
-	name = "Giant's Strength"
+	name = "Сила великана"
 	overlay_state = "giantsstrength"
-	desc = "Strengthen the target. (+3 Strength)" // Design Note: +3 instead of +5 for direct damage stats
+	desc = "Укрепляет цель. (+3 Силы)" // Design Note: +3 instead of +5 for direct damage stats
 	cost = 4 // Direct DPS stats
 	xp_gain = TRUE
 	releasedrain = 60
@@ -33,19 +33,19 @@
 	playsound(spelltarget, 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)
-		user.visible_message("[user] mutters an incantation and [spelltarget] 's muscles strengthen and grow.")
-		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		user.visible_message("[user] бормочет заклинание, и мышцы [spelltarget] укрепляются и растут.")
+		to_chat(user, span_notice("С другим человеком как проводником, длительность моего заклинания удваивается."))
 		spelltarget.apply_status_effect(/datum/status_effect/buff/giants_strength/other)
 	else
-		user.visible_message("[user] mutters an incantation and their muscles strengthen and grow.")
+		user.visible_message("[user] бормочет заклинание, и его мышцы укрепляются и растут.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/giants_strength)
 
 	return TRUE
 
 #define GIANTSSTRENGTH_FILTER "giantsstrength_glow"
 /atom/movable/screen/alert/status_effect/buff/giants_strength
-	name = "Giant's Strength"
-	desc = "My muscles are strengthened. (+3 Strength)"
+	name = "Сила великана"
+	desc = "Мои мышцы укреплены. (+3 Силы)"
 	icon_state = "buff"
 
 /datum/status_effect/buff/giants_strength
@@ -64,12 +64,12 @@
 	if (!filter)
 		owner.add_filter(GIANTSSTRENGTH_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 50, "size" = 1))
 		ADD_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, TRAIT_MIRACLE)
-	to_chat(owner, span_warning("My muscles strengthen."))
+	to_chat(owner, span_warning("Мои мышцы укрепляются."))
 
 
 /datum/status_effect/buff/giants_strength/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("My strength fades away..."))
+	to_chat(owner, span_warning("Моя сила угасает..."))
 	owner.remove_filter(GIANTSSTRENGTH_FILTER)
 	REMOVE_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, TRAIT_MIRACLE)
 

@@ -226,7 +226,7 @@ SUBSYSTEM_DEF(treasury)
 		record_round_statistic(STATS_NOBLE_INCOME_TOTAL, how_much)
 		give_money_treasury(how_much, silent = TRUE)
 		total_noble_income += how_much
-		if(welfare_dependant.job == "Merchant")
+		if(welfare_dependant.job == "Quartermaster")
 			give_money_account(how_much, welfare_dependant, "The Guild")
 		else
 			give_money_account(how_much, welfare_dependant, "Noble Estate")

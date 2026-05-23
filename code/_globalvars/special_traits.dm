@@ -45,6 +45,9 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 		character.mind.special_items[player.prefs.loadout2::name] += player.prefs.loadout2.path
 	if(player.prefs.loadout3)
 		character.mind.special_items[player.prefs.loadout3::name] += player.prefs.loadout3.path
+	if(player.prefs.triumph_loadout)
+		character.apply_triumph_loadout_item()
+		character.mind.special_items[player.prefs.triumph_loadout::name] += player.prefs.triumph_loadout.path
 
 /proc/apply_prefs_virtue(mob/living/carbon/human/character, client/player)
 	if (!player)

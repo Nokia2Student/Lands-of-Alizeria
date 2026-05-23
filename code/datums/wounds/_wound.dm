@@ -103,9 +103,9 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		return
 	var/visible_name = name
 	if(is_sewn())
-		visible_name += " <span class='green'>(sewn)</span>"
+		visible_name += " <span class='green'>(зашито)</span>"
 	if(is_clotted())
-		visible_name += " <span class='danger'>(clotted)</span>"
+		visible_name += " <span class='danger'>(свернулась)</span>"
 	return visible_name
 
 /// Description of this wound returned to the player when the bodypart is checked with check_for_injuries()
@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	else
 		final_message = replacetext(final_message, "%BODYPART", parse_zone(BODY_ZONE_CHEST))
 	if(critical)
-		final_message = "<span class='crit'><b>Critical hit!</b> [final_message]</span>"
+		final_message = "<span class='crit'><b>Критическое попадание!</b> [final_message]</span>"
 	return final_message
 
 /// Sound that plays when this wound is applied to a mob
@@ -386,9 +386,9 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 				newname = sevname
 	name = "[newname  ? "[newname] " : ""][initial(name)]"	//[adjective] [name], aka, "gnarly slash" or "slash"
 	if(oldname == initial(name) && length(severity_names)) //if we're creating the wound
-		owner.visible_message(span_red("A new [initial(name)] appears on [owner]'s [lowertext(bodyzone2readablezone(bodypart_to_zone(bodypart_owner)))]!"))
+		owner.visible_message(span_red("На [bodyzone2readablezone(bodypart_to_zone(bodypart_owner))] [owner] появляется новая рана: [initial(name)]!"))
 	else if(name != oldname)
-		owner.visible_message(span_red("The [oldname] on [owner]'s [lowertext(bodyzone2readablezone(bodypart_to_zone(bodypart_owner)))] gets worse!"))
+		owner.visible_message(span_red("Рана ([oldname]) на [bodyzone2readablezone(bodypart_to_zone(bodypart_owner))] [owner] становится хуже!"))
 
 // Blank because it'll be overridden by wound code.
 /datum/wound/dynamic
@@ -407,7 +407,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 				set_bleed_rate(cap)
 				if(!is_armor_maxed)
 					playsound(owner, 'sound/combat/armored_wound.ogg', 100, TRUE)
-					owner.visible_message(span_crit("The wound tears open from [bodypart_owner.owner]'s <b>[lowertext(bodyzone2readablezone(bodypart_to_zone(bodypart_owner)))]</b>, the armor won't let it go any further!"))
+					owner.visible_message(span_crit("Рана [bodyzone2readablezone(bodypart_to_zone(bodypart_owner))] расходится, но броня сдерживает её дальнейшее расширение!"))
 					is_armor_maxed = TRUE
 
 #define CLOT_THRESHOLD_INCREASE_PER_HIT 0.1	//This raises the MINIMUM bleed the wound can clot to.
@@ -422,7 +422,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 			set_bleed_rate(ARTERY_LIMB_BLEEDRATE)
 			if(!is_maxed)
 				playsound(owner, 'sound/combat/wound_tear.ogg', 100, TRUE)
-				owner.visible_message(span_crit("The wound gushes open from [bodypart_owner.owner]'s <b>[lowertext(bodyzone2readablezone(bodypart_to_zone(bodypart_owner)))]</b>, striking an artery!"))
+				owner.visible_message(span_crit("Из области [bodyzone2readablezone(bodypart_to_zone(bodypart_owner))] начинает хлестать кровь — задета артерия!"))
 				is_maxed = TRUE
 			clotting_rate = CLOT_RATE_ARTERY
 			clotting_threshold = CLOT_THRESHOLD_ARTERY

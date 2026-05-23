@@ -200,7 +200,7 @@
 
 /datum/component/personal_crafting/proc/construct_item(mob/user, datum/crafting_recipe/R)
 	if (HAS_TRAIT(user, TRAIT_CURSE_MALUM))
-		to_chat(user, span_warning("Your cursed hands tremble and fail to craft... Malum forbids it."))
+		to_chat(user, span_warning("Проклятые руки дрожат и не могут творить... Малум запрещает это."))
 		return
 	if(user.doing)
 		return
@@ -215,39 +215,39 @@
 		N = R.result
 	result_name = N.name
 	if(isopenturf(T) && R.wallcraft)
-		to_chat(user, span_warning("Need to craft this on a wall."))
+		to_chat(user, span_warning("Нужно создавать это на стене."))
 		return
 	if(!isopenturf(T) || R.ontile)
 		T = get_turf(user.loc)
 	if(!R.TurfCheck(user, T))
-		to_chat(user, span_warning("I can't craft here."))
+		to_chat(user, span_warning("Я не могу здесь мастерить."))
 		return
 	if(isturf(R.result))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, span_warning("I can't craft here."))
+			to_chat(user, span_warning("Я не могу здесь мастерить."))
 			return
 	if(ispath(R.result, /obj/structure) || ispath(R.result, /obj/machinery))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, span_warning("I can't craft here."))
+			to_chat(user, span_warning("Я не могу здесь мастерить."))
 			return
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
 				if(user.dir == S.dir)
-					to_chat(user, span_warning("Something is in the way."))
+					to_chat(user, span_warning("Что-то мешает."))
 					return
 				continue
 			if(R.structurecraft && istype(S, R.structurecraft))
 				continue
 			if(S.density && !(R.ignoredensity))
-				to_chat(user, span_warning("Something is in the way."))
+				to_chat(user, span_warning("Что-то мешает."))
 				return
 		for(var/obj/machinery/M in T)
 			if(M.density && !(R.ignoredensity))
-				to_chat(user, span_warning("Something is in the way."))
+				to_chat(user, span_warning("Что-то мешает."))
 				return
 	if(R.req_table)
 		if(!(locate(/obj/structure/table) in T))
-			to_chat(user, span_warning("I need to make this on a table."))
+			to_chat(user, span_warning("Мне нужен стол, чтобы сделать это."))
 			return
 	if(R.structurecraft)
 		if(!(locate(R.structurecraft) in T))
@@ -255,7 +255,7 @@
 			if(ispath(R.structurecraft, /obj/))
 				var/obj/O = R.structurecraft
 				str = initial(O.name)
-			to_chat(user, span_warning("I'm missing a structure I need: \the <b>[str]</b>"))
+			to_chat(user, span_warning("Не хватает сооружения: \the <b>[str]</b>"))
 			return
 	if(check_contents(R, contents))
 		if(check_tools(user, R, contents))
@@ -285,9 +285,9 @@
 					prob2craft = CLAMP(prob2craft, 0, 99)
 					if(!prob(prob2craft))
 						if(user.client?.prefs.showrolls)
-							to_chat(user, span_danger("I've failed to craft \the [result_name]... [prob2craft]%"))
+							to_chat(user, span_danger("Я не смог изготовить [result_name]... [prob2craft]%"))
 							continue
-						to_chat(user, span_danger("I've failed to craft \the [result_name]."))
+						to_chat(user, span_danger("Я не смог изготовить [result_name]."))
 						continue
 					var/list/parts = del_reqs(R, user)
 					if(islist(R.result))
@@ -304,7 +304,7 @@
 								X.OnCrafted(user.dir, user)
 								X.add_fingerprint(user)
 								if(R.loud)
-									X.loud_message("Construction sounds can be heard")
+									X.loud_message("Слышны звуки строительства")
 						else
 							var/atom/movable/I = new R.result (T)
 							I.CheckParts(parts, R)
@@ -314,7 +314,7 @@
 								I.OnCrafted(user.dir, user)
 							I.add_fingerprint(user)
 					user.visible_message(span_notice("[user] [R.verbage] \a [result_name]!"), \
-										span_notice("I [R.verbage_simple] \a [result_name]!"))
+										span_notice("Я [R.verbage_simple] \a [result_name]!"))
 					if(user.mind && R.skillcraft)
 						if(isliving(user))
 							var/mob/living/L = user
@@ -337,7 +337,7 @@
 			else
 				for(var/obj/O as anything in R.tools)
 					str += "[initial(O.name)]"
-		to_chat(usr, span_warning("I'm missing a tool. I need: <b>[str]</b>"))
+		to_chat(usr, span_warning("Мне не хватает инструмента. Нужно: <b>[str]</b>"))
 		return FALSE
 	return FALSE
 
@@ -527,13 +527,13 @@
 /datum/component/personal_crafting/ui_interact(mob/user, datum/tgui/ui)
 	var/area/A = get_area(user)
 	if(!A.can_craft_here())
-		to_chat(user, span_warning("You cannot craft here."))
+		to_chat(user, span_warning("Здесь нельзя мастерить."))
 		if(ui) ui.close()
 		return
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "MiaCraft", "Crafting Menu", 700, 800)
+		ui = new(user, src, "MiaCraft", "Меню крафта", 700, 800)
 		ui.set_state(GLOB.not_incapacitated_turf_state)
 		ui.open()
 
@@ -615,7 +615,7 @@
 		return
 	var/area/A = get_area(user)
 	if(!A.can_craft_here())
-		to_chat(user, span_warning("I can't craft here."))
+		to_chat(user, span_warning("Я не могу здесь мастерить."))
 		return
 
 	var/list/data = list()
@@ -635,13 +635,13 @@
 				else
 					catty |= "Other"
 	if(!data.len)
-		to_chat(user, span_warning("There is nothing I can craft."))
+		to_chat(user, span_warning("Мне нечего изготовить."))
 		return
 	if(!catty.len)
 		return
 	var/t
 	if(catty.len > 1)
-		t=input(user, "CHOOSE SKILL") as null|anything in catty
+		t=input(user, "ВЫБЕРИТЕ НАВЫК") as null|anything in catty
 	else
 		t=pick(catty)
 	if(t)
@@ -656,7 +656,7 @@
 					realdata += X
 		if(realdata.len)
 			realdata = sortNames(realdata)
-			var/r = input(user, "What should I craft?") as null|anything in realdata
+			var/r = input(user, "Что мне изготовить?") as null|anything in realdata
 			if(r)
 				construct_item_repeatable(user, r)
 				user.mind.lastrecipe = r

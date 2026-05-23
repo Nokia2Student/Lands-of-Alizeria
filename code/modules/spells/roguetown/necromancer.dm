@@ -1,5 +1,5 @@
 /obj/effect/proc_holder/spell/invoked/bonechill
-	name = "Bone Chill"
+	name = "Костяной холод"
 	overlay_state = "raiseskele"
 	releasedrain = 30
 	chargetime = 5
@@ -24,12 +24,12 @@
 		var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 		if(affecting && (affecting.heal_damage(50, 50) || affecting.heal_wounds(50)))
 			target.update_damage_overlays()
-		target.visible_message(span_danger("[target]'s [affecting.name] reforms under the vile energy!"), span_notice("My [affecting.name] is remade by dark magic!"))
+		target.visible_message(span_danger("[target] [affecting.name] восстанавливается от гнусной энергии!"), span_notice("Моя [affecting.name] пересоздана тёмной магией!"))
 		var/obj/effect/temp_visual/heal/E = new /obj/effect/temp_visual/heal_rogue(get_turf(target))
 		E.color = "#4E6651"
 		return TRUE
 
-	target.visible_message(span_info("Necrotic energy floods over [target]!"), span_userdanger("I feel colder as the dark energy floods into me!"))
+	target.visible_message(span_info("Некротическая энергия заливает [target]!"), span_userdanger("Я чувствую холод, когда тёмная энергия проникает в меня!"))
 	if(iscarbon(target))
 		target.apply_status_effect(/datum/status_effect/debuff/chilled)
 	else
@@ -38,7 +38,7 @@
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/eyebite
-	name = "Eyebite"
+	name = "Глазной укус"
 	overlay_state = "raiseskele"
 	releasedrain = 30
 	chargetime = 15
@@ -59,7 +59,7 @@
 	if(!isliving(targets[1]))
 		return FALSE
 	var/mob/living/carbon/target = targets[1]
-	target.visible_message(span_info("A loud crunching sound has come from [target]!"), span_userdanger("I feel arcane teeth biting into my eyes!"))
+	target.visible_message(span_info("Громкий хруст доносится от [target]!"), span_userdanger("Я чувствую, как арканные зубы впиваются в мои глаза!"))
 	target.adjustBruteLoss(30)
 	target.blind_eyes(2)
 	target.blur_eyes(10)
@@ -67,7 +67,7 @@
 
 
 /obj/effect/proc_holder/spell/invoked/raise_lesser_undead
-	name = "Raise Lesser Undead"
+	name = "Поднятие малой нежити"
 	desc = ""
 	clothes_req = FALSE
 	overlay_state = "animate"
@@ -91,7 +91,7 @@
 	var/turf/T = get_turf(targets[1])
 	var/skeleton_roll = rand(1,100)
 	if(!isopenturf(T))
-		to_chat(user, span_warning("The targeted location is blocked. My summon fails to come forth."))
+		to_chat(user, span_warning("Целевое место заблокировано. Мой призыв не может осуществиться."))
 		return FALSE
 	switch(skeleton_roll)
 		if(1 to 20)
@@ -112,7 +112,7 @@
 	recharge_time = 45 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/projectile/sickness
-	name = "Ray of Sickness"
+	name = "Луч болезни"
 	desc = ""
 	clothes_req = FALSE
 	range = 15
@@ -130,8 +130,8 @@
 	recharge_time = 15 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/gravemark
-	name = "Gravemark"
-	desc = "Adds or removes a target from the list of allies exempt from your undead's aggression."
+	name = "Могильная метка"
+	desc = "Добавляет или удаляет цель из списка союзников, на которых не распространяется агрессия вашей нежити."
 	overlay_state = "raiseskele"
 	range = 7
 	warnie = "sydwarning"
@@ -147,7 +147,7 @@
 		var/mob/living/target = targets[1]
 		var/faction_tag = "[user.mind.current.real_name]_faction"
 		if (target == user)
-			to_chat(user, span_warning("It would be unwise to make an enemy of your own skeletons."))
+			to_chat(user, span_warning("Было бы неразумно делать врагов из собственных скелетов."))
 			return FALSE
 		if(target.mind && target.mind.current)
 			if (faction_tag in target.mind.current.faction)

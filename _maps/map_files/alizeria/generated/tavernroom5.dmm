@@ -1,0 +1,20 @@
+"a" = (/turf/closed/wall/mineral/rogue/wooddark,/area/rogue)
+"h" = (/obj/structure/closet/crate/drawer,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"i" = (/obj/structure/table/wood{icon_state = "tablewood3"},/obj/item/bedsheet/rogue/wool,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"n" = (/turf/closed/wall/mineral/rogue/decowood,/area/rogue)
+"p" = (/obj/machinery/light/rogue/wallfire/candle{pixel_x = -26; pixel_y = 0},/obj/structure/chair/stool/rogue,/obj/item/clothing/suit/roguetown/shirt/undershirt/brown{pixel_y = -11; pixel_x = 7},/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"u" = (/obj/structure/roguewindow/openclose/reinforced,/obj/structure/curtain/green,/turf/open/floor/rogue/concrete,/area/rogue)
+"v" = (/obj/structure/closet/crate/roguecloset,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"x" = (/obj/structure/rack/rogue,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"z" = (/obj/structure/bed/rogue/inn,/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"P" = (/obj/structure/mineral_door/wood,/turf/open/floor/rogue/concrete,/area/rogue)
+"T" = (/obj/effect/decal/cleanable/vomit,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"V" = (/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+
+(1,1,1) = {"
+anuna
+niVzn
+npThn
+nxVvn
+anPna
+"}

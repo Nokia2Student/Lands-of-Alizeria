@@ -166,7 +166,7 @@
 		return ..()
 	if(buckled_mob == user)
 		if(buckled_mob.STASTR >= 18)
-			if(do_after(buckled_mob, 2.5 SECONDS))
+			if(do_after(buckled_mob, 5 SECONDS))
 				buckled_mob.visible_message(span_warning("[buckled_mob] breaks [src] open!"))
 				locked = FALSE
 				latched = FALSE
@@ -177,7 +177,7 @@
 			return
 		else if(latched)
 			buckled_mob.visible_message(span_warning("[buckled_mob] struggles in [src], trying to get the latch off!"))
-			if(do_after(buckled_mob, 12 SECONDS))
+			if(do_after(buckled_mob, 48 SECONDS))
 				buckled_mob.visible_message(span_warning("[buckled_mob] forces [src]'s latch open!"))
 				latched = FALSE
 				return ..()

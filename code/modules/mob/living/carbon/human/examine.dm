@@ -657,13 +657,13 @@
 			var/bleed_wording = "bleeding"
 			switch(bleed_rate)
 				if(0 to 1)
-					bleed_wording = "[m1] немного кровоточит."
+					bleed_wording = "немного кровоточит"
 				if(1 to 5)
-					bleed_wording = "[m1] кровоточит."
+					bleed_wording = "кровоточит"
 				if(5 to 10)
-					bleed_wording = "[m1] сильно кровоточит."
+					bleed_wording = "сильно кровоточит"
 				if(10 to INFINITY)
-					bleed_wording = "[m1] очень сильно кровоточит."
+					bleed_wording = "очень сильно кровоточит"
 			var/list/bleeding_limbs = list()
 			var/list/bleed_zones = list( //static removed, bad?
 				BODY_ZONE_HEAD,
@@ -800,13 +800,13 @@
 					if(1 to 9)
 						msg += "[m1] немного напряжён"
 					if(-9 to 0)
-						msg += "[m1] нормальный."
+						msg += "[m1] ничем эмоционально не выделяется."
 					if(-19 to -10)
-						msg += "[m1] пребываю в некотором спокойствии."
+						msg += "[m1] выглядит довольно спокойно."
 						if(user != src)
 							user.add_stress(/datum/stressevent/empath_happy)
 					if(-20 to INFINITY)
-						msg += "[m1] покой внутри."
+						msg += "[m3] покой внутри."
 						if(user != src)
 							user.add_stress(/datum/stressevent/empath_superhappy)
 			else if(stress > 10)
@@ -832,7 +832,7 @@
 			else if(eyesclosed)
 				msg += "[capitalize(m2)] глаза закрыты."
 			else if(has_status_effect(/datum/status_effect/debuff/sleepytime))
-				msg += "[m1] выгляжу немного уставшим"
+				msg += "Выглядит немного устало."
 	else
 		msg += "[m1] без сознания."
 //		else

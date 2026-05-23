@@ -30,7 +30,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	max_pq = null
 
 	advclass_cat_rolls = list(CTAG_ADVENTURER = 20)
-	PQ_boost_divider = 10
+	PQ_boost_divider = 0
 
 	announce_latejoin = FALSE
 	wanderer_examine = TRUE
@@ -44,11 +44,6 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	job_traits = list(TRAIT_OUTLANDER)
 
 	job_subclasses = list(
-		/datum/advclass/cleric,
-		/datum/advclass/cleric/paladin,
-		/datum/advclass/cleric/cantor,
-		/datum/advclass/cleric/missionary,
-		/datum/advclass/cleric/stigmata,
 		/datum/advclass/sfighter,
 		/datum/advclass/sfighter/barbarian,
 		/datum/advclass/sfighter/duelist,
@@ -67,9 +62,6 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 		/datum/advclass/ranger/assassin,
 		/datum/advclass/ranger/bombadier,
 		/datum/advclass/ranger/bwanderer,
-		/datum/advclass/noble,
-		/datum/advclass/noble/knighte,
-		/datum/advclass/noble/squire,
 		/datum/advclass/trader,
 		/datum/advclass/trader/doomsayer,
 		/datum/advclass/trader/scholar,

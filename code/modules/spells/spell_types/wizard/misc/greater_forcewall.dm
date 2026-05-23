@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/forcewall/greater
-	name = "Greater Forcewall"
-	desc = "Conjure a 5x1 wall of arcyne force, preventing anyone and anything other than you from moving through it."
+	name = "Великая силовая стена"
+	desc = "Создаёт стену арканной силы 5x1, через которую не может пройти никто и ничто, кроме вас."
 	overlay_state = "forcewall"
 	spell_tier = 3 // Full Mage only.
 	invocation = "Murus Maior!" // Make a greater barrier
@@ -30,5 +30,5 @@
 		new /obj/effect/temp_visual/trap_wall(affected_turf)
 		addtimer(CALLBACK(src, PROC_REF(new_wall), affected_turf, user), wait = 1 SECONDS)
 
-	user.visible_message("[user] mutters an incantation and a wall of arcyne force manifests out of thin air!")
+	user.visible_message("[user] бормочет заклинание, и из воздуха возникает стена арканной силы!")
 	return TRUE

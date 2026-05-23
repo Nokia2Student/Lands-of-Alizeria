@@ -4,14 +4,13 @@
 	flag = KNIGHT
 	department_flag = NOBLEMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_NOBLE_RACES
 	allowed_patrons = CODEX
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	tutorial = "Ты - верный рыцарь и советник наместника земель Ализерии. Именно благодаря нему твоё тело покрывают роскошные доспехи, а на твоём поясе свисает грациозный меч, которым ты изрубил не один десяток врагов во славу своего лорда. Ты ему верен, и вряд ли твоя вера когда-нибудь пошатнётся."
-	display_order = JDO_KNIGHT
 	whitelist_req = FALSE
 	outfit = /datum/outfit/job/knight
 	advclass_cat_rolls = list(CTAG_ROYALGUARD = 20)

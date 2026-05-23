@@ -363,7 +363,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	slot_flags = ITEM_SLOT_ARMOR
 	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
-	sleevetype = "ciefjacket"
+	sleevetype = "shirt"
 
 /obj/item/clothing/cloak/jandarms/cief/alt
 	name = "mastall half-cloak"
@@ -395,7 +395,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
-	sleevetype = "whorearmor"
+	sleevetype = "shirt"
 	allowed_sex = list(FEMALE)
 
 /obj/item/clothing/shoes/roguetown/boots/whoreboots
@@ -437,7 +437,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
-	sleevetype = "maiden"
+	sleevetype = "shirt"
 	allowed_sex = list(FEMALE)
 
 /obj/item/clothing/gloves/roguetown/alizeria/maidengloves
@@ -475,7 +475,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
-	sleevetype = "maid"
+	sleevetype = "shirt"
 	allowed_sex = list(FEMALE)
 
 /obj/item/clothing/head/roguetown/alizeria/maidhat
@@ -530,3 +530,154 @@
 /obj/item/clothing/cloak/tstabard/townguard/nk
 	color = "#414143"
 	detail_color = "#c1b144"
+
+/////////////////////////////
+/obj/item/clothing/suit/roguetown/armor/alizeria/lord/guard
+	slot_flags = ITEM_SLOT_ARMOR
+	name = "royal cuirass"
+	desc = "Роскошная кираса придворного гвардейца. Возможно защитит от пули."
+	body_parts_covered = COVERAGE_VEST
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon_state = "goldchest"
+	item_state = "goldchest"
+	armor = ARMOR_CUIRASS
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	allowed_sex = list(FEMALE, MALE)
+	nodismemsleeves = TRUE
+	blocking_behavior = null
+	max_integrity = 300
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/steel
+	armor_class = ARMOR_CLASS_MEDIUM
+	smelt_bar_num = 2
+	boobed_detail = FALSE
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	slot_flags = ITEM_SLOT_ARMOR
+	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
+	sleevetype = "goldchest"
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/alizeria/guardalt
+	name = "guardian jacket"
+	desc = "Качественный дублет королевской гвардии."
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon_state = "guardian"
+	item_state = "guardian"
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	allowed_sex = list(FEMALE, MALE)
+	nodismemsleeves = TRUE
+	max_integrity = 300
+	smelt_bar_num = 2
+	sellprice = 60
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
+	sleevetype = "shirt"
+
+////////////////////
+// ВЕДЬМА
+/obj/item/clothing/suit/roguetown/shirt/dress/alizeria/witch
+	name = "witch dress"
+	desc = "Мрачное платье ведьмы. Пропитано трупным запахом."
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon_state = "witchdress"
+	item_state = "witchdress"
+	boobed = TRUE
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	color = null
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
+	sleevetype = "shirt"
+	allowed_sex = list(FEMALE)
+
+/obj/item/clothing/gloves/roguetown/alizeria/witchgloves
+	name = "witch gloves"
+	desc = "Кожаные чёрные перчатки. На них удачно скрывается засохшая кровь."
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon_state = "witchgloves"
+	item_state = "witchgloves"
+	armor = ARMOR_GLOVES_LEATHER
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT)
+	max_integrity = 100
+	resistance_flags = FIRE_PROOF
+	blocksound = SOFTHIT
+	blade_dulling = DULLING_BASHCHOP
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	anvilrepair = null
+	sewrepair = TRUE
+	salvage_result = /obj/item/natural/hide/cured
+	unarmed_bonus = 1.1
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	allowed_sex = list(FEMALE)
+
+/obj/item/clothing/cloak/alizeria/witchcloak
+	name = "witch cloak"
+	desc = "Мрачный плащ ведьмы."
+	color = null
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon_state = "witchcloak"
+	item_state = "witchcloak"
+	alternate_worn_layer = CLOAK_BEHIND_LAYER
+	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+//	body_parts_covered = ARMS|CHEST
+	boobed = TRUE
+	sleeved = 'icons/roguetown/alizeria/armoronmob.dmi'
+	sleevetype = "shirt"
+	nodismemsleeves = TRUE
+	inhand_mod = TRUE
+	hoodtype = /obj/item/clothing/head/hooded/alizeria/witchhood
+	toggle_icon_state = FALSE
+	salvage_result = /obj/item/natural/hide/cured
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	allowed_sex = list(FEMALE)
+
+/obj/item/clothing/head/hooded/alizeria/witchhood
+	name = "hood"
+	desc = "This one will shelter me from the weather and my identity too."
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	icon_state = "witchhood"
+	item_state = "witchhood"
+	slot_flags = ITEM_SLOT_HEAD
+	dynamic_hair_suffix = ""
+	edelay_type = 1
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDETAIL
+	block2add = FOV_BEHIND
+
+/obj/item/clothing/head/roguetown/helmet/blacksteel/modern/alizeria/sheriffhelmet
+	name = "sturdy armet"
+	desc = "Крайне качественный шлем из стали, которую умелые мастера смогли довести до качества чёрностали."
+	body_parts_covered = FULL_HEAD
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	icon_state = "sheriffhelmet"
+	item_state = "sheriffhelmet"
+	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT|HIDEHAIR
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+	armor = ARMOR_PLATE_BSTEEL
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
+	block2add = FOV_BEHIND
+	max_integrity = 850
+	smeltresult = /obj/item/ingot/blacksteel
+	smelt_bar_num = 2
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/alizeria/sheriffchest
+	name = "sturdy plate"
+	mob_overlay_icon = 'icons/roguetown/alizeria/armoronmob.dmi'
+	icon = 'icons/roguetown/alizeria/armor.dmi'
+	icon_state = "sheriffarmor"
+	item_state = "sheriffarmor"
+	desc = "Крепкие латы, идеальные подогнанные под своего заказчика.."
+
+	equip_delay_self = 10 SECONDS
+	unequip_delay_self = 10 SECONDS
+
+	max_integrity = 1200

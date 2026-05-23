@@ -67,9 +67,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 			GLOB.lordsurname = "of [L.real_name]"
 		SSticker.rulermob = L
 		if(should_wear_femme_clothes(L))
-			SSticker.rulertype = "Grand Duchess"
+			SSticker.rulertype = "Landowner"
 		else
-			SSticker.rulertype = "Grand Duke"
+			SSticker.rulertype = "Landowner"
 		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is [SSticker.rulertype] of Scarlet Reach.</span></span></b>")
 		if(istype(SSticker.regentmob, /mob/living/carbon/human))
 			var/mob/living/carbon/human/regentbuddy = SSticker.regentmob
@@ -153,6 +153,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/reading = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/riding = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/guns = SKILL_LEVEL_MASTER,
 	)
 
 /datum/outfit/job/lord/warrior/pre_equip(mob/living/carbon/human/H)

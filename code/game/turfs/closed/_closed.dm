@@ -139,20 +139,20 @@
 				return
 			var/turf/target = get_step_multiz(user, UP)
 			if(!istype(target, /turf/open/transparent/openspace))
-				to_chat(user, span_warning("I can't climb here."))
+				to_chat(user, span_warning("Невозможно."))
 				return
 			if(!L.can_zTravel(target, UP))
-				to_chat(user, span_warning("I can't climb there."))
+				to_chat(user, span_warning("Невозможно."))
 				return
 			target = get_step_multiz(src, UP)
 			if(!target || istype(target, /turf/closed) || istype(target, /turf/open/transparent/openspace))
 				target = get_step_multiz(user.loc, UP)
 				if(!target || !istype(target, /turf/open/transparent/openspace))
-					to_chat(user, span_warning("I can't climb here."))
+					to_chat(user, span_warning("Невозможно."))
 					return
 			for(var/obj/structure/F in target)
 				if(F && (F.density && !F.climbable))
-					to_chat(user, span_warning("I can't climb here."))
+					to_chat(user, span_warning("Невозможно."))
 					return
 			var/used_time = 0
 			if(L.mind)
@@ -171,12 +171,12 @@
 							climbsound = 'sound/foley/ladder.ogg'
 
 				if(myskill < climbdiff)
-					to_chat(user, span_warning("I'm not capable of climbing this wall."))
+					to_chat(user, span_warning("Мне явно не хватает опыта для подобного..."))
 					return
 				used_time = max(70 - (myskill * 10) - (L.STASPD * 3), 30)
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, climbsound, 100, TRUE)
-			user.visible_message(span_warning("[user] starts to climb [src]."), span_warning("I start to climb [src]..."))
+			user.visible_message(span_warning("[user] начинает забираться на [src]."), span_warning("Я начинаю забираться на [src]..."))
 			if(do_after(L, used_time, target = src))
 				var/pulling = user.pulling
 				var/mob/living/carbon/human/climber = user

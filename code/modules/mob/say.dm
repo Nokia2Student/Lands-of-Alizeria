@@ -1,13 +1,13 @@
 //Speech verbs.
 
 
-//Because of how classic keys work, we need to use a custom verb to show the typing indicator. 
+//Because of how classic keys work, we need to use a custom verb to show the typing indicator.
 //Otherwise when you press enter, it will open up the input box.
 /mob/verb/say_typing_indicator()
 	set name = "say_indicator"
 	set hidden = TRUE
 	set category = "IC"
-	
+
 	display_typing_indicator()
 	var/message = input(usr, "", "say") as text|null
 	// If they don't type anything just drop the message.
@@ -137,12 +137,12 @@
  */
 /mob/proc/check_emote(message, forced)
 	var/prefix = copytext_char(message, 1, 2)
-	
+
 	if(prefix == "*" || prefix == "!")
 		// Extract and parse emote text with markdown support
 		var/emote_text = copytext_char(message, 2)
 		emote_text = parsemarkdown_basic(emote_text, limited = TRUE, barebones = TRUE)
-		
+
 		// * prefix: local only, ! prefix: broadcasts to nearby SCOMs
 		var/broadcast_to_scom = (prefix == "!")
 		emote(emote_text, intentional = !forced, custom_me = TRUE, broadcast_to_scom = broadcast_to_scom)

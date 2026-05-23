@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/self/magicians_brick
-	name = "Magician's Brick"
-	desc = "Conjure a magical brick in your hand. Its power scale up to your Intelligence\n\
-	The brick lasts until a new one is summoned or the spell is forgotten. This spell has been honed over centuries to bypass anti-magic defenses."
+	name = "Магический кирпич"
+	desc = "Создаёт в руке магический кирпич. Его сила растёт с Интеллектом.\n\
+	Кирпич существует, пока не будет призван новый или заклинание не будет забыто. Это заклинание веками оттачивалось, чтобы обходить антимагическую защиту."
 	overlay_state = "magicians_brick"
 	sound = list('sound/magic/whiteflame.ogg')
 
@@ -33,20 +33,20 @@
 		var/int_scaling = user.STAINT - 10
 		R.force = R.force + int_scaling
 		R.throwforce = R.throwforce + int_scaling * 2 // 2x scaling for throwing. Let's go.
-		R.name = "magician's brick +[int_scaling]"
+		R.name = "магический кирпич +[int_scaling]"
 	user.put_in_hands(R)
 	src.conjured_brick = R
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/magicians_brick/Destroy()
 	if(src.conjured_brick)
-		conjured_brick.visible_message(span_warning("The [conjured_brick]'s borders begin to shimmer and fade, before it vanishes entirely!"))
+		conjured_brick.visible_message(span_warning("Края [conjured_brick] начинают мерцать и таять, пока он полностью не исчезает!"))
 		qdel(conjured_brick)
 	return ..()
 
 /obj/item/rogueweapon/magicbrick
-	name = "magician's brick"
-	desc = "A brick formed out of arcane energy. Not a actual brick and cannot be used for construction. Makes for a very deadly melee and throwing weapon."
+	name = "магический кирпич"
+	desc = "Кирпич из арканной энергии. Не настоящий кирпич и не может использоваться для строительства. Очень смертоносное оружие в ближнем и метательном бою."
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "claybrickcook"
 	dropshrink = 0.75

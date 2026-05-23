@@ -43,7 +43,6 @@
 		/datum/advclass/mercenary/grenzelhoft/crossbowman,
 		/datum/advclass/mercenary/gronn,
 		/datum/advclass/mercenary/gronnheavy,
-		/datum/advclass/mercenary/routier,
 		/datum/advclass/mercenary/rumaclan,
 		/datum/advclass/mercenary/rumaclan/ishu,
 		/datum/advclass/mercenary/kashira,

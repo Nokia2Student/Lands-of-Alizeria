@@ -28,7 +28,7 @@
 		/datum/virtue/utility/blueblooded,
 	)
 
-	job_traits = list(TRAIT_OUTDOORSMAN, TRAIT_WOODSMAN, TRAIT_WOODWALKER)
+	job_traits = list(TRAIT_OUTDOORSMAN, TRAIT_WOODSMAN, TRAIT_WOODWALKER, TRAIT_NOFALLDAMAGE1)
 	job_subclasses = list(
 		/datum/advclass/warden/ranger,
 		/datum/advclass/warden/forester

@@ -303,8 +303,8 @@
 	if(do_mob(user, user, adjusted_climb_time))
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
-				user.visible_message("<span class='warning'>[user] climbs onto [src].</span>", \
-									"<span class='notice'>I climb onto [src].</span>")
+				user.visible_message("<span class='warning'>[user] забирается на [src].</span>", \
+									"<span class='notice'>Я забираюсь на [src].</span>")
 				log_combat(user, src, "climbed onto")
 				if(climb_stun)
 					user.Stun(climb_stun)
@@ -312,5 +312,5 @@
 					playsound(src, climb_sound, 100)
 				. = 1
 			else
-				to_chat(user, "<span class='warning'>I fail to climb onto [src].</span>")
+				to_chat(user, "<span class='warning'>У меня не получается забраться на [src].</span>")
 	structureclimber = null

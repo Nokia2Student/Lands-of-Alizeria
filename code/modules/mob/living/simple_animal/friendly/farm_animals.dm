@@ -167,8 +167,8 @@
 					if(1,2,3)
 						var/text = pick("imploringly.", "pleadingly.",
 							"with a resigned expression.")
-						external = "[src] looks at [M] [text]"
-						internal = "You look at [M] [text]"
+						external = "[src] смотрит на [M] [text]"
+						internal = "Ты смотришь на [M] [text]"
 					if(4)
 						external = "[src] seems resigned to its fate."
 						internal = "You resign myself to your fate."

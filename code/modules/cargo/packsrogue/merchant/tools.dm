@@ -1,21 +1,21 @@
 
 /datum/supply_pack/rogue/tools
-	group = "Tools"
+	group = "Инструменты"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/tools/scomst
-	name = "Scomstone"
+	name = "Ском-камень"
 	cost = 120
 	contains = list(/obj/item/scomstone)
 
 /datum/supply_pack/rogue/tools/serfst
-	name = "Serfstone"
+	name = "Серф-камень"
 	cost = 40
 	contains = list(/obj/item/scomstone/bad)
 
 /datum/supply_pack/rogue/tools/chains
-	name = "Chains"
+	name = "Цепи"
 	cost = 15
 	contains = list(
 					/obj/item/rope/chain,
@@ -24,12 +24,12 @@
 				)
 
 /datum/supply_pack/rogue/tools/lockpicks
-	name = "Lockpicks"
+	name = "Отмычки"
 	cost = 20
 	contains = list(/obj/item/lockpickring/mundane)
 
 /datum/supply_pack/rogue/tools/sacks
-	name = "Sacks"
+	name = "Мешки"
 	cost = 10
 	contains = list(
 					/obj/item/storage/roguebag,
@@ -38,7 +38,7 @@
 				)
 
 /datum/supply_pack/rogue/tools/paper
-	name = "Paper"
+	name = "Бумага"
 	cost = 20
 	contains = list(
 					/obj/item/paper/scroll,
@@ -52,7 +52,7 @@
 				)
 
 /datum/supply_pack/rogue/tools/flint
-	name = "Flint"
+	name = "Кремень"
 	cost = 15
 	contains = list(
 					/obj/item/flint,
@@ -61,7 +61,7 @@
 				)
 
 /datum/supply_pack/rogue/tools/bottl
-	name = "Glass Bottles"
+	name = "Стеклянные бутылки"
 	cost = 15
 	contains = list(
 					/obj/item/reagent_containers/glass/bottle/rogue,
@@ -70,7 +70,7 @@
 				)
 
 /datum/supply_pack/rogue/tools/pipes
-	name = "Pipe"
+	name = "Трубка"
 	cost = 15
 	contains = list(
 					/obj/item/clothing/mask/cigarette/pipe,
@@ -79,7 +79,7 @@
 				)
 
 /datum/supply_pack/rogue/tools/bait
-	name = "Premium Fishing Bait"
+	name = "Премиальная рыболовная наживка"
 	cost = 15
 	contains = list(
 					/obj/item/natural/worms/grubs,
@@ -90,157 +90,157 @@
 				)
 
 /datum/supply_pack/rogue/tools/prarml
-	name = "Prosthetic Wood Arm (L)"
+	name = "Деревянный протез руки (Л)"
 	cost = 40
 	contains = list(/obj/item/bodypart/l_arm/prosthetic/woodleft)
 
 /datum/supply_pack/rogue/tools/prarmr
-	name = "Prosthetic Wood Arm (R)"
+	name = "Деревянный протез руки (П)"
 	cost = 40
 	contains = list(/obj/item/bodypart/r_arm/prosthetic/woodright)
 
 /datum/supply_pack/rogue/tools/prlegl
-	name = "Prosthetic Wood Leg (L)"
+	name = "Деревянный протез ноги (Л)"
 	cost = 15
 	contains = /obj/item/bodypart/l_leg/prosthetic/woodleft
 
 /datum/supply_pack/rogue/tools/prlegr
-	name = "Prosthetic Wood Leg (R)"
+	name = "Деревянный протез ноги (П)"
 	cost = 15
 	contains = /obj/item/bodypart/r_leg/prosthetic
 
 /datum/supply_pack/rogue/tools/huntingknife
-	name = "Hunting Knife"
+	name = "Охотничий нож"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/huntingknife,)
 
 /datum/supply_pack/rogue/tools/ironscissors
-	name = "Iron Scissors"
+	name = "Железные ножницы"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/huntingknife/scissors,)
 
 /datum/supply_pack/rogue/tools/chisel
-	name = "Chisel"
+	name = "Зубило"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/chisel = 1,)
 
 /datum/supply_pack/rogue/tools/hoe
-	name = "Hoe"
+	name = "Мотыга"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/hoe,)
 
 /datum/supply_pack/rogue/tools/thresher
-	name = "Thresher"
+	name = "Цеп"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/thresher,)
 
 /datum/supply_pack/rogue/tools/sickle
-	name = "Sickle"
+	name = "Серп"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/sickle,)
 
 /datum/supply_pack/rogue/tools/pfork
-	name = "Pitchfork"
+	name = "Вилы"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/pitchfork,)
 
 
 /datum/supply_pack/rogue/tools/plough
-	name = "Plough"
+	name = "Плуг"
 	cost = 50
 	contains = list(/obj/structure/plough,)
 
 /datum/supply_pack/rogue/tools/ironpick
-	name = "Iron Pickaxe"
+	name = "Железная кирка"
 	cost = 10
 	contains = list(/obj/item/rogueweapon/pick,)
 
 /datum/supply_pack/rogue/tools/soapps
-	name = "Soap"
+	name = "Мыло"
 	cost = 10
 	contains = list(/obj/item/soap)
 
 /datum/supply_pack/rogue/tools/herbsoap
-	name = "Herbal Soap"
+	name = "Травяное мыло"
 	cost = 20
 	contains = list(/obj/item/soap/bath)
 
 /datum/supply_pack/rogue/tools/keyrings
-	name = "Keyrings"
+	name = "Ключница"
 	cost = 20
 	contains = list(/obj/item/storage/keyring,
 					/obj/item/storage/keyring,
 					/obj/item/storage/keyring)
 
 /datum/supply_pack/rogue/tools/scythe
-	name = "Scythe"
+	name = "Коса"
 	cost = 25
 	contains = list(/obj/item/rogueweapon/scythe)
 
 /datum/supply_pack/rogue/tools/handsaw
-	name = "Handsaw"
+	name = "Ручная пила"
 	cost = 35
 	contains = list(/obj/item/rogueweapon/handsaw)
 
 /datum/supply_pack/rogue/tools/hammer
-	name = "Hammer"
+	name = "Молот"
 	cost = 35
 	contains = list(/obj/item/rogueweapon/hammer/iron)
 
 /datum/supply_pack/rogue/tools/tongs
-	name = "Tongs"
+	name = "Щипцы"
 	cost = 35
 	contains = list(/obj/item/rogueweapon/tongs)
 
 /datum/supply_pack/rogue/tools/fryingpan
-	name = "Frying Pan"
+	name = "Сковорода"
 	cost = 20
 	contains = list(/obj/item/cooking/pan)
 
 /datum/supply_pack/rogue/tools/shopkeyy
-	name = "Spare Shopkey"
+	name = "Запасной ключ от лавки"
 	cost = 10
 	not_in_public = TRUE
 	contains = list(/obj/item/roguekey/shop)
 
 /datum/supply_pack/rogue/tools/alch_bottle
-	name = "Alchemy Bottle"
+	name = "Алхимическая бутылка"
 	cost = 1
 	contains = list(/obj/item/reagent_containers/glass/bottle/alchemical,)
 
 /datum/supply_pack/rogue/tools/alch_bottles
-	name = "Bulk Alchemy Bottles" //Buy 8 now get 1 free!
+	name = "Алхимические бутылки оптом" //Buy 8 now get 1 free!
 	cost = 8
 	contains = list(/obj/item/reagent_containers/glass/bottle/alchemical,/obj/item/reagent_containers/glass/bottle/alchemical,/obj/item/reagent_containers/glass/bottle/alchemical,
 	/obj/item/reagent_containers/glass/bottle/alchemical,/obj/item/reagent_containers/glass/bottle/alchemical,/obj/item/reagent_containers/glass/bottle/alchemical,
 	/obj/item/reagent_containers/glass/bottle/alchemical,/obj/item/reagent_containers/glass/bottle/alchemical,/obj/item/reagent_containers/glass/bottle/alchemical)
 	
 /datum/supply_pack/rogue/tools/headhook
-	name = "Iron Head Hook"
+	name = "Железный головной крюк"
 	cost = 10
 	contains = list(/obj/item/storage/hip/headhook)
 
 /datum/supply_pack/rogue/tools/bottle_kit
-	name = "Bottle Kit"
+	name = "Набор бутылок"
 	cost = 50
 	contains = list(/obj/item/bottle_kit)
 
 /datum/supply_pack/rogue/tools/spade
-	name = "Wooden Spade"
+	name = "Деревянная лопатка"
 	cost = 5
 	contains = list(/obj/item/rogueweapon/shovel/small)
 
 /datum/supply_pack/rogue/tools/shovel
-	name = "Shovel"
+	name = "Лопата"
 	cost = 20
 	contains = list(/obj/item/rogueweapon/shovel)
 
 /datum/supply_pack/rogue/tools/surgeon_bag
-	name = "Surgeon's Bag, Full"
+	name = "Сумка хирурга, полная"
 	cost = 80
 	contains = list(/obj/item/storage/belt/rogue/surgery_bag)
 
 /datum/supply_pack/rogue/tools/golem_upgrades
-	name = "Golem Skill Exhibitor"
+	name = "Демонстратор навыков голема"
 	cost = 35
 	contains = list(/obj/item/golem_skill_core)

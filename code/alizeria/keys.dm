@@ -53,32 +53,39 @@
 /obj/item/roguekey/alizeria/squire
 	name = "ключ оруженосца"
 	icon_state = "brownkey"
-	lockid = "mazekey"
+	lockid = "squire"
 
 /obj/item/roguekey/alizeria/manorguest
 	name = "ключ от гостевой"
 	icon_state = "brownkey"
-	lockid = "hornkey"
+	lockid = "manorguest"
 
 /obj/item/roguekey/alizeria/royal
 	name = "ключ от покоев наместника"
 	icon_state = "brownkey"
-	lockid = "cheesekey"
+	lockid = "royalroom"
+
+/obj/item/roguekey/alizeria/heir
+	name = "ключ от покоев наследника"
+	icon_state = "brownkey"
+	lockid = "heirroom"
+
+/obj/item/roguekey/alizeria/guardes
+	name = "ключ от покоев гвардии"
+	icon_state = "brownkey"
+	lockid = "guardes"
 
 /obj/item/storage/keyring/alizeria/lady
-	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/lordh, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm, /obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manorguest, /obj/item/roguekey/alizeria/royal)
+	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/heir, /obj/item/roguekey/alizeria/lordh, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm, /obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manorguest, /obj/item/roguekey/alizeria/royal)
 
 /obj/item/storage/keyring/alizeria/knight
-	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/lordh, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm, /obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manorguest)
-
-/obj/item/storage/keyring/alizeria/prince
-	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
+	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/guardes, /obj/item/roguekey/alizeria/lordh, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm, /obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manorguest)
 
 /obj/item/storage/keyring/alizeria/blackguard
-	keys = list(/obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm, /obj/item/roguekey/alizeria/manorguest, /obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/lordh)
+	keys = list(/obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/heir, /obj/item/roguekey/alizeria/farm, /obj/item/roguekey/alizeria/manorguest, /obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/lordh)
 
 /obj/item/storage/keyring/alizeria/prince
-	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
+	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/heir, /obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
 
 /obj/item/storage/keyring/alizeria/servant
 	keys = list(/obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
@@ -87,7 +94,7 @@
 	keys = list(/obj/item/roguekey/alizeria/squire, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
 
 /obj/item/storage/keyring/alizeria/gover
-	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/lordh, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
+	keys = list(/obj/item/roguekey/alizeria/lord, /obj/item/roguekey/alizeria/heir, /obj/item/roguekey/alizeria/lordh, /obj/item/roguekey/alizeria/manor, /obj/item/roguekey/alizeria/farm)
 
 ////////////////////////////
 

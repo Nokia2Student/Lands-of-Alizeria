@@ -1,0 +1,19 @@
+"a" = (/obj/structure/bed/rogue/inn,/obj/item/bedsheet/rogue/wool,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"e" = (/obj/structure/rack/rogue,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"f" = (/obj/machinery/light/rogue/wallfire/candle{pixel_x = -26; pixel_y = 0},/obj/structure/chair/stool/rogue,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"i" = (/obj/structure/roguewindow/openclose/reinforced,/obj/structure/curtain/green,/turf/open/floor/rogue/concrete,/area/rogue)
+"l" = (/obj/structure/closet/crate/drawer,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"w" = (/obj/structure/closet/crate/roguecloset,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"M" = (/obj/structure/mineral_door/wood,/turf/open/floor/rogue/concrete,/area/rogue)
+"N" = (/turf/closed/wall/mineral/rogue/wooddark,/area/rogue)
+"R" = (/obj/structure/table/wood{icon_state = "tablewood3"},/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"Y" = (/turf/closed/wall/mineral/rogue/decowood,/area/rogue)
+"Z" = (/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+
+(1,1,1) = {"
+NYiYN
+YRZaY
+YfZlY
+YeZwY
+NYMYN
+"}

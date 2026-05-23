@@ -1,13 +1,13 @@
 /datum/job/roguetown/shophand
-	title = "Port Merchant"
+	title = "Shophand"
 	flag = SHOPHAND
 	department_flag = YEOMEN
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_ALL_RACES
-	tutorial = "Ты - один из главных конкурентов городского торговца. У тебя имеется собственная лавка, однако меньше размером, а ещё она находится в весьма проходимом месте. Вопрос лишь в том, когда твоё 'удачное' вложение даст о себе знать?"
+	tutorial = "Ты являешься помощником настоящего торговца. У тебя имеется своя лавка, что находится в весьма оживлённом месте. В отличие от своего мастера - ты вряд ли будешь заниматься чем-то кроме торговли."
 	outfit = /datum/outfit/job/shophand
 	display_order = JDO_SHOPHAND
 	give_bank_account = TRUE
@@ -24,8 +24,8 @@
 	)
 
 /datum/advclass/shophand
-	name = "Port Merchant"
-	tutorial = "Ты - один из главных конкурентов городского торговца. У тебя имеется собственная лавка, однако меньше размером, а ещё она находится в весьма проходимом месте. Вопрос лишь в том, когда твоё 'удачное' вложение даст о себе знать?"
+	name = "Shophand"
+	tutorial = "Ты являешься помощником настоящего торговца. У тебя имеется своя лавка, что находится в весьма оживлённом месте. В отличие от своего мастера - ты вряд ли будешь заниматься чем-то кроме торговли."
 	outfit = /datum/outfit/job/shophand/basic
 	category_tags = list(CTAG_SHOPHAND)
 
@@ -58,7 +58,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 		belt = /obj/item/storage/belt/rogue/leather
 		beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltl = /obj/item/roguekey/alizeria/portshop
+		beltl = /obj/item/roguekey/shop
 		backr = /obj/item/storage/backpack/rogue/satchel
 	else if(should_wear_masc_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/tights
@@ -66,7 +66,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 		belt = /obj/item/storage/belt/rogue/leather
 		beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltl = /obj/item/roguekey/alizeria/portshop
+		beltl = /obj/item/roguekey/shop
 		backr = /obj/item/storage/backpack/rogue/satchel
 
 	if(H.mind)

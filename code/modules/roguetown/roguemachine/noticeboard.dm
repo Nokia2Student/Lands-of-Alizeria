@@ -76,7 +76,7 @@
 			if(5) // One silver coin
 				merc_message(user, coin)
 			if(10) // One gold coin
-				merc_broadcast(user, coin)	
+				merc_broadcast(user, coin)
 	return ..()
 
 /obj/structure/roguemachine/noticeboard/proc/merc_message(mob/living/carbon/human/user, obj/item/roguecoin/coin)
@@ -92,7 +92,7 @@
 		var/mob/living/L = saved_post.posterweakref?.resolve()
 		if(QDELETED(L) || L.stat == DEAD)
 			continue
-		
+
 		available_mercs[L.real_name] = L
 
 	if(!available_mercs.len)
@@ -104,10 +104,10 @@
 		return
 
 	var/message = tgui_input_text(
-		user, 
-		"Enter your message to [choice]. Remember, they will be able to answer only yae or nae.", 
-		"Mercenary Contact", 
-		max_length = 300, 
+		user,
+		"Enter your message to [choice]. Remember, they will be able to answer only yae or nae.",
+		"Mercenary Contact",
+		max_length = 300,
 		bigmodal = TRUE
 	)
 	if(!message || !Adjacent(user))
@@ -122,7 +122,7 @@
 	playsound(src, 'sound/ambience/noises/birds (7).ogg', 30, FALSE, -1)
 	to_chat(user, span_notice("My message has been sent to [chosen_merc.real_name]."))
 	to_chat(
-		chosen_merc, 
+		chosen_merc,
 		span_boldnotice(
 			"A potential employer contacts me: <i>[message]</i> - [user.real_name]<br>\
 			<a href='?src=[REF(src)];direct_response=yae;enquierer_ref=\ref[user];eol=[world.time + MERC_DM_RESPONSE_LIFESPAN]'>\[YAE\]</a> | \
@@ -145,7 +145,7 @@
 		var/mob/living/L = saved_post.posterweakref?.resolve()
 		if(QDELETED(L) || L.stat == DEAD)
 			continue
-			
+
 		available_mercs += L
 
 	if(!available_mercs.len)
@@ -232,13 +232,13 @@
 	return attack_hand(usr)
 
 /obj/structure/roguemachine/noticeboard/attack_hand(mob/living/carbon/human/user)
-	if(!ishuman(user)) 
+	if(!ishuman(user))
 		return
 	var/can_remove = FALSE
 	var/can_premium = FALSE
 	if(user.job in list("Man at Arms","Inquisitor", "Knight", "Sergeant", "Orthodoxist", "Absolver","Marshal", "Hand"))
 		can_remove = TRUE
-	if(user.job in list("Bathmaster","Merchant", "Innkeeper", "Steward", "Court Magician", "Town Crier", "Keeper"))
+	if(user.job in list("Bathmaster","Quartermaster", "Innkeeper", "Steward", "Court Magician", "Town Crier", "Keeper"))
 		can_premium = TRUE
 	var/contents
 	contents += "<center>NOTICEBOARD<BR>"
@@ -283,7 +283,7 @@
 			contents += "Scouts rate how dangerous a region is from Safe -> Low -> Moderate -> Dangerous -> Bleak <br>"
 			contents += "A safe region is safe and travelers are unlikely to be ambushed by common creechurs and brigands <br>"
 			contents += "A low threat region is unlikely to manifest any great threat and brigands and creechurs are often found alone.<br>"
-			contents += "Only the Black Basin, Scarlet Grove and the Terrorbog can be rendered safe entirely. <br>" 
+			contents += "Only the Black Basin, Scarlet Grove and the Terrorbog can be rendered safe entirely. <br>"
 			contents += "Regions not listed are beyond the charge of the wardens. Danger will be constant in these regions.<br>"
 			contents += "Danger is reduced by luring villains and creechurs and killing them when they ambush you. The signal horns wardens have been issued can help with this. Take care with using it."
 		if(NOTICEBOARD_CAT_SELLSWORDS)

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/shadowstep
-	name = "Shadowstep"
-	desc = "Project your shadow to swap places with it, teleporting several feet away."
+	name = "Теневой шаг"
+	desc = "Проецирует вашу тень, чтобы поменяться с ней местами, телепортируя на несколько футов."
 	cost = 3
 	xp_gain = TRUE
 	releasedrain = 30
@@ -85,10 +85,10 @@
 		if(max_range >= get_dist(user, T) && !T.density)
 			if(check_path(get_turf(user), T))	//We check for opaque turfs or non-climbable windows in the way via a simple pathfind.
 				if(get_dist(user, T) < 2 && user.z == T.z)
-					to_chat(user, span_info("Too close!"))
+					to_chat(user, span_info("Слишком близко!"))
 					revert_cast()
 					return
-				to_chat(user, span_info("I begin to meld with the shadows.."))
+				to_chat(user, span_info("Я начинаю сливаться с тенями..."))
 				lockon(T, user)
 				if(do_after(user, 5 SECONDS))
 					tp(user)
@@ -97,18 +97,18 @@
 					revert_cast()
 				return
 			else
-				to_chat(user, span_info("The path is blocked!"))
+				to_chat(user, span_info("Путь заблокирован!"))
 				revert_cast()
 				return
 		else if(get_dist(user, T) > max_range)
-			reason = "It's too far."
+			reason = "Слишком далеко."
 			revert_cast()
 		else if (T.density)
-			reason = "It's a wall!"
+			reason = "Это стена!"
 			revert_cast()
-		to_chat(user, span_info("I cannot shadowstep there! "+"[reason]"))
+		to_chat(user, span_info("Я не могу сделать теневой шаг туда! "+"[reason]"))
 	else
-		to_chat(user, span_info("I cannot shadowstep there!"))
+		to_chat(user, span_info("Я не могу сделать теневой шаг туда!"))
 		revert_cast()
 	. = ..()
 

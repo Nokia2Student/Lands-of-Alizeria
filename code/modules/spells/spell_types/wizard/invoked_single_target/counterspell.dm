@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/counterspell
-	name = "Counterspell"
-	desc = "Briefly nullify the arcyne energy surrounding a target. Either preventing magic from being used outright, or preventing most magics from affecting the subject."
+	name = "Контрзаклинание"
+	desc = "На короткое время подавляет арканную энергию вокруг цели. Либо мешает использовать магию, либо защищает цель от большинства магических воздействий."
 	cost = 3
 	releasedrain = 35
 	chargedrain = 1
@@ -23,13 +23,13 @@
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		if(HAS_TRAIT(target, TRAIT_COUNTERCOUNTERSPELL))
-			to_chat(user, "<span class='warning'>They've counterspelled my counterspell immediately! It's not going to work on them!</span>")
+			to_chat(user, "<span class='warning'>Они мгновенно отразили моё контрзаклинание! Это на них не подействует!</span>")
 			revert_cast()
 			return
 		ADD_TRAIT(target, TRAIT_SPELLCOCKBLOCK, MAGIC_TRAIT)
 		ADD_TRAIT(target, TRAIT_ANTIMAGIC, MAGIC_TRAIT)
-		to_chat(target, span_warning("I feel as if my connection to the Arcyne disappears entirely. The air feels still..."))
-		target.visible_message("[target]'s arcyne aura seems to fade.")
+		to_chat(target, span_warning("Я чувствую, будто моя связь с Арканой полностью исчезает. Воздух кажется неподвижным..."))
+		target.visible_message("Арканная аура [target] угасает.")
 		addtimer(CALLBACK(src, PROC_REF(remove_buff), target), wait = 20 SECONDS)
 		return TRUE
 	
@@ -37,5 +37,5 @@
 /obj/effect/proc_holder/spell/invoked/counterspell/proc/remove_buff(mob/living/carbon/target)
 	REMOVE_TRAIT(target, TRAIT_SPELLCOCKBLOCK, MAGIC_TRAIT)
 	REMOVE_TRAIT(target, TRAIT_ANTIMAGIC, MAGIC_TRAIT)
-	to_chat(target, span_warning("I feel my connection to the arcyne surround me once more."))
-	target.visible_message("[target]'s arcyne aura seems to return once more.")
+	to_chat(target, span_warning("Я снова чувствую, как арканная связь окутывает меня."))
+	target.visible_message("Арканная аура [target], кажется, возвращается.")

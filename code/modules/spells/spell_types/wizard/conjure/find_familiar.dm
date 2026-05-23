@@ -1,8 +1,8 @@
 /mob/var/tmp/busy_summoning_familiar = FALSE
 
 /obj/effect/proc_holder/spell/self/findfamiliar
-	name = "Find Familiar"
-	desc = "Summon a loyal magical companion to aid you in your adventures. Reusing the spell with an active familiar can awaken its sentience."
+	name = "Поиск фамильяра"
+	desc = "Призывает верного магического спутника в помощь в приключениях. Повторное использование заклинания с активным фамильяром может пробудить его разум."
 	overlay_state = "null"
 	sound = list('sound/magic/whiteflame.ogg')
 	active = FALSE
@@ -36,7 +36,7 @@
 
 	// Prevent multiple simultaneous summon attempts
 	if (user.busy_summoning_familiar)
-		to_chat(user, span_warning("You are already attempting to summon a familiar! Please wait for your current summon to resolve."))
+		to_chat(user, span_warning("Вы уже пытаетесь призвать фамильяра! Дождитесь завершения текущего призыва."))
 		return FALSE
 
 	user.busy_summoning_familiar = TRUE
@@ -47,12 +47,12 @@
 	for (var/mob/living/simple_animal/pet/familiar/fam in GLOB.alive_mob_list + GLOB.dead_mob_list)
 		if (fam.familiar_summoner == user)
 			if(fam.health <= 0)
-				var/choice = input(user, "Your familiar is dead. What do you want to do?") as null|anything in list("Revive with magic stone", "Free them")
-				if(choice == "Revive with magic stone")
-					to_chat(user, span_notice("You will need a magical stone in your active hand to attempt resurrection."))
+				var/choice = input(user, "Ваш фамильяр мёртв. Что вы хотите сделать?") as null|anything in list("Оживить магическим камнем", "Освободить")
+				if(choice == "Оживить магическим камнем")
+					to_chat(user, span_notice("Для воскрешения вам понадобится магический камень в активной руке."))
 					var/obj/item/natural/stone/magic_stone = user.get_active_held_item()
 					if(!istype(magic_stone, /obj/item/natural/stone) || magic_stone.magic_power < 1)
-						to_chat(user, span_warning("You need to be holding a magical stone in your active hand!"))
+						to_chat(user, span_warning("Вы должны держать магический камень в активной руке!"))
 						user.busy_summoning_familiar = FALSE
 						revert_cast()
 						return FALSE
@@ -62,7 +62,7 @@
 							user.apply_status_effect(fam.buff_given)
 						user.busy_summoning_familiar = FALSE
 						return TRUE
-				else if(choice == "Free them")
+				else if(choice == "Освободить")
 					free_familiar(fam, user)
 					if(!fam?.mind)
 						log_game("[key_name(user)] has released their familiar: [fam.name] ([fam.type])")
@@ -76,7 +76,7 @@
 					revert_cast()
 					return FALSE
 			else
-				var/choice = input(user, "You already have a familiar. Do you want to free them?") as null|anything in list("Yes", "No")
+				var/choice = input(user, "У вас уже есть фамильяр. Хотите освободить его?") as null|anything in list("Yes", "No")
 				if (choice != "Yes")
 					user.busy_summoning_familiar = FALSE
 					revert_cast()
@@ -93,18 +93,18 @@
 	// Check for valid spawn turf before spawning familiar
 	var/turf/spawn_turf = get_step(user, user.dir)
 	if (!isturf(spawn_turf) || !isopenturf(spawn_turf))
-		to_chat(user, span_warning("There is not enough space to summon your familiar."))
+		to_chat(user, span_warning("Недостаточно места для призыва фамильяра."))
 		revert_cast()
 		user.busy_summoning_familiar = FALSE
 		return FALSE
 
 	// Ask how the user wants to summon
-	var/path_choice = input(user, "How do you want to summon your familiar?") as null|anything in list(
-		"Summon from registered familiars",
-		"Summon a non-sentient familiar"
+	var/path_choice = input(user, "Как вы хотите призвать фамильяра?") as null|anything in list(
+		"Призвать зарегистрированного фамильяра",
+		"Призвать неразумного фамильяра"
 	)
 
-	if (path_choice == "Summon from registered familiars")
+	if (path_choice == "Призвать зарегистрированного фамильяра")
 		var/list/candidates = list()
 
 		// Build list of valid candidate clients
@@ -117,7 +117,7 @@
 						break
 
 		if (!candidates.len)
-			to_chat(user, span_notice("There is no familiar candidate you could summon."))
+			to_chat(user, span_notice("Нет доступных кандидатов в фамильяры."))
 			user.busy_summoning_familiar = FALSE
 			revert_cast()
 			return FALSE
@@ -129,7 +129,7 @@
 				if (pref?.familiar_name)
 					name_map[pref.familiar_name] = list("client" = c_candidate, "pref" = pref)
 
-			var/choice = input(user, "Choose a registered familiar to inspect:") as null|anything in name_map
+			var/choice = input(user, "Выберите зарегистрированного фамильяра для осмотра:") as null|anything in name_map
 			if (!choice)
 				user.busy_summoning_familiar = FALSE
 				revert_cast()
@@ -140,28 +140,28 @@
 			var/datum/familiar_prefs/pref = entry["pref"]
 
 			if (!pref)
-				to_chat(user, span_warning("That familiar is no longer available."))
+				to_chat(user, span_warning("Этот фамильяр больше недоступен."))
 				GLOB.familiar_queue -= target
 				continue
 
 			show_familiar_preview(user, pref)
 
-			var/confirm = input(user, "Summon this familiar?") as null|anything in list("Yes", "No")
+			var/confirm = input(user, "Призвать этого фамильяра?") as null|anything in list("Yes", "No")
 			if (confirm != "Yes")
 				winset(user.client, "Familiar Inspect", "is-visible=false")
 				continue
 
 			// Check that target is valid
 			if (!target || (!isobserver(target.mob) && !isnewplayer(target.mob)))
-				to_chat(user, span_warning("That familiar is no longer available."))
+				to_chat(user, span_warning("Этот фамильяр больше недоступен."))
 				user.busy_summoning_familiar = FALSE
 				GLOB.familiar_queue -= target
 				revert_cast()
 				return FALSE
 
-			switch(askuser(target.mob, "[user.real_name] is trying to summon you as a familiar. Do you accept?", "Please answer in [DisplayTimeText(200)]!", "Yes", "No", StealFocus=0, Timeout=200))
+			switch(askuser(target.mob, "[user.real_name] пытается призвать вас в качестве фамильяра. Принимаете?", "Ответьте в течение [DisplayTimeText(200)]!", "Yes", "No", StealFocus=0, Timeout=200))
 				if(1)
-					to_chat(target.mob, span_notice("You are [user.real_name]'s magical familiar, you are magically contracted to help them, yet you still have a self preservation instinct."))
+					to_chat(target.mob, span_notice("Вы — магический фамильяр [user.real_name], связанный контрактом помогать, но инстинкт самосохранения всё ещё при вас."))
 					GLOB.familiar_queue -= target
 					spawn_familiar_for_player(target.mob, user)
 					log_game("[user.ckey] summoned [pref.familiar_name] ([pref.familiar_specie]) controlled by [target.ckey]")
@@ -170,20 +170,20 @@
 					user.busy_summoning_familiar = FALSE
 					return TRUE
 				if(2)
-					to_chat(target.mob, span_notice("Choice registered: No."))
-					to_chat(user, span_notice("The familiar resisted your summon."))
+					to_chat(target.mob, span_notice("Зарегистрирован ответ: Нет."))
+					to_chat(user, span_notice("Фамильяр воспротивился вашему призыву."))
 					user.busy_summoning_familiar = FALSE
 					revert_cast()
 					return FALSE
 				else
-					to_chat(user, span_notice("The familiar took too long to answer your summon, the magic is spent."))
+					to_chat(user, span_notice("Фамильяр слишком долго не отвечал на призыв, магия исчерпана."))
 					user.busy_summoning_familiar = FALSE
 					revert_cast()
 					return FALSE
 
-	if(path_choice == "Summon a non-sentient familiar")
+	if(path_choice == "Призвать неразумного фамильяра")
 		// Non-sentient familiar summoning
-		var/familiarchoice = input("Choose your familiar", "Available familiars") as anything in familiars
+		var/familiarchoice = input("Выберите фамильяра", "Доступные фамильяры") as anything in familiars
 		var/mob/living/simple_animal/pet/familiar/familiar_type = familiars[familiarchoice]
 		var/mob/living/simple_animal/pet/familiar/fam = new familiar_type(spawn_turf)
 		fam.familiar_summoner = user
@@ -245,10 +245,10 @@
 ///Used to free a familiar from its summoner.
 /proc/free_familiar(mob/living/simple_animal/pet/familiar/fam, mob/living/carbon/user)
 	if (QDELETED(fam))
-		to_chat(user, span_warning("The familiar is already gone."))
+		to_chat(user, span_warning("Фамильяр уже исчез."))
 		return
-	to_chat(user, span_warning("You feel your link with [fam.name] break."))
-	to_chat(fam, span_warning("You feel your link with [user.name] break, you are free."))
+	to_chat(user, span_warning("Вы чувствуете, как ваша связь с [fam.name] разрывается."))
+	to_chat(fam, span_warning("Вы чувствуете, как ваша связь с [user.name] разрывается, вы свободны."))
 
 	fam.familiar_summoner = null
 	if (fam.buff_given)
@@ -260,9 +260,9 @@
 	if (!fam.mind)
 		var/exit_msg
 		if (isdead(fam))
-			exit_msg = "[fam.name]'s corpse vanishes in a puff of smoke."
+			exit_msg = "Труп [fam.name] исчезает в клубах дыма."
 		else
-			exit_msg = "[fam.name] looks in the direction of [user.name] one last time, before opening a portal and vanishing into it."
+			exit_msg = "[fam.name] в последний раз смотрит в сторону [user.name], затем открывает портал и исчезает в нём."
 
 		fam.visible_message(span_warning(exit_msg))
 		qdel(fam)
@@ -280,19 +280,19 @@
 	// Ensure the chosen one has a valid client and preferences
 	var/client/client_ref = chosen_one.client
 	if (!client_ref || !client_ref.prefs)
-		to_chat(user, span_warning("Familiar summoning failed: The target has no preferences or is invalid."))
+		to_chat(user, span_warning("Призыв фамильяра провален: цель не имеет настроек или недействительна."))
 		return
 
 	var/datum/familiar_prefs/prefs = client_ref.prefs.familiar_prefs
 	if (!prefs || !prefs.familiar_specie)
-		to_chat(user, span_warning("Familiar summoning failed: The target has no valid familiar form."))
+		to_chat(user, span_warning("Призыв фамильяра провален: цель не имеет допустимой формы фамильяра."))
 		return
 
 	// Spawn the familiar mob near the summoner
 	var/turf/spawn_turf = get_step(user, user.dir)
 	var/mob/living/simple_animal/pet/familiar/awakener = new prefs.familiar_specie(spawn_turf)
 	if (!awakener)
-		to_chat(user, span_warning("Familiar summoning failed: Could not create familiar."))
+		to_chat(user, span_warning("Призыв фамильяра провален: не удалось создать фамильяра."))
 		return
 
 	// Set summoner and name
@@ -309,7 +309,7 @@
 
 	// Transfer player's mind to the familiar
 	if (!chosen_one.mind)
-		to_chat(user, span_warning("Familiar summoning failed: Target has no mind to transfer."))
+		to_chat(user, span_warning("Призыв фамильяра провален: цель не обладает разумом для переноса."))
 		qdel(awakener)
 		return
 
@@ -318,7 +318,7 @@
 
 	var/datum/mind/mind_datum = awakener.mind
 	if (!mind_datum)
-		to_chat(user, span_warning("Familiar summoning failed: Mind transfer failed."))
+		to_chat(user, span_warning("Призыв фамильяра провален: перенос разума не удался."))
 		qdel(awakener)
 		return
 
@@ -349,8 +349,8 @@
 	log_game("[key_name(user)] has summoned [key_name(chosen_one)] as familiar '[awakener.name]' ([awakener.type]).")
 
 /obj/effect/proc_holder/spell/self/message_familiar
-	name = "Message Familiar"
-	desc = "Whisper a message in your Familar's head."
+	name = "Сообщение фамильяру"
+	desc = "Шепчет сообщение в голову вашего фамильяра."
 
 /obj/effect/proc_holder/spell/self/message_familiar/cast(list/targets, mob/user)
 	. = ..()
@@ -360,25 +360,25 @@
 			familiar = familiar_check
 	if(!familiar || !familiar.mind)
 		revert_cast()
-		to_chat(user, "You cannot sense your familiar's mind.")
+		to_chat(user, "Вы не чувствуете разума своего фамильяра.")
 		return
-	var/message = input(user, "You make a connection. What are you trying to say?")
+	var/message = input(user, "Вы устанавливаете связь. Что вы хотите сказать?")
 	if(!message)
 		revert_cast()
 		return
-	to_chat_immediate(familiar, "Arcane whispers fill the back of my head, resolving into [user]'s voice: <font color=#7246ff>[message]</font>")
-	user.visible_message("[user] mutters an incantation and their mouth briefly flashes white.")
+	to_chat_immediate(familiar, "Арканный шёпот наполняет ваш разум, превращаясь в голос [user]: <font color=#7246ff>[message]</font>")
+	user.visible_message("[user] бормочет заклинание, и его рот ненадолго вспыхивает белым.")
 	user.whisper(message)
 	log_game("[key_name(user)] sent a message to [key_name(familiar)] with contents [message]")
 	return TRUE
 
 /proc/revive_familiar(obj/item/natural/stone/magic_stone, mob/living/simple_animal/pet/familiar/fam, mob/living/carbon/user)
     // Consume the stone
-    to_chat(user, span_notice("You channel the stone's magic into [fam.name], reviving them!"))
+    to_chat(user, span_notice("Вы направляете магию камня в [fam.name], воскрешая его!"))
     qdel(magic_stone)
 
     // Revive and fully heal the familiar
     fam.revive(full_heal = TRUE, admin_revive = TRUE)
     fam.familiar_summoner = user
-    fam.visible_message(span_notice("[fam.name] is restored to life by [user]'s magic!"))
+    fam.visible_message(span_notice("[fam.name] возвращён к жизни магией [user]!"))
     return TRUE

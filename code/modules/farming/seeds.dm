@@ -54,6 +54,13 @@
 		return
 	if(!plant_def_type)
 		return
+
+	// Check if we can plant in this area
+	var/area/A = get_area(soil)
+	if(!istype(A, /area/rogue/indoors))
+		to_chat(user, span_warning("Нет... Здесь оно расти не сможет."))
+		return
+
 	to_chat(user, span_notice("I plant \the [src] in \the [soil]."))
 	soil.insert_plant(GLOB.plant_defs[plant_def_type])
 	qdel(src)

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/snap_freeze // to do: get scroll icon
-	name = "Snap Freeze"
-	desc = "Freeze the air of a large area in an instant. Those afflicted suffer slowness and fatigue, intensified by repeated casts."
+	name = "Мгновенная заморозка"
+	desc = "Мгновенно замораживает воздух в большой области. Пострадавшие испытывают медлительность и усталость, усиливающиеся при повторных применениях."
 	cost = 6
 	xp_gain = TRUE
 	releasedrain = 30
@@ -37,8 +37,8 @@
 /obj/effect/temp_visual/snap_freeze
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "shieldsparkles"
-	name = "rippeling arcyne ice"
-	desc = "Get out of the way!"
+	name = "рябь арканной энергии"
+	desc = "Прочь с дороги!"
 	randomdir = FALSE
 	duration = 1 SECONDS
 	layer = MASSIVE_OBJ_LAYER
@@ -68,7 +68,7 @@
 			continue
 		for(var/mob/living/L in affected_turf.contents)
 			if(L.anti_magic_check())
-				visible_message(span_warning("The ice fades away around you. [L] "))  //antimagic needs some testing
+				visible_message(span_warning("Лёд рассеивается вокруг [L]."))  //antimagic needs some testing
 				playsound(L, 'sound/magic/magic_nulled.ogg', 100)
 				return 
 			play_cleave = TRUE
@@ -86,7 +86,7 @@
 				else
 					L.apply_status_effect(/datum/status_effect/buff/frost)
 			playsound(affected_turf, "genslash", 80, TRUE)
-			to_chat(L, "<span class='userdanger'>The air chills your bones!</span>")
+			to_chat(L, "<span class='userdanger'>Воздух леденит до костей!</span>")
 
 	if(play_cleave)
 		playsound(T, 'sound/combat/newstuck.ogg', 80, TRUE, soundping = TRUE) // this also kinda sounds like ice ngl

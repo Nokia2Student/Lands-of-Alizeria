@@ -74,7 +74,7 @@
 //knife and dagger objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/huntingknife
-	force = 12
+	force = 24
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	name = "hunting knife"
@@ -95,7 +95,7 @@
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	associated_skill = /datum/skill/combat/knives
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
-	throwforce = 12
+	throwforce = 24
 	wdefense = 3
 	wbalance = WBALANCE_SWIFT
 	thrown_bclass = BCLASS_CUT
@@ -182,7 +182,7 @@
 	smeltresult = null // TODO: We don't have partial melt so coping time
 
 /obj/item/rogueweapon/huntingknife/cleaver
-	force = 15
+	force = 30
 	name = "cleaver"
 	desc = "Chop, chop, chop!"
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver)
@@ -190,7 +190,7 @@
 	icon = 'icons/roguetown/weapons/daggers32.dmi'
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')
-	throwforce = 15
+	throwforce = 30
 	slot_flags = ITEM_SLOT_HIP
 	item_flags = PEASANT_WEAPON
 	thrown_bclass = BCLASS_CHOP
@@ -229,7 +229,7 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/rogueweapon/huntingknife/chefknife
-	force = 15
+	force = 30
 	name = "chef's knife"
 	desc = "Keep it in the kitchen!"
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver, /datum/intent/dagger/thrust)
@@ -237,7 +237,7 @@
 	icon = 'icons/roguetown/weapons/daggers32.dmi'
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')
-	throwforce = 15
+	throwforce = 30
 	slot_flags = ITEM_SLOT_HIP
 	item_flags = PEASANT_WEAPON
 	thrown_bclass = BCLASS_CUT
@@ -247,7 +247,7 @@
 	picklvl = 0.9
 
 /obj/item/rogueweapon/huntingknife/combat
-	force = 16
+	force = 32
 	name = "seax"
 	desc = "A fighting knife used amongst the Grenzels and Northerners for centuries, serving dual purpose as a \
 	tool of daily life and as a capable fighting knife."
@@ -257,7 +257,7 @@
 	icon = 'icons/roguetown/weapons/daggers32.dmi'
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')
-	throwforce = 16
+	throwforce = 32
 	slot_flags = ITEM_SLOT_HIP
 	thrown_bclass = BCLASS_CHOP
 	w_class = WEIGHT_CLASS_NORMAL
@@ -274,7 +274,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger
 	possible_item_intents = list(/datum/intent/dagger/thrust,/datum/intent/dagger/cut, /datum/intent/dagger/thrust/pick, /datum/intent/dagger/sucker_punch)
-	force = 15
+	force = 30
 	max_integrity = 100
 	name = "iron dagger"
 	desc = "This is a common dagger of iron."
@@ -287,7 +287,7 @@
 /obj/item/rogueweapon/huntingknife/idagger/adagger
 	name = "decrepit dagger"
 	desc = "an incredibly withered daggered. Aeon's grasp is upon its form."
-	force = 12
+	force = 24
 	max_integrity = 75
 	icon_state = "adagger"
 	sheathe_icon = "adagger"
@@ -310,7 +310,7 @@
 	desc = "This is a dagger made of solid steel, more durable."
 	icon_state = "sdagger"
 	sheathe_icon = "sdagger"
-	force = 20
+	force = 40
 	max_integrity = 150
 	smeltresult = /obj/item/ingot/steel
 
@@ -319,7 +319,7 @@
 /obj/item/rogueweapon/huntingknife/idagger/steel/holysee
 	name = "eclipsum dagger"
 	desc = "A blade forged from the Holy metals of the twinned gods Noc and Astrata, Silver and Gold fused under an Eclipse and blessed, these daggers are very grudgingly given out by the Grenzelhoftian See to ordained Priests of the Ten."
-	force = 25
+	force = 50
 	max_integrity = 200
 	icon_state = "gsdagger"
 	sheathe_icon = "gsdagger"
@@ -346,7 +346,7 @@
 	desc = "The right hand of the right hand, this narrow length of steel serves as a quick solution to petty greviences."
 	icon_state = "stiletto"
 	sheathe_icon = "stiletto"
-	force = 25
+	force = 50
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/steel
 
@@ -355,8 +355,8 @@
 /obj/item/rogueweapon/huntingknife/idagger/steel/parrying //direct upgrade but more costly.
 	name = "steel parrying dagger"
 	desc = "This is a parrying dagger made of solid steel, used to catch opponent's weapons in the handguard, but it's not as good for actual stabbing work."
-	force = 15
-	throwforce = 15
+	force = 30
+	throwforce = 30
 	icon_state = "spdagger"
 	sheathe_icon = "spdagger"
 	wdefense = 6
@@ -368,8 +368,8 @@
 	name = "sail dagger"
 	desc = "An exceptionally protective parrying dagger popular in the Etruscan Isles, this dagger features a plain metal guard in the shape of a ship's sail."
 	wdefense = 7
-	force = 17
-	throwforce = 17
+	force = 34
+	throwforce = 34
 	icon_state = "sail_dagger"
 
 	picklvl = 1.11
@@ -392,7 +392,7 @@
 	desc = "This silver dagger can be the banishment of vampires and werewolves."
 	icon_state = "sildagger"
 	sheathe_icon = "sildagger"
-	force = 15
+	force = 30
 	wdefense = 6
 	sellprice = 50
 	smeltresult = /obj/item/ingot/silver
@@ -419,7 +419,7 @@
 	icon_state = "psydagger"
 	sheathe_icon = "psydagger"
 	sellprice = 70
-	
+
 
 	picklvl = 1.175
 
@@ -483,7 +483,7 @@
 /obj/item/rogueweapon/huntingknife/idagger/silver/elvish
 	name = "elvish dagger"
 	desc = "This beautiful dagger is of intricate, elvish design. Sharper, too."
-	force = 18
+	force = 36
 	max_blade_int = 250
 	icon_state = "elfdagger"
 	item_state = "elfdag"
@@ -495,7 +495,7 @@
 /obj/item/rogueweapon/huntingknife/idagger/silver/elvish/drow
 	name = "drowish dagger"
 	desc = "A vicious wave-bladed dagger from the Underdark."
-	force = 18
+	force = 36
 	last_used = 0
 	is_silver = TRUE
 
@@ -505,7 +505,7 @@
 	possible_item_intents = list(/datum/intent/dagger/thrust,/datum/intent/dagger/cut,  /datum/intent/dagger/thrust/pick)
 	name = "navaja"
 	desc = "A folding Etruscan knife valued by merchants, mercenaries and peasants for its convenience. It possesses a long hilt, allowing for a sizeable blade with good reach."
-	force = 5
+	force = 10
 	icon_state = "navaja_c"
 	item_state = "elfdag"
 	var/extended = 0
@@ -519,11 +519,11 @@
 	extended = !extended
 	playsound(src.loc, 'sound/blank.ogg', 50, TRUE)
 	if(extended)
-		force = 20
+		force = 40
 		wdefense = 6
 		wdefense_dynamic = 6
 		w_class = WEIGHT_CLASS_NORMAL
-		throwforce = 23
+		throwforce = 43
 		icon_state = "navaja_o"
 		attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 		sharpness = IS_SHARP
@@ -543,8 +543,8 @@
 	name = "iron tossblade"
 	desc = "Paradoxical; why is it called a blade when it is meant for tossing? Or is it the act of cutting post-toss that makes it a blade? ...Are arrows tossblades, too?"
 	item_state = "bone_dagger"
-	force = 10
-	throwforce = 22
+	force = 20
+	throwforce = 42
 	throw_speed = 4
 	max_integrity = 50
 	armor_penetration = 30
@@ -572,7 +572,7 @@
 	desc = "A four pointed throwing knife ground and sharpened from a single piece of metal. The design is intended to solve one of weaknesses of basic tossblades; \
 	more points means these are more likely to land point-first."
 	icon_state = "easttossblade"
-	throwforce = 30
+	throwforce = 60
 	max_integrity = 100
 	armor_penetration = 40
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 60, "embedded_fall_chance" = 5)
@@ -581,15 +581,15 @@
 	name = "decrepit tossblade"
 	desc = "A decrepit old tossblade. You ought to throw cutlery instead."
 	icon_state = "throw_knifea"
-	force = 7
-	throwforce = 16
+	force = 14
+	throwforce = 32
 	randomize_blade_int_on_init = TRUE
 
 /obj/item/rogueweapon/huntingknife/throwingknife/steel
 	name = "steel tossblade"
 	desc = "There are rumors of some sea-marauders loading these into metal tubes with explosive powder to launch then fast and far. Probably won't catch on."
 	item_state = "bone_dagger"
-	throwforce = 28
+	throwforce = 56
 	max_integrity = 100
 	armor_penetration = 40
 	icon_state = "throw_knifes"
@@ -605,8 +605,8 @@
 	name = "silver tossblade"
 	desc = "An unconventional method of delivering silver to a heretic; but one that the Ten smile at, all the same. Doubles as an actual knife in a pinch, though obviously not as well."
 	item_state = "bone_dagger"
-	force = 10
-	throwforce = 20
+	force = 20
+	throwforce = 30
 	armor_penetration = 50
 	max_integrity = 150
 	wdefense = 3
@@ -640,7 +640,7 @@
 	picklvl = 0.85
 
 /obj/item/rogueweapon/huntingknife/scissors/steel
-	force = 14
+	force = 28
 	max_integrity = 150
 	name = "steel scissors"
 	desc = "Scissors made of solid steel that may be used to salvage usable materials from clothing, more durable and a tad more deadly than their iron conterpart."
@@ -860,7 +860,7 @@
 				return
 			var/turf/T = get_turf(item)
 			var/datum/crafting_recipe/item_recipe
-			for(var/recipe in GLOB.crafting_recipes) // Loops through sewing / weaving & leatherworking (skincraft) recipes 
+			for(var/recipe in GLOB.crafting_recipes) // Loops through sewing / weaving & leatherworking (skincraft) recipes
 				var/datum/crafting_recipe/R = recipe
 				if(R.name == "")
 					continue
@@ -898,7 +898,7 @@
 			)
 			if(item_recipe) // null check
 				if(skill_level == SKILL_LEVEL_NONE)
-					skill_level++ //Give them a LITTLE bone to start off with. 20% isn't crazy. Expensive recipes that have 5+ of an ingredient will yield at least 1. 
+					skill_level++ //Give them a LITTLE bone to start off with. 20% isn't crazy. Expensive recipes that have 5+ of an ingredient will yield at least 1.
 				var/list/results = item_recipe.reqs
 				if(item.torn_sleeve_number)
 					to_chat(user, span_danger("I am losing [item.torn_sleeve_number] from each salvage attempt due to the torn sleeves.")) // Feedback if you lose some.
@@ -972,7 +972,7 @@
 	desc = "Any good cook needs to prep their meat. Chop it, slice it, maybe even kill it before you do all that. Meant for the hands of a giant."
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "ogre_cleaver"
-	force = 25
+	force = 50
 	wdefense = 4
 	minstr = 13
 	item_flags = GIANT_WEAPON

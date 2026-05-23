@@ -1,151 +1,151 @@
 /datum/supply_pack/rogue/luxury
-	group = "Luxury"
+	group = "Роскошь"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/luxury/sigs
-	name = "Pipe Weed Zig"
-	cost = 3
+	name = "Сигарета-самокрутка"
+	cost = 8
 	contains = list(/obj/item/clothing/mask/cigarette/rollie/nicotine)
 
 /datum/supply_pack/rogue/luxury/msigs
-	name = "Mentha Zig"
-	cost = 4
+	name = "Мятная сигарета"
+	cost = 12
 	contains = list(/obj/item/clothing/mask/cigarette/rollie/mentha)
 
 /datum/supply_pack/rogue/luxury/ozium
-	name = "Ozium"
-	cost = 5
+	name = "Озиум"
+	cost = 15
 	contains = list(/obj/item/reagent_containers/powder/ozium)
 
 /datum/supply_pack/rogue/luxury/moondust
-	name = "Moon Dust"
-	cost = 10
+	name = "Лунная пыль"
+	cost = 25
 	contains = list(/obj/item/reagent_containers/powder/moondust)
 
 /datum/supply_pack/rogue/luxury/spice
-	name = "Spice"
-	cost = 30
+	name = "Спайс"
+	cost = 40
 	contains = list(/obj/item/reagent_containers/powder/spice)
 
 /datum/supply_pack/rogue/luxury/fancyteaset
-	name = "Fancy Tea Set (1 Teapot, 4 Cups)"
+	name = "Изысканный чайный набор"
 	cost = 110
 	no_name_quantity = TRUE
-	contains = list(/obj/item/reagent_containers/glass/bucket/pot/teapot/fancy, 
+	contains = list(/obj/item/reagent_containers/glass/bucket/pot/teapot/fancy,
 	/obj/item/reagent_containers/glass/cup/ceramic/fancy,
 	/obj/item/reagent_containers/glass/cup/ceramic/fancy,
 	/obj/item/reagent_containers/glass/cup/ceramic/fancy,
 	/obj/item/reagent_containers/glass/cup/ceramic/fancy)
 
 /datum/supply_pack/rogue/luxury/silverpsicross
-	name = "Silver Psycross"
+	name = "Серебряный Псикрест"
 	cost = 200
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver)
 
 /datum/supply_pack/rogue/luxury/silverdagger
-	name = "Silver Dagger"
+	name = "Серебряный кинжал"
 	cost = 150
 	contains = list(/obj/item/rogueweapon/huntingknife/idagger/silver)
 
 /datum/supply_pack/rogue/luxury/nomag
-	name = "Ring of Null Magic"
+	name = "Кольцо антимагии"
 	cost = 300
 	contains = list(/obj/item/clothing/ring/active/nomag)
 
 /datum/supply_pack/rogue/luxury/scrying
-	name = "Scrying Orb"
+	name = "Шар слежки"
 	cost = 300
 	contains = list(/obj/item/scrying)
 
 /datum/supply_pack/rogue/luxury/listenst
-	name = "Emerald Choker"
+	name = "Изумрудный чокер"
 	cost = 250
 	contains = list(/obj/item/scomstone/listenstone)
 
 /datum/supply_pack/rogue/luxury/polishing_brush
-	name = "Polishing Brush"
+	name = "Полировочная щётка"
 	cost = 40
 	contains = list(/obj/item/armor_brush)
 
 /datum/supply_pack/rogue/luxury/polishing_cream
-	name = "Polishing Cream"
+	name = "Полировочный крем"
 	cost = 60
 	contains = list(/obj/item/polishing_cream)
 
 /datum/supply_pack/rogue/luxury/talkstone
-	name = "Talkstone"
+	name = "Говорящий камень"
 	cost = 100
 	contains = list(/obj/item/clothing/neck/roguetown/talkstone)
 
 /datum/supply_pack/rogue/luxury/circlet
-	name = "Circlet"
+	name = "Венец"
 	cost = 80
 	contains = list(/obj/item/clothing/head/roguetown/circlet)
 
 /datum/supply_pack/rogue/luxury/goldring
-	name = "Gold Ring"
+	name = "Золотое кольцо"
 	cost = 70
 	contains = list(/obj/item/clothing/ring/gold)
 
 /datum/supply_pack/rogue/luxury/signet
-	name = "Signet"
+	name = "Перстень"
 	cost = 220
 	contains = list(/obj/item/clothing/ring/signet)
 
 /datum/supply_pack/rogue/luxury/lovepotion
-	name = "Love Potion"
+	name = "Любовное зелье"
 	cost = 300
 	contains = list(/obj/item/lovepotion)
 
 /datum/supply_pack/rogue/luxury/swatchbook
-	name = "Tailor's Swatchbook"
+	name = "Книга образцов портного"
 	cost = 20
 	contains = list(/obj/item/book/rogue/swatchbook)
 
 /datum/supply_pack/rogue/luxury/obsidianfragment
-	name = "Obsidian Fragments"
+	name = "Обсидиановые осколки"
 	cost = 55
-	contains = list(	
+	contains = list(
 			/obj/item/magic/obsidian,
 			/obj/item/magic/obsidian,
 			/obj/item/magic/obsidian,
 			)
 
 /datum/supply_pack/rogue/luxury/manaflower
-	name = "Manabloom Flowers"
+	name = "Цветы манацвета"
 	cost = 55
-	contains = list(	
+	contains = list(
 			/obj/item/reagent_containers/food/snacks/grown/manabloom,
 			/obj/item/reagent_containers/food/snacks/grown/manabloom,
 			/obj/item/reagent_containers/food/snacks/grown/manabloom,
 			)
 
 /datum/supply_pack/rogue/luxury/manacrystal
-	name = "Mana Crystals"
+	name = "Кристаллы маны"
 	cost = 55
-	contains = list(	
+	contains = list(
 			/obj/item/magic/manacrystal,
 			/obj/item/magic/manacrystal,
 			/obj/item/magic/manacrystal,
 			)
 
 /datum/supply_pack/rogue/luxury/canvas
-	name = "Canvas"
+	name = "Холст"
 	cost = 30
 	contains = list(/obj/item/canvas)
 
 /datum/supply_pack/rogue/luxury/easel
-	name = "Easel"
+	name = "Мольберт"
 	cost = 80
 	contains = list(/obj/structure/easel)
 
 /datum/supply_pack/rogue/luxury/paintbrush
-	name = "Paint brush"
+	name = "Кисть"
 	cost = 15
 	contains = list(/obj/item/paint_brush)
 
 /datum/supply_pack/rogue/luxury/paintpalette
-	name = "Paint palette"
+	name = "Палитра"
 	cost = 15
 	contains = list(/obj/item/paint_palette)

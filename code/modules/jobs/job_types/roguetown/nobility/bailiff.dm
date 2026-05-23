@@ -1,5 +1,5 @@
 /datum/job/roguetown/marshal // A somewhat ham-fisted merge between bailiff and the old town sheriff role. The latter was built like a modern day officer, but we medieval in this bitch!
-	title = "Sheriff of Town"
+	title = "Militia Captain"
 	flag = MARSHAL
 	department_flag = GARRISON
 	faction = "Station"
@@ -11,7 +11,7 @@
 	display_order = JDO_MARSHAL
 	selection_color = JCOLOR_SOLDIER
 	allowed_patrons = CODEX
-	tutorial = "Управляющий городской стражей. Когда-то давно ты служил лично короне, и именно тебе по справедливости должны были отдать земли Ализерии. Однако либо из-за твоей неверности, либо по какой-то иной прихоти короны - земли были отданы иному наместнику. Как к этому относиться - решать тебе. Морские штормы помогут тебе в случае проведения мятежа, однако жандармы будут явно против подобного действия. Впрочем, можно и отказаться от подобной идеи. Какое тебе дело до лорда, пока городом по факту всё ещё правишь ты?"
+	tutorial = "Когда-то ты был обычным человеком среди таких же голодных и злых горожан. Пока знать пряталась за стенами, а жандармы ждали приказов, именно вы вышли на улицы с топорами, молотами и охотничьими ружьями. После революции толпа разошлась по домам, но оружие осталось у тех, кто сумел выжить. Теперь ты возглавляешь Народную Стражу от имени бургомистра. Для одних ты герой восстания, для других - узаконенный бандит. Следи за порядком, собирай людей в трудный час и помни: народ быстро ставит на пьедестал, но ещё быстрее тащит с него вниз, а страшнее народа только цепные псы короны со штыками. Они посадили на них столько повстанцев, что ты сбился со счёта. Помни, что выше тебя всё ещё кто-то есть. Бургомистр ждёт послушания, знать требует защиты, беднота требует справедливости, а жандармы только и ждут момента доказать, что без них город снова захлебнётся в крови. Держи улицы в кулаке, но не сжимай слишком сильно. Иначе однажды ночью в дверь постучат те, с кем ты когда-то стоял плечом к плечу."
 	whitelist_req = FALSE // /obj/effect/proc_holder/spell/self/convertrole/bog
 	outfit = /datum/outfit/job/marshal
 	give_bank_account = 40
@@ -66,6 +66,7 @@
 		/datum/skill/combat/wrestling = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/guns = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
@@ -76,6 +77,7 @@
 		/datum/skill/combat/polearms = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/bows = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/guns = SKILL_LEVEL_JOURNEYMAN,
 	)
 
 /datum/outfit/job/marshal/classic/pre_equip(mob/living/carbon/human/H)

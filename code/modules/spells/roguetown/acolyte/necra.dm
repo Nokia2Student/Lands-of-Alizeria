@@ -1,7 +1,7 @@
 // Necrite
 /obj/effect/proc_holder/spell/targeted/burialrite
-	name = "Burial Rites"
-	desc = "Consecrate a coffin or a grave. Sending any spirits within to Necras realm."
+	name = "Погребальные обряды"
+	desc = "Освятить гроб или могилу, отправив духов внутри в царство Некры."
 	range = 5
 	overlay_state = "consecrateburial"
 	releasedrain = 30
@@ -22,19 +22,19 @@
 	for(var/obj/structure/closet/crate/coffin/coffin in view(1))
 		success = pacify_coffin(coffin, user)
 		if(success)
-			user.visible_message("[user] consecrates [coffin]!", "My funeral rites have been performed on [coffin]!")
+			user.visible_message("[user] освящает [coffin]!", "Мои погребальные обряды исполнены над [coffin]!")
 			return
 	for(var/obj/structure/closet/dirthole/hole in view(1))
 		success = pacify_coffin(hole, user)
 		if(success)
-			user.visible_message("[user] consecrates [hole]!", "My funeral rites have been performed on [hole]!")
+			user.visible_message("[user] освящает [hole]!", "Мои погребальные обряды исполнены над [hole]!")
 			record_round_statistic(STATS_GRAVES_CONSECRATED)
 			return
-	to_chat(user, span_red("I failed to perform the rites."))
+	to_chat(user, span_red("Мне не удалось исполнить обряды."))
 
 /obj/effect/proc_holder/spell/targeted/churn
-	name = "Churn Undead"
-	desc = "Stuns and explodes undead."
+	name = "Вспенить нежить"
+	desc = "Оглушает и взрывает нежить."
 	range = 4	//Way lower, halved.
 	overlay_state = "necra"
 	releasedrain = 30
@@ -68,7 +68,7 @@
 			if(L.mind.has_antag_datum(/datum/antagonist/zombie))
 				iszombie = TRUE
 			if(L.mind.special_role == "Vampire Lord" || L.mind.special_role == "Lich")	//Won't detonate Lich's or VLs but will fling them away.
-				user.visible_message(span_warning("[L] overpowers being churned!"), span_userdanger("[L] is too strong, I am churned!"))
+				user.visible_message(span_warning("[L] противостоит вспениванию!"), span_userdanger("[L] слишком силён, меня вспенило!"))
 				user.Stun(50)
 				user.throw_at(get_ranged_target_turf(user, get_dir(user,L), 7), 7, 1, L, spin = FALSE)
 				return
@@ -77,11 +77,11 @@
 			if(isvampire)
 				vamp_prob -= 59
 			if(prob(vamp_prob))
-				L.visible_message("<span class='warning'>[L] has been churned by the Undermaiden's grip!", "<span class='danger'>I've been churned by the Undermaiden's grip!")
+				L.visible_message("<span class='warning'>[L] вспенен хваткой Подземной Девы!", "<span class='danger'>Меня вспенило хваткой Подземной Девы!")
 				explosion(get_turf(L), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 				L.Stun(50)
 			else
-				L.visible_message(span_warning("[L] resists being churned!"), span_userdanger("I resist being churned!"))
+				L.visible_message(span_warning("[L] сопротивляется вспениванию!"), span_userdanger("Я сопротивляюсь вспениванию!"))
 	..()
 	return TRUE
 
@@ -92,8 +92,8 @@
 
 
 /obj/effect/proc_holder/spell/invoked/deaths_door
-	name = "Death's Door"
-	desc = "Opens a portal into a realm between lyfe and death, People can be dragged into the portal to be put into stasis, though undead will never return. Casting the portal again while people are trapped inside spits them out of the gates. <br>Necras domain will only hold people for five minutes at a time."
+	name = "Врата смерти"
+	desc = "Открывает портал в царство между жизнью и смертью. Людей можно затащить в портал, чтобы ввести в стазис, но нежить никогда не вернётся. Повторное применение портала, пока люди внутри, выбрасывает их наружу. <br>Владения Некры удержат людей лишь на пять минут."
 	range = 7
 	no_early_release = TRUE
 	charging_slowdown = 1
@@ -117,7 +117,7 @@
 
 	var/turf/T = get_turf(targets[1])
 	if(!isopenturf(T))
-		to_chat(user, span_warning("The targeted location is blocked. I cannot open a doorway here."))
+		to_chat(user, span_warning("Указанное место заблокировано. Я не могу открыть здесь врата."))
 		return FALSE
 	for (var/obj/structure/underworld_portal/e_portal in user.contents) // checks if the portal exists, and shits them out
 		if(istype(e_portal))
@@ -131,7 +131,7 @@
 
 
 /obj/structure/underworld_portal
-	name = "underworld portal"
+	name = "портал в подземный мир"
 	desc = null // see examine
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "underworldportal"
@@ -149,13 +149,13 @@
 	. = ..()
 
 	if(user.mob_biotypes & MOB_UNDEAD)
-		. += "A temporary gateway to the underworld. [span_warning("Faintly, you can see clutching fingers in the dark, reaching for you. If you go through, you won't come back.")]"
+		. += "Временный проход в подземный мир. [span_warning("Смутно видны цепляющиеся пальцы во тьме, тянущиеся к вам. Если войдёте, не вернётесь.")]"
 	else
-		. += "A temporary gateway to the underworld. You can hear faint whispers through it. [span_warning("It might be possible to step through.")]"
+		. += "Временный проход в подземный мир. Сквозь него слышен тихий шёпот. [span_warning("Возможно, можно шагнуть внутрь.")]"
 
-	. += "[span_notice("As the caster, click on GRAB to store the portal, provided there are souls inside. Use HARM to destroy the portal.")]"
+	. += "[span_notice("Будучи заклинателем, нажмите ЗАХВАТ, чтобы убрать портал, если внутри есть души. Используйте УДАР, чтобы уничтожить портал.")]"
 	if(trapped)
-		. += "[span_notice("Right-click on the portal to pull trapped souls out.")]"
+		. += "[span_notice("Щёлкните правой кнопкой по порталу, чтобы вытащить пойманные души.")]"
 
 
 /obj/structure/underworld_portal/attack_hand(mob/living/carbon/user, list/modifiers)
@@ -165,14 +165,14 @@
 			if(victim)
 				caster.contents.Add(src)
 				user.visible_message(
-					span_revenwarning("[user] dispels the doorway with a touch."),
-					span_purple("I close the gateway.")
+					span_revenwarning("[user] рассеивает врата прикосновением."),
+					span_purple("Я закрываю врата.")
 					)
 				return TRUE
 
 		if(user.used_intent.type == INTENT_HARM)
 			if(victim)
-				to_chat(user, span_warning("There are still souls trapped inside!"))
+				to_chat(user, span_warning("Внутри ещё есть пойманные души!"))
 				return FALSE
 			qdel(src)
 			return TRUE
@@ -186,10 +186,10 @@
 
 
 /obj/structure/underworld_portal/Destroy()
-	if(dispelled == FALSE)	//Only do this if we DON'T close it ourselves,that means something ELSE -FUNNY- happend.
+	if(dispelled == FALSE)	//Only do this if we DON'T close it ourselves, that means something ELSE -FUNNY- happend.
 							//As we are already calling qdel on:Right click, if you do not have this is gonna to call spitout mob TWICE
 		spitout_mob(caster, loc)
-	visible_message(span_revenwarning("The portal collapses with an angry hiss."))//will keep this outside the if though, its coo
+	visible_message(span_revenwarning("Портал схлопывается с сердитым шипением."))//will keep this outside the if though, its coo
 	..()
 
 /obj/structure/underworld_portal/attack_right(mob/living/carbon/user, list/modifiers)
@@ -199,8 +199,8 @@
 		return FALSE
 	spitout_mob(user, loc)
 	user.visible_message(
-				span_revenwarning("[user] gestures their hand at the gateway to expel what is within."),
-				span_purple("I gesture at the gateway to release whatever is inside.")
+				span_revenwarning("[user] взмахивает рукой у врат, исторгая то, что внутри."),
+				span_purple("Я взмахиваю рукой у врат, чтобы выпустить, что внутри.")
 			)
 	qdel(src)
 
@@ -220,7 +220,7 @@
 		return
 	gobble_mob(O, user)
 	user.visible_message(
-		span_warning("[user] forces [O] into the portal!")
+		span_warning("[user] заталкивает [O] в портал!")
 	)
 
 	return TRUE
@@ -229,8 +229,8 @@
 /obj/structure/underworld_portal/proc/gobble_mob(mob/living/carbon/user, mob/living/carbon/caster)
 	if(user.mob_biotypes & MOB_UNDEAD)
 		user.visible_message(
-			span_warning("[user] is suddenly grabbed by a massive hand-and pulled through!"),
-			span_userdanger("Touching the portal, the Carriageman's hand closes around my own! No! NO!")
+			span_warning("[user] внезапно схвачен огромной рукой — и затянут внутрь!"),
+			span_userdanger("Коснувшись портала, рука Карьяжника сжала мою! Нет! НЕТ!")
 			)
 		playsound(user, 'sound/misc/deadbell.ogg', 50, TRUE, -2, ignore_walls = TRUE)
 		new /obj/effect/gibspawner/generic(get_turf(user))
@@ -238,13 +238,13 @@
 		return TRUE
 
 	user.visible_message(
-		span_revenwarning("[user] slips through the portal. Silence follows."),
-		span_purple("I touch the doorway. I slip through, and the world is silent and dark. I hear the distant rattle of a passing carriage.")
+		span_revenwarning("[user] проскальзывает в портал. Воцаряется тишина."),
+		span_purple("Я касаюсь врат. Я проскальзываю, и мир становится тихим и тёмным. Я слышу далёкий стук проезжающей кареты.")
 		)
 
 	if(user.mind)
 		if(trapped)
-			to_chat(user, span_warning("There is already a soul trapped inside!"))
+			to_chat(user, span_warning("Внутри уже есть пойманная душа!"))
 			return FALSE
 		user.forceMove(src)
 		ADD_TRAIT(user, TRAIT_BLOODLOSS_IMMUNE, STATUS_EFFECT_TRAIT)
@@ -274,8 +274,8 @@
 		trapped = null
 
 		user.visible_message(
-			span_revenwarning("[trapped] slips out from the whispering portal. Shadow roils off their form like smoke."),
-			span_purple("I am pulled from the Undermaiden's realm. Air fills my lungs, my heart starts beating- I live.")
+			span_revenwarning("[trapped] выскальзывает из шепчущего портала. Тень клубится с их формы, как дым."),
+			span_purple("Меня вытягивают из владений Подземной Девы. Воздух наполняет лёгкие, сердце начинает биться — я жив.")
 		)
 
 	for(var/mob/living/thing in contents)
@@ -305,10 +305,10 @@
 // Speak with dead
 
 /obj/effect/proc_holder/spell/invoked/speakwithdead
-    name = "Speak with Dead"
+    name = "Говорить с мёртвым"
     range = 5
     overlay_state = "speakwithdead"
-    desc = "Commune with the spirit bound to a nearby corpse, allowing brief conversation between the living and the dead."
+    desc = "Воззвать к духу, привязанному к ближайшему трупу, позволяя краткую беседу между живыми и мёртвыми."
     releasedrain = 30
     recharge_time = 30 SECONDS
     req_items = list(/obj/item/clothing/neck/roguetown/psicross)
@@ -321,7 +321,7 @@
 
 /obj/effect/proc_holder/spell/invoked/speakwithdead/cast(list/targets, mob/user = usr)
     if(!targets || !length(targets))
-        to_chat(user, "<font color='red'>To perform a miracle, you are supposed to stay next to their fallen body. If there no soul in the body, there will be no responce.</font>")
+        to_chat(user, "<font color='red'>Чтобы совершить чудо, нужно стоять рядом с павшим телом. Если в теле нет души, ответа не будет.</font>")
         return FALSE
 
     var/mob/living/target = targets[1]
@@ -329,16 +329,16 @@
     if(isliving(target) && target.stat == DEAD)
         return speakwithdead(user, target)
     else
-        to_chat(user, "<font color='red'>They are not dead. Yet.</font>")
+        to_chat(user, "<font color='red'>Они не мертвы. Пока.</font>")
         return FALSE
 
 /proc/speakwithdead(mob/user, mob/living/target)
     if(target.stat == DEAD && target.mind)
-        var/message = input(user, "You speak to the spirit of [target.real_name]. What will you say?", "Speak with the Dead") as text|null
+        var/message = input(user, "Вы говорите с духом [target.real_name]. Что вы скажете?", "Говорить с Мёртвым") as text|null
 
         if(message)
             if(target.mind.current)
-                to_chat(target.mind.current, "<span style='color:gold'><b>[user.real_name]</b> says: \"[message]\"</span>")
+                to_chat(target.mind.current, "<span style='color:gold'><b>[user.real_name]</b> говорит: \"[message]\"</span>")
 
             var/mob/dead/observer/ghost = null
 
@@ -355,9 +355,9 @@
                         break
 
             if (ghost && ghost != target.mind.current)
-                to_chat(ghost, "<span style='color:gold'><b>[user.real_name]</b> says: \"[message]\"</span>")
+                to_chat(ghost, "<span style='color:gold'><b>[user.real_name]</b> говорит: \"[message]\"</span>")
 
-            to_chat(user, "<span style='color:gold'>You say to the spirit: \"[message]\"</span>")
+            to_chat(user, "<span style='color:gold'>Вы говорите духу: \"[message]\"</span>")
 
             var/mob/replier = null
             if (ghost && ghost.client)
@@ -366,24 +366,24 @@
                 replier = target.mind.current
 
             if(replier)
-                var/spirit_message = input(replier, "An acolyte of the Undermaiden named [user.real_name] seeks your attention. What is your reply?", "Spirit's Response") as text|null
+                var/spirit_message = input(replier, "Послушник Подземной Девы по имени [user.real_name] ищет вашего внимания. Каков ваш ответ?", "Ответ духа") as text|null
                 if(spirit_message)
-                    to_chat(user, "<span style='color:silver'><i>The spirit whispers:</i> \"[spirit_message]\"</span>")
+                    to_chat(user, "<span style='color:silver'><i>Дух шепчет:</i> \"[spirit_message]\"</span>")
                 else
-                    to_chat(user, "<span style='color:#aaaaaa'><i>The spirit chooses to remain silent...</i></span>")
+                    to_chat(user, "<span style='color:#aaaaaa'><i>Дух предпочитает хранить молчание...</i></span>")
             else
-                to_chat(user, "<span style='color:#aaaaaa'><i>The spirit cannot answer right now...</i></span>")
+                to_chat(user, "<span style='color:#aaaaaa'><i>Дух не может ответить сейчас...</i></span>")
         else
-            to_chat(user, "<span style='color:#aaaaaa'><i>You choose not to speak.</i></span>")
+            to_chat(user, "<span style='color:#aaaaaa'><i>Вы решаете не говорить.</i></span>")
     else
-        to_chat(user, "<span style='color:#aaaaaa'><i>No spirit answers your call.</i></span>")
+        to_chat(user, "<span style='color:#aaaaaa'><i>Ни один дух не отвечает на ваш зов.</i></span>")
 
 // FIELD BURIALS
 
 /obj/effect/proc_holder/spell/invoked/fieldburials
-	name = "Field burials"
+	name = "Полевые захоронения"
 	overlay_state = "consecrateburial"
-	desc = "Perform a simple battlefield rite over an unclaimed, long-dead body, letting Necra claim the soul as you gather coins from the remains."
+	desc = "Исполнить простой полевой обряд над невостребованным, давно мёртвым телом, позволяя Некре забрать душу, пока вы собираете монеты с останков."
 	antimagic_allowed = TRUE
 	devotion_cost = 10
 	miracle = TRUE
@@ -399,17 +399,17 @@
 
 	if(istype(target, /mob/living/carbon/human))
 		if(target.client || target.mind)
-			to_chat(user, span_warning("The rite refuses a soulbearing body."))
+			to_chat(user, span_warning("Обряд отвергает тело с душой."))
 			revert_cast()
 			return FALSE
 
 	if(target.stat < DEAD)
-		to_chat(user, span_warning("They're still alive!"))
+		to_chat(user, span_warning("Они всё ещё живы!"))
 		revert_cast()
 		return FALSE
 
 	if(world.time <= ((target.mob_timers?["lastdied"]) || 0) + 15 MINUTES)
-		to_chat(user, span_warning("The body is too fresh for the rite."))
+		to_chat(user, span_warning("Тело слишком свежее для обряда."))
 		revert_cast()
 		return FALSE
 
@@ -419,7 +419,7 @@
 		C.pixel_x = rand(-6, 6)
 		C.pixel_y = rand(-6, 6)
 
-	to_chat(user, span_notice("You gather coins from [target.real_name]'s remains."))
+	to_chat(user, span_notice("Вы собираете монеты с останков [target.real_name]."))
 	qdel(target)
 	return TRUE
 

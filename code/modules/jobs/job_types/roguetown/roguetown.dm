@@ -35,6 +35,9 @@
 		for(var/X in GLOB.inquisition_positions)
 			peopleiknow += X
 			peopleknowme += X
+		for(var/X in GLOB.avangard_positions)
+			peopleiknow += X
+			peopleknowme += X
 
 /datum/outfit/job/roguetown
 	uniform = null

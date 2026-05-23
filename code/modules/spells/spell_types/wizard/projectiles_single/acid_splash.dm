@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/acidsplash
-	name = "Acid Splash"
-	desc = "A slow-moving glob of acid that sprays over an area upon impact."
+	name = "Кислотный шар"
+	desc = "Медленно летящий сгусток кислоты, который при попадании разбрызгивается по площади."
 	range = 8
 	projectile_type = /obj/projectile/magic/acidsplash
 	overlay_state = "acid_splash"
@@ -31,11 +31,11 @@
 
 /obj/effect/proc_holder/spell/self/acidsplash/cast(mob/user = usr)
 	var/mob/living/target = user
-	target.visible_message(span_warning("[target] hurls a caustic bubble!"), span_notice("You hurl a caustic bubble!"))
+	target.visible_message(span_warning("[target] швыряет едкий пузырь!"), span_notice("Вы швыряете едкий пузырь!"))
 	. = ..()
 
 /obj/projectile/magic/acidsplash //port. todo: the sounds these came with aren't good and drink_blood sounds like ur slurpin pintle
-	name = "acid bubble"
+	name = "кислотный пузырь"
 	icon_state = "green_laser"
 	damage = 10
 	damage_type = BURN
@@ -65,7 +65,7 @@
 /datum/status_effect/buff/acidsplash/on_apply()
 	. = ..()
 	owner.playsound_local(get_turf(owner), 'sound/misc/lava_death.ogg', 35, FALSE, pressure_affected = FALSE)
-	owner.visible_message(span_warning("[owner] is covered in acid!"), span_danger("I am covered in acid!"))
+	owner.visible_message(span_warning("[owner] покрыт кислотой!"), span_danger("Я покрыт кислотой!"))
 	owner.emote("scream")
 
 /datum/status_effect/buff/acidsplash/tick()
@@ -73,15 +73,15 @@
 	target.adjustFireLoss(5)
 
 /atom/movable/screen/alert/status_effect/buff/acidsplash
-	name = "Acid Burn"
-	desc = "My skin is burning!"
+	name = "Кислотный ожог"
+	desc = "Моя кожа горит!"
 	icon_state = "debuff"
 
 /obj/effect/temp_visual/acidsplash
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenshatter2"
-	name = "horrible acrid brine"
-	desc = "Best not touch this."
+	name = "жуткая едкая жидкость"
+	desc = "Лучше это не трогать."
 	randomdir = TRUE
 	duration = 1 SECONDS
 	layer = ABOVE_ALL_MOB_LAYER

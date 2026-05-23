@@ -310,15 +310,15 @@
 		if(flags & FALL_STOP_INTERCEPTING)
 			break
 	if(prev_turf && !(flags & FALL_NO_MESSAGE))
-		prev_turf.visible_message(span_danger("[mov_name] falls through [prev_turf]!"))
+		prev_turf.visible_message(span_danger("[mov_name] проваливается сквозь [prev_turf]!"))
 	if(flags & FALL_INTERCEPTED)
 		return
 	if(zFall(A, ++levels))
 		return FALSE
 	if(!HAS_TRAIT(A, TRAIT_NOFALLDAMAGE1) && !HAS_TRAIT(A, TRAIT_NOFALLDAMAGE2))
-		A.visible_message(span_danger("[A] crashes into [src]!"))
+		A.visible_message(span_danger("[A] падает в [src]!"))
 	else
-		A.visible_message(span_warning("[A] lands on [src]!"))
+		A.visible_message(span_warning("[A] приземляется на [src]!"))
 	A.onZImpact(src, levels)
 	return TRUE
 

@@ -264,7 +264,7 @@
 	icon_state = "berries"
 	tastes = list("berry" = 1)
 	bitesize = 5
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/water = 5)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1.5, /datum/reagent/water = 3)
 	faretype = FARE_NEUTRAL
 	dropshrink = 0.75
 	var/color_index = "good"
@@ -311,7 +311,7 @@
 	seed = /obj/item/seeds/berryrogue/poison
 	icon_state = "berries"
 	tastes = list("berry" = 1)
-	list_reagents = list(/datum/reagent/toxin/berrypoison = 5, /datum/reagent/consumable/nutriment = 3, /datum/reagent/water = 5)
+	list_reagents = list(/datum/reagent/toxin/berrypoison = 5, /datum/reagent/consumable/nutriment = 1.5, /datum/reagent/water = 3)
 	grind_results = list(/datum/reagent/toxin/berrypoison = 5)
 	color_index = "bad"
 
@@ -441,7 +441,7 @@
 					success = TRUE
 					IND.fullreset(user)
 				else
-					return	
+					return
 				if(success)
 					changefood(/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius/bloodied, user)
 

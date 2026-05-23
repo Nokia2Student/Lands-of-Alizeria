@@ -931,7 +931,7 @@ SUBSYSTEM_DEF(job)
 
 /datum/controller/subsystem/job/proc/SendToLateJoin(mob/M, buckle = TRUE)
 	var/atom/destination
-	if(M.mind && M.mind.assigned_role && length(GLOB.jobspawn_overrides[M.mind.assigned_role])) //We're doing something special today.
+	if(M.mind && M.mind.assigned_role && length(GLOB.jobspawn_overrides[M.mind.assigned_role]))
 		destination = pick(GLOB.jobspawn_overrides[M.mind.assigned_role])
 		destination.JoinPlayerHere(M, FALSE)
 		return
@@ -939,11 +939,31 @@ SUBSYSTEM_DEF(job)
 	if(latejoin_trackers.len)
 		destination = pick(latejoin_trackers)
 		destination.JoinPlayerHere(M, buckle)
+
+		// Воспроизводим звук и анимацию появления
+		playsound(destination, 'sound/alizeria/tparrival.ogg', 75, TRUE)
+
+		// Создаём визуальный эффект из DMI
+		new /obj/effect/temp_visual/latejoin_arrival(destination)
+
 		return
 
 	var/msg = "Unable to send mob [M] to late join!"
 	message_admins(msg)
 	CRASH(msg)
+
+
+// Новый временный визуальный эффект
+/obj/effect/temp_visual/latejoin_arrival
+	name = "arrival effect"
+	icon = 'icons/roguetown/alizeria/effects.dmi'
+	icon_state = "arrival"
+	layer = ABOVE_ALL_MOB_LAYER
+	duration = 8
+
+/obj/effect/temp_visual/latejoin_arrival/Initialize(mapload)
+	. = ..()
+	flick('icons/roguetown/alizeria/effects.dmi', src)  // Проигрывает все кадры
 
 
 ///////////////////////////////////

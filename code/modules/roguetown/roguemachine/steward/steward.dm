@@ -37,8 +37,8 @@
 //	For competence of life I will allow you,
 //	That lack of means enforce you not to evil:
 /obj/structure/roguemachine/steward/proc/setup_default_payments()
-	daily_payments["Sheriff of Town"] = 60 //Garrison
-	daily_payments["Town Guard"] = 40
+	daily_payments["Militia Captain"] = 60 //Garrison
+	daily_payments["Militiaman"] = 40
 	daily_payments["Town Ranger"] = 20
 	daily_payments["Clerk"] = 20
 	daily_payments["Archivist"] = 15

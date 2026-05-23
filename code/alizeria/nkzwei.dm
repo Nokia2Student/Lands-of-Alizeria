@@ -39,7 +39,7 @@
 
 /mob/living/carbon/human/species/human/northern/nkzwei/after_creation()
 	..()
-	job = "Psychopath"
+	job = "Adventurer"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -82,6 +82,19 @@
 
 	head.add_bodypart_feature(new_hair)
 	head.add_bodypart_feature(new_facial)
+
+	if(gender == FEMALE)
+		var/obj/item/organ/breasts/breasts = new()
+		breasts.Insert(src, TRUE, FALSE)
+
+		var/obj/item/organ/vagina/vagina = new()
+		vagina.Insert(src, TRUE, FALSE)
+	else
+		var/obj/item/organ/penis/penis = new()
+		penis.Insert(src, TRUE, FALSE)
+
+		var/obj/item/organ/testicles/testicles = new()
+		testicles.Insert(src, TRUE, FALSE)
 
 	dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
 	dna.species.handle_body(src)

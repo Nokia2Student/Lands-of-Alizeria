@@ -1,47 +1,49 @@
+// Рецепты луков, стрел и метательного оружия (категория "Дальний бой")
+
 /*/datum/crafting_recipe/roguetown/survival/net
-    name = "net"
-    category = "Ranged"
+    name = "сеть"
+    category = "Дальний бой"
     result = /obj/item/net
     craftdiff = 2
     reqs = list(
         /obj/item/rope = 2,
         /obj/item/natural/stone = 3,
         )
-    verbage_simple = "braid"
-    verbage = "braids"*/
+    verbage_simple = "плести"
+    verbage = "плетёт"*/
 
 /datum/crafting_recipe/roguetown/survival/bowstring
-    name = "fiber bowstring"
-    category = "Ranged"
+    name = "волоконная тетива"
+    category = "Дальний бой"
     result = /obj/item/natural/bowstring
     reqs = list(/obj/item/natural/fibers = 2)
-    verbage_simple = "twist"
-    verbage = "twists"
+    verbage_simple = "скрутить"
+    verbage = "скручивает"
 
 /datum/crafting_recipe/roguetown/survival/bowpartial
-    name = "unstrung bow"
-    category = "Ranged"
+    name = "ненатянутый лук"
+    category = "Дальний бой"
     result = /obj/item/grown/log/tree/bowpartial
     reqs = list(/obj/item/grown/log/tree/small = 1)
     tools = /obj/item/rogueweapon/huntingknife
-    verbage_simple = "carve"
-    verbage = "carves"
+    verbage_simple = "вырезать"
+    verbage = "вырезает"
 
 /datum/crafting_recipe/roguetown/survival/bow
-    name = "wooden bow"
-    category = "Ranged"
+    name = "деревянный лук"
+    category = "Дальний бой"
     result = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
     reqs = list(
         /obj/item/natural/bowstring = 1,
         /obj/item/grown/log/tree/bowpartial = 1,
         )
-    verbage_simple = "string together"
-    verbage = "strings together"
+    verbage_simple = "натянуть тетиву"
+    verbage = "натягивает тетиву"
     craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/recurvepartial
-    name = "unstrung recurve bow"
-    category = "Ranged"
+    name = "ненатянутый обратный лук"
+    category = "Дальний бой"
     result = /obj/item/grown/log/tree/bowpartial/recurve
     reqs = list(
         /obj/item/grown/log/tree = 1,
@@ -50,25 +52,25 @@
         /obj/item/natural/fibers = 2,
         )
     tools = /obj/item/rogueweapon/huntingknife
-    verbage_simple = "carve"
-    verbage = "carves"
+    verbage_simple = "вырезать"
+    verbage = "вырезает"
     craftdiff = 3
 
 /datum/crafting_recipe/roguetown/survival/recurvebow
-    name = "recurve bow"
-    category = "Ranged"
+    name = "обратный лук"
+    category = "Дальний бой"
     result = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
     reqs = list(
         /obj/item/natural/bowstring = 1,
         /obj/item/grown/log/tree/bowpartial/recurve = 1,
         )
-    verbage_simple = "string together"
-    verbage = "strings together"
+    verbage_simple = "натянуть тетиву"
+    verbage = "натягивает тетиву"
     craftdiff = 3
 
 /datum/crafting_recipe/roguetown/survival/longbowpartial
-    name = "unstrung long bow"
-    category = "Ranged"
+    name = "ненатянутый длинный лук"
+    category = "Дальний бой"
     result = /obj/item/grown/log/tree/bowpartial/longbow
     reqs = list(
         /obj/item/grown/log/tree = 1,
@@ -77,37 +79,37 @@
         /obj/item/natural/fibers = 2,
         )
     tools = /obj/item/rogueweapon/huntingknife
-    verbage_simple = "carve"
-    verbage = "carves"
+    verbage_simple = "вырезать"
+    verbage = "вырезает"
     craftdiff = 4
 
 /datum/crafting_recipe/roguetown/survival/longbow
-    name = "long bow"
-    category = "Ranged"
+    name = "длинный лук"
+    category = "Дальний бой"
     result = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow
     reqs = list(
         /obj/item/natural/bowstring = 1,
         /obj/item/grown/log/tree/bowpartial/longbow = 1,
         )
-    verbage_simple = "string together"
-    verbage = "strings together"
+    verbage_simple = "натянуть тетиву"
+    verbage = "натягивает тетиву"
     craftdiff = 4
 
 /datum/crafting_recipe/roguetown/survival/longbow_warden
-	name = "blackhorn longbow"
-	category = "Ranged"
+	name = "длинный лук Чёрный Рог"
+	category = "Дальний бой"
 	result = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow/warden
 	reqs = list(
 		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow = 1,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve/warden = 1,
 	)
-	verbage_simple = "re-string"
-	verbage = "re-strings"
+	verbage_simple = "перенатянуть"
+	verbage = "перенатягивает"
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/stonearrow
-    name = "stone arrow"
-    category = "Ranged"
+    name = "каменная стрела"
+    category = "Дальний бой"
     result = /obj/item/ammo_casing/caseless/rogue/arrow/stone
     reqs = list(
         /obj/item/grown/log/tree/stick = 1,
@@ -116,8 +118,8 @@
     req_table = TRUE
 
 /datum/crafting_recipe/roguetown/survival/stonearrow_five
-    name = "stone arrow (x5)"
-    category = "Ranged"
+    name = "каменная стрела (x5)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/arrow/stone,
         /obj/item/ammo_casing/caseless/rogue/arrow/stone,
@@ -132,8 +134,8 @@
     req_table = TRUE
 
 /datum/crafting_recipe/roguetown/survival/poisonarrow
-    name = "poisoned arrow"
-    category = "Ranged"
+    name = "отравленная стрела"
+    category = "Дальний бой"
     result = /obj/item/ammo_casing/caseless/rogue/arrow/poison
     reqs = list(
                 /obj/item/ammo_casing/caseless/rogue/arrow/iron = 1,
@@ -142,8 +144,8 @@
     req_table = TRUE
 
 /datum/crafting_recipe/roguetown/survival/poisonarrow_stone
-    name = "poisoned stone arrow"
-    category = "Ranged"
+    name = "отравленная каменная стрела"
+    category = "Дальний бой"
     result = /obj/item/ammo_casing/caseless/rogue/arrow/stone/poison
     reqs = list(
                 /obj/item/ammo_casing/caseless/rogue/arrow/stone = 1,
@@ -151,9 +153,9 @@
                 )
     req_table = TRUE
 
-/datum/crafting_recipe/roguetown/survival/poisonarrow_five //Arrows and bolts can be smithed in batches of five. Makes sense for them to be dipped in batches of five, too
-    name = "poisoned arrow (x5)"
-    category = "Ranged"
+/datum/crafting_recipe/roguetown/survival/poisonarrow_five
+    name = "отравленная стрела (x5)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/arrow/poison,
         /obj/item/ammo_casing/caseless/rogue/arrow/poison,
@@ -169,8 +171,8 @@
     req_table = TRUE
 
 /datum/crafting_recipe/roguetown/survival/poisonarrow_five_stone
-    name = "poisoned stone arrow (x5)"
-    category = "Ranged"
+    name = "отравленная каменная стрела (x5)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/arrow/stone/poison,
         /obj/item/ammo_casing/caseless/rogue/arrow/stone/poison,
@@ -187,8 +189,8 @@
 
 
 /datum/crafting_recipe/roguetown/survival/waterbolt_ten
-    name = "water bolt (x10)"
-    category = "Ranged"
+    name = "водяной болт (x10)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/bolt/water,
         /obj/item/ammo_casing/caseless/rogue/bolt/water,
@@ -210,8 +212,8 @@
     skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/survival/waterbolt_twenty
-    name = "water bolt (x20)"
-    category = "Ranged"
+    name = "водяной болт (x20)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/bolt/water,
         /obj/item/ammo_casing/caseless/rogue/bolt/water,
@@ -244,8 +246,8 @@
     skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/survival/waterarrow_ten
-    name = "water arrow (x10)"
-    category = "Ranged"
+    name = "водяная стрела (x10)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/arrow/water,
         /obj/item/ammo_casing/caseless/rogue/arrow/water,
@@ -267,8 +269,8 @@
     skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/survival/waterarrow_twenty
-    name = "water arrow (x20)"
-    category = "Ranged"
+    name = "водяная стрела (x20)"
+    category = "Дальний бой"
     result = list(
         /obj/item/ammo_casing/caseless/rogue/arrow/water,
         /obj/item/ammo_casing/caseless/rogue/arrow/water,
@@ -300,41 +302,41 @@
     skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/survival/slingcraft
-	name = "sling"
-	category = "Ranged"
+	name = "праща"
+	category = "Дальний бой"
 	result = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
 	reqs = list(/obj/item/natural/fibers = 6)
-	verbage_simple = "twist"
-	verbage = "twists"
+	verbage_simple = "скрутить"
+	verbage = "скручивает"
 	craftdiff = 1 //you should make some ammo first!
 	
 /datum/crafting_recipe/roguetown/survival/slingpouchcraft
-	name = "sling bullet pouch"
-	category = "Ranged"
+	name = "подсумок для пуль к праще"
+	category = "Дальний бой"
 	result = /obj/item/quiver/sling/
 	reqs = list(
 		/obj/item/natural/fibers = 1,
 		/obj/item/natural/cloth = 1,
 		)
-	verbage_simple = "craft"
-	verbage = "crafts"
+	verbage_simple = "изготовить"
+	verbage = "изготавливает"
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/stonebullets
-	name = "sling bullets - stone (x2)"
-	category = "Ranged"
+	name = "пули для пращи — каменные (x2)"
+	category = "Дальний бой"
 	result = list(
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		)
 	reqs = list(/obj/item/natural/stone = 1)
-	verbage_simple = "smooth"
-	verbage = "smooths"
+	verbage_simple = "обточить"
+	verbage = "обтачивает"
 	craftdiff = 0
 	
 /datum/crafting_recipe/roguetown/survival/stonebullets10x
-	name = "sling bullets - stone (x10)"
-	category = "Ranged"
+	name = "пули для пращи — каменные (x10)"
+	category = "Дальний бой"
 	result = list(
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
@@ -348,6 +350,6 @@
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		)
 	reqs = list(/obj/item/natural/stone = 5)
-	verbage_simple = "smooth"
-	verbage = "smooths"
+	verbage_simple = "обточить"
+	verbage = "обтачивает"
 	craftdiff = 0

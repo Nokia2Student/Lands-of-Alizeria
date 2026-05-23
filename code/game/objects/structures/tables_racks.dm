@@ -231,6 +231,9 @@
 	max_integrity = 70
 	smooth = 0
 	climb_offset = 10
+	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+	layer = TABLE_LAYER
+	plane = GAME_PLANE
 	buildstack = /obj/item/grown/log/tree/small
 
 /obj/structure/table/wood/crafted/Initialize()

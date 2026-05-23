@@ -118,7 +118,7 @@
 		/obj/item/roguegem/jade = 1,
 		/obj/item/roguegem/amber = 1,
 		/obj/item/roguegem/coral = 1,
-		
+
 		// Carved gem items (discarded/lost)
 		/obj/item/kitchen/fork/carved/jade = 1,
 		/obj/item/kitchen/spoon/carved/onyxa = 1,
@@ -297,3 +297,57 @@
 	name = "Sewers Top Variant 2"
 	id = "sewers_top_2"
 	mappath = "_maps/map_files/templates/sewers/sewers_top_2.dmm"
+
+/// Tawern
+/obj/effect/landmark/map_load_mark/tavernroom
+	name = "tavern room"
+	templates = list("tavernroom_1", "tavernroom_2", "tavernroom_3")
+
+/datum/map_template/tavernroom_1
+	name = "Tavern Room 1"
+	id = "tavernroom_1"
+	mappath = "_maps/map_files/alizeria/generated/tavernroom1.dmm"
+
+/datum/map_template/tavernroom_2
+	name = "Tavern Room 2"
+	id = "tavernroom_2"
+	mappath = "_maps/map_files/alizeria/generated/tavernroom2.dmm"
+
+/datum/map_template/tavernroom_3
+	name = "Tavern Room 3"
+	id = "tavernroom_3"
+	mappath = "_maps/map_files/alizeria/generated/tavernroom3.dmm"
+
+
+/obj/effect/landmark/map_load_mark/tavernroomalt
+	name = "tavern room"
+	templates = list("tavernroom_4", "tavernroom_5", "tavernroom_6")
+
+/datum/map_template/tavernroom_4
+	name = "Tavern Room 4"
+	id = "tavernroom_4"
+	mappath = "_maps/map_files/alizeria/generated/tavernroom4.dmm"
+
+/datum/map_template/tavernroom_5
+	name = "Tavern Room 5"
+	id = "tavernroom_5"
+	mappath = "_maps/map_files/alizeria/generated/tavernroom5.dmm"
+
+/datum/map_template/tavernroom_6
+	name = "Tavern Room 6"
+	id = "tavernroom_6"
+	mappath = "_maps/map_files/alizeria/generated/tavernroom6.dmm"
+
+/obj/effect/landmark/map_load_mark/statuespawnermesta
+	name = "statuespawnermesta"
+	templates = list("statuemesto", "forestplaceholder_5")
+
+/datum/map_template/statuemesto
+	name = "statuemesto"
+	id = "statuemesto"
+	mappath = "_maps/map_files/alizeria/generated/statue.dmm"
+
+/datum/map_template/forestplaceholder_5
+	name = "forestplaceholder_5"
+	id = "forestplaceholder_5"
+	mappath = "_maps/map_files/alizeria/generated/forest5x5.dmm"

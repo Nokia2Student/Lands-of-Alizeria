@@ -64,6 +64,7 @@
 		/datum/skill/misc/swimming = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/climbing = SKILL_LEVEL_NOVICE,
 		/datum/skill/magic/arcane = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/guns = SKILL_LEVEL_APPRENTICE,
 	)
 
 /datum/outfit/job/archivist/basic/pre_equip(mob/living/carbon/human/H)
@@ -136,6 +137,8 @@
 	/datum/skill/misc/lockpicking,
 	/datum/skill/labor/lumberjacking,
 
+	/datum/skill/combat/guns,
+
     /datum/skill/craft/masonry,
     /datum/skill/labor/mining,
     /datum/skill/misc/music,
@@ -190,7 +193,7 @@
 					to_chat(L, span_warning("There's no way I could handle all that knowledge!"))
 					to_chat(usr, span_warning("My student cannot handle that much knowledge at once!"))
 					return // cannot teach the same student twice
-				if(!(item in list(/datum/skill/misc/music, /datum/skill/craft/cooking, /datum/skill/misc/sewing, /datum/skill/misc/lockpicking, /datum/skill/misc/climbing, /datum/language/otavan, /datum/language/draconic, /datum/language/dwarvish, /datum/language/elvish, /datum/language/grenzelhoftian, /datum/language/etruscan, /datum/language/gronnic, /datum/language/hellspeak)) && L.get_skill_level(item) < SKILL_LEVEL_NOVICE)
+				if(!(item in list(/datum/skill/combat/guns, /datum/skill/misc/music, /datum/skill/craft/cooking, /datum/skill/misc/sewing, /datum/skill/misc/lockpicking, /datum/skill/misc/climbing, /datum/language/otavan, /datum/language/draconic, /datum/language/dwarvish, /datum/language/elvish, /datum/language/grenzelhoftian, /datum/language/etruscan, /datum/language/gronnic, /datum/language/hellspeak)) && L.get_skill_level(item) < SKILL_LEVEL_NOVICE)
 					to_chat(L, span_warning("I cannot understand the lesson on [item.name], I need to get more skilled first!"))
 					to_chat(usr, span_warning("I try teaching [L] [item.name] but my student couldnt grasp the lesson!"))
 					return // some basic skill will not require you novice level

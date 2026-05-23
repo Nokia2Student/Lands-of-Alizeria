@@ -17,7 +17,7 @@
 	desc = "Brittle and hard, like chewing on a rock."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "tack6"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	faretype = FARE_POOR
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("spelt" = 1)
@@ -52,7 +52,7 @@
 	tastes = list("bread" = 1)
 	slice_batch = FALSE
 	slice_sound = TRUE
-	rotprocess = SHELFLIFE_EXTREME	
+	rotprocess = SHELFLIFE_EXTREME
 
 /obj/item/reagent_containers/food/snacks/rogue/bread/update_icon()
 	if(slices_num)

@@ -16,7 +16,7 @@
 		if(remarks.len)
 			to_chat(user, span_notice("[pick(remarks)]"))
 		else
-			to_chat(user, span_notice("I keep reading..."))
+			to_chat(user, span_notice("Я продолжаю читать..."))
 		return TRUE
 	return FALSE
 
@@ -26,13 +26,13 @@
 	return FALSE
 
 /obj/item/book/granter/proc/on_reading_start(mob/user)
-	to_chat(user, span_notice("I start reading [name]..."))
+	to_chat(user, span_notice("Я начинаю читать [name]..."))
 
 /obj/item/book/granter/proc/on_reading_stopped(mob/user)
-	to_chat(user, span_notice("I stop reading..."))
+	to_chat(user, span_notice("Я прекращаю читать..."))
 
 /obj/item/book/granter/proc/on_reading_finished(mob/user)
-	to_chat(user, span_notice("I finish reading [name]!"))
+	to_chat(user, span_notice("Я заканчиваю читать [name]!"))
 
 /obj/item/book/granter/proc/onlearned(mob/user)
 	used = TRUE
@@ -40,7 +40,7 @@
 
 /obj/item/book/granter/attack_self(mob/living/user)
 	if(reading)
-		to_chat(user, span_warning("I'm already reading this!"))
+		to_chat(user, span_warning("Я уже читаю это!"))
 		return FALSE
 	if(!user.can_read(src))
 		return FALSE
@@ -51,7 +51,7 @@
 			to_chat(user, span_warning("You can't make sense of the sprawling runes!"))
 			return FALSE */
 	if(used && oneuse)
-		to_chat(user, span_warning("This fount of knowledge was not meant to be sipped from twice!"))
+		to_chat(user, span_warning("Этот источник знаний не предназначен для повторного использования!"))
 		recoil(user)
 		return FALSE
 	on_reading_start(user)
@@ -81,15 +81,15 @@
 	for(var/obj/effect/proc_holder/spell/knownspell in user.mind.spell_list)
 		if(knownspell.type == spell)
 			if(user.mind)
-				to_chat(user,span_warning("You've already read this one!"))
+				to_chat(user,span_warning("Вы не можете разобрать эти раскидистые руны!"))
 			return TRUE
 	return FALSE
 
 /obj/item/book/granter/spell/on_reading_start(mob/user)
-	to_chat(user, span_notice("I start reading about casting [spellname]..."))
+	to_chat(user, span_notice("Я начинаю читать о сотворении [spellname]..."))
 
 /obj/item/book/granter/spell/on_reading_finished(mob/user)
-	to_chat(user, span_notice("I feel like you've experienced enough to cast [spellname]!"))
+	to_chat(user, span_notice("Я чувствую, что вы достаточно опытны, чтобы сотворить [spellname]!"))
 	var/obj/effect/proc_holder/spell/S = new spell
 	user.mind.AddSpell(S)
 	user.log_message("learned the spell [spellname] ([S])", LOG_ATTACK, color="orange")
@@ -121,10 +121,10 @@
 	return FALSE
 
 /obj/item/book/granter/action/on_reading_start(mob/user)
-	to_chat(user, span_notice("I start reading about [actionname]..."))
+	to_chat(user, span_notice("Я начинаю читать о [actionname]..."))
 
 /obj/item/book/granter/action/on_reading_finished(mob/user)
-	to_chat(user, span_notice("I feel like you've got a good handle on [actionname]!"))
+	to_chat(user, span_notice("Я чувствую, что вы хорошо освоили [actionname]!"))
 	var/datum/action/G = new granted_action
 	G.Grant(user)
 	onlearned(user)
@@ -141,11 +141,11 @@
 	for(var/crafting_recipe_type in crafting_recipe_types)
 		var/datum/crafting_recipe/R = crafting_recipe_type
 		user.mind.teach_crafting_recipe(crafting_recipe_type)
-		to_chat(user,span_notice("I learned how to make [initial(R.name)]."))
+		to_chat(user,span_notice("Я научился создавать [initial(R.name)]."))
 
 //! --BLACKSTONE SCROLLS-- !/
 /obj/item/book/granter/spell/blackstone/
-    desc = "A scroll of potential known only to those that can decipher its secrets."
+    desc = "Свиток потенциала, известный лишь тем, кто может расшифровать его тайны."
     icon = 'icons/roguetown/items/misc.dmi'
     oneuse = TRUE
     drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
@@ -155,176 +155,176 @@
 	..()
 	if(oneuse == TRUE)
 		name = "siphoned scroll"
-		desc = "A scroll once inscribed with magical scripture. The surface is now barren of knowledge, siphoned by someone else. It's utterly useless."
+		desc = "Свиток, некогда исписанный магическими письменами. Поверхность теперь лишена знаний, вытянутых кем-то другим. Абсолютно бесполезен."
 		icon_state = "scroll"
-		user.visible_message(span_warning("[src] has had its magic ink ripped from the scroll!"))
+		user.visible_message(span_warning("Магические чернила [src] исчезли со свитка!"))
 
 /obj/item/book/granter/spell/blackstone/fireball
-	name = "Scroll of Fireball"
+	name = "Свиток Огненного шара"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/fireball
-	spellname = "fireball"
+	spellname = "огненный шар"
 	icon_state ="scrollred"
 	remarks = list("Ignis et oleum..", "Flammam continere ad momentum..", "Flammam iactare..", "Sit flamma constructum..")
 
 /obj/item/book/granter/spell/blackstone/greaterfireball
-	name = "Scroll of Greater Fireball"
+	name = "Свиток Большого огненного шара"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/fireball/greater
-	spellname = "greater fireball"
+	spellname = "большой огненный шар"
 	icon_state ="scrollred"
 	remarks = list("Ignis et oleum..", "Flammam continere ad momentum..", "Flammam iactare..", "Sit flamma constructum..")
 
 /obj/item/book/granter/spell/blackstone/lightning
-	name = "Scroll of Lightning"
+	name = "Свиток Молнии"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt
-	spellname = "lightning"
+	spellname = "молния"
 	icon_state ="scrollyellow"
 	remarks = list("Essentia fulgurum digitorum..", "Fulgur de nubibus desuper..", "Fulgur eiecit digitos..", "Praecipe intus aedificatur..")
 
 /obj/item/book/granter/spell/blackstone/fetch
-	name = "Scroll of Fetch"
+	name = "Свиток Притяжения"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/fetch
-	spellname = "fetch"
+	spellname = "притяжение"
 	icon_state ="scrollpurple"
 	remarks = list("Returnus Revico..", "Manus de reverti..", "Menus de returnus..")
 
 /obj/item/book/granter/spell/blackstone/blindness
-	name = "Scroll of Blindness"
+	name = "Свиток Слепоты"
 	spell = /obj/effect/proc_holder/spell/invoked/blindness
-	spellname = "blindness"
+	spellname = "слепота"
 	icon_state ="scrollpurple"
 	remarks = list("Occultare oculos..", "Vivus amoevtar..", "Visioner removan..")
 
 /obj/item/book/granter/spell/blackstone/invisibility
-	name = "Scroll of Invisibility"
+	name = "Свиток Невидимости"
 	spell = /obj/effect/proc_holder/spell/invoked/invisibility
-	spellname = "invisibility"
+	spellname = "невидимость"
 	icon_state ="scrollpurple"
 	remarks = list("Pallium nihilum..", "Occultare veritatem..", "Veritatem removan menor..")
 
 /obj/item/book/granter/spell/blackstone/skeleton
-	name = "Scroll of Raise Skeleton"
+	name = "Свиток реинкарнации скелета"
 	spell = /obj/effect/proc_holder/spell/invoked/raise_undead
-	spellname = "Raise Skeleton"
+	spellname = "реинкарнация скелета"
 	icon_state ="scrolldarkred"
 	remarks = list("Redi damnatos..", "Exitio ad Necram scriptor exolvuntur..", "Ossa in propinquus..")
 
 /obj/item/book/granter/spell/blackstone/sicknessray
-	name = "Scroll of Sickness Ray"
+	name = "Свиток Луча хвори"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/sickness
-	spellname = "Ray of Sickness"
+	spellname = "Луч хвори"
 	icon_state ="scrollgreen"
 	remarks = list("Foe rubiginem meam..", "Pestilentia in terris..", "Trabes putrida..")
 
 /obj/item/book/granter/spell/blackstone/bonechill
-	name = "Scroll of Bone Chill"
+	name = "Свиток Костяного холода"
 	spell = /obj/effect/proc_holder/spell/invoked/bonechill
-	spellname = "Bone Chill"
+	spellname = "Костяной холод"
 	icon_state ="scrolldarkred"
 	remarks = list("Mediolanum ventis..", "Sana damnatorum..", "Frigidus ossa mortuorum..")
 
 /obj/item/book/granter/spell/blackstone/acidsplash
-	name = "Scroll of Acid Splash"
+	name = "Свиток Кислотного шара"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/acidsplash
-	spellname = "Acid Splash"
+	spellname = "Кислотный шар"
 	icon_state ="scrolldarkred"
 	remarks = list("Lapides corrodunt..", "Spuma venenosa..", "Guttae flavescentes..")
 
 /obj/item/book/granter/spell/blackstone/spitfire
-	name = "Scroll of Spitfire"
+	name = "Свиток Огненного плевка"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/spitfire
-	spellname = "Spitfire"
+	spellname = "Огненный плевок"
 	icon_state ="scrollred"
 	remarks = list("Ignis et oleum..", "Flammam continere ad momentum..", "Flammam iactare..", "Sit flamma constructum..")
 
 /obj/item/book/granter/spell/blackstone/lesserknock
-	name = "Scroll of Lesser Knock"
+	name = "Свиток Малого отмыкания"
 	spell = /obj/effect/proc_holder/spell/targeted/touch/lesserknock
-	spellname = "Lesser Knock"
+	spellname = "Малое отмыкание"
 	icon_state ="scrollred"
 	remarks = list("Clavis vetusta portam..", "Perdita numquam..", "Manus tremens..")
 
 /obj/item/book/granter/spell/blackstone/repel
-	name = "Scroll of Repel"
+	name = "Свиток Отталкивания"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/repel
-	spellname = "Repel"
+	spellname = "Отталкивание"
 	icon_state ="scrolldarkred"
 	remarks = list("Ventos adversos..", "Terra sibilat..", "Lapides vetusti..")
 
 
 /obj/item/book/granter/spell/blackstone/aerosolize
-	name = "Scroll of Aerosolize"
+	name = "Свиток Распыления"
 	spell = /obj/effect/proc_holder/spell/invoked/aerosolize
-	spellname = "Aerosolize"
+	spellname = "Распыление"
 	icon_state ="scrolldarkred"
 	remarks = list("Lapides corrodunt..", "Spuma venenosa..", "Guttae flavescentes..")
 	
 
 /obj/item/book/granter/spell/blackstone/guidance
-	name = "Scroll of Guidance"
+	name = "Свиток Наставления"
 	spell = /obj/effect/proc_holder/spell/invoked/guidance
-	spellname = "Guidance"
+	spellname = "Наставление"
 	icon_state ="scrolldarkred"
 	remarks = list("Lux in tenebris..", "Passus certus umbras non timet..", "Anima viam scit..")
 
 /obj/item/book/granter/spell/blackstone/frostbolt
-	name = "Scroll of Frostbolt"
+	name = "Свиток Ледяной стрелы"
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/frostbolt
-	spellname = "Frostbolt"
+	spellname = "Ледяная стрела"
 	icon_state ="scrolldarkred"
 	remarks = list("Gelum serpentibus..", "Crystallum in silentio..", "Nullum ardor glaciem..")
 
 /obj/item/book/granter/spell/blackstone/fortitude
-	name = "Scroll of Fortitude"
+	name = "Свиток Стойкости"
 	spell = /obj/effect/proc_holder/spell/invoked/fortitude
-	spellname = "Fortitude"
+	spellname = "Стойкость"
 	icon_state ="scrolldarkred"
 	remarks = list("Animus in adversis..", "Gravitas oneris..", "Vita renascitur..")
 
 /obj/item/book/granter/spell/blackstone/message
-	name = "Scroll of Message"
+	name = "Свиток Шёпота"
 	spell = /obj/effect/proc_holder/spell/self/message
-	spellname = "Message"
+	spellname = "Шёпот"
 	icon_state ="scrolldarkred"
 	remarks = list("Verba volant..", "Vincula inter mentes..", "Inter verba et silentium..")
 
 /obj/item/book/granter/spell/blackstone/ensnare
-	name = "Scroll of Ensnare"
+	name = "Свиток Опутывания"
 	spell = /obj/effect/proc_holder/spell/invoked/ensnare
-	spellname = "Ensnare"
+	spellname = "Опутывание"
 	icon_state ="scrolldarkred"
 	remarks = list("Qui intrat..", "Radices in tenebris..", "Nexus occultus..")
 
 /obj/item/book/granter/spell/blackstone/forcewall_weak
-	name = "Scroll of Forcewall"
+	name = "Свиток Силовой стены"
 	spell = /obj/effect/proc_holder/spell/invoked/forcewall
-	spellname = "Forcewall"
+	spellname = "Силовая стена"
 	icon_state ="scrolldarkred"
 	remarks = list("Murus non solum hostem..", "Manus invisibiles saxa invicem..", "Infracta moenia..")
 
 /obj/item/book/granter/spell/blackstone/featherfall
-	name = "Scroll of Featherfall"
+	name = "Свиток Перинного полёта"
 	spell = /obj/effect/proc_holder/spell/invoked/featherfall
-	spellname = "Featherfall"
+	spellname = "Перинный полёт"
 	icon_state ="scrolldarkred"
 	remarks = list("In silentio cadit..", "Alis levitas..", "Plumis taciti dolores..")
 
 /obj/item/book/granter/spell/blackstone/enlarge
-	name = "Scroll of Enlarge"
+	name = "Свиток Увеличения"
 	spell = /obj/effect/proc_holder/spell/invoked/enlarge
-	spellname = "Enlarge"
+	spellname = "Увеличение"
 	icon_state ="scrolldarkred"
 	remarks = list("Immensum agitur..", "Montes tremunt..", "Quantitas expanditur..")
 
 /obj/item/book/granter/spell/blackstone/leap
-	name = "Scroll of Leap"
+	name = "Свиток Прыжка"
 	spell = /obj/effect/proc_holder/spell/invoked/leap
-	spellname = "Leap"
+	spellname = "Прыжок"
 	icon_state ="scrolldarkred"
 	remarks = list("Altitudinem revelat..", "Cuius pedes in aere volant..", "In levitate audacia..")
 
 //scroll for giving the reader 3 spell points, this should be dungeon loot
 /obj/item/book/granter/spell_points
-	name = "Arcyne Insight"
+	name = "Арканное прозрение"
 	icon_state = "scrollpurple"
 	icon = 'icons/roguetown/items/misc.dmi'
 	oneuse = TRUE
@@ -334,11 +334,11 @@
 /obj/item/book/granter/spell_points/on_reading_finished(mob/user)
 	var/arcaneskill = user.get_skill_level(/datum/skill/magic/arcane)
 	if(arcaneskill >= SKILL_LEVEL_NOVICE) //Required arcane skill of NOVICE or higher to use the granter
-		to_chat(user, span_notice("I absorb the insights on the scroll, and feel more adept at spellcraft!"))
+		to_chat(user, span_notice("Я впитываю прозрения со свитка и чувствую себя более искусным в волшбе!"))
 		user.mind.adjust_spellpoints(3)
 		onlearned(user)
 	else
-		to_chat(user, span_notice("I don't know what to make of this."))
+		to_chat(user, span_notice("Я не знаю, что с этим делать."))
 
 /obj/item/book/granter/spell_points/onlearned(mob/living/carbon/user)
 	..()
@@ -349,8 +349,8 @@
 		user.visible_message(span_warning("[src] has had its magic ink ripped from the scroll!"))
 
 /obj/item/book/granter/spell/blackstone/mirror_transform
-	name = "Scroll of Mirror Transform"
+	name = "Свиток Зеркального превращения"
 	spell = /obj/effect/proc_holder/spell/invoked/mirror_transform
-	spellname = "Mirror Transform"
+	spellname = "Зеркальное превращение"
 	icon_state ="scrolldarkred"
 	remarks = list("Aspectum rebis adopta..", "Fac me novum..", "Pulcher ero..")

@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 GLOBAL_LIST_INIT(noble_positions, list(
 	"Landowner",
 	"Spymaster",
-	"Lady of Crown",
+	"Garde du corps",
 	"Prince",
 	"Royal Knight",
 	"Squire",
@@ -77,16 +77,16 @@ GLOBAL_LIST_INIT(courtier_positions, list(
 ))
 
 GLOBAL_LIST_INIT(mercenary_positions, list(
-	"Marshall of Gendarmes",
-	"Instructor",
+	"Prevost of Gendarmes",
+	"Inspector",
 	"Gendarme Officer",
 	"Gendarme",
-	"Academician",
+	"Chevalier",
 ))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
-	"Sheriff of Town",
-	"Town Guard",
+	"Militia Captain",
+	"Militiaman",
 	"Town Ranger",
 	"Clerk",
 ))
@@ -107,7 +107,7 @@ GLOBAL_LIST_INIT(inquisition_positions, list(
 
 GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
-	"Port Merchant",
+	"Shophand",
 	"Magician",
 	"Physician",
 	"Archivist",
@@ -132,6 +132,10 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 GLOBAL_LIST_INIT(youngfolk_positions, list(
 	"Adventurer",
 	"Mercenary",
+))
+
+GLOBAL_LIST_INIT(avangard_positions, list(
+	"Commander"
 ))
 
 GLOBAL_LIST_INIT(allmig_positions, list(
@@ -170,6 +174,7 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	sorting_order += GLOB.yeoman_positions
 	sorting_order += GLOB.peasant_positions
 	sorting_order += GLOB.youngfolk_positions
+	sorting_order += GLOB.avangard_positions
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(

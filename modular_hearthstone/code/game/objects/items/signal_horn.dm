@@ -20,11 +20,11 @@
 /obj/item/signal_horn/proc/sound_horn(mob/living/user)
 	user.visible_message(span_warning("[user] sounds the alarm!"))
 	switch(user.job)
-		if("Warden")
+		if("Town Ranger")
 			playsound(src, 'modular_hearthstone/sound/items/bogguardhorn.ogg', 100, TRUE)
-		if("Town Sheriff", "Watchman", "Sergeant", "Man at Arms")
+		if("Militiaman", "Watchman", "Sergeant", "Man at Arms")
 			playsound(src, 'modular_hearthstone/sound/items/watchhorn.ogg', 100, TRUE)
-		if("Royal Guard")
+		if("Militia Captain")
 			playsound(src, 'modular_hearthstone/sound/items/rghorn.ogg', 100, TRUE)
 		else
 			playsound(src, 'modular_hearthstone/sound/items/signalhorn.ogg', 100, TRUE)
@@ -100,29 +100,31 @@
 				placetext = " from the Inn!"
 			if("church")
 				placetext = " from the Church!"
+			if("town")
+				placetext = " из города!"
 			else
 				placetext = " I cannot discern where it came from exactly!"
 
 		//sound played for other players
 		switch(user.job)
-			if("Warden")
+			if("Town Ranger")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/bogguardhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Wardens somewhere[disttext],[dirtext],[placetext]"))
-			if("Marshall", "Watchman", "Sergeant", "Man at Arms")
+			if("Militia Captain", "Town Ranger", "Militiaman")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/watchhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Garrison somewhere[disttext],[dirtext],[placetext]"))
-			if("Knight")
+			if("Militia Captain")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/rghorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Royal Guard somewhere[disttext],[dirtext],[placetext]"))
 			else
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/signalhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the signal horn somewhere[disttext], [dirtext],[placetext]"))
 
-				
+
 
 
 //used for the unique warden horn, port from Azure Peak
-//This needs to be made into a subtype of the main horn, I was just too lazy to get it working for now. 
+//This needs to be made into a subtype of the main horn, I was just too lazy to get it working for now.
 #define WARDEN_AMBUSH_MIN 2
 #define WARDEN_AMBUSH_MAX 9
 
@@ -139,7 +141,7 @@
 	. = ..()
 	. += span_notice("Using the horn will make you stand still and induce several ambushes to happen at once, enabling you to clear out an area. It cannot be used in rapid succession.")
 	. += span_notice("Using it will leave you exhausted for a moment. Bring friends!")
-	
+
 /obj/item/warden_horn/attack_self(mob/living/user)
 	. = ..()
 	var/area/AR = get_area(user)
@@ -168,9 +170,9 @@
 	switch(user.job)
 		if("Warden")
 			playsound(src, 'modular_hearthstone/sound/items/bogguardhorn.ogg', 100, TRUE)
-		if("Town Sheriff", "Watchman", "Sergeant", "Man at Arms")
+		if("Militiaman")
 			playsound(src, 'modular_hearthstone/sound/items/watchhorn.ogg', 100, TRUE)
-		if("Knight Captain", "Royal Guard")
+		if("Militia Captain")
 			playsound(src, 'modular_hearthstone/sound/items/rghorn.ogg', 100, TRUE)
 		else
 			playsound(src, 'modular_hearthstone/sound/items/signalhorn.ogg', 100, TRUE)
@@ -205,11 +207,11 @@
 			else //Where ARE you.
 				dirtext = "although I cannot make out an exact direction"
 		switch(user.job)
-			if("Warden")
+			if("Town Ranger")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/bogguardhorn.ogg', 35, FALSE, pressure_affected = FALSE)
-			if("Marshall", "Watchman", "Sergeant", "Man at Arms")
+			if("Militiaman")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/watchhorn.ogg', 35, FALSE, pressure_affected = FALSE)
-			if("Knight Captain", "Knight")
+			if("Militia Captain")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/rghorn.ogg', 35, FALSE, pressure_affected = FALSE)
 			else
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/signalhorn.ogg', 35, FALSE, pressure_affected = FALSE)

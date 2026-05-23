@@ -193,6 +193,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/datum/loadout_item/loadout
 	var/datum/loadout_item/loadout2
 	var/datum/loadout_item/loadout3
+	var/datum/triumph_loadout_item/triumph_loadout
 
 	var/loadout_1_hex
 	var/loadout_2_hex
@@ -494,7 +495,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			var/musicname = (combat_music.shortname ? combat_music.shortname : combat_music.name)
 			dat += "<b>Боевая музыка:</b> <a href='?_src_=prefs;preference=combat_music;task=input'>[musicname || "FUCK!"]</a><BR>"
 			dat += "<b>Вкусовые предпочтения:</b> <a href='?_src_=prefs;preference=culinary;task=menu'>Изменить</a><BR>"
-			dat += "<b>Возрождаемость:</b> <a href='?_src_=prefs;preference=dnr;task=input'>[dnr_pref ? "Да" : "Нет"]</a><BR>"
+			dat += "<b>Окончательная смерть:</b> <a href='?_src_=prefs;preference=dnr;task=input'>[dnr_pref ? "Да" : "Нет"]</a><BR>"
 
 /*
 			dat += "<br><br><b>Special Names:</b><BR>"
@@ -565,9 +566,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Изменить</a>"
 				if(headshot_link != null)
 					dat += "<br><img src='[headshot_link]' width='150px' height='150px'>"
-				dat += "<br><b>NSFW Bodyshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Изменить</a>"
+				/*dat += "<br><b>NSFW Bodyshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Изменить</a>"
 				if(nsfw_headshot_link != null)
-					dat += "<br><img src='[nsfw_headshot_link]' width='125px' height='175px'>"
+					dat += "<br><img src='[nsfw_headshot_link]' width='125px' height='175px'>"*/
 			else
 				dat += "<br><b>Вам нужно быть <font color='#31acd5'>Доверенным</font> что бы пользоваться Headshot.</b>"
 			if(is_legacy)
@@ -602,6 +603,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_3_hex ? loadout_3_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
 				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'>(C)</a>"
+
+			dat += "<br><b>Спец. Предмет:</b> <a href='?_src_=prefs;preference=triumph_loadout;task=input'>[triumph_loadout ? triumph_loadout.name : "Ничего"]</a>"
 
 			dat += "<br><b>Быть фамильяром:</b><a href='?_src_=prefs;preference=familiar_prefs;task=input'>Изменить</a>"
 
@@ -862,7 +865,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<a href='byond://?src=[REF(N)];late_join=1'>ПРИСОЕДИНИТЬСЯ</a>"
 			else
 				dat += "<a class='linkOff' href='byond://?src=[REF(N)];late_join=1'>ПРИСОЕДИНИТЬСЯ</a>"
-			dat += " - <a href='?_src_=prefs;preference=migrants'>ПУТНИКИ</a>"
+			//dat += " - <a href='?_src_=prefs;preference=migrants'>ПУТНИКИ</a>"
 			dat += "<br><a href='?_src_=prefs;preference=manifest'>АКТЁРЫ</a>"
 			dat += " - <a href='?_src_=prefs;preference=observe'>НАБЛЮДАТЬ</a>"
 	else
@@ -917,7 +920,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Sheriff of Town", "Daronne", "Caid", "Burgomaster", "Marshall of Gendarmes", "Knight", "Priest", "Merchant", "Loudmouth", "Adventurer", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
+/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Militia Captain", "Daronne", "Caid", "Burgomaster", "Prevost of Gendarmes", "Knight", "Priest", "Loudmouth", "Adventurer", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
 	if(!SSjob)
 		return
 
@@ -1041,7 +1044,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				JOB_UNAVAILABLE_SLOTFULL,
 			)
 			if(!(job_unavailable in acceptable_unavailables))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+				HTML += "<font color=#9d7bc6>[used_name]</font></td> <td> </td></tr>"
 				continue
 
 			var/job_display = used_name
@@ -1413,7 +1416,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	else if(href_list["preference"] == "agevet")
 		if(!user.check_agevet())
-			to_chat(usr, span_warning("Доверенность - показатель хорошего и проверенного игрока. Что бы её получить - просто играйте, рано или поздно вас заметит администрация и если ваш отыгрыш окажется действительно хорошим - вы её получите. Доверенность открывает доступ к семьям и Headshot'у."))
+			to_chat(usr, span_warning("Доверенность - показатель хорошего и проверенного игрока. Что бы её получить - просто играйте, рано или поздно вас заметит администрация и если ваш отыгрыш окажется действительно хорошим - вы её получите. Доверенность открывает доступ к семьям и Headshot'у, а также снижает цену на спец. предметы на 50%."))
 		else
 			to_chat(usr, span_nicegreen("У вас есть доверенность. <b>Ура!</b>"))
 	else if(href_list["preference"] == "culinary")
@@ -2148,6 +2151,26 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='yellow'><b>[loadout3.name]</b></font>")
 							if(loadout3.desc)
 								to_chat(user, "[loadout3.desc]")
+
+				if("triumph_loadout")
+					var/list/triumph_loadouts_available = list("Ничего")
+					for (var/path as anything in GLOB.triumph_loadout_items)
+						var/datum/triumph_loadout_item/triumph_item = GLOB.triumph_loadout_items[path]
+						if (!triumph_item.name)
+							continue
+						triumph_loadouts_available[triumph_item.name] = triumph_item
+
+					var/triumph_loadout_input = tgui_input_list(user, "Выберите спец. предмет за триумфы. Скидка для доверенных - 50%.", "СПЕЦ. ПРЕДМЕТ", triumph_loadouts_available)
+					if(triumph_loadout_input)
+						if(triumph_loadout_input == "Ничего")
+							triumph_loadout = null
+							to_chat(user, "Спец. предмет отменён.")
+						else
+							triumph_loadout = triumph_loadouts_available[triumph_loadout_input]
+							to_chat(user, "<font color='yellow'><b>[triumph_loadout.name]</b> - [triumph_loadout.tr_cost] триумфов</font>")
+							if(triumph_loadout.desc)
+								to_chat(user, "[triumph_loadout.desc]")
+
 				if("loadout1hex")
 					var/choice = input(user, "Choose a color.", "Loadout Item One Colour") as null|anything in colorlist
 					if (choice && colorlist[choice])

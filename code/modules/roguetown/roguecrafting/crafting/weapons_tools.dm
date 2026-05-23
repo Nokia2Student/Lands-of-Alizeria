@@ -3,10 +3,10 @@
 	tools = list(/obj/item/rogueweapon/hammer)
 	req_table = TRUE
 	skillcraft = /datum/skill/craft/carpentry
-	category = "Tools"
+	category = "Инструменты"
 
 /datum/crafting_recipe/roguetown/survival/peasantry/thresher
-	name = "thresher"
+	name = "молотило (из железного слитка)"
 	reqs = list(
 		/obj/item/grown/log/tree/stick = 1,
 		/obj/item/ingot/iron = 1,
@@ -15,7 +15,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/thresher/whetstone
-	name = "thresher"
+	name = "молотило — точильный камень"
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
 		/obj/item/natural/whetstone = 4,
@@ -25,7 +25,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/shovel
-	name = "shovel - iron ingot"
+	name = "лопата (из железного слитка)"
 	reqs = list(
 		/obj/item/grown/log/tree/stick = 2,
 		/obj/item/ingot/iron = 1,
@@ -34,7 +34,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/shovel/whetstone
-	name = "shovel - whetstone"
+	name = "лопата — точильный камень"
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
 		/obj/item/natural/whetstone = 3,
@@ -44,7 +44,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/hoe
-	name = "hoe - iron ingot"
+	name = "мотыга (из железного слитка)"
 	reqs = list(
 		/obj/item/grown/log/tree/stick = 2,
 		/obj/item/ingot/iron = 1,
@@ -53,7 +53,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/hoe/whetstone
-	name = "hoe - whetstone"
+	name = "мотыга — точильный камень"
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
 		/obj/item/natural/whetstone = 3,
@@ -63,7 +63,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/pitchfork
-	name = "pitchfork - iron ingot"
+	name = "вилы (из железного слитка)"
 	reqs = list(
 		/obj/item/grown/log/tree/stick = 2,
 		/obj/item/ingot/iron = 1,
@@ -72,7 +72,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/peasantry/pitchfork/whetstone
-	name = "pitchfork - whetstone"
+	name = "вилы — точильный камень"
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
 		/obj/item/natural/whetstone = 3,
@@ -83,7 +83,7 @@
 
 
 /datum/crafting_recipe/roguetown/survival/peasantry/peasantwarflail
-	name = "peasant war flail (thresher)"
+	name = "крестьянский боевой цеп (из молотила)"
 	result = /obj/item/rogueweapon/flail/peasantwarflail
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
@@ -93,7 +93,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/goedendag
-	name = "militia goedendag"
+	name = "годендаг ополченца"
 	result = /obj/item/rogueweapon/woodstaff/militia
 	reqs = list(
 		/obj/item/rogueweapon/woodstaff = 1,
@@ -103,7 +103,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/waraxe
-	name = "militia shovel-waraxe"
+	name = "боевой топор ополченца (из лопаты)"
 	result = /obj/item/rogueweapon/greataxe/militia
 	reqs = list(
 		/obj/item/rogueweapon/shovel = 1,
@@ -113,7 +113,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/warspear_hoe
-	name = "militia warspear (hoe)"
+	name = "боевое копьё ополченца (из мотыги)"
 	result = /obj/item/rogueweapon/spear/militia
 	reqs = list(
 		/obj/item/rogueweapon/hoe = 1,
@@ -123,7 +123,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/warspear_pitchfork
-	name = "militia warspear (pitchfork)"
+	name = "боевое копьё ополченца (из вил)"
 	result = /obj/item/rogueweapon/spear/militia
 	reqs = list(
 		/obj/item/rogueweapon/pitchfork = 1,
@@ -133,7 +133,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/scythe
-	name = "scythe"
+	name = "коса"
 	result = /obj/item/rogueweapon/scythe
 	reqs = list(
 		/obj/item/natural/whetstone = 1,
@@ -143,7 +143,7 @@
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/survival/peasantry/warflail
-	name = "militia flail"
+	name = "цеп ополченца"
 	result = /obj/item/rogueweapon/flail/militia
 	reqs = list(
 		/obj/item/natural/whetstone = 2,
@@ -152,7 +152,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/warpick
-	name = "militia warpick"
+	name = "боевая кирка ополченца"
 	result = /obj/item/rogueweapon/pick/militia
 	reqs = list(
 		/obj/item/rogueweapon/pick = 1,
@@ -161,7 +161,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/warpick_steel
-	name = "militia steel warpick"
+	name = "стальная боевая кирка ополченца"
 	result = /obj/item/rogueweapon/pick/militia/steel
 	reqs = list(
 		/obj/item/rogueweapon/pick/steel = 1,
@@ -170,7 +170,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/maciejowski_knife
-	name = "maciejowski (hunting knife)"
+	name = "мацеёвский нож (из охотничьего ножа)"
 	result = /obj/item/rogueweapon/sword/falchion/militia
 	reqs = list(
 		/obj/item/rogueweapon/huntingknife = 1,
@@ -179,7 +179,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/peasantry/maciejowski_messer
-	name = "maciejowski (iron messer)"
+	name = "мацеёвский мессер (из железного мессера)"
 	result = /obj/item/rogueweapon/sword/falchion/militia
 	reqs = list(
 		/obj/item/rogueweapon/sword/iron/messer = 1,
@@ -188,8 +188,8 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/stoneaxe
-	name = "stone axe"
-	category = "Tools"
+	name = "каменный топор"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/stoneaxe
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -197,8 +197,8 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodhammer
-	name = "wood mallet"
-	category = "Tools"
+	name = "деревянная киянка"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/hammer/wood
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -206,8 +206,8 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/stonehammer
-	name = "stone hammer"
-	category = "Tools"
+	name = "каменный молот"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/hammer/stone
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -215,8 +215,8 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/stonehoe
-	name = "stone hoe"
-	category = "Tools"
+	name = "каменная мотыга"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/hoe/stone
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
@@ -225,8 +225,8 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/stonetongs
-	name = "stone tongs"
-	category = "Tools"
+	name = "каменные щипцы"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/tongs/stone
 	reqs = list(
 		/obj/item/grown/log/tree/stick = 2,
@@ -234,8 +234,8 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/stonepick
-	name = "stone pick"
-	category = "Tools"
+	name = "каменная кирка"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/pick/stone
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -243,8 +243,8 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/stoneknife
-	name = "stone knife"
-	category = "Tools"
+	name = "каменный нож"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/huntingknife/stoneknife
 	reqs = list(
 		/obj/item/grown/log/tree/stick = 1,
@@ -253,8 +253,8 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/stonespear
-	name = "stone spear"
-	category = "Tools"
+	name = "каменное копьё"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/spear/stone
 	reqs = list(
 		/obj/item/rogueweapon/woodstaff = 1,
@@ -263,8 +263,8 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/survival/stonesword
-	name = "stone sword"
-	category = "Tools"
+	name = "каменный меч"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/sword/stone
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -275,14 +275,14 @@
 
 
 /datum/crafting_recipe/roguetown/survival/woodclub
-	name = "wood club"
-	category = "Tools"
+	name = "деревянная дубина"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/mace/woodclub/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/survival/billhook
-	name = "improvised billhook"
-	category = "Tools"
+	name = "самодельный садовый крюк"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/spear/improvisedbillhook
 	reqs = list(
 		/obj/item/rogueweapon/sickle = 1,
@@ -293,8 +293,8 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/survival/goedendag
-	name = "goedendag"
-	category = "Tools"
+	name = "годендаг"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/mace/goden
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -309,8 +309,8 @@
 	sellprice = 8
 
 /datum/crafting_recipe/roguetown/survival/woodstaff
-	name = "wood staff"
-	category = "Tools"
+	name = "деревянный посох"
+	category = "Инструменты"
 	result = list(
 		/obj/item/rogueweapon/woodstaff,
 		/obj/item/rogueweapon/woodstaff,
@@ -321,16 +321,16 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/quarterstaff
-	name = "quarterstaff"
-	category = "Tools"
+	name = "усиленный посох"
+	category = "Инструменты"
 	result = list(/obj/item/rogueweapon/woodstaff/quarterstaff)
 	reqs = list(/obj/item/grown/log/tree = 1)
 	skillcraft = /datum/skill/craft/carpentry
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/survival/quarterstaff_iron
-	name = "iron-reinforced quarterstaff"
-	category = "Tools"
+	name = "усиленный железом посох"
+	category = "Инструменты"
 	result = list(/obj/item/rogueweapon/woodstaff/quarterstaff/iron)
 	reqs = list(
 		/obj/item/rogueweapon/woodstaff/quarterstaff = 1,
@@ -340,8 +340,8 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/quarterstaff_steel
-	name = "steel-reinforced quarterstaff"
-	category = "Tools"
+	name = "усиленный сталью посох"
+	category = "Инструменты"
 	result = list(/obj/item/rogueweapon/woodstaff/quarterstaff/steel)
 	reqs = list(
 		/obj/item/rogueweapon/woodstaff/quarterstaff = 1,
@@ -351,8 +351,8 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/survival/woodsword
-	name = "wood sword"
-	category = "Tools"
+	name = "деревянный меч"
+	category = "Инструменты"
 	result = list(
 		/obj/item/rogueweapon/mace/wsword,
 		/obj/item/rogueweapon/mace/wsword,
@@ -365,8 +365,8 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/woodshield
-	name = "wooden shield"
-	category = "Tools"
+	name = "деревянный щит"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/shield/wood
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -376,8 +376,8 @@
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/survival/heatershield
-	name = "heater shield"
-	category = "Tools"
+	name = "каплевидный щит"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/shield/heater/crafted
 	reqs = list(
 		/obj/item/grown/log/tree/small = 2,
@@ -390,8 +390,8 @@
 
 
 /datum/crafting_recipe/roguetown/survival/bonespear
-	name = "bone spear"
-	category = "Tools"
+	name = "костяное копьё"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/spear/bonespear
 	reqs = list(
 		/obj/item/rogueweapon/woodstaff = 1,
@@ -402,8 +402,8 @@
 
 
 /datum/crafting_recipe/roguetown/survival/boneaxe
-	name = "bone axe"
-	category = "Tools"
+	name = "костяной топор"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/stoneaxe/boneaxe
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -413,8 +413,8 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/woodspade
-	name = "wood spade"
-	category = "Tools"
+	name = "деревянная лопата"
+	category = "Инструменты"
 	result = /obj/item/rogueweapon/shovel/small
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -424,8 +424,8 @@
 	sellprice = 5
 
 /datum/crafting_recipe/roguetown/survival/rod
-	name = "fishing rod"
-	category = "Tools"
+	name = "удочка"
+	category = "Инструменты"
 	result = /obj/item/fishingrod/crafted
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -437,8 +437,8 @@
 	sellprice = 8
 
 /datum/crafting_recipe/roguetown/survival/fishingcage
-	name = "fishing cage"
-	category = "Tools"
+	name = "рыболовная клеть"
+	category = "Инструменты"
 	result = /obj/item/fishingcage
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
@@ -447,8 +447,8 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/survival/strucrepairkit
-	name = "Structure Repair Kit"
-	category = "Tools"
+	name = "Набор для ремонта строений"
+	category = "Инструменты"
 	result = /obj/item/construction/repairkit/structure
 	reqs = list(/obj/item/construction/nail = 3,
 				/obj/item/natural/wood/plank = 3,

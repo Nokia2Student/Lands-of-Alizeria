@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/fortitude
-	name = "Fortitude"
-	desc = "Harden one's humors to the fatigues of the body. (-50% Stamina Usage)"
+	name = "Стойкость"
+	desc = "Укрепляет силы цели против усталости. (-50% расхода выносливости)"
 	cost = 3 // Halving stamina cost is INSANE so it cost the same as before adjustment to 3x spellpoint basis.
 	xp_gain = TRUE
 	releasedrain = 60
@@ -31,18 +31,18 @@
 	playsound(spelltarget, 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)
-		user.visible_message("[user] mutters an incantation and [spelltarget] briefly shines green.")
-		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		user.visible_message("[user] бормочет заклинание, и [spelltarget] ненадолго озаряется зелёным.")
+		to_chat(user, span_notice("Используя другого человека как проводник, я удваиваю длительность заклинания."))
 		spelltarget.apply_status_effect(/datum/status_effect/buff/fortitude/other)
 	else
-		user.visible_message("[user] mutters an incantation and they briefly shine green.")
+		user.visible_message("[user] бормочет заклинание и ненадолго озаряется зелёным.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/fortitude)
 
 	return TRUE
 
 /atom/movable/screen/alert/status_effect/buff/fortitude
-	name = "Fortitude"
-	desc = "My humors has been hardened to the fatigues of the body. (-50% Stamina Usage)"
+	name = "Стойкость"
+	desc = "Мои силы укреплены против усталости. (-50% расхода выносливости)"
 	icon_state = "buff"
 
 #define FORTITUDE_FILTER "fortitude_glow"
@@ -60,11 +60,11 @@
 	var/filter = owner.get_filter(FORTITUDE_FILTER)
 	if (!filter)
 		owner.add_filter(FORTITUDE_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 50, "size" = 1))
-	to_chat(owner, span_warning("My body feels lighter..."))
+	to_chat(owner, span_warning("Моё тело ощущается легче..."))
 	ADD_TRAIT(owner, TRAIT_FORTITUDE, MAGIC_TRAIT)
 
 /datum/status_effect/buff/fortitude/on_remove()
 	. = ..()
 	owner.remove_filter(FORTITUDE_FILTER)
-	to_chat(owner, span_warning("The weight of the world rests upon my shoulders once more."))
+	to_chat(owner, span_warning("Тяжесть мира снова ложится на мои плечи."))
 	REMOVE_TRAIT(owner, TRAIT_FORTITUDE, MAGIC_TRAIT)

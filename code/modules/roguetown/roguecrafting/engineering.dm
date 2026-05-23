@@ -2,57 +2,57 @@
 	abstract_type = /datum/crafting_recipe/roguetown/engineering
 
 /datum/crafting_recipe/roguetown/engineering/coolingtable
-	name = "cooling table"
+	name = "охлаждающий стол"
 	result = /obj/structure/table/cooling
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/ingot/iron = 1,
 				/obj/item/roguegear = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/lever
-	name = "lever"
+	name = "рычаг"
 	result = /obj/structure/lever
 	reqs = list(/obj/item/roguegear = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/trapdoor
-	name = "floorhatch"
+	name = "люк в полу"
 	result = /obj/structure/floordoor
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 					/obj/item/roguegear = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/engineering/bars
-	name = "metal bars"
+	name = "металлические прутья"
 	result = /obj/structure/bars
 	reqs = list(/obj/item/ingot/iron = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/shopbars
-	name = "shop bars"
+	name = "торговая решётка"
 	result = /obj/structure/bars/shop
 	reqs = list(/obj/item/ingot/iron = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	ignoredensity = TRUE
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/distiller
-	name = "copper distiller"
+	name = "медный дистиллятор"
 	result = /obj/structure/fermentation_keg/distiller
 	reqs = list(/obj/item/ingot/copper = 2, /obj/item/roguegear = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 2
 
@@ -60,18 +60,18 @@
 	name = "LIBERTAS"
 	result = /obj/structure/chair/freedomchair/crafted
 	reqs = list(/obj/item/ingot/gold = 1, /obj/item/roguegear = 3)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/passage
-	name = "passage"
+	name = "проход"
 	result = /obj/structure/bars/passage
 	reqs = list(/obj/item/ingot/iron = 1,
 					/obj/item/roguegear = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "смастерил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 2
 
@@ -86,7 +86,7 @@
 
 //pyro arrow crafting, from stonekeep
 /datum/crafting_recipe/roguetown/engineering/pyrobolt
-	name = "pyroclastic bolt"
+	name = "пирокластический болт"
 	result = /obj/item/ammo_casing/caseless/rogue/bolt/pyro
 	reqs = list(/obj/item/ammo_casing/caseless/rogue/bolt = 1,
 				/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 1)
@@ -95,7 +95,7 @@
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/pyrobolt_five
-	name = "pyroclastic bolt (x5)"
+	name = "пирокластический болт (x5)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
 				/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
@@ -110,7 +110,7 @@
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/pyroarrow
-	name = "pyroclastic arrow"
+	name = "пирокластическая стрела"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/pyro
 	reqs = list(/obj/item/ammo_casing/caseless/rogue/arrow/iron = 1,
 				/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 1)
@@ -119,7 +119,7 @@
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/pyroarrow_five
-	name = "pyroclastic arrow (x5)"
+	name = "пирокластическая стрела (x5)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
 				/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
@@ -134,107 +134,107 @@
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/engineering/pressure_plate
-	name = "pressure plate"
+	name = "нажимная плита"
 	result = /obj/structure/pressure_plate
 	reqs = list(/obj/item/roguegear = 1, /obj/item/natural/wood/plank = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/engineering/activator
-	name = "engineer's launcher"
+	name = "инженерная пусковая установка"
 	result = /obj/structure/englauncher
 	reqs = list(/obj/item/roguegear = 1, /obj/item/natural/wood/plank = 4, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
 
 //rotational and minecart parts
 /datum/crafting_recipe/roguetown/engineering/shaft
-	name = "wooden shaft(4x)"
-	category = "Rotational"
+	name = "деревянный вал (4x)"
+	category = "Вращательные механизмы"
 	result = list(/obj/item/rotation_contraption/shaft,
 				  /obj/item/rotation_contraption/shaft,
 				  /obj/item/rotation_contraption/shaft,
 				  /obj/item/rotation_contraption/shaft)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/stickshaft
-	name = "wooden shaft"
-	category = "Rotational"
+	name = "деревянный вал"
+	category = "Вращательные механизмы"
 	result = list(/obj/item/rotation_contraption/shaft)
 	reqs = list(/obj/item/grown/log/tree/stick = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/cog
-	name = "wooden cogwheel(2x)"
-	category = "Rotational"
+	name = "деревянная шестерня (2x)"
+	category = "Вращательные механизмы"
 	result = list(/obj/item/rotation_contraption/cog,
 				  /obj/item/rotation_contraption/cog)
 	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/roguegear = 2, /obj/item/grown/log/tree/stick = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)
 	craftdiff = 4
 
 
 /datum/crafting_recipe/roguetown/engineering/waterwheel
-	name = "wooden waterwheel"
-	category = "Rotational"
+	name = "деревянное водяное колесо"
+	category = "Вращательные механизмы"
 	result = /obj/item/rotation_contraption/waterwheel
 	reqs = list(/obj/item/natural/wood/plank = 3, /obj/item/grown/log/tree/stick = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/large_cog
-	name = "large wooden cogwheel"
-	category = "Rotational"
+	name = "большая деревянная шестерня"
+	category = "Вращательные механизмы"
 	result = /obj/item/rotation_contraption/large_cog
 	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/ingot/bronze = 1, /obj/item/grown/log/tree/stick = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/structure/gearbox
-	name = "gearbox"
-	category = "Rotational"
+	name = "редуктор"
+	category = "Вращательные механизмы"
 	result = /obj/item/rotation_contraption/horizontal
 	reqs = list(/obj/item/roguegear = 2, /obj/item/natural/stoneblock = 2,/obj/item/grown/log/tree/stick = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/structure/vertical_gearbox
-	name = "vertical gearbox"
-	category = "Rotational"
+	name = "вертикальный редуктор"
+	category = "Вращательные механизмы"
 	result = /obj/item/rotation_contraption/vertical
 	reqs = list(/obj/item/roguegear = 2, /obj/item/natural/stoneblock = 2, /obj/item/grown/log/tree/stick = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/engineering/rails
-	name = "minecart rails (10x)"
-	category = "Minecarts"
+	name = "рельсы для вагонетки (10x)"
+	category = "Вагонетки"
 	result = list(/obj/item/rotation_contraption/minecart_rail,
 				  /obj/item/rotation_contraption/minecart_rail,
 				  /obj/item/rotation_contraption/minecart_rail,
@@ -246,31 +246,31 @@
 				  /obj/item/rotation_contraption/minecart_rail,
 				  /obj/item/rotation_contraption/minecart_rail)
 	reqs = list(/obj/item/natural/wood/plank = 5, /obj/item/ingot/iron = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/engineering/railbreak
-	name = "minecart rail break (4x)"
-	category = "Minecarts"
+	name = "тормоз для вагонетки (4x)"
+	category = "Вагонетки"
 	result = list(/obj/item/rotation_contraption/minecart_rail/railbreak,
 				  /obj/item/rotation_contraption/minecart_rail/railbreak,
 				  /obj/item/rotation_contraption/minecart_rail/railbreak,
 				  /obj/item/rotation_contraption/minecart_rail/railbreak)
 	reqs = list(/obj/item/roguegear = 1, /obj/item/ingot/iron = 1)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 3
 
 
 /datum/crafting_recipe/roguetown/engineering/minecart
-	name = "minecart"
-	category = "Minecarts"
+	name = "вагонетка"
+	category = "Вагонетки"
 	result = /obj/structure/closet/crate/miningcar
 	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/ingot/iron = 1, /obj/item/grown/log/tree/stick = 4, /obj/item/roguegear = 2)
-	verbage_simple = "engineer"
-	verbage = "engineers"
+	verbage_simple = "изготовить"
+	verbage = "изготовил"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4

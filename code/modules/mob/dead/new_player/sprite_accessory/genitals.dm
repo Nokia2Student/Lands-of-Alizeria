@@ -161,6 +161,10 @@
 	name = "Pair"
 	color_key_defaults = list(KEY_CHEST_COLOR)
 
+/datum/sprite_accessory/breasts/pair/npc
+	color_key_defaults = null
+	default_colors = list("e8b59b")
+
 /datum/sprite_accessory/breasts/quad
 	icon_state = "quad"
 	name = "Quad"
@@ -175,7 +179,7 @@
 	icon = 'icons/mob/sprite_accessory/genitals/nethers.dmi'
 	color_key_name = "Nethers"
 	relevant_layers = list(BODY_FRONT_LAYER)
-	
+
 
 /datum/sprite_accessory/vagina/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_BELT, OFFSET_BELT_F)

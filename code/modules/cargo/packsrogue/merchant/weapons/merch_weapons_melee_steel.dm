@@ -1,13 +1,13 @@
 // Steel Weapons - Base price of 35 per steel ingot
 // Minimum price of 40
 /datum/supply_pack/rogue/steel_weapons
-	group = "Weapons (Steel)"
+	group = "Оружие (сталь)"
 	crate_name = "merchant guild's crate"
 	mandated_public_profit = 1 // 100% Mandatory Profit Margin on top
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/steel_weapons/dagger
-	name = "Dagger"
+	name = "Кинжал"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/huntingknife/idagger/steel,
@@ -15,49 +15,49 @@
 
 
 /datum/supply_pack/rogue/steel_weapons/katar
-	name = "Katar"
+	name = "Катар"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/katar
 				)
 
 /datum/supply_pack/rogue/steel_weapons/steelknuckle
-	name = "Steel Knuckle"
+	name = "Стальной кастет"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/knuckles
 				)
 
 /datum/supply_pack/rogue/steel_weapons/rapier
-	name = "Rapier"
+	name = "Рапира"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/rapier,
 				)
 				
 /datum/supply_pack/rogue/steel_weapons/cutlass
-	name = "Cutlass"
+	name = "Абордажная сабля"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/cutlass,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/shortsword
-	name = "Shortsword"
+	name = "Короткий меч"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/short,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/falchion
-	name = "Falchion"
+	name = "Фальшион"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/falchion,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/messer
-	name = "Messer"
+	name = "Мессер"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/short/messer,
@@ -66,153 +66,153 @@
 // No one order generic sword I CBA
 
 /datum/supply_pack/rogue/steel_weapons/sabre
-	name = "Sabre"
+	name = "Сабля"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/sabre,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/flail
-	name = "Flail"
+	name = "Цеп"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/flail/sflail,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/longsword
-	name = "Longsword"
+	name = "Длинный меч"
 	cost = 70 // 2 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/long,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/kriegmesser
-	name = "Kriegmesser"
+	name = "Кригмессер"
 	cost = 70 // 2 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/long/kriegmesser,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/battleaxe
-	name = "Battle Axe"
+	name = "Боевой топор"
 	cost = 70 // 2 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/stoneaxe/battle,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/mace
-	name = "Mace"
+	name = "Булава"
 	cost = 70 // 2 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/mace/steel,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/greatsword
-	name = "Greatsword"
+	name = "Двуручный меч"
 	cost = 105 // 3 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/greatsword,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/zweihander
-	name = "Zweihander"
+	name = "Цвайхандер"
 	cost = 105 // 3 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/greatsword/grenz,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/estoc
-	name = "Estoc"
+	name = "Эсток"
 	cost = 70 // 2 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/estoc,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/greataxe
-	name = "Greataxe"
+	name = "Секира"
 	cost = 75 // 2 Steel Ingot, 1 Small Log
 	contains = list(
 					/obj/item/rogueweapon/greataxe/steel,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/greataxedoublehead
-	name = "Greataxe, Double-Headed"
+	name = "Секира, двуглавая"
 	cost = 110 // 3 Steel Ingot, 1 Small Log
 	contains = list(
 					/obj/item/rogueweapon/greataxe/steel/doublehead,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/billhook
-	name = "Billhook"
+	name = "Биллхук"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/spear/billhook,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/halberd
-	name = "Halberd"
+	name = "Алебарда"
 	cost = 75 // 2 Steel Ingot, 1 Small Log
 	contains = list(
 					/obj/item/rogueweapon/halberd,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/eaglebeak
-	name = "Eagle's Beak"
+	name = "Орлиный клюв"
 	cost = 75 // 2 Steel Ingot, 1 Small Log
 	contains = list(
 					/obj/item/rogueweapon/eaglebeak,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/grandmace
-	name = "Grand Mace"
+	name = "Великая булава"
 	cost = 75 // 2 Steel Ingot, 1 Small Log
 	contains = list(
 					/obj/item/rogueweapon/mace/goden/steel,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/partizan
-	name = "Partizan"
+	name = "Партизан"
 	cost = 80 // 2 Steel Ingot, 1 Small Log. Slight increase cuz gated behind skill 4
 	contains = list(
 					/obj/item/rogueweapon/spear/partizan,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/boarspear
-	name = "Boar Spear"
+	name = "Копьё на кабана"
 	cost = 80 // 2 Steel Ingot, 1 Small Log. Slight increase cuz gated behind skill 4
 	contains = list(
 					/obj/item/rogueweapon/spear/boar,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/lance
-	name = "Lance"
+	name = "Лэнс"
 	cost = 80 // 2 Steel Ingot, 1 Small Log. Slight increase cuz gated behind skill 4
 	contains = list(
 					/obj/item/rogueweapon/spear/lance,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/fishingspear
-	name = "Fishing Spear"
+	name = "Рыболовное копьё"
 	cost = 75 // 2 Steel Ingot, 1 Small Log. 
 	contains = list(
 					/obj/item/rogueweapon/fishspear,
 				)
 /datum/supply_pack/rogue/steel_weapons/rhomphaia
-	name = "Rhomphaia"
+	name = "Ромфея"
 	cost = 70 // 2 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/long/rhomphaia,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/falx
-	name = "Falx"
+	name = "Фалькс"
 	cost = 40 // 1 Steel Ingot
 	contains = list(
 					/obj/item/rogueweapon/sword/falx,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/glaive
-	name = "Glaive"
+	name = "Глефа"
 	cost = 150 // 3 Steel Ingot, 1 Small Log
 	contains = list(
 					/obj/item/rogueweapon/halberd/glaive,

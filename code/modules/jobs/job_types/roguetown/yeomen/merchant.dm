@@ -1,5 +1,5 @@
 /datum/job/roguetown/merchant
-	title = "Merchant"
+	title = "Quartermaster"
 	flag = MERCHANT
 	department_flag = YEOMEN
 	faction = "Station"
@@ -31,7 +31,7 @@
 	)
 
 /datum/advclass/merchant
-	name = "Merchant"
+	name = "Quartermaster"
 	tutorial = "You were born into wealth, learning from before you could talk about the basics of mathematics. \
 	Counting coins is a simple pleasure for any person, but you've made it an art form. \
 	These people are addicted to your wares, and you are the literal beating heart of this economy: \

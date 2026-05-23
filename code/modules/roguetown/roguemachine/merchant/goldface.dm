@@ -29,30 +29,29 @@
 	var/current_cat = "1"
 	var/lockid = "merchant"
 	var/list/categories = list(
-		"Alcohols",
-		"Apparel",
-		"Consumable",
-		"Gems",
-		"Instruments",
-		"Luxury",
-		"Livestock",
-		"Perfumes",
-		"Raw Materials",
-		"Seeds",
-		"Tools",
-		"Wardrobe",
+		"Алкоголь",
+		"Косметика",
+		"Расходники",
+		"Самоцветы",
+		"Музыкальные инструменты",
+		"Роскошь",
+		"Скот",
+		"Сырьё",
+		"Семена",
+		"Инструменты",
+		"Гардероб",
 	)
 	var/list/categories_gamer = list(
-		"Adventuring Supplies",
-		"Armor (Light)",
-		"Armor (Iron)",
-		"Armor (Steel)",
-		"Armor (Exotic)",
-		"Potions",
-		"Weapons (Ranged)",
-		"Weapons (Iron and Shields)",
-		"Weapons (Steel)",
-		"Weapons (Foreign)",
+		"Припасы для приключений",
+		"Доспехи (лёгкие)",
+		"Доспехи (железо)",
+		"Доспехи (сталь)",
+		"Доспехи (экзотика)",
+		"Зелья",
+		"Оружие (дальнее)",
+		"Оружие (железо и щиты)",
+		"Оружие (сталь)",
+		"Оружие (чужеземное)",
 	)
 	var/is_public = FALSE // Whether it is a public access vendor.
 	var/extra_fee = 0 // Extra Guild Fees on purchases. Meant to make publicface very unprofitable.
@@ -107,8 +106,8 @@
 			return
 	if(istype(P, /obj/item/roguecoin/aalloy))
 		return
-	if(istype(P, /obj/item/roguecoin/inqcoin))	
-		return			
+	if(istype(P, /obj/item/roguecoin/inqcoin))
+		return
 	if(istype(P, /obj/item/roguecoin))
 		budget += P.get_real_price()
 		qdel(P)
@@ -259,7 +258,7 @@
 			if(!(upgrade_flags & UPGRADE_NOTAX))
 				costy = costy + round(SStreasury.tax_value * PA.cost)
 			var/quantified_name = PA.no_name_quantity ? PA.name : "[PA.name] [PA.contains.len > 1?"x[PA.contains.len]":""]"
-			if(is_public && locked) 
+			if(is_public && locked)
 				contents += "[quantified_name]<BR>"
 			else
 				contents += "[quantified_name] - ([costy])<a href='?src=[REF(src)];buy=[PA.type]'>BUY</a><BR>"

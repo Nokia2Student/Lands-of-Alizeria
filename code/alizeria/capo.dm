@@ -49,6 +49,7 @@
 		/datum/skill/misc/reading = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/sneaking = SKILL_LEVEL_LEGENDARY,
 		/datum/skill/misc/stealing = SKILL_LEVEL_MASTER,
+		/datum/skill/combat/guns = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/lockpicking = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/climbing = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE,
@@ -58,6 +59,7 @@
 		/datum/skill/combat/bows = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/crossbows = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/swords = SKILL_LEVEL_MASTER,
+		/datum/skill/combat/guns = SKILL_LEVEL_JOURNEYMAN,
 	)
 
 /datum/outfit/job/capo/basic/pre_equip(mob/living/carbon/human/H)

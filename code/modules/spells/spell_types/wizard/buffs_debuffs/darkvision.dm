@@ -1,10 +1,10 @@
 /obj/effect/proc_holder/spell/targeted/touch/darkvision
-	name = "Darkvision"
-	desc = "Enhance the night vision of a target you touch for 15 minutes."
+	name = "Ночное зрение"
+	desc = "Улучшает ночное зрение цели, к которой вы прикасаетесь, на 15 минут."
 	overlay_state = "darkvision"
 	clothes_req = FALSE
-	drawmessage = "I prepare to grant Darkvision."
-	dropmessage = "I release my arcyne focus."
+	drawmessage = "Я готовлюсь даровать Ночное зрение."
+	dropmessage = "Я отпускаю свой арканный фокус."
 	school = "transmutation"
 	recharge_time = 1 MINUTES
 	chargedloop = /datum/looping_sound/invokegen
@@ -24,8 +24,8 @@
 	miracle = TRUE
 
 /obj/item/melee/touch_attack/darkvision
-	name = "\improper arcyne focus"
-	desc = "Touch a creature to grant them Darkvision for 15 minutes."
+	name = "Ночное зрение"
+	desc = "Прикоснитесь к существу, чтобы даровать ему Ночное зрение на 15 минут."
 	catchphrase = null
 	possible_item_intents = list(INTENT_HELP)
 	icon = 'icons/mob/roguehudgrabs.dmi'
@@ -44,8 +44,8 @@
 		spelltarget.apply_status_effect(/datum/status_effect/buff/darkvision, user.get_skill_level(associated_skill))
 		user.stamina_add(80)
 		if(spelltarget != user)
-			user.visible_message("[user] draws a glyph in the air and touches [spelltarget] with an arcyne focus.")
+			user.visible_message("[user] чертит глиф в воздухе и касается [spelltarget] арканным фокусом.")
 		else
-			user.visible_message("[user] draws a glyph in the air and touches themselves with an arcyne focus.")
+			user.visible_message("[user] чертит глиф в воздухе и касается себя арканным фокусом.")
 		attached_spell.remove_hand()
 	return

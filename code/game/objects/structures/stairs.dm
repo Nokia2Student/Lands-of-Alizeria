@@ -11,7 +11,7 @@
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
-	layer = 3
+	layer = 3.1
 	nomouseover = TRUE
 	plane = GAME_PLANE
 

@@ -2,13 +2,13 @@
 // Took lockpicks out so it don't get spammed. Get the expensive hairpins instead.
 
 /datum/supply_pack/rogue/bath_rogue
-	group = "Roguery"
+	group = "Воровские принадлежности"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 // Same as merchant
 /datum/supply_pack/rogue/bath_rogue/chains
-	name = "Chains"
+	name = "Цепи"
 	cost = 15
 	contains = list(
 		/obj/item/rope/chain,
@@ -17,17 +17,17 @@
 	)
 
 /datum/supply_pack/rogue/bath_rogue/goldpin
-	name = "Golden Hairpin"
+	name = "Золотая шпилька"
 	cost = 70
 	contains = list(/obj/item/lockpick/goldpin)
 
 /datum/supply_pack/rogue/bath_rogue/silverpin
-	name = "Silver Hairpin"
+	name = "Серебряная шпилька"
 	cost = 140
 	contains = list(/obj/item/lockpick/goldpin/silver)
 
 /datum/supply_pack/rogue/bath_rogue/smokebomb
-	name = "Smoke Bomb"
+	name = "Дымовая бомба"
 	cost = 25
 	contains = list(
 		/obj/item/bomb/smoke,
@@ -35,7 +35,7 @@
 		/obj/item/bomb/smoke)
 
 /datum/supply_pack/rogue/bath_rogue/waterarrows
-	name = "Water Arrow"
+	name = "Водная стрела"
 	cost = 20
 	contains = list (
 		/obj/item/ammo_casing/caseless/rogue/arrow/water,
@@ -61,23 +61,23 @@
 	)
 
 /datum/supply_pack/rogue/bath_rogue/grappler
-	name = "Grappler"
+	name = "Крюк-кошка"
 	cost = 200
 	contains = list(/obj/item/grapplinghook)
 
 /datum/supply_pack/rogue/bath_rogue/climbing_gear
-	name = "Climbing Gear"
+	name = "Снаряжение для лазания"
 	cost = 150
 	contains = list(/obj/item/clothing/climbing_gear)
 
 /datum/supply_pack/rogue/bath_rogue/smokebelt
-	name = "Smokebomb belt"
+	name = "Пояс с дымовыми бомбами"
 	cost = 90 // smokebombs are pretty expensive, this is justified
 	contains = list(
 					/obj/item/storage/belt/rogue/leather/smokebelt
 				)
 
 /datum/supply_pack/rogue/bath_rogue/mirrortransform
-	name = "Scroll of Mirror Transform"
+	name = "Свиток зеркального превращения"
 	cost = 50
 	contains = list(/obj/item/book/granter/spell/blackstone/mirror_transform)

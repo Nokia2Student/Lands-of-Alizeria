@@ -122,7 +122,7 @@ GLOBAL_VAR_INIT(last_elder_announcement, -50000) // Inits variable for later, co
 
 /obj/effect/proc_holder/spell/self/convertrole/militia
 	name = "Завербовать стражника"
-	new_role = "Town Guard"
+	new_role = "Militiaman"
 	overlay_state = "recruit_brother"
 	recruitment_faction = "Militia"
 	recruitment_message = "Храбро защищай наши земли, %RECRUIT!"

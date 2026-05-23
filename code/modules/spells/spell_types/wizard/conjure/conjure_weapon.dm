@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/conjure_weapon
-	name = "Conjure Weapon"
-	desc = "Conjure a weapon of your choice in your hand. The weapon will be unsummoned should you conjure a new one or unbind the spell.\n\
-	At 12 int or above, conjure steel-tier weapons, otherwise conjure iron-tier weapons. Melee weapons only."
+	name = "Сотворение оружия"
+	desc = "Создаёт в руке выбранное вами оружие. Оружие исчезнет, если вы сотворите новое или отвяжете заклинание.\n\
+	При интеллекте 12 и выше создаётся оружие стального качества, иначе — железное. Только рукопашное."
 	overlay_state = "conjure_weapon"
 	sound = list('sound/magic/whiteflame.ogg')
 
@@ -27,39 +27,39 @@
 	var/obj/item/rogueweapon/conjured_weapon = null
 
 	var/list/iron_weapons = list(
-		"Iron Short Sword" = /obj/item/rogueweapon/sword/iron/short,
-		"Iron Messer" = /obj/item/rogueweapon/sword/iron/messer,
-		"Zweihander" = /obj/item/rogueweapon/greatsword/zwei,
-		"Cudgel" = /obj/item/rogueweapon/mace/cudgel,
-		"Iron Warhammer" = /obj/item/rogueweapon/mace/warhammer,
-		"Iron Dagger" = /obj/item/rogueweapon/huntingknife/idagger,
-		"Iron Axe" = /obj/item/rogueweapon/stoneaxe/woodcut,
-		"Iron Greataxe" = /obj/item/rogueweapon/greataxe,
-		"Iron Flail" = /obj/item/rogueweapon/flail,
-		"Iron Spear" = /obj/item/rogueweapon/spear,
-		"Whip" = /obj/item/rogueweapon/whip,
+		"Короткий железный меч" = /obj/item/rogueweapon/sword/iron/short,
+		"Железный мессер" = /obj/item/rogueweapon/sword/iron/messer,
+		"Железный цвайхандер" = /obj/item/rogueweapon/greatsword/zwei,
+		"Дубина" = /obj/item/rogueweapon/mace/cudgel,
+		"Железный боевой молот" = /obj/item/rogueweapon/mace/warhammer,
+		"Железный кинжал" = /obj/item/rogueweapon/huntingknife/idagger,
+		"Железный топор" = /obj/item/rogueweapon/stoneaxe/woodcut,
+		"Железная секира" = /obj/item/rogueweapon/greataxe,
+		"Железный цеп" = /obj/item/rogueweapon/flail,
+		"Железное копьё" = /obj/item/rogueweapon/spear,
+		"Кнут" = /obj/item/rogueweapon/whip,
 	)
 	// There's no way I am putting Lucerne in iron tier I am gonna misclassify it as steel on purpose
 
 	// Trying to keep the list manageable so 1 / 2 iconic thing from each family is fine
 	var/list/steel_weapons = list(
-		"Steel Sabre" = /obj/item/rogueweapon/sword/sabre,
-		"Steel Rapier" = /obj/item/rogueweapon/sword/rapier,
-		"Longsword" = /obj/item/rogueweapon/sword/long,
-		"Zweihander" = /obj/item/rogueweapon/greatsword/grenz,
-		"Battle Axe" = /obj/item/rogueweapon/stoneaxe/battle,
-		"Steel Dagger" = /obj/item/rogueweapon/huntingknife/idagger/steel,
-		"Halberd" = /obj/item/rogueweapon/halberd,
-		"Steel Warhammer" = /obj/item/rogueweapon/mace/warhammer/steel,
-		"Steel Flail" = /obj/item/rogueweapon/flail/sflail,
-		"Whip" = /obj/item/rogueweapon/whip,
+		"Стальная сабля" = /obj/item/rogueweapon/sword/sabre,
+		"Стальная рапира" = /obj/item/rogueweapon/sword/rapier,
+		"Длинный меч" = /obj/item/rogueweapon/sword/long,
+		"Стальной цвайхандер" = /obj/item/rogueweapon/greatsword/grenz,
+		"Боевой топор" = /obj/item/rogueweapon/stoneaxe/battle,
+		"Стальной кинжал" = /obj/item/rogueweapon/huntingknife/idagger/steel,
+		"Алебарда" = /obj/item/rogueweapon/halberd,
+		"Стальной боевой молот" = /obj/item/rogueweapon/mace/warhammer/steel,
+		"Стальной цеп" = /obj/item/rogueweapon/flail/sflail,
+		"Кнут" = /obj/item/rogueweapon/whip,
 	)
 
 /obj/effect/proc_holder/spell/invoked/conjure_weapon/cast(list/targets, mob/living/user = usr)
 	var/list/weapons = iron_weapons
 	if(user.STAINT >= 12)
 		weapons = steel_weapons
-	var/weapon_choice = input(user, "Choose a weapon", "Conjure Weapon") as anything in weapons
+	var/weapon_choice = input(user, "Выберите оружие", "Сотворение оружия") as anything in weapons
 	if(!weapon_choice)
 		return
 	if(src.conjured_weapon)
@@ -79,6 +79,6 @@
 
 /obj/effect/proc_holder/spell/invoked/conjure_weapon/Destroy()
 	if(src.conjured_weapon)
-		conjured_weapon.visible_message(span_warning("The [conjured_weapon]'s borders begin to shimmer and fade, before it vanishes entirely!"))
+		conjured_weapon.visible_message(span_warning("Края [conjured_weapon] начинают мерцать и таять, пока оружие полностью не исчезает!"))
 		qdel(src.conjured_weapon)
 	return ..()

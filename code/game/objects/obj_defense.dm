@@ -252,7 +252,13 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 			playsound(src, destroy_sound, 100, TRUE)
 		if(destroy_message)
 			visible_message(destroy_message)
-		deconstruct(FALSE)
+		// 50% chance to completely destroy item (delete it) or deconstruct it normally
+		if(prob(50))
+			// Item is destroyed completely - just delete it
+			qdel(src)
+		else
+			// Item is deconstructed with debris
+			deconstruct(FALSE)
 	return TRUE
 
 ///changes max_integrity while retaining current health percentage, returns TRUE if the obj got broken.

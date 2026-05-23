@@ -1,5 +1,5 @@
 /obj/item/rogueweapon/flail
-	force = 25
+	force = 50
 	possible_item_intents = list(/datum/intent/flail/strike, /datum/intent/flail/strike/smash)
 	name = "flail"
 	desc = "This is a swift, iron flail. Strikes hard and far."
@@ -106,7 +106,7 @@
 	name = "decrepit flail"
 	desc = "This is a swift, ancient flail. Strikes hard and far. Aeon's grasp is upon its form."
 	icon_state = "aflail"
-	force = 22
+	force = 44
 	max_integrity = 175
 	smeltresult = /obj/item/ingot/aalloy
 
@@ -117,7 +117,7 @@
 	smeltresult = /obj/item/ingot/aaslag
 
 /obj/item/rogueweapon/flail/sflail
-	force = 30
+	force = 60
 	icon_state = "flail"
 	desc = "This is a swift, steel flail. Strikes hard and far."
 	smeltresult = /obj/item/ingot/steel
@@ -132,7 +132,7 @@
 	name = "psydonian flail"
 	desc = "An ornate flail, plated in a ceremonial veneer of silver. Its flanged head can crumple even the toughest of darksteel-maille."
 	icon_state = "psyflail"
-	force = 25
+	force = 50
 	minstr = 9
 	wdefense = 3
 	is_silver = TRUE
@@ -166,7 +166,7 @@
 	)
 
 /obj/item/rogueweapon/flail/peasantwarflail
-	force = 10
+	force = 20
 	force_wielded = 35
 	possible_item_intents = list(/datum/intent/flail/strike)
 	gripped_intents = list(/datum/intent/flail/strikerange, /datum/intent/flail/strike/smashrange)
@@ -227,7 +227,7 @@
 	desc = "In another lyfe, this humble thresher was used to pound stalks into grain. Under a militiaman's grasp, however, it has found a new purpose: to humble overconfident bandits with crippling blows."
 	icon_state = "milflail"
 	possible_item_intents = list(/datum/intent/flail/strike, /datum/intent/flail/strike/smash/militia)
-	force = 27
+	force = 54
 	wdefense = 3
 	wbalance = WBALANCE_HEAVY
 	item_flags = PEASANT_WEAPON

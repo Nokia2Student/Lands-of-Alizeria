@@ -226,6 +226,10 @@
 #define GUILDSMAN  	(1<<2)
 #define TAILOR		(1<<3)
 
+#define AVANGARD		(1<<12)
+
+#define COMMANDER		(1<<1)
+
 #define JCOLOR_NOBLE "#e3e98b"
 #define JCOLOR_COURTIER "#ceba82"
 #define JCOLOR_CHURCH "#c0ba8d"
@@ -236,6 +240,7 @@
 #define JCOLOR_MERCENARY "#53a3d5"
 #define JCOLOR_INQUISITION "#FF0000"
 #define JCOLOR_TOWN "#6ec256"
+#define JCOLOR_AVANGARD "#e5fafb"
 
 // job display orders //
 
@@ -244,13 +249,15 @@
 #define JDO_LADY 1.1
 #define JDO_HAND 1.2
 #define JDO_PRINCE 1.3
-#define JDO_KNIGHT 1.4
+#define JDO_LGUARD 1.4
 #define JDO_SQUIRE 1.5
 #define JDO_STEWARD 1.6
-#define JDO_BLACKKNIGHT 1.7
+#define JDO_MERCHANT 1.7
+#define JDO_SHOPHAND 1.71
+#define JDO_BLACKKNIGHT 1.8
 #define JDO_SUITOR 0
-#define JDO_JESTER 1.8
-#define JDO_BUTLER 1.9
+#define JDO_JESTER 1.9
+#define JDO_BUTLER 1.91
 #define JDO_SERVANT 2
 #define JDO_COUNCILLOR 0
 
@@ -280,8 +287,6 @@
 #define JDO_WENCH 4.7
 
 // CITIZENS
-#define JDO_MERCHANT 5
-#define JDO_SHOPHAND 5.1
 #define JDO_MAGICIAN 5.2
 #define JDO_MAGEAPPRENTICE 0
 #define JDO_PHYSICIAN 5.3
@@ -341,6 +346,8 @@
 #define JDO_PURITAN 40
 #define JDO_ORTHODOXIST 40.1
 #define JDO_ABSOLVER 40.2
+
+#define JDO_COMMANDER 41
 
 #define BITFLAG_CHURCH (1<<0)
 #define BITFLAG_ROYALTY (1<<1)

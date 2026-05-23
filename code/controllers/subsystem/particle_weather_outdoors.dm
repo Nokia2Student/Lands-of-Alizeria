@@ -10,27 +10,27 @@
 
 /datum/time_of_day/sunrise
 	name = "Sunrise"
-	color = list("#F598AB","#e26d6d", "#e96e4f")
+	color = list("#4485ca","#5daae5", "#7cc8ee")
 	start = 9.5 HOURS  //9:30:00 AM
 
 /datum/time_of_day/daytime
 	name = "Daytime"
-	color = list("#dbbfbf", "#ddd7bd", "#add1b0", "#a4c0ca", "#ae9dc6", "#d09fbf")
+	color = list("#bed5da", "#bcd6dc", "#adc8d1", "#a4c0ca", "#9fabc6", "#a99fd0")
 	start = 10 HOURS //10:00:00 AM
 
 /datum/time_of_day/sunset
 	name = "Sunset"
-	color = "#ff8a63"
+	color = "#8eacc7"
 	start = 15 HOURS //3:00:00 PM
 
 /datum/time_of_day/dusk
 	name = "Dusk"
-	color = list("#c26f56", "#c05271", "#b84933")
+	color = list("#568ac2", "#5397c1", "#3297b8")
 	start = 15.5 HOURS //3:30:00 PM
 
 /datum/time_of_day/midnight
 	name = "Midnight"
-	color = list("#100a18", "#0c0412", "#0f0012")
+	color = list("#272e4e", "#0c0412", "#272e4e")
 	start = 16 HOURS //4:00:00 PM
 
 GLOBAL_VAR_INIT(GLOBAL_LIGHT_RANGE, 3)

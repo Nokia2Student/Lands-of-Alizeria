@@ -29,7 +29,7 @@
 
 /obj/structure/flora/roguegrass/herb/attack_hand(mob/user)
 	if(harvested)
-		to_chat(user, span_warning("Picked clean; but looks healthy. I should try again later."))
+		to_chat(user, span_warning("Всё собрано, но выглядит невредимым. Можно попробовать поискать позже."))
 	if(isliving(user))
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_INTENTCAP)
@@ -44,13 +44,13 @@
 				if(HAS_TRAIT(user, TRAIT_WOODWALKER))
 					var/obj/item/C = new B.type(user.loc)
 					user.put_in_hands(C)
-				user.visible_message(span_notice("[user] finds [HAS_TRAIT(user, TRAIT_WOODWALKER) ? "two of " : ""][B] in [src]."))
+				user.visible_message(span_notice("[user] находит [HAS_TRAIT(user, TRAIT_WOODWALKER) ? "two of " : ""][B] в [src]."))
 				harvested = TRUE
 				timerid = addtimer(CALLBACK(src, PROC_REF(loot_replenish)), 5 MINUTES, flags = TIMER_STOPPABLE)
 				//add_filter("picked", 1, alpha_mask_filter(icon = icon('icons/effects/picked_overlay.dmi', "picked_overlay_[rand(1,3)]"), flags = MASK_INVERSE))
 				GLOB.harvested_herbs |= src
 				return
-			user.visible_message(span_notice("[user] searches through [src]."))
+			user.visible_message(span_notice("[user] что-то ищет в [src]."))
 
 /obj/structure/flora/roguegrass/herb/proc/loot_replenish()
 	if(herbtype)

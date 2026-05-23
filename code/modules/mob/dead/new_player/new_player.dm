@@ -289,6 +289,15 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 			if(!found_prince)
 				to_chat(usr, span_warning("Вы не можете зайти за тёмного гвардейца без активного наследника или наследницы в раунде."))
 				return
+		if(selected == "Garde du corps")
+			var/found_prince = FALSE
+			for(var/mob/living/carbon/human/H in GLOB.player_list)
+				if(H.mind.assigned_role == "Prince" || H.mind.assigned_role == "Princess" || H.mind.assigned_role == "Landowner" || H.mind.assigned_role == "Lady of Crown")
+					found_prince = TRUE
+					break
+			if(!found_prince)
+				to_chat(usr, span_warning("Вы не можете зайти за гвардейца без хотя бы одного члена семьи наместника."))
+				return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
 		return
@@ -368,33 +377,33 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 /proc/get_job_unavailable_error_message(retval, jobtitle)
 	switch(retval)
 		if(JOB_AVAILABLE)
-			return "[jobtitle] is available."
+			return "Роль [jobtitle] доступна."
 		if(JOB_UNAVAILABLE_GENERIC)
-			return "[jobtitle] is unavailable."
+			return "Роль [jobtitle] недоступна."
 		if(JOB_UNAVAILABLE_BANNED)
-			return "You are currently banned from [jobtitle]."
+			return "Для вас забанена роль [jobtitle]."
 		if(JOB_UNAVAILABLE_PLAYTIME)
-			return "You do not have enough relevant playtime for [jobtitle]."
+			return "У вас недостаточно времени наиграно для [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
-			return "Your account is not old enough for [jobtitle]."
+			return "У вас нету доверенного уровня доступа для роли [jobtitle]."
 		if(JOB_UNAVAILABLE_SLOTFULL)
-			return "[jobtitle] is already filled to capacity."
+			return "Для [jobtitle] нету мест."
 		if(JOB_UNAVAILABLE_RACE)
-			return "[jobtitle] is not meant for your kind."
+			return "Для [jobtitle] требуется иная раса."
 		if(JOB_UNAVAILABLE_SEX)
-			return "[jobtitle] is not meant for your lesser sex."
+			return "Для [jobtitle] требуется другой пол."
 		if(JOB_UNAVAILABLE_AGE)
-			return "[jobtitle] is not meant for your age."
+			return "Для [jobtitle] требуется другой возраст."
 		if(JOB_UNAVAILABLE_PATRON)
-			return "[jobtitle] requires more faith."
+			return "Для [jobtitle] требуется иная вера."
 		if(JOB_UNAVAILABLE_LASTCLASS)
-			return "You have played [jobtitle] recently."
+			return "Вы уже играли за [jobtitle]."
 		if(JOB_UNAVAILABLE_JOB_COOLDOWN)
 			if(usr.ckey in GLOB.job_respawn_delays)
 				var/remaining_time = round((GLOB.job_respawn_delays[usr.ckey] - world.time) / 10)
 				return "You must wait [remaining_time] seconds before playing as an [jobtitle] again."
 		if(JOB_UNAVAILABLE_VIRTUESVICE)
-			return "[jobtitle] is restricted by your Virtues or Vices."
+			return "Роль [jobtitle] несовместима с вашей особенностью или недостатком."
 	return "Error: Unknown job availability."
 
 //used for latejoining
@@ -523,6 +532,11 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 	SSticker.queue_delay = 4
 
 	testing("basedtest 1")
+// ВЛ СИСТЕМА
+	if(rank == "Landowner" || rank == "Prevost of Gendarmes" || rank == "Spymaster" || rank == "Garde du corps" || rank == "Inspector" || rank == "Gendarme Officer" || rank == "Gendarme" || rank == "Militia Captain" || rank == "Priestess" || rank == "Priest" || rank == "Guardian of Ten" || rank == "Caid" || rank == "Daronne" || rank == "Caporegime" || rank == "Mercenary")
+		if(!(src.ckey in landowner_whitelist))
+			to_chat(src, "<span class='warning'>Что бы зайти на эту роль - вам нужно быть учатником сообщества.</span>")
+			return
 
 	SSjob.AssignRole(src, rank, 1)
 	testing("basedtest 2")
@@ -623,6 +637,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 	omegalist += list(GLOB.peasant_positions)
 	omegalist += list(GLOB.mercenary_positions)
 	omegalist += list(GLOB.youngfolk_positions)
+	omegalist += list(GLOB.avangard_positions)
 
 	for(var/list/category in omegalist)
 		if(!SSjob.name_occupations[category[1]])
@@ -663,6 +678,8 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 					cat_name = "Иные"
 				if (INQUISITION)
 					cat_name = "Инквизиция"
+				if (AVANGARD)
+					cat_name = "Авангард"
 			//	if (GOBLIN)
 			//		cat_name = "Goblins"
 

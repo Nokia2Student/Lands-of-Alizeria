@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt
-	name = "Bolt of Lightning"
-	desc = "Emit a bolt of lightning that burns a target, forcing them to drop items, preventing them from attacking, and slowing them down for a short time."
+	name = "Молния"
+	desc = "Испускает молнию, которая обжигает цель, заставляя её ронять предметы, не давая атаковать и замедляя на короткое время."
 	clothes_req = FALSE
 	overlay_state = "lightning"
 	sound = 'sound/magic/lightning.ogg'
@@ -25,7 +25,7 @@
 	xp_gain = TRUE
 
 /obj/projectile/magic/lightning
-	name = "bolt of lightning"
+	name = "молния"
 	tracer_type = /obj/effect/projectile/tracer/stun
 	muzzle_type = null
 	impact_type = null
@@ -46,7 +46,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK

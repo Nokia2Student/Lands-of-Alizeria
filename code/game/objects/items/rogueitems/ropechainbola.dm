@@ -100,7 +100,7 @@
 
 	var/surrender_mod = 1
 	if(C.compliance || C.surrendering || HAS_TRAIT(C, TRAIT_BAGGED))
-		surrender_mod = 0.5	
+		surrender_mod = 0.5
 
 	C.visible_message(span_warning("[user] is trying to tie [C]'s arms with [src.name]!"), \
 						span_userdanger("[user] is trying to tie my arms with [src.name]!"))
@@ -198,7 +198,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 1
 	throw_range = 3
-	breakouttime = 10 SECONDS
+	breakouttime = 40 SECONDS
 	slipouttime = 2 MINUTES
 	cuffsound = 'sound/misc/chains.ogg'
 	possible_item_intents = list(/datum/intent/tie, /datum/intent/whips)
@@ -269,4 +269,4 @@
 // Failsafe in case the item somehow ends up being destroyed
 /obj/item/net/Destroy()
 	remove_effect()
-	return ..()	
+	return ..()

@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt
-	name = "Arcyne Bolt"
-	desc = "Shoot out a rapid bolt of arcyne magic. Inflicts blunt damage similar to a slingstone. \n\
-	Damage is increased by 50% versus simple-minded creechurs."
+	name = "Арканный снаряд"
+	desc = "Выпускает быстрый арканный снаряд. Наносит дробящий урон, как камень из пращи. \n\
+	На 50% больше урона против простодушных созданий."
 	clothes_req = FALSE
 	range = 12
 	projectile_type = /obj/projectile/energy/rogue3
@@ -27,7 +27,7 @@
 	cost = 3
 
 /obj/projectile/energy/rogue3
-	name = "Arcyne Bolt"
+	name = "Арканный снаряд"
 	icon_state = "arcane_barrage"
 	damage = 40
 	woundclass = BCLASS_BLUNT
@@ -41,7 +41,7 @@
 	if(ismob(target))
 		var/mob/living/carbon/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK

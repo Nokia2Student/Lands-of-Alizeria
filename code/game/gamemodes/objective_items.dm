@@ -29,7 +29,7 @@
 	name = "the merchant's catatoma."
 	targetitem = /obj/item/book/rogue/secret/ledger
 	difficulty = 2
-	excludefromjob = list("Merchant")
+	excludefromjob = list("Quartermaster")
 
 /datum/objective_item/steal/rogue/mkey
 	name = "the master key."

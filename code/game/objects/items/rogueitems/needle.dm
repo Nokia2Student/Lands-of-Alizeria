@@ -125,7 +125,7 @@
 			// basic principles: instead of failing and doing nothing, we instead do something but much less.
 			// if the item is broken and we fix it at low skill, we cap the quality of our repair to 60% total integrity
 			// only skilled craftsmen can fix things at 100% integrity.
-			
+
 			var/skill = max(user.get_skill_level(/datum/skill/misc/sewing), user.get_skill_level(/datum/skill/craft/tanning))
 			var/failed = prob(BASE_FAIL_CHANCE - (skill * FAIL_REDUCTION_PER_LEVEL))
 			var/sewtime = max(SEW_MIN_TIME, BASE_SEW_TIME - (SEW_TIME_REDUCTION_PER_LEVEL * skill))
@@ -151,7 +151,7 @@
 			var/total_repair = BASE_SEW_REPAIR + skill * SEW_REPAIR_PER_LEVEL
 			var/repair_line = "[user] repairs [cloth]!"
 			var/total_XP = failed ? XP_ON_FAIL : XP_ON_SUCCESS
-		
+
 			if (failed)
 				total_repair = total_repair * 0.5 // 50% reduction on failed repairs, but we still repair!
 				repair_line = "[user] makes a little progress towards repairing [cloth]..."
@@ -168,7 +168,7 @@
 
 			playsound(loc, 'sound/foley/sewflesh.ogg', 50, TRUE, -2)
 			user.visible_message(span_info(repair_line))
-	
+
 			if(cloth.obj_broken)
 				var/do_fix = FALSE
 				if(unskilled && integrity_percentage >= 60)
@@ -190,7 +190,7 @@
 			else if (!cloth.obj_broken && !unskilled && cloth.shoddy_repair && integrity_percentage >= 100)
 				cloth.shoddy_repair = FALSE
 				to_chat(user, span_notice("My skilled hand has fully repaired this item."))
-			
+
 			if(do_after(user, AUTO_SEW_DELAY, target = I))
 				attack_obj(I, user)
 		return
@@ -226,10 +226,15 @@
 	var/doctor_skill = doctor.get_skill_level(skill_used)
 	var/informed = FALSE
 	moveup = (doctor_skill+1) * 5
+
+	var/sew_time = 2 SECONDS
+	if(doctor == patient)
+		sew_time = 10 SECONDS
+
 	while(!QDELETED(target_wound) && !QDELETED(src) && \
 		!QDELETED(user) && (target_wound.sew_progress < target_wound.sew_threshold) && \
 		stringamt >= 1)
-		if(!do_after(doctor, 2 SECONDS, target = patient))
+		if(!do_after(doctor, sew_time, target = patient))
 			break
 		playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 		target_wound.sew_progress = min(target_wound.sew_progress + moveup, target_wound.sew_threshold)

@@ -1,0 +1,16 @@
+"a" = (/turf/open/floor/rogue/blocks,/area/rogue/outdoors/woods/alizeria/iceland)
+"h" = (/turf/open/floor/rogue/cobble,/area/rogue/outdoors/woods/alizeria/iceland)
+"j" = (/obj/effect/spawner/statue/alizeria/random,/turf/open/floor/rogue/cobble,/area/rogue/outdoors/woods/alizeria/iceland)
+"n" = (/obj/structure/stairs/stone{dir = 1},/turf/open/floor/rogue/blocks,/area/rogue/outdoors/woods/alizeria/iceland)
+"s" = (/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt,/turf/open/floor/rogue/cobble,/area/rogue/outdoors/woods/alizeria/iceland)
+"O" = (/turf/closed/wall/mineral/rogue/decostone/cand,/area/rogue/outdoors/woods/alizeria/iceland)
+"T" = (/obj/machinery/light/rogue/wallfire/candle/floorcandle,/turf/open/floor/rogue/cobble,/area/rogue/outdoors/woods/alizeria/iceland)
+"X" = (/obj/structure/bars,/turf/open/floor/rogue/blocks,/area/rogue/outdoors/woods/alizeria/iceland)
+
+(1,1,1) = {"
+OXaXO
+XshTX
+ahjha
+XThsX
+OnnnO
+"}

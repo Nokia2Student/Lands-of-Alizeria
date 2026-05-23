@@ -1,0 +1,20 @@
+"a" = (/turf/closed/wall/mineral/rogue/decowood,/area/rogue)
+"b" = (/obj/structure/mineral_door/wood,/turf/open/floor/rogue/concrete,/area/rogue)
+"e" = (/obj/structure/closet/crate/roguecloset,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"f" = (/obj/effect/decal/carpet/square{pixel_y = 8},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"m" = (/obj/structure/table/wood{dir = 1; icon_state = "tablewood1"},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"o" = (/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"u" = (/obj/structure/chair/stool/rogue,/obj/structure/fluff/walldeco/rpainting/crown{pixel_y = -32},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"D" = (/obj/structure/bed/rogue/inn{dir = 1},/obj/item/bedsheet/rogue/fabric{dir = 1},/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"G" = (/turf/closed/wall/mineral/rogue/wooddark,/area/rogue)
+"K" = (/obj/structure/rack/rogue,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"O" = (/obj/machinery/light/rogue/wallfire/candle{pixel_x = -26; pixel_y = 0},/obj/structure/closet/crate/drawer,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+"S" = (/obj/structure/fluff/wallclock,/turf/open/floor/rogue/ruinedwood/platform,/area/rogue)
+
+(1,1,1) = {"
+GaaaG
+aDSea
+aOfob
+amuKa
+GaaaG
+"}

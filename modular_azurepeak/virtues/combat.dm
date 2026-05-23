@@ -152,8 +152,8 @@
 
 /datum/virtue/combat/rotcured
 	name = "Живой мертвец"
-	desc = "Когда-то я был поражен проклятой гнилью и излечился. Это изменило меня: мои конечности стали слабее, но я не чувствую боли и мне не нужно дышать..."
-	custom_text = "Окрашивает ваше тело в отчетливый, болезненно-зеленый цвет."
+	desc = "Когда-то я умер в ледяных землях и стал очередным живым мертвецом. Однако мне повезло и по какой-то причине мой разум остался нетронутым."
+	custom_text = "Окрашивает ваше тело в отчетливый белый цвет."
 	// below is functionally equivalent to dying and being resurrected via astrata T4 - yep, this is what it gives you.
 	added_traits = list(TRAIT_EASYDISMEMBER, TRAIT_NOPAIN, TRAIT_NOPAINSTUN, TRAIT_NOBREATH, TRAIT_TOXIMMUNE, TRAIT_ZOMBIE_IMMUNE, TRAIT_ROTMAN, TRAIT_SILVER_WEAK)
 

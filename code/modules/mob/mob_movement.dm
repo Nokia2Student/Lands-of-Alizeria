@@ -113,7 +113,7 @@
 		return FALSE
 	else if(mob.is_shifted)
 		mob.unpixel_shift()
-	
+
 	mob.last_client_interact = world.time
 
 	var/mob/living/L = mob  //Already checked for isliving earlier
@@ -257,7 +257,7 @@
 			return FALSE
 		move_delay = world.time + 10
 		to_chat(src, span_warning("[L] still has footing! I need a stronger grip!"))
-		return TRUE    
+		return TRUE
 
 	if(isanimal(mob.pulling))
 		var/mob/living/simple_animal/bound = mob.pulling
@@ -271,7 +271,7 @@
 		if(bound.binded)
 			move_delay = world.time + 10
 			to_chat(src, span_warning("[bound] is bound in a summoning circle. I can't move them!"))
-			return TRUE		
+			return TRUE
 
 // similar to the above, but for NPCs mostly
 /mob/proc/is_move_blocked_by_grab()
@@ -681,7 +681,7 @@
 			light_amount = T.get_lumcount() // this is moderately expensive, so only check it if we really need to
 			if (light_amount >= light_threshold)
 				should_reveal = TRUE
-			
+
 		if (should_reveal)
 			used_time = round(clamp((50 - (used_time*1.75)), 5, 50),1)
 			animate(src, alpha = initial(alpha), time =	used_time) //sneak skill makes you reveal slower but not as drastic as disappearing speed
@@ -693,7 +693,7 @@
 		if (m_intent == MOVE_INTENT_SNEAK) // we were not sneaking and are now trying to.
 			light_amount = T.get_lumcount()  // as above, this is moderately expensive, so only check it if we need to.
 			if(light_amount < light_threshold)
-				animate(src, alpha = 0, time = used_time)
+				animate(src, alpha = 51, time = used_time)
 				spawn(used_time + 5) regenerate_icons()
 				rogue_sneaking = TRUE
 	return
@@ -755,7 +755,7 @@
 	if(hud_used?.static_inventory) //Update UI
 		for(var/atom/movable/screen/rogmove/selector in hud_used.static_inventory)
 			selector.update_icon()
-			
+
 	if(!silent)
 		playsound_local(src, 'sound/misc/click.ogg', 100)
 
@@ -847,7 +847,7 @@
 		src.apply_status_effect(/datum/status_effect/buff/magearmor)
 		return TRUE
 
-	
+
 
 /mob/proc/toggle_eye_intent(mob/user) //clicking the fixeye button either makes you fixeye or clears your target
 	if(fixedeye)
@@ -921,7 +921,7 @@
 /mob/proc/canZMove(direction, turf/target)
 	return FALSE
 
-// Ageneral-purpose proc used to centralize checks to skip turf, movement, step, etc. effects 
+// Ageneral-purpose proc used to centralize checks to skip turf, movement, step, etc. effects
 // for mobs that are floating, flying, intangible, etc.
 /mob/proc/is_floor_hazard_immune()
 	return throwing || (movement_type & (FLYING|FLOATING))

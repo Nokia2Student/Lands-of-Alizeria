@@ -3,7 +3,7 @@
 	abstract_type = /datum/crafting_recipe/roguetown/leather/unique
 
 /datum/crafting_recipe/roguetown/leather/unique/artipants
-	name = "tinker trousers"
+	name = "штаны ремесленника"
 	result = list(/obj/item/clothing/under/roguetown/trou/artipants)
 	reqs = list(/obj/item/natural/cloth = 1,
 	            /obj/item/natural/hide/cured = 2)
@@ -12,7 +12,7 @@
 	sellprice = 11
 
 /datum/crafting_recipe/roguetown/leather/unique/baggyleatherpants
-	name = "pontifex's chaqchur"
+	name = "шаровары понтифика"
 	result = list(/obj/item/clothing/under/roguetown/trou/leather/pontifex)
 	reqs = list(/obj/item/natural/cloth = 1,
 	            /obj/item/natural/fibers = 1,
@@ -21,8 +21,8 @@
 	craftdiff = 5
 	sellprice = 20
 		
-/datum/crafting_recipe/roguetown/leatherunique/gladsandals
-	name = "gladiator sandals"
+/datum/crafting_recipe/roguetown/leather/unique/gladsandals
+	name = "сандалии гладиатора"
 	result = list(/obj/item/clothing/shoes/roguetown/gladiator)
 	reqs = list(/obj/item/natural/hide/cured = 2,
 	            /obj/item/natural/fibers = 1)
@@ -31,7 +31,7 @@
 	sellprice = 12
 
 /datum/crafting_recipe/roguetown/leather/unique/grenzelboots
-	name = "grenzelhoftian boots"
+	name = "грензельхофтские сапоги"
 	result = list(/obj/item/clothing/shoes/roguetown/boots/grenzelhoft)
 	reqs = list(/obj/item/natural/hide/cured = 1,
 	            /obj/item/reagent_containers/food/snacks/tallow = 1,
@@ -42,7 +42,7 @@
 	sellprice = 15
 	
 /datum/crafting_recipe/roguetown/leather/unique/otavanleatherpants
-	name = "otavan leather trousers"
+	name = "отавские кожаные штаны"
 	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan)
 	reqs = list(/obj/item/reagent_containers/food/snacks/tallow = 1,
 	            /obj/item/natural/fibers = 1,
@@ -53,7 +53,7 @@
 	sellprice = 30
 
 /datum/crafting_recipe/roguetown/leather/unique/otavanleathergloves
-	name = "otavan leather gloves"
+	name = "отавские кожаные перчатки"
 	result = list(/obj/item/clothing/gloves/roguetown/otavan)
 	reqs = list(/obj/item/reagent_containers/food/snacks/tallow = 1,
 	            /obj/item/natural/fibers = 1,
@@ -64,7 +64,7 @@
 	sellprice = 30
 
 /datum/crafting_recipe/roguetown/leather/unique/otavanleathersatchel
-	name = "otavan leather satchel"
+	name = "отавская кожаная сумка"
 	result = list(/obj/item/storage/backpack/rogue/satchel/otavan)
 	reqs = list(/obj/item/reagent_containers/food/snacks/tallow = 1,
 	            /obj/item/natural/fibers = 2,
@@ -75,7 +75,7 @@
 	sellprice = 30
 
 /datum/crafting_recipe/roguetown/leather/unique/fencingbreeches
-	name = "frencing breeches"
+	name = "фехтовальные панталоны"
 	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan/generic)
 	reqs = list(/obj/item/natural/fibers = 1,
 				/obj/item/natural/hide/cured = 2,
@@ -85,7 +85,7 @@
 	sellprice = 20
 
 /datum/crafting_recipe/roguetown/leather/unique/otavanboots
-	name = "otavan leather boots"
+	name = "отавские кожаные сапоги"
 	result = list(/obj/item/clothing/shoes/roguetown/boots/otavan)
 	reqs = list(/obj/item/natural/hide/cured = 1,
 	            /obj/item/reagent_containers/food/snacks/tallow = 1,
@@ -96,7 +96,7 @@
 	sellprice = 25
 
 /datum/crafting_recipe/roguetown/leather/unique/buckleshoes
-	name = "buckled shoes"
+	name = "башмаки с пряжками"
 	result = list(/obj/item/clothing/shoes/roguetown/simpleshoes/buckle)
 	reqs = list(/obj/item/natural/hide/cured = 1,
 	            /obj/item/natural/fibers = 2)
@@ -105,7 +105,7 @@
 	sellprice = 25
 
 /datum/crafting_recipe/roguetown/leather/unique/monkleather
-	name = "pontifex's kaftan"
+	name = "кафтан понтифика"
 	result = list(/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex)
 	reqs = list(/obj/item/natural/hide/cured = 4,
 	            /obj/item/natural/cloth = 1,
@@ -115,7 +115,7 @@
 	sellprice = 23
 
 /datum/crafting_recipe/roguetown/leather/unique/furlinedjacket
-	name = "artificer jacket"
+	name = "куртка ремесленника"
 	result = list(/obj/item/clothing/suit/roguetown/armor/leather/jacket/artijacket)
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fur = 1,
@@ -125,7 +125,7 @@
 	sellprice = 21
 
 /datum/crafting_recipe/roguetown/leather/unique/winterjacket
-	name = "winter jacket"
+	name = "зимняя куртка"
 	result = list(/obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket)
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fur = 2,
@@ -135,7 +135,7 @@
 	sellprice = 24
 
 /datum/crafting_recipe/roguetown/leather/unique/openrobes
-	name = "shamanic coat"
+	name = "шаманское пальто"
 	result = list(/obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi)
 	reqs = list(/obj/item/natural/hide/cured = 2,
 	            /obj/item/natural/fibers = 1,
@@ -145,7 +145,7 @@
 	sellprice = 20
 
 /datum/crafting_recipe/roguetown/leather/unique/monkrobes
-	name = "monk vestments"
+	name = "монашеское облачение"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/monk)
 	reqs = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/reagent_containers/food/snacks/tallow = 1,
@@ -154,7 +154,7 @@
 	craftdiff = 6	//Can be a bit strong, reduce to 5 if too high.
 
 /datum/crafting_recipe/roguetown/leather/unique/basiceast/light
-	name = "fragile dobo robe (1 silk, 1 leather, 2 fiber)"
+	name = "лёгкое добо (1 шёлк, 1 кожа, 2 волокна)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/light)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,
@@ -165,7 +165,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/unique/basiceast/mentorsuit/light
-	name = "worn dobo robe (1 silk, 1 leather, 2 fiber)"
+	name = "поношенное добо (1 шёлк, 1 кожа, 2 волокна)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit/light)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,
@@ -176,7 +176,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/unique/basiceast/crafteast/light
-	name = "formal dobo robe (1 silk, 1 leather, 2 fiber)"
+	name = "парадное добо (1 шёлк, 1 кожа, 2 волокна)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/crafteast/light)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,
@@ -187,7 +187,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/unique/captainrobe/light
-	name = "floral robes (1 silk, 1 leather, 2 fiber)"
+	name = "цветочные одеяния (1 шёлк, 1 кожа, 2 волокна)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe/light)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,
@@ -198,7 +198,7 @@
 	craftdiff = 2
 	
 /datum/crafting_recipe/roguetown/leather/unique/crafteast
-	name = "decorated dobo robe"
+	name = "украшенное добо"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/crafteast)
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -210,7 +210,7 @@
 	craftdiff = 5
 
 /datum/crafting_recipe/roguetown/leather/unique/basiceast
-	name = "simple dobo robe (2 silk, 2 leather, 2 fiber, 1 tallow)"
+	name = "простое добо (2 шёлка, 2 кожи, 2 волокна, 1 жир)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast)
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -222,7 +222,7 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/leather/unique/mentorsuit
-	name = "old dobo robe (4 silk, 4 leather, 2 fiber, 2 tallow)"
+	name = "старое добо (4 шёлка, 4 кожи, 2 волокна, 2 жира)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit)
 	reqs = list(
 		/obj/item/natural/hide/cured = 4,
@@ -234,7 +234,7 @@
 	craftdiff = 5
 
 /datum/crafting_recipe/roguetown/leather/unique/shrinekeeper
-	name = "eastern ceremonial robe (6 silk, 4 leather, 2 fiber, 2 tallow)"
+	name = "восточное церемониальное одеяние (6 шёлка, 4 кожи, 2 волокна, 2 жира)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/crafteast/shrinekeeper)
 	reqs = list(
 		/obj/item/natural/hide/cured = 4,
@@ -246,7 +246,7 @@
 	craftdiff = 6
 
 /datum/crafting_recipe/roguetown/leather/unique/captainrobe
-	name = "foreign robe (6 silk, 4 leather, 2 fiber, 2 tallow)"
+	name = "чужеземное одеяние (6 шёлка, 4 кожи, 2 волокна, 2 жира)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe)
 	reqs = list(
 		/obj/item/natural/hide/cured = 4,
@@ -258,7 +258,7 @@
 	craftdiff = 6
 
 /datum/crafting_recipe/roguetown/leather/unique/eastpants1
-	name = "cut-throat's pants (2 silk, 2 fibers, 2 leather, 1 tallow)"
+	name = "штаны головореза (2 шёлка, 2 волокна, 2 кожи, 1 жир)"
 	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/eastpants1)
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -270,7 +270,7 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/leather/unique/eastpants2
-	name = "strange ripped pants (2 silk, 2 fibers, 2 leather, 1 tallow)"
+	name = "странные рваные штаны (2 шёлка, 2 волокна, 2 кожи, 1 жир)"
 	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/eastpants2)
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -282,7 +282,7 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/leather/unique/eastgloves1
-	name = "black gloves (2 silk, 2 fibers, 1 leather)"
+	name = "чёрные перчатки (2 шёлка, 2 волокна, 1 кожа)"
 	result = list(/obj/item/clothing/gloves/roguetown/eastgloves1)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,
@@ -293,7 +293,7 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/leather/unique/eastgloves2
-	name = "stylish gloves (2 silk, 2 fibers, 1 leather)"
+	name = "стильные перчатки (2 шёлка, 2 волокна, 1 кожа)"
 	result = list(/obj/item/clothing/gloves/roguetown/eastgloves2)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,
@@ -304,7 +304,7 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/leather/unique/daisho
-	name = "daisho (1 fiber, 1 leather)"
+	name = "дайсё (1 волокно, 1 кожа)"
 	result = list(/obj/item/storage/belt/rogue/leather/daisho)
 	reqs = list(
 		/obj/item/natural/hide/cured = 1,

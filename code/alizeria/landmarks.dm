@@ -11,7 +11,7 @@
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/rknight
-	name = "Royal Knight"
+	name = "Garde du corps"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/spymaster
@@ -39,11 +39,11 @@
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/sheriff
-	name = "Sheriff of Town"
+	name = "Militia Captain"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/tguard
-	name = "Town Guard"
+	name = "Militiaman"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/tranger
@@ -147,7 +147,7 @@
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/marsh
-	name = "Marshall of Gendarmes"
+	name = "Prevost of Gendarmes"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/ins
@@ -163,7 +163,7 @@
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/academian
-	name = "Academician"
+	name = "Chevalier"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/alizeria/pblacksmith

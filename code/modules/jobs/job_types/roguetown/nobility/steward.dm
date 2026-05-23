@@ -57,6 +57,7 @@
 		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/cooking = SKILL_LEVEL_NOVICE,
 		/datum/skill/combat/swords = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/guns = SKILL_LEVEL_APPRENTICE,
 	)
 
 /datum/outfit/job/steward

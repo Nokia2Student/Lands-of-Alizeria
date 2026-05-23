@@ -1,8 +1,8 @@
 // I want to refactor Stoneskin to give ablative layer of armor but in the meantime Crit Res is too strong so I'll just nerf it and lower cost
 /obj/effect/proc_holder/spell/invoked/stoneskin
-	name = "Stoneskin"
+	name = "Каменная кожа"
 	overlay_state = "stoneskin"
-	desc = "Harden the target's skin like stone. (+5 Constitution)"
+	desc = "Делает кожу цели твёрдой, как камень. (+5 к Телосложению)"
 	cost = 2
 	xp_gain = TRUE
 	releasedrain = 60
@@ -33,19 +33,19 @@
 	playsound(spelltarget, 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)
-		user.visible_message("[user] mutters an incantation and [spelltarget] 's skin hardens like stone.")
-		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		user.visible_message("[user] бормочет заклинание, и кожа [spelltarget] твердеет, как камень.")
+		to_chat(user, span_notice("С другим человеком как проводником, длительность моего заклинания удваивается."))
 		spelltarget.apply_status_effect(/datum/status_effect/buff/stoneskin/other)
 	else
-		user.visible_message("[user] mutters an incantation and their skin hardens.")
+		user.visible_message("[user] бормочет заклинание, и его кожа твердеет.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/stoneskin)
 
 	return TRUE
 
 #define STONESKIN_FILTER "stoneskin_glow"
 /atom/movable/screen/alert/status_effect/buff/stoneskin
-	name = "Stoneskin"
-	desc = "My skin is hardened like stone. (+5 Constitution)"
+	name = "Каменная кожа"
+	desc = "Моя кожа тверда, как камень. (+5 к Телосложению)"
 	icon_state = "buff"
 
 /datum/status_effect/buff/stoneskin
@@ -64,11 +64,11 @@
 	var/filter = owner.get_filter(STONESKIN_FILTER)
 	if (!filter)
 		owner.add_filter(STONESKIN_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 50, "size" = 1))
-	to_chat(owner, span_warning("My skin hardens like stone."))
+	to_chat(owner, span_warning("Моя кожа твердеет, как камень."))
 
 /datum/status_effect/buff/stoneskin/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("The stone shell cracks away."))
+	to_chat(owner, span_warning("Каменная оболочка растрескивается и опадает."))
 	owner.remove_filter(STONESKIN_FILTER)
 
 #undef STONESKIN_FILTER

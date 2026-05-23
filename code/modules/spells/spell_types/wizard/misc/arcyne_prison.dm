@@ -1,7 +1,7 @@
 // Arcyne Prison, with warning
 /obj/effect/proc_holder/spell/invoked/forcewall/arcyne_prison
-	name = "Arcyne Prison"
-	desc = "Conjure a wall of weak arcane force around a 5x5 area after a short delay, trapping anyone within. You can pass through it."
+	name = "Арканная тюрьма"
+	desc = "Создаёт стену слабой арканной силы вокруг области 5x5 с небольшой задержкой, запирая всех внутри. Вы можете проходить сквозь неё."
 	school = "transmutation"
 	releasedrain = 50
 	spell_tier = 4 // Trolling spell, CM only.
@@ -23,10 +23,10 @@
 		new /obj/effect/temp_visual/trap_wall(affected_turf)
 		addtimer(CALLBACK(src, PROC_REF(new_wall), affected_turf, user), wait = 1 SECONDS)
 
-	user.visible_message("[user] mutters an incantation and a prison of arcyne force manifests out of thin air!")
+	user.visible_message("[user] бормочет заклинание, и из воздуха возникает тюрьма арканной силы!")
 	return TRUE
 
 /obj/structure/forcefield_weak/arcyne_prison
-	desc = "A wall of pure arcyne force. This looks like it would be easily broken."
-	name = "Arcyne Prison"
+	desc = "Стена чистой арканной силы. Похоже, её легко разрушить."
+	name = "Арканная тюрьма"
 	max_integrity = 50 // Ultra 

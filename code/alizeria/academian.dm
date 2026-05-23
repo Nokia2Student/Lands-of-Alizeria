@@ -1,5 +1,5 @@
 /datum/job/roguetown/academian
-	title = "Academician"
+	title = "Chevalier"
 	flag = ACADEM
 	department_flag = MERCENARIES
 	faction = "Station"
@@ -7,7 +7,7 @@
 	spawn_positions = 3
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
-	tutorial = "јкадемик - низша€ ступень в жандармерии. ƒовольно часто богатые родители, дабы не заниматьс€ вопросами воспитани€ в угоду проведени€ своего досуга - либо нанимают н€нек, либо отдают своих детей в жандармерию. “ам их легальными и несовсем легальными методами превращают в насто€щих бойцов, готовых исполнить любой приказ короны."
+	tutorial = "Ўевалье - низша€ ступень коронной службы и первый материал дл€ будущей жандармерии. „аще всего сюда попадают отпрыски богатых семей, от которых родители устали раньше, чем успели воспитать, а также юнцы, мечтающие о славе и красивой форме. «десь из них делают солдат при помощи муштры, унижений, дисциплины и прочих любимых традиций ћонфора. ≈сли не сломаешьс€ - станешь полезным. ≈сли сломаешьс€ - станешь примером дл€ остальных."
 	display_order = JDO_ACADEM
 	always_show_on_latechoices = TRUE
 	allowed_patrons = CODEX
@@ -36,7 +36,7 @@
 		H.become_blind("advsetup")
 
 /datum/advclass/academian
-	name = "Academician"
+	name = "Chevalier"
 	tutorial = "јкадемик - низша€ ступень в жандармерии. ƒовольно часто богатые родители, дабы не заниматьс€ вопросами воспитани€ в угоду проведени€ своего досуга - либо нанимают н€нек, либо отдают своих детей в жандармерию. “ам их легальными и несовсем легальными методами превращают в насто€щих бойцов, готовых исполнить любой приказ короны."
 	category_tags = list(CTAG_ACADEM)
 	subclass_stats = list(
@@ -52,10 +52,11 @@
 		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/knives = SKILL_LEVEL_NOVICE,
 		/datum/skill/combat/maces = SKILL_LEVEL_NOVICE,
-		/datum/skill/combat/crossbows = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/crossbows = SKILL_LEVEL_NOVICE,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/traps = SKILL_LEVEL_NOVICE,
+		/datum/skill/combat/guns = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN, //Paperwork RP
 		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
@@ -71,7 +72,7 @@
 	)
 
 /datum/outfit/job/academian
-	name = "Academician"
+	name = "Chevalier"
 	has_loadout = TRUE
 	jobtype = /datum/job/roguetown/academian
 

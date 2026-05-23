@@ -1,5 +1,5 @@
 /datum/job/roguetown/ins
-	title = "Instructor"
+	title = "Inspector"
 	flag = INS
 	department_flag = MERCENARIES
 	faction = "Station"
@@ -7,7 +7,7 @@
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
-	tutorial = "Никакая элитная армия не может называться элитной без должного обучения своего состава. Будучи инструктором тебе предстоит заниматься воспитанием и обучением юного поколения жандармов. Многие из них могут являться снобами из богатых семей, однако для тебя - они все равны. Избивай, унижай, либо же хвали и воодушевляй - способ воспитания не так важен, как его эффективность."
+	tutorial = "Никакое войско не держится на одних мундирах и угрозах. Будучи Инспектором, ты являешься правой рукой Прево и надзираешь за порядком в рядах жандармов. Тебе поручено обучать новобранцев, карать ленивых, продвигать полезных и скрывать неудобных. Для тебя происхождение солдата не имеет значения: дворянский сын и уличный сирота одинаково кричат под твоим давлением. Главное не метод, а результат. Хотя жестокость почему-то всегда оказывается самым популярным методом."
 	display_order = JDO_INS
 	always_show_on_latechoices = TRUE
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
@@ -37,7 +37,7 @@
 		H.become_blind("advsetup")
 
 /datum/advclass/ins
-	name = "Instructor"
+	name = "Inspector"
 	tutorial = "Никакая элитная армия не может называться элитной без должного обучения своего состава. Будучи инструктором тебе предстоит заниматься воспитанием и обучением юного поколения жандармов. Многие из них могут являться снобами из богатых семей, однако для тебя - они все равны. Избивай, унижай, либо же хвали и воодушевляй - способ воспитания не так важен, как его эффективность."
 	category_tags = list(CTAG_INS)
 	subclass_stats = list(
@@ -53,7 +53,8 @@
 		/datum/skill/combat/swords = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/knives = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/maces = SKILL_LEVEL_EXPERT,
-		/datum/skill/combat/crossbows = SKILL_LEVEL_MASTER,
+		/datum/skill/combat/guns = SKILL_LEVEL_MASTER,
+		/datum/skill/combat/crossbows = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/bows = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_EXPERT,
@@ -78,7 +79,7 @@
 	)
 
 /datum/outfit/job/ins
-	name = "Instructor"
+	name = "Inspector"
 	has_loadout = TRUE
 	jobtype = /datum/job/roguetown/ins
 

@@ -132,9 +132,9 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	update_icon()
 
 /obj/effect/proc_holder/spell
-	name = "Spell"
+	name = "Заклинание"
 	desc = ""
-	panel = "Spells"
+	panel = "Заклинания"
 	var/sound = null //The sound the spell makes when it is cast
 	anchored = TRUE // Crap like fireball projectiles are proc_holders, this is needed so fireballs don't get blown back into your face via atmos etc.
 	pass_flags = PASSTABLE
@@ -150,7 +150,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	var/recharge_time = 50 //recharge time in deciseconds if charge_type = "recharge" or starting charges if charge_type = "charges"
 	var/charge_counter = 0 //can only cast spells if it equals recharge, ++ each decisecond if charge_type = "recharge" or -- each cast if charge_type = "charges"
-	var/still_recharging_msg = span_notice("The spell is still recharging.")
+	var/still_recharging_msg = span_notice("Заклинание всё ещё перезаряжается.")
 
 	var/cast_without_targets = FALSE
 
@@ -243,7 +243,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 /obj/effect/proc_holder/spell/proc/cast_check(skipcharge = 0, mob/user = usr) //checks if the spell can be cast based on its settings; skipcharge is used when an additional cast_check is called inside the spell
 	if(player_lock)
 		if(!user.mind || !(src in user.mind.spell_list) && !(src in user.mob_spell_list))
-			to_chat(user, span_warning("I shouldn't have this spell! Something's wrong..."))
+			to_chat(user, span_warning("У меня не должно быть этого заклинания! Что-то не так..."))
 			return FALSE
 	else
 		if(!(src in user.mob_spell_list))
@@ -252,7 +252,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	var/turf/T = get_turf(user)
 	if(is_centcom_level(T.z) && !centcom_cancast) //Certain spells are not allowed on the centcom zlevel
-		to_chat(user, span_warning("I can't cast this spell here!"))
+		to_chat(user, span_warning("Я не могу применить это заклинание здесь!"))
 		return FALSE
 
 	if(!skipcharge)
@@ -261,57 +261,57 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 
 	if(user.stat && !stat_allowed)
-		to_chat(user, span_warning("Not when I am incapacitated!"))
+		to_chat(user, span_warning("Не в моём состоянии!"))
 		return FALSE
 
 	if(!ignore_cockblock && HAS_TRAIT(user, TRAIT_SPELLCOCKBLOCK))
-		to_chat(user, span_warning("I can't cast spells!"))
+		to_chat(user, span_warning("Я не могу читать заклинания!"))
 		return FALSE
 
 	if(HAS_TRAIT(user, TRAIT_CURSE_NOC))
-		to_chat(user, span_warning("My magicka has left me..."))
+		to_chat(user, span_warning("Моя магия покинула меня..."))
 		return FALSE
 
 	if(!antimagic_allowed)
 		var/antimagic = user.anti_magic_check(TRUE, FALSE, FALSE, 0, TRUE)
 		if(antimagic)
 			if(isatom(antimagic))
-				to_chat(user, span_notice("[antimagic] is interfering with my magic."))
+				to_chat(user, span_notice("[antimagic] мешает моей магии."))
 			else
-				to_chat(user, span_warning("Magic seems to flee from you, you can't gather enough power to cast this spell."))
+				to_chat(user, span_warning("Магия ускользает от вас, вы не можете собрать достаточно сил для этого заклинания."))
 			return FALSE
 
 	if(!phase_allowed && istype(user.loc, /obj/effect/dummy))
-		to_chat(user, span_warning("[name] cannot be cast unless I am completely manifested in the material plane!"))
+		to_chat(user, span_warning("[name] нельзя применить, пока я не проявлен полностью в материальном мире!"))
 		return FALSE
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if((invocation_type == "whisper" || invocation_type == "shout") && (!H.can_speak_vocal() || !H.getorganslot(ORGAN_SLOT_TONGUE)))
-			to_chat(user, span_warning("I can't get the words out!"))
+			to_chat(user, span_warning("Я не могу произнести слова!"))
 			return FALSE
 
 		if(HAS_TRAIT(H, TRAIT_PARALYSIS))
-			to_chat(user, span_warning("My body is paralyzed!"))
+			to_chat(user, span_warning("Моё тело парализовано!"))
 			return FALSE
 
 		if(miracle && !H.devotion?.check_devotion(src))
-			to_chat(H, span_warning("I don't have enough devotion!"))
+			to_chat(H, span_warning("У меня недостаточно преданности!"))
 			return FALSE
 		if(gesture_required)
 			if(H.handcuffed)
-				to_chat(user, span_warning("[name] cannot be cast with my hands tied up!"))
+				to_chat(user, span_warning("[name] нельзя применить со связанными руками!"))
 				return FALSE
 			if(!H.has_active_hand())
-				to_chat(user, span_warning("I can't cast this without functional hands!"))
+				to_chat(user, span_warning("Я не могу применить это без действующих рук!"))
 				return FALSE
 
 	else
 		if(clothes_req || human_req)
-			to_chat(user, span_warning("This spell can only be cast by humans!"))
+			to_chat(user, span_warning("Это заклинание могут применять только люди!"))
 			return FALSE
 		if(nonabstract_req && (isbrain(user)))
-			to_chat(user, span_warning("This spell can only be cast by physical beings!"))
+			to_chat(user, span_warning("Это заклинание могут применять только физические существа!"))
 			return FALSE
 
 	if(req_items.len)
@@ -324,12 +324,12 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 					confirmed_items += IN
 					continue
 		if(confirmed_items.len != req_items.len)
-			to_chat(user, span_warning("I'm missing something to cast this."))
+			to_chat(user, span_warning("Мне чего-то не хватает, чтобы применить это."))
 			return FALSE
 
 	if(req_inhand)
 		if(!istype(user.get_active_held_item(), req_inhand))
-			to_chat(user, span_warning("I'm missing something to cast this."))
+			to_chat(user, span_warning("Мне чего-то не хватает, чтобы применить это."))
 			return FALSE
 
 	if(!skipcharge)
@@ -356,7 +356,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		if("charges")
 			if(!charge_counter)
 				if(!silent)
-					to_chat(user, span_warning("[name] has no charges left!"))
+					to_chat(user, span_warning("[name] не имеет зарядов!"))
 				return FALSE
 	return TRUE
 
@@ -387,7 +387,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	. = ..()
 	START_PROCESSING(SSfastprocess, src)
 
-	still_recharging_msg = span_warning("[name] is still recharging!")
+	still_recharging_msg = span_warning("[name] всё ещё перезаряжается!")
 	charge_counter = recharge_time
 
 /obj/effect/proc_holder/spell/Destroy()
@@ -434,7 +434,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			else
 				radius = 1
 			if(get_dist(targets[1], user) > radius)
-				to_chat(user, span_warning("It's too far!"))
+				to_chat(user, span_warning("Слишком далеко!"))
 				revert_cast()
 				return
 			var/atom/A = targets[1]
@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			if(A.z < user.z)
 				source_turf = get_step_multiz(source_turf, DOWN)
 			if(!(target_turf in view(source_turf)))
-				to_chat(user, span_warning("I do not have line of sight! Casting on nearest tile."))
+				to_chat(user, span_warning("Нет прямой видимости! Применяю на ближайшую клетку."))
 				var/list/possible_targets = getline(source_turf, target_turf)
 				for(var/i = possible_targets.len; i > 0; i--) // Since turfs added by the getline are in ordered by distance, we need to start from the end
 					var/atom/closest_tile = possible_targets[i]
@@ -469,7 +469,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			var/mob/living/L = user
 			if(L.has_status_effect(/datum/status_effect/buff/clash))
 				var/mob/living/carbon/human/H = user
-				H.bad_guard(span_warning("I can't focus while casting spells!"), cheesy = TRUE)
+				H.bad_guard(span_warning("Я не могу сосредоточиться во время применения заклинаний!"), cheesy = TRUE)
 		if(action)
 			action.UpdateButtonIcon()
 		return TRUE
@@ -522,7 +522,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(devotion_cost && ishuman(user))
 		var/mob/living/carbon/human/devotee = user
 		devotee.devotion?.update_devotion(-devotion_cost)
-		to_chat(devotee, "<font color='purple'>I [devotion_cost > 0 ? "lost" : "gained"] [abs(devotion_cost)] devotion.</font>")
+		to_chat(devotee, "<font color='purple'>Я [devotion_cost > 0 ? "потерял" : "получил"] [abs(devotion_cost)] преданности.</font>")
 	//Add xp based on the fatigue used
 	if(xp_gain)
 		adjust_experience(usr, associated_skill, round(get_fatigue_drain() * MAGIC_XP_MULTIPLIER))
@@ -610,7 +610,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 				//Adds a safety check post-input to make sure those targets are actually in range.
 				var/mob/M
 				if(!random_target)
-					M = input("Choose the target for the spell.", "Targeting") as null|mob in sortNames(possible_targets)
+					M = input("Выберите цель для заклинания.", "Выбор цели") as null|mob in sortNames(possible_targets)
 				else
 					switch(random_target_priority)
 						if(TARGET_RANDOM)
@@ -738,7 +738,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	perform(null,user=user)
 
 /obj/effect/proc_holder/spell/self/basic_heal //This spell exists mainly for debugging purposes, and also to show how casting works
-	name = "Lesser Heal"
+	name = "Малое исцеление"
 	desc = ""
 	human_req = TRUE
 	clothes_req = FALSE
@@ -750,7 +750,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/self/basic_heal/cast(mob/living/carbon/human/user) //Note the lack of "list/targets" here. Instead, use a "user" var depending on mob requirements.
 	//Also, notice the lack of a "for()" statement that looks through the targets. This is, again, because the spell can only have a single target.
-	user.visible_message(span_warning("A wreath of gentle light passes over [user]!"), span_notice("I wreath myself in healing light!"))
+	user.visible_message(span_warning("Венок мягкого света окутывает [user]!"), span_notice("Я окутываю себя исцеляющим светом!"))
 	user.adjustBruteLoss(-10)
 	user.adjustFireLoss(-10)
 

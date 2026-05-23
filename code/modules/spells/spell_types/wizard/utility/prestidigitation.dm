@@ -3,11 +3,11 @@
 #define PRESTI_MOTE "presti_mote"
 
 /obj/effect/proc_holder/spell/targeted/touch/prestidigitation
-	name = "Prestidigitation"
-	desc = "A few basic tricks many apprentices use to practice basic manipulation of the arcyne."
+	name = "Фокусы"
+	desc = "Несколько простых трюков, которые многие ученики используют для тренировки управления арканой."
 	clothes_req = FALSE
-	drawmessage = "I prepare to perform a minor arcyne incantation."
-	dropmessage = "I release my minor arcyne focus."
+	drawmessage = "Я готовлюсь произнести малое арканное заклинание."
+	dropmessage = "Я отпускаю свой малый арканный фокус."
 	school = "transmutation"
 	overlay_state = "prestidigitation"
 	chargedrain = 0
@@ -18,11 +18,11 @@
 	hand_path = /obj/item/melee/touch_attack/prestidigitation
 
 /obj/item/melee/touch_attack/prestidigitation
-	name = "\improper prestidigitating touch"
-	desc = "You recall the following incantations you've learned:\n \
-	<b>Touch</b>: Use your arcyne powers to scrub an object or something clean, like using soap. Also known as the Apprentice's Woe.\n \
-	<b>Shove</b>: Will forth a spark on an item of your choosing (or in front of you, if used on the ground) to ignite flammable items and things like torches, lanterns or campfires. \n \
-	<b>Use</b>: Conjure forth an orbiting mote of magelight to light your way."
+	name = "фокусы"
+	desc = "Вы вспоминаете следующие заклинания:\n \
+	<b>Помощь</b>: Используйте арканную силу, чтобы отчистить предмет, как мылом. Также известно как «Печаль Подмастерья».\n \
+	<b>Толчок</b>: Создайте искру на выбранном предмете (или перед собой, если цель — земля), чтобы поджечь горючие предметы, факелы, фонари или костры.\n \
+	<b>Использовать</b>: Призовите вращающийся магический огонёк для освещения пути."
 	catchphrase = null
 	possible_item_intents = list(INTENT_HELP, INTENT_DISARM, /datum/intent/use)
 	icon = 'icons/mob/roguehudgrabs.dmi'
@@ -94,13 +94,13 @@
 	var/mote_power = clamp(4 + (skill_level - 3), 4, 7) // every step above journeyman should get us 1 more tile of brightness
 	mote.set_light_range(mote_power)
 	if (mote.loc == src)
-		user.visible_message(span_notice("[user] holds open the palm of [user.p_their()] hand and concentrates..."), span_notice("I hold open the palm of my hand and concentrate on my arcyne power..."))
+		user.visible_message(span_notice("[user] раскрывает ладонь и сосредотачивается..."), span_notice("Я раскрываю ладонь и сосредотачиваюсь на своей арканной силе..."))
 		if (do_after(user, src.motespeed, target = user))
 			mote.orbit(user, 1, TRUE, 0, 48, TRUE)
 			return TRUE
 		return FALSE
 	else
-		user.visible_message(span_notice("[user] wills \the [mote.name] back into [user.p_their()] hand and closes it, extinguishing its light."), span_notice("I will \the [mote.name] back into my palm and close it."))
+		user.visible_message(	span_notice("[user] направляет [mote.name] обратно в ладонь и закрывает её, гася свет."), span_notice("Я направляю [mote.name] обратно в ладонь и закрываю её."))
 		mote.forceMove(src)
 		return TRUE
 
@@ -119,10 +119,10 @@
 		var/turf/front = get_step(user, user.dir)
 		S.set_up(1, 1, front)
 		S.start()
-		user.visible_message(span_notice("[user] snaps [user.p_their()] fingers, producing a spark!"), span_notice("I will forth a tiny spark with a snap of my fingers."))
+		user.visible_message(span_notice("[user] щёлкает пальцами, создавая искру!"), span_notice("Я вызываю крошечную искру щелчком пальцев."))
 	else
 		thing.spark_act()
-		user.visible_message(span_notice("[user] snaps [user.p_their()] fingers, and a spark leaps forth towards [thing]!"), span_notice("I will forth a tiny spark and direct it towards [thing]."))
+		user.visible_message(span_notice("[user] щёлкает пальцами, и искра устремляется к [thing]!"), span_notice("Я вызываю крошечную искру и направляю её к [thing]."))
 
 	return TRUE
 
@@ -134,24 +134,24 @@
 	cleanspeed = initial(cleanspeed) - (skill_level * 3) // 3 cleanspeed per skill level, from 35 down to a maximum of 17 (pretty quick)
 
 	if (istype(target, /obj/structure/roguewindow))
-		user.visible_message(span_notice("[user] gestures at \the [target.name]. Tiny motes of arcyne power dance across its surface..."), span_notice("I begin to clean \the [target.name] with my arcyne power..."))
+		user.visible_message(span_notice("[user] жестикулирует в сторону [target.name]. Крошечные частицы арканной силы танцуют по его поверхности..."), span_notice("Я начинаю чистить [target.name] своей арканной силой..."))
 		if (do_after(user, src.cleanspeed, target = target))
 			wash_atom(target,CLEAN_MEDIUM)
-			to_chat(user, span_notice("I render \the [target.name] clean."))
+			to_chat(user, span_notice("Я делаю [target.name] чистым."))
 			return TRUE
 		return FALSE
 	else if (istype(target, /obj/effect/decal/cleanable))
-		user.visible_message(span_notice("[user] gestures at \the [target.name]. Arcyne power slowly scours it away..."), span_notice("I begin to scour \the [target.name] away with my arcyne power..."))
+		user.visible_message(span_notice("[user] жестикулирует в сторону [target.name]. Арканная сила медленно стирает его..."), span_notice("Я начинаю стирать [target.name] своей арканной силой..."))
 		if (do_after(user, src.cleanspeed, target = target))
 			wash_atom(get_turf(target),CLEAN_MEDIUM)
-			to_chat(user, span_notice("I expunge \the [target.name] with my mana."))
+			to_chat(user, span_notice("Я устраняю [target.name] своей маной."))
 			return TRUE
 		return FALSE
 	else
-		user.visible_message(span_notice("[user] gestures at \the [target.name]. Tiny motes of arcyne power surge over [target.p_them()]..."), span_notice("I begin to clean \the [target.name] with my arcyne power..."))
+		user.visible_message(span_notice("[user] жестикулирует в сторону [target.name]. Крошечные частицы арканной силы омывают [target.p_them()]..."), span_notice("Я начинаю чистить [target.name] своей арканной силой..."))
 		if (do_after(user, src.cleanspeed, target = target))
 			wash_atom(target,CLEAN_MEDIUM)
-			to_chat(user, span_notice("I render \the [target.name] clean."))
+			to_chat(user, span_notice("Я делаю [target.name] чистым."))
 			return TRUE
 		return FALSE
 
@@ -162,13 +162,13 @@
 	var/turf/Turf = get_turf(target)
 	if (istype(target, /obj/structure/well/fountain/mana))
 		if (do_after(user, src.gatherspeed, target = target))
-			to_chat(user, span_notice("I mold the liquid mana in \the [target.name] with my arcane power, crystalizing it!"))
+			to_chat(user, span_notice("Я формирую жидкую ману в [target.name] своей арканной силой, кристаллизуя её!"))
 			new /obj/item/magic/manacrystal(Turf)
 			return TRUE
 		return FALSE
 	if (istype(target, /turf/open/lava))
 		if (do_after(user, src.gatherspeed, target = target))
-			to_chat(user, span_notice("I mold a handful of oozing lava  with my arcane power, rapidly hardening it!"))
+			to_chat(user, span_notice("Я формирую горсть жидкой лавы своей арканной силой, быстро затвердевая её!"))
 			new /obj/item/magic/obsidian(user.loc)
 			return TRUE
 		return FALSE
@@ -177,8 +177,8 @@
 // Intents for prestidigitation
 
 /obj/effect/wisp/prestidigitation
-	name = "minor magelight mote"
-	desc = "A tiny display of arcyne power used to illuminate."
+	name = "малый магический огонёк"
+	desc = "Крошечное проявление арканной силы, используемое для освещения."
 	pixel_x = 20
 	light_outer_range =  4
 	light_color = "#3FBAFD"

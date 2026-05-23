@@ -23,7 +23,7 @@
 	cmode_music = 'sound/music/combat_noble.ogg'
 	social_rank = SOCIAL_RANK_SPYMASTER
 
-	job_traits = list(TRAIT_NOBLE, TRAIT_DISGUISER, TRAIT_DECEIVING_MEEKNESS)
+	job_traits = list(TRAIT_NOBLE, TRAIT_DISGUISER, TRAIT_DECEIVING_MEEKNESS, TRAIT_NOFALLDAMAGE1)
 
 	job_subclasses = list(
 		/datum/advclass/hand/spymaster
@@ -63,9 +63,6 @@
 			H.verbs |= list(/mob/living/carbon/human/proc/hand_disguise)
 			H.hand_disgrace_cooldown = 0
 			H.hand_fire_guard_cooldown = 0
-			if(!istype(H.patron, /datum/patron/divine/xylix))
-				to_chat(H, span_warning("My former deity frowned upon my practices. I have since turned to Xylix..."))
-				H.set_patron(/datum/patron/divine/xylix)
 	addtimer(CALLBACK(src, PROC_REF(know_agents), L), 5 SECONDS)
 
 /datum/job/roguetown/hand/proc/know_agents(var/mob/living/carbon/human/H)
@@ -560,7 +557,11 @@
 	subclass_stats = list(
 		STATKEY_SPD = 3,
 		STATKEY_PER = 2,
-		STATKEY_INT = 2
+		STATKEY_INT = 2,
+		STATKEY_STR = 2,
+		STATKEY_END = 3,
+		STATKEY_CON = -2,
+		STATKEY_FOR = -2,
 	)
 
 	subclass_spellpoints = 12
@@ -582,6 +583,7 @@
 		/datum/skill/misc/stealing = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/lockpicking = SKILL_LEVEL_MASTER, // not like they're gonna break into the vault.
 		/datum/skill/magic/arcane = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/guns = SKILL_LEVEL_MASTER,
 	)
 
 //Spymaster start. More similar to the rogue adventurer - loses heavy armor for more sneaky stuff.
@@ -600,6 +602,18 @@
 		r_hand = /obj/item/rogueweapon/sword/rapier/dec
 		pants = /obj/item/clothing/under/roguetown/trou/shadowpants
 		id = /obj/item/scomstone/garrison
+		backr =  /obj/item/storage/backpack/rogue/satchel/otavan
+		backpack_contents = list(
+		/obj/item/lockpickring/mundane = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/silver/psydagger,
+		/obj/item/clothing/head/inqarticles/blackbag = 1,
+		/obj/item/inqarticles/garrote = 1,
+		/obj/item/rope/inqarticles/inquirycord = 1,
+		/obj/item/grapplinghook = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
+		/obj/item/paper/inqslip/arrival/inq = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		)
 	else
 		cloak = /obj/item/clothing/cloak/raincloak/mortus //cool spymaster cloak
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
@@ -608,6 +622,18 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		id = /obj/item/scomstone/garrison
+		backr =  /obj/item/storage/backpack/rogue/satchel/otavan
+		backpack_contents = list(
+		/obj/item/lockpickring/mundane = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/silver/psydagger,
+		/obj/item/clothing/head/inqarticles/blackbag = 1,
+		/obj/item/inqarticles/garrote = 1,
+		/obj/item/rope/inqarticles/inquirycord = 1,
+		/obj/item/grapplinghook = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
+		/obj/item/paper/inqslip/arrival/inq = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		)
 
 /*
 /datum/advclass/hand/advisor

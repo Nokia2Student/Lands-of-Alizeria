@@ -2,7 +2,7 @@
 
 
 /obj/effect/proc_holder/spell/invoked
-	name = "invoked spell"
+	name = "призывное заклинание"
 	range = 7
 	selection_type = "range"
 	no_early_release = TRUE
@@ -51,7 +51,7 @@
 /obj/effect/proc_holder/spell/invoked/proc/on_deactivation(mob/user)
 	return
 
-/obj/effect/proc_holder/spell/invoked/InterceptClickOn(mob/living/caller, params, atom/target) 
+/obj/effect/proc_holder/spell/invoked/InterceptClickOn(mob/living/caller, params, atom/target)
 	. = ..()
 	if(.)
 		return FALSE
@@ -63,7 +63,7 @@
 	var/goal = src.get_chargetime() //if we have no chargetime then we can freely cast (and no early release flag was not set)
 	if(src.no_early_release) //This is to stop half-channeled spells from casting as the repeated-casts somehow bypass into this function.
 		if(percentage_progress < 100 && charge_progress < goal)//Conditions for failure: a) not 100% progress, b) charge progress less than goal
-			to_chat(usr, span_warning("[src.name] was not finished charging! It fizzles."))
+			to_chat(usr, span_warning("[src.name] не было готово к использованию!"))
 			src.revert_cast()
 			return FALSE
 	if(perform(list(target), TRUE, user = ranged_ability_user))

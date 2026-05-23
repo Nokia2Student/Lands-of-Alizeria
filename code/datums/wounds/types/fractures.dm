@@ -1,12 +1,12 @@
 /datum/wound/fracture
-	name = "fracture"
+	name = "перелом"
 	check_name = span_bone("<B>FRACTURE</B>")
 	severity = WOUND_SEVERITY_SEVERE
 	crit_message = list(
-		"The bone shatters!",
-		"The bone is broken!",
-		"The %BODYPART is mauled!",
-		"The bone snaps through the skin!",
+		"Кость разлетается на осколки!",
+		"Кость сломана!",
+		"%BODYPART изувечена!",
+		"Кость пробивает кожу и выходит наружу!",
 	)
 	sound_effect = "wetbreak"
 	whp = 80
@@ -33,7 +33,7 @@
 /datum/wound/fracture/get_visible_name(mob/user)
 	. = ..()
 	if(passive_healing)
-		. += " <span class='green'>(set)</span>"
+		. += " <span class='green'>(вправлен)</span>"
 
 /datum/wound/fracture/can_stack_with(datum/wound/other)
 	if(istype(other, /datum/wound/fracture) && (type == other.type))
@@ -57,13 +57,13 @@
 	return TRUE
 
 /datum/wound/fracture/head
-	name = "cranial fracture"
+	name = "черепной перелом"
 	check_name = span_bone("<B>SKULLCRACK</B>")
 	crit_message = list(
-		"The skull shatters in a gruesome way!",
-		"The head is smashed!",
-		"The skull is broken!",
-		"The skull caves in!",
+		"Череп разлетается ужасающим образом!",
+		"Голова раздроблена!",
+		"Череп сломан!",
+		"Череп проламывается внутрь!",
 	)
 	sound_effect = "headcrush"
 	whp = 150
@@ -104,12 +104,12 @@
 	owner.stuttering = max(owner.stuttering, 5)
 
 /datum/wound/fracture/head/brain
-	name = "depressed cranial fracture"
+	name = "вдавленный перелом черепа"
 	severity = WOUND_SEVERITY_FATAL
 	crit_message = list(
-		"The cranium is punctured!",
-		"The cranium is pierced!",
-		"The cranium is torn!",
+		"Череп пробит!",
+		"Череп пронзен!",
+		"Череп расколот!",
 	)
 	embed_chance = 100	// Didn't we remove embeding..?
 	bleed_rate = 10		// Aooouuugh.. my brain..
@@ -117,12 +117,12 @@
 	paralysis = TRUE
 
 /datum/wound/fracture/head/eyes
-	name = "orbital fracture"
+	name = "перелом глазницы"
 	crit_message = list(
-		"The orbital bone is punctured!",
-		"The orbital bone is pierced!",
-		"The eye socket is punctured!",
-		"The eye socket is pierced!",
+		"Глазная кость пробита!",
+		"Глазная кость пронзена!",
+		"Глазница пробита!",
+		"Глазница пронзена!",
 	)
 	embed_chance = 100
 	clotting_threshold = 0.4	//Eye-bone fucked
@@ -140,13 +140,13 @@
 	affected.cure_nearsighted("[type]")
 
 /datum/wound/fracture/head/ears
-	name = "temporal fracture"
+	name = "височный перелом"
 	severity = WOUND_SEVERITY_FATAL
 	crit_message = list(
-		"The orbital bone is punctured!",
-		"The temporal bone is pierced!",
-		"The ear canal is punctured!",
-		"The ear canal is pierced!",
+		"Височная кость пробита!",
+		"Височная кость пронзена!",
+		"Ушной канал пробит!",
+		"Ушной канал пронзен!",
 	)
 	embed_chance = 100
 	paralysis = FALSE
@@ -155,19 +155,19 @@
 
 /datum/wound/fracture/head/ears/on_mob_gain(mob/living/affected)
 	. = ..()
-	to_chat(affected, span_warning("My ears ring before suddenly cutting out all sound!"))
+	to_chat(affected, span_warning("В ушах звенит... Куда пропали все звуки?"))
 	ADD_TRAIT(affected, TRAIT_DEAF, "[type]")
 
 /datum/wound/fracture/head/ears/on_mob_loss(mob/living/affected)
 	. = ..()
-	to_chat(affected, span_notice("My hearing slowly comes back to me..."))
+	to_chat(affected, span_notice("Я начинаю что-то слышать..."))
 	REMOVE_TRAIT(affected, TRAIT_DEAF, "[type]")
 
 /datum/wound/fracture/head/nose
-	name = "nasal fracture"
+	name = "носовой перелом"
 	crit_message = list(
-		"The nasal bone is punctured!",
-		"The nasal bone is pierced!",
+		"Носовая кость пробита!",
+		"Носовая кость сломана!",
 	)
 	embed_chance = 100
 	mortal = FALSE
@@ -183,13 +183,13 @@
 	REMOVE_TRAIT(affected, TRAIT_DISFIGURED, "[type]")
 
 /datum/wound/fracture/mouth
-	name = "mandibular fracture"
+	name = "перелом челюсти"
 	check_name = span_bone("JAW FRACTURE")
 	crit_message = list(
-		"The mandible comes apart beautifully!",
-		"The jaw is smashed!",
-		"The jaw is shattered!",
-		"The jaw caves in!",
+		"Нижняя челюсть рассыпается на части!",
+		"Челюсть раздроблена!",
+		"Челюсть разбита вдребезги!",
+		"Челюсть проваливается внутрь!",
 	)
 	mortal = FALSE
 	whp = 50
@@ -208,13 +208,13 @@
 	REMOVE_TRAIT(affected, TRAIT_GARGLE_SPEECH, "[type]")
 
 /datum/wound/fracture/neck
-	name = "cervical fracture"
+	name = "шейный перелом"
 	check_name = span_bone("<B>NECK</B>")
 	crit_message = list(
-		"The spine shatters in a spectacular way!",
-		"The spine snaps!",
-		"The spine cracks!",
-		"The spine is broken!",
+		"Позвоночник эффектно разлетается на куски!",
+		"Позвоночник лопается!",
+		"Позвоночник трещит!",
+		"Позвоночник сломан!",
 	)
 	whp = 150
 
@@ -237,13 +237,13 @@
 		carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/chest
-	name = "rib fracture"
+	name = "перелом рёбер"
 	check_name = span_bone("<B>RIBS</B>")
 	crit_message = list(
-		"The ribs shatter in a splendid way!",
-		"The ribs are smashed!",
-		"The ribs are mauled!",
-		"The ribcage caves in!",
+		"Ребра разлетаются великолепным образом!",
+		"Ребра раздроблены!",
+		"Ребра изувечены!",
+		"Грудная клетка проваливается внутрь!",
 	)
 	whp = 50
 	bleed_rate = 25				//Higher than artery
@@ -263,13 +263,13 @@
 		carbon_owner.vomit(1, blood = TRUE, stun = TRUE)
 
 /datum/wound/fracture/groin
-	name = "pelvic fracture"
+	name = "тазовый перелом"
 	check_name = span_bone("<B>PELVIS</B>")
 	crit_message = list(
-		"The pelvis shatters in a magnificent way!",
-		"The pelvis is smashed!",
-		"The pelvis is mauled!",
-		"The pelvic floor caves in!",
+		"Таз разлетается величественным образом!",
+		"Таз раздроблен!",
+		"Таз изувечен!",
+		"Тазовое дно проваливается внутрь!",
 	)
 	whp = 80
 	gain_emote = "groin"	//MY PIINTLE!!!!

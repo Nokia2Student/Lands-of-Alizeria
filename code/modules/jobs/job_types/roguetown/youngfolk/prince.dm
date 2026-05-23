@@ -76,6 +76,7 @@
 		/datum/skill/misc/athletics = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/riding = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/guns = SKILL_LEVEL_JOURNEYMAN,
 	)
 
 /datum/outfit/job/heir/daring/pre_equip(mob/living/carbon/human/H)

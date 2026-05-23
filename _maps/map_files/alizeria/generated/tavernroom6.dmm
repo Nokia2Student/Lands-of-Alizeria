@@ -1,0 +1,20 @@
+"a" = (/turf/closed/wall/mineral/rogue/decowood,/area/rogue)
+"b" = (/obj/structure/mineral_door/wood,/turf/open/floor/rogue/concrete,/area/rogue)
+"c" = (/obj/effect/decal/cleanable/blood,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"w" = (/obj/structure/table/wood/poor,/obj/effect/decal/cleanable/dirt/cobweb,/obj/item/reagent_containers/glass/bottle/rogue/beer{pixel_y = 6; pixel_x = 7},/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"y" = (/obj/structure/closet/crate/drawer,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"A" = (/obj/structure/roguewindow/openclose/reinforced,/obj/structure/curtain/green,/turf/open/floor/rogue/concrete,/area/rogue)
+"G" = (/obj/structure/rack/rogue,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"I" = (/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"K" = (/obj/structure/bed/rogue/inn,/obj/item/bedsheet/rogue/fabric,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"R" = (/obj/structure/closet/crate/roguecloset,/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+"X" = (/turf/closed/wall/mineral/rogue/wooddark,/area/rogue)
+"Y" = (/obj/machinery/light/rogue/wallfire/candle{pixel_x = -26; pixel_y = 0},/obj/structure/chair/wood/rogue/fancy{dir = 1},/turf/open/floor/rogue/ruinedwood/turned,/area/rogue)
+
+(1,1,1) = {"
+XaAaX
+awcKa
+aYIya
+aGIRa
+XabaX
+"}

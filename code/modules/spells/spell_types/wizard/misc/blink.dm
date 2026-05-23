@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/blink
-	name = "Blink"
-	desc = "Teleport to a targeted location within your field of view. Limited to a range of 5 tiles. Only works on the same plane as the caster."
+	name = "Телепортация"
+	desc = "Телепортирует в выбранное место в пределах вашего поля зрения. Дальность ограничена 5 тайлами. Работает только на одной плоскости с заклинателем."
 	school = "conjuration"
 	cost = 3
 	releasedrain = 30
@@ -27,8 +27,8 @@
 /obj/effect/temp_visual/blink
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "hierophant_blast"
-	name = "teleportation magic"
-	desc = "Get out of the way!"
+	name = "магия телепортации"
+	desc = "Прочь с дороги!"
 	randomdir = FALSE
 	duration = 4 SECONDS
 	layer = MASSIVE_OBJ_LAYER
@@ -45,39 +45,39 @@
 	var/turf/start = get_turf(user)
 	
 	if(!T)
-		to_chat(user, span_warning("Invalid target location!"))
+		to_chat(user, span_warning("Неверная цель!"))
 		revert_cast()
 		return
 
 	if(T.teleport_restricted == TRUE)
-		to_chat(user, span_warning("I can't teleport here!"))
+		to_chat(user, span_warning("Я не могу телепортироваться сюда!"))
 
 	if(T.z != start.z)
-		to_chat(user, span_warning("I can only teleport on the same plane!"))
+		to_chat(user, span_warning("Я могу телепортироваться только на одной плоскости!"))
 
 		revert_cast()
 		return
 	
 	if(istransparentturf(T))
-		to_chat(user, span_warning("I cannot teleport to the open air!"))
+		to_chat(user, span_warning("Я не могу телепортироваться в открытое пространство!"))
 		revert_cast()
 		return
 
 	if(T.density)
-		to_chat(user, span_warning("I cannot teleport into a wall!"))
+		to_chat(user, span_warning("Я не могу телепортироваться в стену!"))
 		revert_cast()
 		return
 
 	// Check range limit
 	var/distance = get_dist(start, T)
 	if(distance > max_range)
-		to_chat(user, span_warning("That location is too far away! I can only blink up to [max_range] tiles."))
+		to_chat(user, span_warning("Это место слишком далеко! Я могу телепортироваться максимум на [max_range] тайлов."))
 		revert_cast()
 		return
 	
 	// Display a more obvious preparation message
-	user.visible_message(span_warning("<b>[user]'s body begins to shimmer with arcane energy as [user.p_they()] prepare[user.p_s()] to blink!</b>"), 
-						span_notice("<b>I focus my arcane energy, preparing to blink across space!</b>"))
+	user.visible_message(span_warning("<b>Тело [user] начинает мерцать арканной энергией, готовясь к скачку!</b>"), 
+						span_notice("<b>Я фокусирую арканную энергию, готовясь к телепортации сквозь пространство!</b>"))
 		
 	// Check if there's a wall in the way, but exclude the target turf
 	var/list/turf_list = getline(start, T)
@@ -87,7 +87,7 @@
 	
 	for(var/turf/turf in turf_list)
 		if(turf.density)
-			to_chat(user, span_warning("I cannot blink through walls!"))
+			to_chat(user, span_warning("Я не могу телепортироваться сквозь стены!"))
 			revert_cast()
 			return
 			
@@ -96,28 +96,28 @@
 		// Check for mineral doors
 		for(var/obj/structure/mineral_door/door in (traversal_turf.contents + T.contents))
 			if(door.density)
-				to_chat(user, span_warning("I cannot blink through doors!"))
+				to_chat(user, span_warning("Я не могу телепортироваться сквозь двери!"))
 				revert_cast()
 				return
 				
 		// Check for windows
 		for(var/obj/structure/roguewindow/window in (traversal_turf.contents + T.contents))
 			if(window.density && !window.climbable)
-				to_chat(user, span_warning("I cannot blink through windows!"))
+				to_chat(user, span_warning("Я не могу телепортироваться сквозь окна!"))
 				revert_cast()
 				return
 				
 		// Check for bars
 		for(var/obj/structure/bars/bars in (traversal_turf.contents + T.contents))
 			if(bars.density)
-				to_chat(user, span_warning("I cannot blink through bars!"))
+				to_chat(user, span_warning("Я не могу телепортироваться сквозь решётки!"))
 				revert_cast()
 				return
 
 		// Check for gates
 		for (var/obj/structure/gate/gate in (traversal_turf.contents + T.contents))
 			if(gate.density)
-				to_chat(user, span_warning("I cannot blink through gates!"))
+				to_chat(user, span_warning("Я не могу телепортироваться сквозь ворота!"))
 				revert_cast()
 				return
 
@@ -131,5 +131,5 @@
 		user.buckled.unbuckle_mob(user, TRUE)
 	do_teleport(user, T, channel = TELEPORT_CHANNEL_MAGIC)
 	
-	user.visible_message(span_danger("<b>[user] vanishes in a mysterious purple flash!</b>"), span_notice("<b>I blink through space in an instant!</b>"))
+	user.visible_message(span_danger("<b>[user] исчезает в загадочной фиолетовой вспышке!</b>"), span_notice("<b>Я телепортируюсь сквозь пространство в мгновение ока!</b>"))
 	return TRUE

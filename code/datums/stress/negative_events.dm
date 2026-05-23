@@ -208,7 +208,7 @@
 /datum/stressevent/crowd
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = "<span class='red'>Где все...? Меня хотят убить?!</span>"
+	desc = "<span class='red'>Слишком много разных людей... Я хочу уйти.</span>"
 
 /datum/stressevent/nopeople
 	timer = 2 MINUTES
@@ -223,7 +223,7 @@
 /datum/stressevent/coldhead
 	timer = 60 SECONDS
 	stressadd = 1
-	desc = span_red("Моя голова холодная и уродливая.")
+	desc = span_red("Моя голова сильно промокла...")
 
 /datum/stressevent/sleepytime
 	timer = 40 MINUTES

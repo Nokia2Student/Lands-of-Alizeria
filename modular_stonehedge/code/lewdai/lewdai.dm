@@ -450,10 +450,7 @@
 			breasts.organ_size = rand(MAX_BREASTS_SIZE)
 			breasts.Insert(user, TRUE)
 			var/obj/item/organ/filling_organ/vagina/vagina = user.getorganslot(ORGAN_SLOT_VAGINA)
-			if(!show_genitals)
-				vagina = new /obj/item/organ/filling_organ/vagina/internal
-			else
-				vagina = new /obj/item/organ/filling_organ/vagina
+			vagina = new /obj/item/organ/filling_organ/vagina/internal
 			vagina.Insert(user, TRUE)
 			if(prob(3)) //3 chance to be dickgirl.
 				var/obj/item/organ/filling_organ/testicles/testicles = user.getorganslot(ORGAN_SLOT_TESTICLES)

@@ -1,7 +1,7 @@
 // Diagnose
 /obj/effect/proc_holder/spell/invoked/diagnose
-	name = "Diagnose"
-	desc = "Examine a target to discern injuries they have, if any."
+	name = "Диагноз"
+	desc = "Осмотрите цель, чтобы определить травмы, если они есть."
 	overlay_state = "diagnose"
 	releasedrain = 10
 	chargedrain = 0
@@ -23,31 +23,31 @@
 		human_target.check_for_injuries(user)
 
 		if (human_target.reagents.has_reagent(/datum/reagent/infection/major))
-			to_chat(user, span_boldwarning("Streaks of black and yellow doubtlessly indicate an excess of melancholic humour."))
+			to_chat(user, span_boldwarning("Чёрные и жёлтые полосы несомненно указывают на избыток меланхолической желчи."))
 		else if (human_target.reagents.has_reagent(/datum/reagent/infection))
-			to_chat(user, span_warning("Reddened and inflamed flesh accompanied by a brow flecked with sweat. Excess choleric, perhaps?"))
+			to_chat(user, span_warning("Покрасневшая и воспалённая плоть, испачканный потом лоб. Возможно, избыток холерической желчи?"))
 		else if (human_target.reagents.has_reagent(/datum/reagent/infection/minor))
-			to_chat(user, span_warning("A slight yellowing indicates the barest presence of disrupted choleric humor."))
+			to_chat(user, span_warning("Лёгкая желтизна указывает на малейшее присутствие нарушенной холерической желчи."))
 
 		//To tell thresholds of toxins in the system, here so people don't have info of their own toxins outside of diagnosis method
 		switch(human_target.toxloss)
 			if(0 to 1)
-				to_chat(user, span_notice("No sign of toxicity in the body."))
+				to_chat(user, span_notice("Никаких признаков отравления в теле."))
 			if(1 to 50)
-				to_chat(user, span_notice("Some traces of toxicity are found under scrutiny."))
+				to_chat(user, span_notice("При тщательном осмотре обнаружены некоторые следы отравления."))
 			if(50 to 100)
-				to_chat(user, span_notice("Significant signs of toxicity are apparent."))
+				to_chat(user, span_notice("Заметны значительные признаки отравления."))
 			if(100 to 150)
-				to_chat(user, span_warning("The body is wracked by toxicity."))
+				to_chat(user, span_warning("Тело страдает от отравления."))
 			if(150 to INFINITY)
-				to_chat(user, span_necrosis("The body is devastated by toxicity."))
+				to_chat(user, span_necrosis("Тело разрушено отравлением."))
 
 		return TRUE
 	revert_cast()
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/diagnose/secular
-	name = "Secular Diagnosis"
+	name = "Светский диагноз"
 	overlay_state = "diagnose"
 	range = 1
 	associated_skill = /datum/skill/misc/medicine
@@ -56,8 +56,8 @@
 
 // Limb or organ attachment
 /obj/effect/proc_holder/spell/invoked/attach_bodypart
-	name = "Bodypart Miracle"
-	desc = "Attach a bodypart to your target."
+	name = "Чудо конечности"
+	desc = "Присоедините часть тела к цели."
 	overlay_state = "limb_attach"
 	releasedrain = 30
 	chargedrain = 0
@@ -138,20 +138,20 @@
 		var/same_owner = FALSE
 		if(human_target.has_status_effect(/datum/status_effect/buff/necras_vow))
 			same_owner = TRUE
-			to_chat(user, span_warning("This one has pledged a vow to Necra. Only their own limbs will be accepted."))
+			to_chat(user, span_warning("Это существо принесло обет Некре. Только его собственные конечности будут приняты."))
 		for(var/obj/item/bodypart/limb as anything in get_limbs(human_target, user))
 			if(!human_target.get_bodypart(limb.body_zone) && same_owner)
 				if(limb.original_owner != human_target)
 					continue
 			if(human_target.get_bodypart(limb.body_zone) || !limb.attach_limb(human_target))
 				continue
-			human_target.visible_message(span_info("\The [limb] attaches itself to [human_target]!"), \
-								span_notice("\The [limb] attaches itself to me!"))
+			human_target.visible_message(span_info("[limb] присоединяется к [human_target]!"), \
+								span_notice("[limb] присоединяется ко мне!"))
 		for(var/obj/item/organ/organ as anything in get_organs(human_target, user))
 			if(human_target.getorganslot(organ.slot) || !organ.Insert(human_target))
 				continue
-			human_target.visible_message(span_info("\The [organ] attaches itself to [human_target]!"), \
-								span_notice("\The [organ] attaches itself to me!"))
+			human_target.visible_message(span_info("[organ] присоединяется к [human_target]!"), \
+								span_notice("[organ] присоединяется ко мне!"))
 		if(!(human_target.mob_biotypes & MOB_UNDEAD))
 			for(var/obj/item/bodypart/limb as anything in human_target.bodyparts)
 				limb.rotted = FALSE
@@ -162,8 +162,8 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/infestation
-	name = "Infestation"
-	desc = "Causes a swarm of bugs to surround your target, bite them and cause sickness."
+	name = "Нашествие"
+	desc = "Насылает рой насекомых, чтобы окружить цель, укусить её и вызвать болезнь."
 	overlay_state = "null" //sprite later
 	releasedrain = 50
 	chargetime = 10
@@ -187,7 +187,7 @@
 /obj/effect/proc_holder/spell/invoked/infestation/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
-		target.visible_message(span_warning("[target] is surrounded by a cloud of pestilent vermin!"), span_notice("You surround [target] in a cloud of pestilent vermin!"))
+		target.visible_message(span_warning("[target] окружён облаком заразных паразитов!"), span_notice("Вы окружаете [target] облаком заразных паразитов!"))
 		target.apply_status_effect(/datum/status_effect/buff/infestation/) //apply debuff
 		return TRUE
 	return FALSE
@@ -202,7 +202,7 @@
 /datum/status_effect/buff/infestation/on_apply()
 	. = ..()
 	var/mob/living/target = owner
-	to_chat(owner, span_danger("I am suddenly surrounded by a cloud of bugs!"))
+	to_chat(owner, span_danger("Я внезапно окружён облаком насекомых!"))
 	target.Jitter(20)
 	target.add_overlay(rotten)
 	target.update_vision_cone()
@@ -220,36 +220,36 @@
 	target.adjustBruteLoss(1)
 	var/prompt = pick(1,2,3)
 	var/message = pick(
-		"Ticks on my skin start to engorge with blood!",
-		"Flies are laying eggs in my open wounds!",
-		"Something crawled in my ear!",
-		"There are too many bugs to count!",
-		"They're trying to get under my skin!",
-		"Make it stop!",
-		"Millipede legs tickle the back of my ear!",
-		"Fire ants bite at my feet!",
-		"A wasp sting right on the nose!",
-		"Cockroaches scurry across my neck!",
-		"Maggots slimily wriggle along my body!",
-		"Beetles crawl over my mouth!",
-		"Fleas bite my ankles!",
-		"Gnats buzz around my face!",
-		"Lice suck my blood!",
-		"Crickets chirp in my ears!",
-		"Earwigs crawl into my ears!")
+		"Клещи на моей коже начинают набухать кровью!",
+		"Мухи откладывают яйца в мои открытые раны!",
+		"Что-то заползло мне в ухо!",
+		"Жуков так много, что не сосчитать!",
+		"Они пытаются забраться мне под кожу!",
+		"Остановите это!",
+		"Ножки многоножек щекочут заднюю часть моего уха!",
+		"Огненные муравьи кусают мои ноги!",
+		"Оса ужалила прямо в нос!",
+		"Тараканы копошатся на моей шее!",
+		"Личинки скользят по моему телу!",
+		"Жуки ползают по моему рту!",
+		"Блохи кусают мои лодыжки!",
+		"Москиты жужжат вокруг моего лица!",
+		"Вши сосут мою кровь!",
+		"Сверчки стрекочут в моих ушах!",
+		"Уховёртки заползают в мои уши!")
 	if(prompt == 1 && iscarbon(M))
 		M.add_nausea(pick(10,20))
 		to_chat(target, span_warning(message))
 
 /atom/movable/screen/alert/status_effect/buff/infestation
-	name = "Infestation"
-	desc = "Pestilent vermin bite and chew at my skin."
+	name = "Нашествие"
+	desc = "Заразные паразиты кусают и грызут мою кожу."
 	icon_state = "debuff"
 
 // Cure rot
 /obj/effect/proc_holder/spell/invoked/cure_rot
-	name = "Cure Rot"
-	desc = "Invoke Pestra's power to remove all deadite-rot from a target."
+	name = "Исцеление гнили"
+	desc = "Призовите силу Пестры, чтобы удалить всю мертвячью гниль с цели."
 	overlay_state = "cure_rot"
 	releasedrain = 90
 	chargedrain = 0
@@ -282,16 +282,16 @@
 		if(target == user)
 			return FALSE
 		if(ispath(user.patron?.type, /datum/patron/divine) && (target.real_name in GLOB.excommunicated_players))
-			to_chat(user, span_warning("They can not be cleansed of rot."))
+			to_chat(user, span_warning("Их нельзя очистить от гнили."))
 			revert_cast()
 			return FALSE
 		if(HAS_TRAIT(target, TRAIT_CURSE_NECRA))
-			to_chat(user, span_warning("They can not be cleansed of rot."))
+			to_chat(user, span_warning("Их нельзя очистить от гнили."))
 			revert_cast()
 			return FALSE
 
 		if(GLOB.tod == "night")
-			to_chat(user, span_warning("Let there be light."))
+			to_chat(user, span_warning("Да будет свет."))
 		for(var/obj/structure/fluff/psycross/S in oview(5, user))
 			S.AOE_flash(user, range = 8)
 
@@ -302,15 +302,15 @@
 				stinky = TRUE
 
 		if(remove_rot(target = target, user = user, method = "prayer",
-			success_message = "The rot leaves [target]'s body!",
-			fail_message = "Nothing happens.", lethal = is_lethal))
-			target.visible_message(span_notice("The rot leaves [target]'s body!"), span_green("I feel the rot leave my body!"))
+			success_message = "Гниль покидает тело [target]!",
+			fail_message = "Ничего не происходит.", lethal = is_lethal))
+			target.visible_message(span_notice("Гниль покидает тело [target]!"), span_green("Я чувствую, как гниль покидает моё тело!"))
 			target.remove_status_effect(/datum/status_effect/debuff/rotted_zombie)	//Removes the rotted-zombie debuff if they have it.
 			if(stinky)
 				target.apply_status_effect(/datum/status_effect/debuff/rotted)	//Perma debuff, needs cure
 			return TRUE
 		else //Attempt failed, no rot
-			target.visible_message(span_warning("The rot fails to leave [target]'s body!"), span_warning("I feel no different..."))
+			target.visible_message(span_warning("Гниль не покидает тело [target]!"), span_warning("Я не чувствую разницы..."))
 			return FALSE
 	revert_cast()
 	return FALSE
@@ -322,13 +322,13 @@
 	for(var/obj/structure/fluff/psycross/S in oview(5, user))
 		found = S
 	if(!found)
-		to_chat(user, span_warning("I need a holy cross."))
+		to_chat(user, span_warning("Мне нужен святой крест."))
 		return FALSE
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/pestra_leech
-	name = "Leeching Purge"
-	desc = "Force a target to vomit leeches, purging their body of toxins."
+	name = "Пиявочное очищение"
+	desc = "Заставьте цель исторгнуть пиявок, очищая её тело от токсинов."
 	overlay_state = "leech_purge"
 	releasedrain = 30
 	chargedrain = 0
@@ -349,14 +349,14 @@
 	if(iscarbon(targets[1]))
 		var/mob/living/carbon/C = targets[1]
 		if(C.cmode)
-			to_chat(user, span_warning("They're too tense for the delicate arts!"))
+			to_chat(user, span_warning("Они слишком напряжены для столь тонкого искусства!"))
 			revert_cast()
 			return FALSE
 		C.vomit()
 		C.adjustToxLoss(-30)
 		if(C.blood_volume < BLOOD_VOLUME_NORMAL)
 			C.blood_volume = min(C.blood_volume+30, BLOOD_VOLUME_NORMAL)
-		C.visible_message(span_warning("[C] expels some leeches out of them!"), span_warning("Something roils within me!"))
+		C.visible_message(span_warning("[C] исторгает из себя несколько пиявок!"), span_warning("Что-то бурлит внутри меня!"))
 		new /obj/item/natural/worms/leech(get_turf(C))
 		if(prob( (user.get_skill_level(/datum/skill/magic/holy) * 10) ))
 			new /obj/item/natural/worms/leech(get_turf(C))
@@ -365,8 +365,8 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/regrow_limbs
-	name = "Limb Regeneration"
-	desc = "Miraculously regrow the target's missing limbs without needing any detached parts."
+	name = "Регенерация конечности"
+	desc = "Чудесным образом отрастите отсутствующие конечности цели без необходимости в отделённых частях."
 	overlay_state = "regeneratelimb"
 	clothes_req = FALSE
 	releasedrain = 30
@@ -395,11 +395,11 @@
 
 	var/list/missing = H.get_missing_limbs()
 	if(!length(missing))
-		to_chat(user, span_info("[H] has no missing limbs to restore."))
+		to_chat(user, span_info("У [H] нет отсутствующих конечностей для восстановления."))
 		return TRUE
 	H.visible_message(
-		span_info("[user] raises a hand - flesh knits upon [H]!"),
-		span_notice("Warmth courses through me as limbs reform!")
+		span_info("[user] поднимает руку - плоть срастается на [H]!"),
+		span_notice("Тепло разливается по мне, когда конечности восстанавливаются!")
 	)
 
 	H.regenerate_limbs(0)
@@ -412,8 +412,8 @@
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/pestratouch
-	name = "Pestra's touch"
-	desc = "A steady benediction that mends internal organs and purges infections."
+	name = "Прикосновение Пестры"
+	desc = "Устойчивое благословение, которое исцеляет внутренние органы и очищает от инфекций."
 	overlay_state = "miracle"
 	clothes_req = FALSE
 	releasedrain = 0
@@ -440,7 +440,7 @@
     if(target.anti_magic_check(TRUE, TRUE))
         return FALSE
     if(!ishuman(target))
-        to_chat(user, span_warning("This prayer only suits mortal bodies."))
+        to_chat(user, span_warning("Эта молитва подходит только смертным телам."))
         return FALSE
     var/mob/living/carbon/human/M = target
     for(var/obj/item/organ/organny in M.internal_organs)
@@ -450,25 +450,25 @@
             if(W.zombie_infection_timer)
                 deltimer(W.zombie_infection_timer)
                 W.zombie_infection_timer = null
-                to_chat(M, span_warning("A searing purity burns away the rot in your [B.name]."))
+                to_chat(M, span_warning("Обжигающая чистота выжигает гниль в вашей [B.name]."))
             if(W.werewolf_infection_timer)
                 deltimer(W.werewolf_infection_timer)
                 W.werewolf_infection_timer = null
-                to_chat(M, span_warning("A searing purity burns away the taint in your [B.name]."))
+                to_chat(M, span_warning("Обжигающая чистота выжигает скверну в вашей [B.name]."))
 
     M.update_damage_overlays()
 
     target.visible_message(
-        span_info("[user] murmurs a cleansing benediction over [target]."),
-        span_notice("A steady warmth mends your insides and scours away infection.")
+        span_info("[user] бормочет очищающее благословение над [target]."),
+        span_notice("Устойчивое тепло исцеляет ваши внутренности и выжигает инфекцию.")
     )
     return TRUE
 
 //TEST STUFF UPGRADEABLE
 
 /obj/effect/proc_holder/spell/invoked/diagnose/greater
-	name = "Greater Diagnose"
-	desc = "A precise divine appraisal: shows reagents, blood level, organ status, and quantified damage."
+	name = "Великий диагноз"
+	desc = "Точная божественная оценка: показывает реагенты, уровень крови, состояние органов и количественный урон."
 	overlay_state = "diagnose"
 	releasedrain = 15
 	chargedrain = 0
@@ -494,34 +494,34 @@
 	if(hascall(H, "check_for_injuries"))
 		H.check_for_injuries(user)
 
-	to_chat(user, span_notice("--- Divine Diagnosis on [H] ---"))
+	to_chat(user, span_notice("--- Божественный диагноз [H] ---"))
 
 	if(H.reagents && H.reagents.reagent_list?.len)
-		to_chat(user, span_info("Reagents detected:"))
+		to_chat(user, span_info("Обнаружены реагенты:"))
 		for(var/datum/reagent/R as anything in H.reagents.reagent_list)
 			if(!R || R.volume <= 0) continue
-			to_chat(user, "• [R.name]: [round(R.volume, 0.1)]u")
+			to_chat(user, "• [R.name]: [round(R.volume, 0.1)] ед.")
 	else
-		to_chat(user, span_notice("Reagents detected: none."))
+		to_chat(user, span_notice("Обнаружены реагенты: нет."))
 
-	to_chat(user, span_info("Blood volume: [round(((isnum(H.blood_volume) && H.blood_volume > 0) ? H.blood_volume : (H.reagents && hascall(H.reagents, "get_reagent_amount") ? H.reagents.get_reagent_amount(/datum/reagent/blood) : 0)), 0.1)]u"))
+	to_chat(user, span_info("Объём крови: [round(((isnum(H.blood_volume) && H.blood_volume > 0) ? H.blood_volume : (H.reagents && hascall(H.reagents, "get_reagent_amount") ? H.reagents.get_reagent_amount(/datum/reagent/blood) : 0)), 0.1)] ед."))
 
 	var/tox = _dg_safe_num(H, list("toxloss"))
 	var/oxy = _dg_safe_num(H, list("oxyloss", "oxygen_loss"))
-	to_chat(user, span_info("Toxin damage: [tox]"))
-	to_chat(user, span_info("Oxygen damage: [oxy]"))
+	to_chat(user, span_info("Урон токсинами: [tox]"))
+	to_chat(user, span_info("Урон кислородом: [oxy]"))
 
 	if(islist(H.bodyparts) && H.bodyparts.len)
-		to_chat(user, span_info("Bodyparts damage:"))
+		to_chat(user, span_info("Повреждения частей тела:"))
 		for(var/obj/item/bodypart/B as anything in H.bodyparts)
 			var/br = _dg_safe_num(B, list("brute_dam", "brute_damage", "brute"))
 			var/bu = _dg_safe_num(B, list("burn_dam", "burn_damage", "burn"))
 			if(br > 0 || bu > 0)
-				to_chat(user, "• [B.name]: brute [br], burn [bu]")
+				to_chat(user, "• [B.name]: ушибы [br], ожоги [bu]")
 	else
-		to_chat(user, span_notice("No bodypart damage data available."))
+		to_chat(user, span_notice("Нет данных о повреждениях частей тела."))
 	if(islist(H.internal_organs) && H.internal_organs.len)
-		to_chat(user, span_info("Internal organs:"))
+		to_chat(user, span_info("Внутренние органы:"))
 		for(var/obj/item/organ/O as anything in H.internal_organs)
 			var/od = 0
 			if(hascall(H, "get_organ_loss") && istext(O.slot) || isnum(O.slot))
@@ -533,9 +533,9 @@
 				var/brorg = _dg_safe_num(O, list("brute_dam", "brute_damage"))
 				var/buorg = _dg_safe_num(O, list("burn_dam", "burn_damage"))
 				od = base + brorg + buorg
-			to_chat(user, "• [O.name]: damage [od]")
+			to_chat(user, "• [O.name]: повреждение [od]")
 	else
-		to_chat(user, span_notice("No internal organ data available."))
+		to_chat(user, span_notice("Нет данных о внутренних органах."))
 
 	return TRUE
 
@@ -549,8 +549,8 @@
 	return 0
 
 /obj/effect/proc_holder/spell/invoked/regrow_limbs
-	name = "Limb Regeneration"
-	desc = "Miraculously regrow the target's missing limbs without needing any detached parts."
+	name = "Регенерация конечности"
+	desc = "Чудесным образом отрастите отсутствующие конечности цели без необходимости в отделённых частях."
 	overlay_state = "regeneratelimb"
 	clothes_req = FALSE
 	releasedrain = 30
@@ -579,11 +579,11 @@
 
 	var/list/missing = H.get_missing_limbs()
 	if(!length(missing))
-		to_chat(user, span_info("[H] has no missing limbs to restore."))
+		to_chat(user, span_info("У [H] нет отсутствующих конечностей для восстановления."))
 		return TRUE
 	H.visible_message(
-		span_info("[user] raises a hand - flesh knits upon [H]!"),
-		span_notice("Warmth courses through me as limbs reform!")
+		span_info("[user] поднимает руку - плоть срастается на [H]!"),
+		span_notice("Тепло разливается по мне, когда конечности восстанавливаются!")
 	)
 
 	H.regenerate_limbs(0)
@@ -596,8 +596,8 @@
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/pestratouch
-	name = "Pestra's touch"
-	desc = "A steady benediction that mends internal organs and purges infections."
+	name = "Прикосновение Пестры"
+	desc = "Устойчивое благословение, которое исцеляет внутренние органы и очищает от инфекций."
 	overlay_state = "miracle"
 	clothes_req = FALSE
 	releasedrain = 0
@@ -624,7 +624,7 @@
     if(target.anti_magic_check(TRUE, TRUE))
         return FALSE
     if(!ishuman(target))
-        to_chat(user, span_warning("This prayer only suits mortal bodies."))
+        to_chat(user, span_warning("Эта молитва подходит только смертным телам."))
         return FALSE
     var/mob/living/carbon/human/M = target
     for(var/obj/item/organ/organny in M.internal_organs)
@@ -634,16 +634,16 @@
             if(W.zombie_infection_timer)
                 deltimer(W.zombie_infection_timer)
                 W.zombie_infection_timer = null
-                to_chat(M, span_warning("A searing purity burns away the rot in your [B.name]."))
+                to_chat(M, span_warning("Обжигающая чистота выжигает гниль в вашей [B.name]."))
             if(W.werewolf_infection_timer)
                 deltimer(W.werewolf_infection_timer)
                 W.werewolf_infection_timer = null
-                to_chat(M, span_warning("A searing purity burns away the taint in your [B.name]."))
+                to_chat(M, span_warning("Обжигающая чистота выжигает скверну в вашей [B.name]."))
 
     M.update_damage_overlays()
 
     target.visible_message(
-        span_info("[user] murmurs a cleansing benediction over [target]."),
-        span_notice("A steady warmth mends your insides and scours away infection.")
+        span_info("[user] бормочет очищающее благословение над [target]."),
+        span_notice("Устойчивое тепло исцеляет ваши внутренности и выжигает инфекцию.")
     )
     return TRUE

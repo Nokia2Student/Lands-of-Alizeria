@@ -1,0 +1,19 @@
+"a" = (/obj/structure/flora/roguegrass/cold,/obj/structure/flora/roguegrass/cold,/turf/open/floor/rogue/snow,/area/rogue/outdoors/woods/alizeria/iceland)
+"c" = (/obj/structure/flora/roguegrass/cold,/obj/structure/flora/roguegrass/cold,/obj/structure/flora/roguegrass/cold,/turf/open/floor/rogue/grasscold,/area/rogue/outdoors/woods/alizeria/iceland)
+"f" = (/obj/structure/flora/roguegrass/cold,/turf/open/floor/rogue/snowpatchy,/area/rogue/outdoors/woods/alizeria/iceland)
+"g" = (/turf/open/floor/rogue/snowpatchy,/area/rogue/outdoors/woods/alizeria/iceland)
+"j" = (/turf/open/floor/rogue/snow,/area/rogue/outdoors/woods/alizeria/iceland)
+"k" = (/obj/effect/spawner/roguemap/alizeria/bushspawner,/turf/open/floor/rogue/grasscold,/area/rogue/outdoors/woods/alizeria/iceland)
+"v" = (/obj/structure/flora/roguegrass/cold,/turf/open/floor/rogue/grasscold,/area/rogue/outdoors/woods/alizeria/iceland)
+"C" = (/obj/structure/flora/roguegrass/cold,/obj/structure/flora/roguegrass/cold,/obj/structure/flora/roguetree/pinesnow,/turf/open/floor/rogue/snowpatchy,/area/rogue/outdoors/woods/alizeria/iceland)
+"M" = (/obj/structure/flora/roguegrass/cold,/turf/open/floor/rogue/snow,/area/rogue/outdoors/woods/alizeria/iceland)
+"S" = (/obj/structure/flora/roguegrass/cold,/obj/structure/flora/roguegrass/cold,/turf/open/floor/rogue/snowpatchy,/area/rogue/outdoors/woods/alizeria/iceland)
+"W" = (/turf/open/floor/rogue/grasscold,/area/rogue/outdoors/woods/alizeria/iceland)
+
+(1,1,1) = {"
+WgWWW
+fjfav
+fMCMM
+gMcSj
+jkWaf
+"}

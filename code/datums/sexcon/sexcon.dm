@@ -245,6 +245,9 @@
 			severity = 9
 		if(90 to INFINITY)
 			severity = 10
+
+	user.clear_fullscreen("horny")
+
 	if(severity > 0)
 		user.overlay_fullscreen("horny", /atom/movable/screen/fullscreen/love, severity)
 	else

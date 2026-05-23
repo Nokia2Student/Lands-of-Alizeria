@@ -228,17 +228,10 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/open/floor/rogue/grass,
-						/turf/open/floor/rogue/grassred,
-						/turf/open/floor/rogue/grassyel,
-						/turf/open/floor/rogue/grasscold,
-						/turf/open/floor/rogue/snowpatchy,
-						/turf/open/floor/rogue/snowrough,
-						/turf/open/floor/rogue/dirt,
-						/turf/open/floor/rogue/dirt/road,
-						/turf/open/floor/rogue/AzureSand)
+	canSmoothWith = list(/turf/open/floor/rogue/ice)
 	neighborlay = "snowedge"
 	spread_chance = 0
+	var/water_reagent = /datum/reagent/snow
 
 /turf/open/floor/rogue/snow/Initialize()
 	dir = pick(GLOB.cardinals)
@@ -246,6 +239,20 @@
 
 /turf/open/floor/rogue/snow/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
+
+/turf/open/floor/rogue/snow/attackby(obj/item/C, mob/user, params)
+	if(user.used_intent.type == /datum/intent/fill)
+		if(C.reagents)
+			if(C.reagents.holder_full())
+				to_chat(user, span_warning("[C] is full."))
+				return
+			playsound(user, 'sound/alizeria/snowgrab.ogg', 100, FALSE)
+			if(do_after(user, 8, target = src))
+				user.changeNext_move(CLICK_CD_MELEE)
+				C.reagents.add_reagent(water_reagent, 200)
+				to_chat(user, span_notice("I gather snow from [src]."))
+			return
+	. = ..()
 
 /turf/open/floor/rogue/snowrough
 	name = "rough snow"
@@ -262,6 +269,9 @@
 	canSmoothWith = list(/turf/open/floor/rogue/snowrough,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/dirt,
+						/turf/open/floor/rogue/snow,
+						/turf/open/floor/rogue/grassswamp,
+						/turf/open/floor/rogue/ice,
 						/turf/open/floor/rogue/dirt/road)
 	neighborlay = "snowroughedge"
 	spread_chance = 0
@@ -285,7 +295,10 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/open/floor/rogue/snowrough)
+	canSmoothWith = list(/turf/open/floor/rogue/snowrough,
+						/turf/open/floor/rogue/snow,
+						/turf/open/floor/rogue/grassswamp,
+						/turf/open/floor/rogue/ice)
 	neighborlay = "snowpatchy_grassedge"
 
 /turf/open/floor/rogue/snowpatchy/cardinal_smooth(adjacencies)
@@ -304,13 +317,38 @@
 	slowdown = 0
 	smooth = SMOOTH_TRUE
 	neighborlay = "grass_coldedge"
-
+	canSmoothWith = list(/turf/open/floor/rogue/ice,
+						/turf/open/floor/rogue/snow)
 /turf/open/floor/rogue/grasscold/Initialize()
 	dir = pick(GLOB.cardinals)
 	. = ..()
 
 /turf/open/floor/rogue/grasscold/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
+
+
+/turf/open/floor/rogue/grassswamp
+	name = "swamp grass"
+	desc = "Мерзкая, влажная трава."
+	icon_state = "grass_swamp"
+	layer = MID_TURF_LAYER
+	footstep = FOOTSTEP_GRASS
+	barefootstep = FOOTSTEP_SOFT_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	landsound = 'sound/foley/jumpland/grassland.wav'
+	slowdown = 0
+	smooth = SMOOTH_TRUE
+	neighborlay = "grass_swampedge"
+	canSmoothWith = list(/turf/open/floor/rogue/ice,
+						/turf/open/floor/rogue/snow)
+/turf/open/floor/rogue/grassswamp/Initialize()
+	dir = pick(GLOB.cardinals)
+	. = ..()
+
+/turf/open/floor/rogue/grassswamp/cardinal_smooth(adjacencies)
+	roguesmooth(adjacencies)
+
 
 /turf/open/floor/rogue/grassred
 	name = "red grass"
@@ -430,8 +468,10 @@
 	slowdown = 2
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/grassswamp,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
+						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/AzureSand)
 	neighborlay = "dirtedge"
@@ -568,9 +608,11 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/grassswamp,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
+						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/AzureSand,)
 	neighborlay = "roadedge"
 	slowdown = 0
@@ -1142,6 +1184,50 @@
 
 /turf/open/floor/rogue/cobblerock/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
+
+/turf/open/floor/rogue/ice
+	icon_state = "ice"
+	name = "ice"
+	desc = "Плотный лёд. Совершенно без намёка возможности упасть в холодную воду."
+	footstep = FOOTSTEP_STONE
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/turf/open/floor/rogue,
+						/turf/closed/mineral,
+						/turf/closed/wall/mineral)
+	var/ice_break_chance = 25
+	// Нужно установить для работы системы атак
+	max_integrity = 1
+	turf_integrity = 1
+	damage_deflection = 0
+
+/turf/open/floor/rogue/ice/cardinal_smooth(adjacencies)
+	roguesmooth(adjacencies)
+
+/mob/living/proc/check_ice_break()
+	var/turf/current_turf = get_turf(src)
+	if(istype(current_turf, /turf/open/floor/rogue/ice))
+		// Не проламываем лёд в режиме SNEAK
+		if(m_intent == MOVE_INTENT_SNEAK)
+			return
+
+		var/turf/open/floor/rogue/ice/ice_turf = current_turf
+		if(prob(ice_turf.ice_break_chance))
+			visible_message(span_danger("[src] проваливается под лёд!"), span_danger("Я провалился под лёд!"))
+			playsound(current_turf, 'sound/alizeria/icecrack.ogg', 100, TRUE)
+
+			Paralyze(20) // 20 deciseconds = 2 секунды
+			current_turf.ChangeTurf(/turf/open/water/coldwater)
+
+/mob/living/Life(...)
+	..()
+	check_ice_break()
+
+/turf/open/floor/rogue/ice/Initialize()
+	dir = pick(GLOB.cardinals)
+	. = ..()
 
 /obj/effect/decal/cobbleedge
 	name = "old cobble path"

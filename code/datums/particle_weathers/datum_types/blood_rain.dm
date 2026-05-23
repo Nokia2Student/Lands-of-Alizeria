@@ -1,3 +1,8 @@
+/datum/stressevent/bloodrain
+	timer = 180 SECONDS
+	stressadd = 3
+	desc = span_red("Дождь из крови... Жуть.")
+
 /particles/weather/blood_rain
 	icon_state             = "drop"
 	color                  = "#ff0000"
@@ -30,10 +35,33 @@
 	immunity_type = TRAIT_RAINSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_BLOODRAIN
+	/// Сохраняем оригинальный цвет для восстановления
+	var/old_picked_color
+
+/datum/particle_weather/blood_rain_gentle/start()
+	. = ..()
+	// Сохраняем текущий цвет и плавно устанавливаем красный
+	if(SSoutdoor_effects)
+		old_picked_color = SSoutdoor_effects.picked_color
+		// Плавно обновляем цвет для всех игроков
+		for(var/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/SP in SSoutdoor_effects.sunlighting_planes)
+			animate(SP, color = "#cc0000", time = 30, easing = EASE_IN)
+
+/datum/particle_weather/blood_rain_gentle/end()
+	. = ..()
+	// Восстанавливаем оригинальный цвет
+	if(SSoutdoor_effects && old_picked_color)
+		for(var/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/SP in SSoutdoor_effects.sunlighting_planes)
+			animate(SP, color = old_picked_color, time = 30, easing = EASE_IN)
 
 /datum/particle_weather/blood_rain_gentle/weather_act(mob/living/L)
 	L.adjust_fire_stacks(-100)
 	L.SoakMob(FULL_BODY)
+	// Добавляем стресс-эвент для персонажей на улице
+	if(isliving(L) && L.client)
+		var/area/A = get_area(L)
+		if(A && A.outdoors)
+			L.add_stress(/datum/stressevent/bloodrain)
 
 /datum/particle_weather/blood_rain_storm
 	name = "Rain"
@@ -51,8 +79,31 @@
 	immunity_type = TRAIT_RAINSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_BLOODRAIN
+	/// Сохраняем оригинальный цвет для восстановления
+	var/old_picked_color
+
+/datum/particle_weather/blood_rain_storm/start()
+	. = ..()
+	// Сохраняем текущий цвет и плавно устанавливаем красный
+	if(SSoutdoor_effects)
+		old_picked_color = SSoutdoor_effects.picked_color
+		// Плавно обновляем цвет для всех игроков
+		for(var/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/SP in SSoutdoor_effects.sunlighting_planes)
+			animate(SP, color = "#cc0000", time = 30, easing = EASE_IN)
+
+/datum/particle_weather/blood_rain_storm/end()
+	. = ..()
+	// Восстанавливаем оригинальный цвет
+	if(SSoutdoor_effects && old_picked_color)
+		for(var/atom/movable/screen/fullscreen/lighting_backdrop/sunlight/SP in SSoutdoor_effects.sunlighting_planes)
+			animate(SP, color = old_picked_color, time = 30, easing = EASE_IN)
 
 //Makes you a bit chilly
 /datum/particle_weather/blood_rain_storm/weather_act(mob/living/L)
 	L.adjust_fire_stacks(-100)
 	L.SoakMob(FULL_BODY)
+	// Добавляем стресс-эвент для персонажей на улице
+	if(isliving(L) && L.client)
+		var/area/A = get_area(L)
+		if(A && A.outdoors)
+			L.add_stress(/datum/stressevent/bloodrain)

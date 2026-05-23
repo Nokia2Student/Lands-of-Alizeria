@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/aerosolize
-	name = "Aerosolize" //once again renamed to fit better :)
-	desc = "Turns a container of liquid into a smoke containing the reagents of that liquid."
+	name = "Распыление" //once again renamed to fit better :)
+	desc = "Превращает ёмкость с жидкостью в дым, содержащий реагенты этой жидкости."
 	overlay_state = "aerosolize"
 	releasedrain = 50
 	chargetime = 3
@@ -40,18 +40,18 @@
 					smoke.set_up(R, 1, T, FALSE)
 					smoke.start()
 
-					user.visible_message(span_warning("[user] sprays the contents of the [held_item], creating a cloud!"), span_warning("You spray the contents of the [held_item], creating a cloud!"))
+					user.visible_message(span_warning("[user] распыляет содержимое [held_item], создавая облако!"), span_warning("Вы распыляете содержимое [held_item], создавая облако!"))
 					con.reagents.clear_reagents() //empty the container
 					playsound(user, 'sound/magic/webspin.ogg', 100)
 				else
-					to_chat(user, "<span class='warning'>The [held_item] is empty!</span>")
+					to_chat(user, "<span class='warning'>[held_item] пуст!</span>")
 					revert_cast()
 			else
-				to_chat(user, "<span class='warning'>I can't get access to the contents of this [held_item]!</span>")
+				to_chat(user, "<span class='warning'>Я не могу получить доступ к содержимому этого [held_item]!</span>")
 				revert_cast()
 		else
-			to_chat(user, "<span class='warning'>I need to hold a container to cast this!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно держать ёмкость в руках, чтобы сотворить это!</span>")
 			revert_cast()
 	else
-		to_chat(user, "<span class='warning'>I couldn't find a good place for this!</span>")
+		to_chat(user, "<span class='warning'>Я не нашёл подходящего места для этого!</span>")
 		revert_cast()

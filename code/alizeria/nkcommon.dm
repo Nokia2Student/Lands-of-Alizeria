@@ -39,7 +39,7 @@
 
 /mob/living/carbon/human/species/human/northern/nkcommon/after_creation()
 	..()
-	job = "Psychopath"
+	job = "Adventurer"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -94,6 +94,20 @@
 		real_name = pick(world.file2list("strings/rt/names/human/vikingf.txt"))
 	else
 		real_name = pick(world.file2list("strings/rt/names/human/vikingm.txt"))
+
+	if(gender == FEMALE)
+		var/obj/item/organ/breasts/breasts = new()
+		breasts.Insert(src, TRUE, FALSE)
+
+		var/obj/item/organ/vagina/vagina = new()
+		vagina.Insert(src, TRUE, FALSE)
+	else
+		var/obj/item/organ/penis/penis = new()
+		penis.Insert(src, TRUE, FALSE)
+
+		var/obj/item/organ/testicles/testicles = new()
+		testicles.Insert(src, TRUE, FALSE)
+
 	update_hair()
 	update_body()
 

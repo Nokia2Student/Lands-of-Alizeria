@@ -3,8 +3,8 @@
 // But I am not nuking it from Acolyte yet so it will be unavailable to mage.
 // I repathed it to avoid it becoming available to mages again.
 /obj/effect/proc_holder/spell/invoked/blindness
-	name = "Blindness"
-	desc = "Direct a mote of living darkness to temporarily blind another."
+	name = "Слепота"
+	desc = "Направьте частицу живой тьмы, чтобы временно ослепить другого."
 	overlay_state = "blindness"
 	clothes_req = FALSE
 	releasedrain = 30
@@ -29,7 +29,7 @@
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
 			return FALSE
-		target.visible_message(span_warning("[user] points at [target]'s eyes!"),span_warning("My eyes are covered in darkness!"))
+		target.visible_message(span_warning("[user] указывает на глаза [target]!"), span_warning("Мои глаза покрыты тьмой!"))
 		var/strength = min(user.get_skill_level(associated_skill) * 4, 4)
 		target.blind_eyes(strength)
 		return TRUE
@@ -40,9 +40,9 @@
 	invocation = "Noishi blinds thee of thy sins!"
 
 /obj/effect/proc_holder/spell/invoked/invisibility
-	name = "Invisibility"
+	name = "Невидимость"
 	overlay_state = "invisibility"
-	desc = "Make another (or yourself) invisible for some time. Duration scales with the arcyne skill. Casting, attacking or being attacked will cancel the duration."
+	desc = "Сделайте другого (или себя) невидимым на некоторое время. Длительность зависит от навыка арканы. Применение заклинания, атака или получение урона отменяет эффект."
 	releasedrain = 60
 	chargedrain = 1
 	chargetime = 5
@@ -61,7 +61,7 @@
 
 /obj/effect/proc_holder/spell/invoked/invisibility/miracle
 	miracle = TRUE
-	desc = "Make another (or yourself) invisible for some time. Duration scales with the holy skill. Casting, attacking or being attacked will cancel the duration."
+	desc = "Сделайте другого (или себя) невидимым на некоторое время. Длительность зависит от навыка святости. Применение заклинания, атака или получение урона отменяет эффект."
 	devotion_cost = 25
 	chargetime = 0
 	chargedrain = 0
@@ -73,21 +73,21 @@
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
 			return FALSE
-		target.visible_message(span_warning("[target] starts to fade into thin air!"), span_notice("You start to become invisible!"))
+		target.visible_message(span_warning("[target] начинает исчезать в воздухе!"), span_notice("Вы начинаете становиться невидимым!"))
 		var/dur = max((5 * (user.get_skill_level(associated_skill))), 5)
 		if(dur >= recharge_time)
 			recharge_time = dur + 5 SECONDS
 		animate(target, alpha = 0, time = 1 SECONDS, easing = EASE_IN)
 		target.mob_timers[MT_INVISIBILITY] = world.time + dur SECONDS
 		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living, update_sneak_invis), TRUE), dur SECONDS)
-		addtimer(CALLBACK(target, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[target] fades back into view."), span_notice("You become visible again.")), dur SECONDS)
+		addtimer(CALLBACK(target, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[target] появляется снова из ниоткуда."), span_notice("Вы снова становитесь видимым.")), dur SECONDS)
 		return TRUE
 	revert_cast()
 	return FALSE
 
 /obj/effect/proc_holder/spell/self/noc_spell_bundle
-	name = "Arcyne Affinity"
-	desc = "Allows you to learn new spells over time through divine insight."
+	name = "Арканное сродство"
+	desc = "Позволяет вам изучать новые заклинания со временем через божественное откровение."
 	miracle = TRUE
 	devotion_cost = 200
 	recharge_time = 25 MINUTES
@@ -134,7 +134,7 @@
 	for(var/i in 1 to choice_count)
 		if(!length(available_spells))
 			break
-		var/choice = input(user, "Choose a spell! Choices remaining: [choice_count_visual]") as null|anything in available_spells
+		var/choice = input(user, "Выберите заклинание! Осталось выборов: [choice_count_visual]") as null|anything in available_spells
 		if(isnull(choice))
 			break
 		var/picked_spell = available_spells[choice]
@@ -145,9 +145,9 @@
 
 //15 PER peer-ahead.
 /obj/effect/proc_holder/spell/invoked/noc_sight
-	name = "Noc's Gaze"
+	name = "Взор Нок"
 	overlay_state = "noc_sight"
-	desc = "Peer ahead."
+	desc = "Заглянуть вперёд."
 	chargetime = 0
 	chargedrain = 0
 	clothes_req = FALSE
@@ -194,12 +194,12 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/noc_sight/kazengun
-	name = "Noishi's Gaze"
+	name = "Взор Ноиши"
 	invocation = "Noishi guide my gaze."
 
 /obj/effect/proc_holder/spell/invoked/silence
-	name = "Silence"
-	desc = "Clamp shut a voice by holy command, denying speech for a short while."
+	name = "Молчание"
+	desc = "Запечатайте голос божественным велением, лишая речи на короткое время."
 	overlay_state = "silence"
 	clothes_req = FALSE
 	releasedrain = 30
@@ -227,8 +227,8 @@
 		return FALSE
 
 	target.visible_message(
-		span_warning("[user] gestures at [target]'s throat!"),
-		span_warning("A crushing hush seals my voice!")
+		span_warning("[user] указывает на горло [target]!"),
+		span_warning("Сокрушительная тишина сковывает мой голос!")
 	)
 
 	var/skill = max(1, user.get_skill_level(associated_skill))
@@ -239,8 +239,8 @@
 
 	addtimer(
 		CALLBACK(target, TYPE_PROC_REF(/atom/movable, visible_message),
-			span_notice("[target] finds their voice again."),
-			span_notice("My voice returns.")
+			span_notice("[target] вновь обретает голос."),
+			span_notice("Мой голос возвращается.")
 		),
 		dur_ds
 	)

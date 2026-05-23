@@ -6,14 +6,14 @@
 	effectedstats = list("speed" = -1)
 
 /atom/movable/screen/alert/status_effect/buff/frost
-	name = "Shivering"
-	desc = "My body can't stop shaking."
+	name = "Дрожь"
+	desc = "Моё тело не может перестать дрожать."
 	icon_state = "debuff"
 
 /datum/status_effect/buff/frost/tick()
 	var/mob/living/target = owner
 	if(prob(20))
-		target.emote(pick("shiver"))
+		target.emote(pick("дрожит"))
 
 /datum/status_effect/buff/frost/on_apply()
 	. = ..()
@@ -28,8 +28,8 @@
 	effectedstats = list("speed" = -2)
 
 /atom/movable/screen/alert/status_effect/buff/frostbite
-	name = "Frostbite"
-	desc = "My limbs are frozen stiff!"
+	name = "Обморожение"
+	desc = "Мои конечности закоченели!"
 	icon_state = "debuff"
 
 /datum/status_effect/buff/frostbite/on_apply()
@@ -59,15 +59,15 @@
 	effectedstats = list("speed" = -2,"strength" = -2,"constitution"= -2,"endurance" = -2)
 
 /atom/movable/screen/alert/status_effect/buff/witherd
-	name = "Withering"
-	desc = "I can feel my physical prowess waning."
+	name = "Иссушение"
+	desc = "Я чувствую, как мои физические силы угасают."
 	icon_state = "debuff"
 	color = "#b884f8" //talk about a coder sprite x2
 
 
 /datum/status_effect/buff/witherd/on_apply()
 	. = ..()
-	to_chat(owner, span_warning("I feel sapped of vitality!"))
+	to_chat(owner, span_warning("Я чувствую себя лишённым жизненных сил!"))
 	var/mob/living/target = owner
 	target.update_vision_cone()
 	var/newcolor = rgb(207, 135, 255)
@@ -76,7 +76,7 @@
 
 /datum/status_effect/buff/witherd/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("I feel my physical prowess returning."))
+	to_chat(owner, span_warning("Я чувствую, как мои физические силы возвращаются."))
 
 
 /datum/status_effect/buff/lightningstruck
@@ -86,8 +86,8 @@
 	effectedstats = list("speed" = -2)
 
 /atom/movable/screen/alert/status_effect/buff/lightningstruck
-	name = "Lightning Struck"
-	desc = "I can feel the electricity coursing through me."
+	name = "Поражённый молнией"
+	desc = "Я чувствую, как электричество бежит по моему телу."
 	icon_state = "debuff"
 	color = "#ffff00"
 

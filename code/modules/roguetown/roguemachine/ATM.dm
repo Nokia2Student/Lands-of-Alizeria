@@ -13,6 +13,9 @@
 	var/location_tag
 
 /obj/structure/roguemachine/atm/attack_hand(mob/user)
+	if(!check_generator_power())
+		to_chat(user, span_warning("Без энергии генератора это не работает..."))
+		return TRUE
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user

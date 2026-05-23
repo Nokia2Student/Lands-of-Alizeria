@@ -66,12 +66,12 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 				if("rain")
 					if(SSParticleWeather?.runningWeather?.target_trait == PARTICLEWEATHER_RAIN)
 						foundnd = TRUE
-						
+
 					if(!foundnd)
 						if(istype(SSgamemode.current_storyteller, /datum/storyteller/graggar))
-							SSParticleWeather?.run_weather(pick(/datum/particle_weather/blood_rain_gentle, /datum/particle_weather/blood_rain_storm))
+							SSParticleWeather?.run_weather(pick(/datum/particle_weather/blood_rain_gentle, /datum/particle_weather/blood_rain_storm, /datum/particle_weather/snow_gentle, /datum/particle_weather/snow_storm))
 						else
-							SSParticleWeather?.run_weather(pick(/datum/particle_weather/rain_gentle, /datum/particle_weather/rain_storm))
+							SSParticleWeather?.run_weather(pick(/datum/particle_weather/blood_rain_gentle, /datum/particle_weather/blood_rain_storm, /datum/particle_weather/snow_gentle, /datum/particle_weather/snow_storm))
 				if("snow")
 					if(SSParticleWeather?.runningWeather?.target_trait == PARTICLEWEATHER_SNOW)
 						foundnd = TRUE
@@ -124,19 +124,19 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 		var/text_to_show
 		switch(GLOB.dayspassed)
 			if(1)
-				text_to_show = "DAWN OF THE FIRST DAE\nMOON'S DAE"
+				text_to_show = "Первое утро после новолуния..."
 			if(2)
-				text_to_show = "DAWN OF THE SECOND DAE\nTIW'S DAE"
+				text_to_show = "Второе утро после новолуния..."
 			if(3)
-				text_to_show = "DAWN OF THE THIRD DAE\nWEDDING'S DAE"
+				text_to_show = "Третье утро после новолуния..."
 			if(4)
-				text_to_show = "DAWN OF THE FOURTH DAE\nTHULE'S DAE"
+				text_to_show = "Четвёртое утро после новолуния..."
 			if(5)
-				text_to_show = "DAWN OF THE FIFTH DAE\nFREYJA'S DAE"
+				text_to_show = "Пятое утро после новолуния..."
 			if(6)
-				text_to_show = "DAWN OF THE SIXTH DAE\nSATURN'S DAE"
+				text_to_show = "Шестое утро после новолуния..."
 			if(7)
-				text_to_show = "DAWN OF THE SEVENTH DAE\nSUN'S DAE"
+				text_to_show = "Последнее утро после новолуния..."
 		if(!text_to_show)
 			return
 		if(text_to_show in mind.areas_entered)
@@ -145,20 +145,20 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 		var/atom/movable/screen/area_text/T = new()
 		client.screen += T
 		T.maptext = {"<span style='vertical-align:top; text-align:center;
-					color: #7c5b10; font-size: 150%;
+					color: #d1dfe6; font-size: 150%;
 					text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 					font-family: "Nosfer", "Pterra";'>[text_to_show]</span>"}
 		T.maptext_width = 205
 		T.maptext_height = 209
 		T.maptext_x = 12
-		T.maptext_y = -120
+		T.maptext_y = -240
 		playsound_local(src, 'sound/misc/newday.ogg', 60, FALSE)
 		animate(T, alpha = 255, time = 10, easing = EASE_IN)
 		addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
 		var/time_change_tips_random = pick(GLOB.time_change_tips)
 		to_chat(client, span_notice("<b>[time_change_tips_random]</b>"))
-		
-		if(HAS_TRAIT(mind.current, TRAIT_NOSLEEP)) // new hackslop to allow anything that cannot sleep to do their daily stuff 
+
+		if(HAS_TRAIT(mind.current, TRAIT_NOSLEEP)) // new hackslop to allow anything that cannot sleep to do their daily stuff
 			if(mind.has_changed_spell)
 				mind.has_changed_spell = FALSE
 				to_chat(mind.current, span_smallnotice("I feel like I can change my spells again."))

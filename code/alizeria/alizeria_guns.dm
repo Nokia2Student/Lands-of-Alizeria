@@ -33,12 +33,30 @@
 	hasloadedsprite = TRUE
 	onehanded = TRUE
 
+/obj/item/gun/ballistic/revolver/grenadelauncher/aliz/gun/uspistol
+	name = "pistol"
+	desc = "Самый обычный пистоль, что частенько используется пиратами и разбойниками Жантара."
+	fire_sound = 'sound/alizeria/guns/shot2.ogg'
+	icon_state = "pistol_us0"
+	item_state = "pistol_us"
+	chargingspeed = 40
+	reloadtime = 40
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/aliz/gun/gangpistol
+	name = "luxury pistol"
+	desc = "Позолоченный, именной пистоль какого-то криминального авторитета. Несмотря на все украшения - пистоль на самом деле, всё также остаётся дешёвым аналогом настоящих оружий."
+	fire_sound = 'sound/alizeria/guns/shot1.ogg'
+	icon_state = "pistol_boss0"
+	item_state = "pistol_boss"
+	chargingspeed = 30
+	reloadtime = 30
+
 /obj/item/gun/ballistic/revolver/grenadelauncher/aliz/gun/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
 			if("gen")
-				return list("shrink" = 0.5,"sx" = -4,"sy" = -6,"nx" = 9,"ny" = -6,"wx" = -6,"wy" = -4,"ex" = 4,"ey" = -6,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 90,"wturn" = 93,"eturn" = -12,"nflip" = 0,"sflip" = 1,"wflip" = 0,"eflip" = 0)
+				return list("shrink" = 0.5,"sx" = -8,"sy" = -6,"nx" = 9,"ny" = -6,"wx" = -6,"wy" = -4,"ex" = 4,"ey" = -6,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = -180,"wturn" = 93,"eturn" = -12,"nflip" = 0,"sflip" = 1,"wflip" = 0,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
@@ -65,7 +83,7 @@
 		var/newtime = chargetime
 		//skill block
 		newtime += basetime
-		newtime -= (mastermob.get_skill_level(/datum/skill/combat/crossbows) * 4.25) // minus 4.25 per skill point
+		newtime -= (mastermob.get_skill_level(/datum/skill/combat/guns) * 4.25) // minus 4.25 per skill point
 		newtime -= ((mastermob.STAPER)) // minus 1 per perception
 
 		if(c_bow.onehanded)
@@ -102,7 +120,7 @@
 		var/newtime = chargetime
 		//skill block
 		newtime += basetime
-		newtime -= (mastermob.get_skill_level(/datum/skill/combat/crossbows) * 20)
+		newtime -= (mastermob.get_skill_level(/datum/skill/combat/guns) * 20)
 		//per block
 		newtime += 20
 		newtime -= ((mastermob.STAPER)*1.5)
@@ -127,6 +145,11 @@
 	if(chambered)
 		..()
 	else
+		// Проверка навыка crossbows
+		if(user.get_skill_level(/datum/skill/combat/guns) <= 0)
+			to_chat(user, span_warning("Я <u>вообще</u> не понимаю как пользоваться этой штукой..."))
+			return
+
 		if(!cocked)
 			to_chat(user, span_info("Я взвожу своё оружие..."))
 			if(!movingreload)
@@ -164,16 +187,24 @@
 			spread = 150 - (150 * (user.client.chargedprog / 100))
 	else
 		spread = 0
+
+	if(prob(15))
+		spread += rand(30, 60) // add random deviation between 30-60 degrees
+
 	for(var/obj/item/ammo_casing/CB in get_ammo_list(FALSE, TRUE))
 		var/obj/projectile/BB = CB.BB
 
 		BB.accuracy += accfactor * (user.STAPER - 8) * 3 // 8+ PER gives +3 per level. Exponential.
 		BB.bonus_accuracy += (user.STAPER - 8) // 8+ PER gives +1 per level. Does not decrease over range.
-		BB.bonus_accuracy += (user.get_skill_level(/datum/skill/combat/crossbows) * 5) // +5 per XBow level.
+		BB.bonus_accuracy += (user.get_skill_level(/datum/skill/combat/guns) * 5) // +5 per XBow level.
 		BB.damage *= damfactor
 	cocked = FALSE
 
+
 	..()
+
+	if(user.client)
+		shake_camera(user, 2, 1)
 
 	if(!onehanded)
 		return
@@ -232,7 +263,7 @@
 	armor_penetration = 70
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "musketball_proj"
-	ammo_type = /obj/item/ammo_casing/caseless/rogue/pyla
+	ammo_type = null
 	range = 15
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
@@ -240,15 +271,58 @@
 	flag = "piercing"
 	speed = 0.5
 	npc_damage_mult = 2
+	var/sway_chance = 20
+
+/obj/projectile/bullet/reusable/pyla/on_hit(target, armor)
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		if(def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG)
+			H.Knockdown(10)
+			H.visible_message(span_danger("[H] падает на землю после попадания в ногу!"), span_userdanger("Ты падаешь на землю!"))
+	return ..()
+
+/obj/projectile/bullet/reusable/pyla/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(!isliving(target))
+		return
+
+	var/mob/living/victim = target
+	var/head_bodypart = victim.get_bodypart(BODY_ZONE_HEAD)
+
+	if(!head_bodypart)
+		return
+
+	// Проверяем, есть ли шлем на голове
+	var/has_helmet = FALSE
+	if(ishuman(victim))
+		var/mob/living/carbon/human/H = victim
+		if(H.head && istype(H.head, /obj/item/clothing/head/roguetown/helmet))
+			has_helmet = TRUE
+
+	// Определяем вероятность смерти в зависимости от наличия шлема
+	var/death_chance = has_helmet ? 20 : 50
+
+	// Если случайное число меньше вероятности смерти
+	if(def_zone == BODY_ZONE_HEAD)
+		if(prob(death_chance))
+			victim.visible_message(span_userdanger("ПОПАДЕНИЕ В ГОЛОВУ! [victim] падает замертво..."))
+			to_chat(victim, span_userdanger("ПОПАДЕНИЕ В ГОЛОВУ! [victim] падает замертво..."))
+			victim.death()
+		else
+		// Иначе - критическое состояние на 60 секунд
+			victim.visible_message(span_warning("ПОПАДАНИЕ В ГОЛОВУ! [victim] резко падает, но ещё двигается..."))
+			to_chat(victim, span_warning("ПОПАДАНИЕ В ГОЛОВУ! [victim] резко падает, но ещё двигается..."))
+			victim.Unconscious(15 SECONDS)
 
 /////////////////////////////////////////
 
 /obj/item/quiver/pylipistol
 	name = "сумка с пистольными пулями"
+	desc = "Качественная сумка для ношения пуль. Вмещает в себя восемь снарядов."
 	icon_state = "pylisatchel0"
 	item_state = "pylisatchel"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
-	max_storage = 40
+	max_storage = 8
 
 /obj/item/quiver/pylipistol/Initialize()
 	..()
@@ -262,3 +336,24 @@
 		icon_state = "pylisatchel1"
 	else
 		icon_state = "pylisatchel0"
+
+/obj/item/quiver/pylipistolalt
+	name = "малая сумка с пистольными пулями"
+	desc = "Дешёвая сумка для ношения пуль. Вмещает в себя пять снарядов."
+	icon_state = "smallpylisatchel0"
+	item_state = "smallpylisatchel"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	max_storage = 5
+
+/obj/item/quiver/pylipistolalt/Initialize()
+	..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/pyla/A = new()
+		arrows += A
+	update_icon()
+
+/obj/item/quiver/pylipistolalt/update_icon()
+	if(arrows.len)
+		icon_state = "smallpylisatchel1"
+	else
+		icon_state = "smallpylisatchel0"

@@ -139,7 +139,7 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	to_chat(user, span_notice("I push the wall but nothing happens!"))
+	to_chat(user, span_notice("Я пытаюсь трогать стену, но ничего не происходит."))
 	playsound(src, 'sound/blank.ogg', 25, TRUE)
 	add_fingerprint(user)
 
@@ -266,7 +266,7 @@
         disappear()
         return
     else
-        return ..() 
+        return ..()
 
 /turf/closed/wall/churchpass/proc/disappear()
     density = FALSE

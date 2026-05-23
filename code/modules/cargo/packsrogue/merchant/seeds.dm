@@ -1,12 +1,12 @@
 
 
 /datum/supply_pack/rogue/seeds
-	group = "Seeds"
+	group = "Семена"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/seeds/spelt
-	name = "Spelt"
+	name = "Полба"
 	cost = 11
 	contains = list(
 					/obj/item/seeds/wheat,
@@ -18,7 +18,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/apple
-	name = "Apple"
+	name = "Яблоко"
 	cost = 12
 	contains = list(
 					/obj/item/seeds/apple,
@@ -29,7 +29,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/weed
-	name = "Pipeweed"
+	name = "Трубочник"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/pipeweed,
@@ -40,7 +40,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/swampweed
-	name = "Swampweed"
+	name = "Болотник"
 	cost = 30
 	contains = list(
 					/obj/item/seeds/swampweed,
@@ -50,7 +50,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/berry
-	name = "Berry"
+	name = "Ягоды"
 	cost = 10
 	contains = list(
 					/obj/item/seeds/berryrogue,
@@ -60,7 +60,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/onion
-	name = "Onion"
+	name = "Лук"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/onion,
@@ -71,7 +71,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/cabbage
-	name = "Cabbage"
+	name = "Капуста"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/cabbage,
@@ -82,7 +82,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/potato
-	name = "Potato"
+	name = "Картофель"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/potato,
@@ -93,7 +93,7 @@
 				)
 
 /datum/supply_pack/rogue/seeds/poppy
-	name = "Poppy"
+	name = "Мак"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/poppy,
@@ -105,7 +105,7 @@
 
 
 /datum/supply_pack/rogue/seeds/coffee
-	name = "Coffee"
+	name = "Кофе"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/coffee,
@@ -117,7 +117,7 @@
 
 
 /datum/supply_pack/rogue/seeds/tea
-	name = "Tea"
+	name = "Чай"
 	cost = 15
 	contains = list(
 					/obj/item/seeds/tea,

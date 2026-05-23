@@ -42,7 +42,7 @@
 #define BLOOD_VOLUME_BAD 224
 #define BLOOD_VOLUME_SURVIVE 122
 
-/// Blood pool regeneration in non-vampiric living mobs per SSmobs tick. 
+/// Blood pool regeneration in non-vampiric living mobs per SSmobs tick.
 #define BLOODPOL_REGEN 2
 
 //Sizes of mobs, used by mob/living/var/mob_size
@@ -468,8 +468,8 @@
 #define SKIN_COLOR_MORNING "dbaB8f"
 #define SKIN_COLOR_NOON "be8f73"
 #define SKIN_COLOR_EVENING "a57962"
-#define SKIN_COLOR_SUNSET "7B5752"  
-#define SKIN_COLOR_DUSK "564044" 
+#define SKIN_COLOR_SUNSET "7B5752"
+#define SKIN_COLOR_DUSK "564044"
 #define SKIN_COLOR_GILDED "e1b772"
 #define SKIN_COLOR_BRASS_ELF "d6a35b"
 
@@ -589,7 +589,7 @@
 #define SKIN_COLOR_SERRA "6b8e23"
 
 //SPECIAL SKIN TONES
-#define SKIN_COLOR_ROT "878f79"
+#define SKIN_COLOR_ROT "FFFFFF"
 
 //LIZARD SKIN TONES
 #define LIZARD_SKIN_SUNNY "cdae46"

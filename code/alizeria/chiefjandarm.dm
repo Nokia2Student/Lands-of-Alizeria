@@ -1,7 +1,7 @@
 #define FIRE_GUARD_COOLDOWN (30 SECONDS)
 
 /datum/job/roguetown/marshgen
-	title = "Marshall of Gendarmes"
+	title = "Prevost of Gendarmes"
 	flag = MARSHGEN
 	department_flag = MERCENARIES
 	faction = "Station"
@@ -9,7 +9,7 @@
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
-	tutorial = "ќтносительно недавно ты прибыл вместе с действующим наместником на этот остров, перед этим дав кл€тву вместе со своими людьми - защищать и оберегать корону, а также еЄ подданых. ”коренившеес€ общество јлизерии было неочень радо вашему прибытию на всЄ готовое и какой-то момент времени вам приходилось подавл€ть народные волнени€. Ѕлаго эти времена прошли и на улицах отныне царит относительный пор€док, однако сможете ли вы его сохранить?"
+	tutorial = "ќтносительно недавно ты прибыл на јлизерию, когда корона решила окончательно превратить остров в своЄ владение. ѕосле подавлени€ беспор€дков именно ты оказалс€ самым вли€тельным двор€нином среди местной знати и вз€л на себ€ брем€ несени€ воли ћонфора. ƒл€ одних ты гарант пор€дка, дл€ других - лицо оккупации. “еперь улицы спокойнее, но покой здесь всегда стоит дорого. —умеешь ли ты удержать власть, когда штормы бушуют не только в море?"
 	display_order = JDO_MARSHGEN
 	selection_color = JCOLOR_MERCENARY
 	always_show_on_latechoices = TRUE
@@ -41,7 +41,7 @@
 		H.become_blind("advsetup")
 
 /datum/advclass/marshgen
-	name = "Marshall of Gendarmes"
+	name = "Prevost of Gendarmes"
 	tutorial = "ќтносительно недавно ты прибыл вместе с действующим наместником на этот остров, перед этим дав кл€тву вместе со своими людьми - защищать и оберегать корону, а также еЄ подданых. ”коренившеес€ общество јлизерии было неочень радо вашему прибытию на всЄ готовое и какой-то момент времени вам приходилось подавл€ть народные волнени€. Ѕлаго эти времена прошли и на улицах отныне царит относительный пор€док, однако сможете ли вы его сохранить?"
 	category_tags = list(CTAG_MARSHGEN)
 	subclass_stats = list(
@@ -58,10 +58,11 @@
 		/datum/skill/combat/swords = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/maces = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/combat/crossbows = SKILL_LEVEL_MASTER,
+		/datum/skill/combat/crossbows = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/bows = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_MASTER,
+		/datum/skill/combat/guns = SKILL_LEVEL_LEGENDARY,
 		/datum/skill/craft/traps = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN, //Paperwork RP
 		/datum/skill/misc/athletics = SKILL_LEVEL_MASTER,
@@ -77,7 +78,7 @@
 	)
 
 /datum/outfit/job/marshgen
-	name = "Marshall of Gendarmes"
+	name = "Prevost of Gendarmes"
 	has_loadout = TRUE
 	jobtype = /datum/job/roguetown/marshgen
 
@@ -87,12 +88,12 @@
 		head = /obj/item/clothing/head/roguetown/jandarms/cief
 		cloak = /obj/item/clothing/cloak/jandarms/cief
 		backr = /obj/item/storage/backpack/rogue/satchel
-		backl = /obj/item/quiver/pylipistol
+		backl = /obj/item/gun/ballistic/revolver/grenadelauncher/aliz/rifle
 		armor = /obj/item/clothing/suit/roguetown/armor/alizeria/jandarms/chief/armor
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 		gloves = /obj/item/clothing/gloves/roguetown/alizeria/noblegloves
 		id = /obj/item/scomstone
-		beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
+		beltr = /obj/item/quiver/mpylipistol
 		belt = /obj/item/storage/belt/rogue/leather/plaquegold
 		beltl = /obj/item/rogueweapon/sword/rapier/dec
 		pants = /obj/item/clothing/under/roguetown/tights/alizeria/jandarms/instructor
@@ -102,20 +103,20 @@
 		head = /obj/item/clothing/head/roguetown/jandarms/cief
 		cloak = /obj/item/clothing/cloak/jandarms/cief/alt
 		backr = /obj/item/storage/backpack/rogue/satchel
-		backl = /obj/item/quiver/pylipistol
+		backl = /obj/item/gun/ballistic/revolver/grenadelauncher/aliz/rifle
 		armor = /obj/item/clothing/suit/roguetown/armor/alizeria/jandarms/chief/jacket
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 		pants = /obj/item/clothing/under/roguetown/tights/alizeria/jandarms/instructor
 		shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
-		beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
+		beltr = /obj/item/quiver/mpylipistol
 		belt = /obj/item/storage/belt/rogue/leather/plaquegold
 		beltl = /obj/item/rogueweapon/sword/rapier/dec
 		id = /obj/item/scomstone
 		gloves = /obj/item/clothing/gloves/roguetown/angle
 		wrists = /obj/item/storage/keyring/alizeria/janmashall
-
-	if(H.mind)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/haste)
+		backpack_contents = list(
+						/obj/item/storage/belt/rogue/pouch/coins/mid = 1
+						)
 
 	H.verbs |= /mob/proc/haltyell
 	H.verbs |= list(/mob/living/carbon/human/proc/cief_announcement)

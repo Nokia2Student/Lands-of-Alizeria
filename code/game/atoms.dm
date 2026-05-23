@@ -270,7 +270,7 @@
  * Goes throught he list of passed in parts, if they're reagents, adds them to our reagent holder
  * creating the reagent holder if it exists.
  *
- * If the part is a moveable atom and the  previous location of the item was a mob/living,
+ * If the part is a moveable atom and the previous location of the item was a mob/living,
  * it calls the inventory handler transferItemToLoc for that mob/living and transfers the part
  * to this atom
  *
@@ -416,9 +416,9 @@
 		if(reagents.flags & TRANSPARENT)
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents() || (user.Adjacent(src) && (user.get_skill_level(/datum/skill/craft/alchemy) >= 2 || HAS_TRAIT(user, TRAIT_CICERONE)))) //Show each individual reagent
-					. += "It contains:"
+					. += "Внутри содержится:"
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "[round(R.volume / 3, 0.1)] oz of <font color=[R.color]>[R.name]</font>"
+						. += "[round(R.volume / 3, 0.1)] унций <font color=[R.color]>[R.name]</font>"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					var/reagent_color
@@ -426,16 +426,16 @@
 						total_volume += R.volume
 					reagent_color = mix_color_from_reagents(reagents.reagent_list)
 					if(total_volume / 3 < 1)
-						. += "It contains less than 1 oz of <font color=[reagent_color]>something.</font>"
+						. += "Внутри меньше 1 унции <font color=[reagent_color]>чего-то.</font>"
 					else
-						. += "It contains [round(total_volume / 3)] oz of <font color=[reagent_color]>something.</font>"
+						. += "Внутри [round(total_volume / 3)] унций <font color=[reagent_color]>чего-то.</font>"
 			else
-				. += "Nothing."
+				. += "Пусто."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += span_notice("It has [round(reagents.total_volume / 3)] oz left.")
+				. += span_notice("Осталось [round(reagents.total_volume / 3)] унций.")
 			else
-				. += span_danger("It's empty.")
+				. += span_danger("Пусто.")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -497,7 +497,7 @@
 /atom/proc/relaymove(mob/user)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>I should try resisting.</span>")
+		to_chat(user, "<span class='warning'>Нужно попытаться вырваться.</span>")
 	return
 
 /// Handle what happens when your contents are exploded by a bomb
@@ -642,7 +642,7 @@
 	while (do_after(user, 10, TRUE, src, FALSE, CALLBACK(STR, TYPE_PROC_REF(/datum/component/storage, handle_mass_item_insertion), things, src_object, user, progress)))
 		stoplag(1)
 	qdel(progress)
-	to_chat(user, "<span class='notice'>I dump as much of [src_object.parent]'s contents [STR.insert_preposition]to [src] as I can.</span>")
+	to_chat(user, "<span class='notice'>Я высыпаю всё что могу из [src_object.parent] [STR.insert_preposition] в [src].</span>")
 	STR.orient2hud(user)
 	STR.update_icon()
 	src_object.update_icon()
@@ -820,7 +820,7 @@
 						else
 							valid_id = TRUE
 						if(!valid_id)
-							to_chat(usr, "<span class='warning'>A reagent with that ID doesn't exist!</span>")
+							to_chat(usr, "<span class='warning'>Реагента с таким ID не существует!</span>")
 				if("Choose from a list")
 					chosen_id = input(usr, "Choose a reagent to add.", "Choose a reagent.") as null|anything in sortList(subtypesof(/datum/reagent), GLOBAL_PROC_REF(cmp_typepaths_asc))
 				if("I'm feeling lucky")
@@ -946,7 +946,7 @@
 /atom/proc/multitool_check_buffer(user, obj/item/I, silent = FALSE)
 	if(!istype(I, /obj/item/multitool))
 		if(user && !silent)
-			to_chat(user, "<span class='warning'>[I] has no data buffer!</span>")
+			to_chat(user, "<span class='warning'>[I] не имеет буфера данных!</span>") // не знаю, что это, но перевел.
 		return FALSE
 	return TRUE
 

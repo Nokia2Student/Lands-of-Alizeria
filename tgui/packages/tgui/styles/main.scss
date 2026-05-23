@@ -22,6 +22,8 @@
 @include meta.load-css('./themes/azure_purple.scss');
 @include meta.load-css('./themes/trey_liam.scss');
 
+@include meta.load-css('./interfaces/CategoryButtons.scss');
+
 // Interfaces
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/Changelog.scss');

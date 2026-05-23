@@ -11,46 +11,46 @@
 
 /* 0 diff */
 /datum/crafting_recipe/roguetown/ceramics/clay/claycup
-	name = "clay cup"
+	name = "глиняная чашка"
 	result = list(/obj/item/natural/clay/claycup)
 	reqs = list(/obj/item/natural/clay = 1)
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/ceramics/clay/claycup3
-	name = "clay cup 3x"
+	name = "глиняная чашка (x3)"
 	result = list(/obj/item/natural/clay/claycup, /obj/item/natural/clay/claycup, /obj/item/natural/clay/claycup)
 	reqs = list(/obj/item/natural/clay = 3)
 	craftdiff = 0
 
 /* 1 diff */
 /datum/crafting_recipe/roguetown/ceramics/clay/claybottle
-	name = "clay bottle"
+	name = "глиняная бутылка"
 	result = list(/obj/item/natural/clay/claybottle)
 	reqs = list(/obj/item/natural/clay = 1)
 	craftdiff = 0
 
 /* 2 diff */
 /datum/crafting_recipe/roguetown/ceramics/clay/clayvase
-	name = "clay vase"
+	name = "глиняная ваза"
 	result = list(/obj/item/natural/clay/clayvase)
 	reqs = list(/obj/item/natural/clay = 2)
 	craftdiff = 2
 
 /* 3 diff */
 /datum/crafting_recipe/roguetown/ceramics/clay/clayfancyvase
-	name = "fancy clay vase"
+	name = "изысканная глиняная ваза"
 	result = list(/obj/item/natural/clay/clayfancyvase)
 	reqs = list(/obj/item/natural/clay = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/ceramics/clay/teapot
-	name = "teapot"
+	name = "заварочный чайник"
 	result = list(/obj/item/natural/clay/rawteapot)
 	reqs = list(/obj/item/natural/clay = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/ceramics/clay/teacup
-	name = "teacup"
+	name = "чайная чашка"
 	result = list(/obj/item/natural/clay/rawteacup)
 	reqs = list(/obj/item/natural/clay = 1)
 	craftdiff = 3
@@ -78,14 +78,14 @@
 	*/// -SunriseOYH 
 
 /datum/crafting_recipe/roguetown/ceramics/glassraw
-	name = "glass clay"			// This is not a clay, but I don't personally think 'batch' is fitting ICly.
+	name = "стеклянная смесь"			// This is not a clay, but I don't personally think 'batch' is fitting ICly.
 	tools = list(/obj/item/reagent_containers/glass/mortar, /obj/item/pestle)
 	result = list(/obj/item/natural/clay/glassbatch)
 	reqs = list(/obj/item/natural/clay = 2, /obj/item/ash = 2, /obj/item/natural/stone = 1)
 	craftdiff = 4 // Knowing how to mix glass is not a trivial knowledge.
 
 /datum/crafting_recipe/roguetown/ceramics/clay/claystatue
-	name = "clay statue"
+	name = "глиняная статуя"
 	result = list(/obj/item/natural/clay/claystatue)
 	reqs = list(/obj/item/natural/clay = 2)
 	craftdiff = 4
@@ -93,7 +93,7 @@
 /* 5 diff */ // High-end glass containers. Should be a direct upgrade to clay in every possible way.
 
 /datum/crafting_recipe/roguetown/ceramics/glass/statue 
-	name = "glass statue"
+	name = "стеклянная статуя"
 	result = list(/obj/item/roguestatue/glass)
 	reqs = list(/obj/item/natural/glass = 2)
 	craftdiff = 5

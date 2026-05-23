@@ -213,7 +213,7 @@
 //polearm objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/woodstaff
-	force = 10
+	force = 20
 	force_wielded = 15
 	possible_item_intents = list(SPEAR_BASH)
 	gripped_intents = list(SPEAR_BASH,/datum/intent/mace/smash/wood)
@@ -257,7 +257,7 @@
 /obj/item/rogueweapon/woodstaff/aries
 	name = "staff of the shepherd"
 	desc = "A sacred relic bestowed upon priests upon their coronation, symbolizing their divine authority and duty to guide the faithful."
-	force = 25
+	force = 50
 	force_wielded = 28
 	icon_state = "aries"
 	icon = 'icons/roguetown/weapons/polearms64.dmi'
@@ -311,9 +311,9 @@
 	return .
 
 /obj/item/rogueweapon/spear
-	force = 22
+	force = 44
 	force_wielded = 30
-	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_CUT_1H) 
+	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_CUT_1H)
 	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	name = "spear"
 	desc = "One of the oldest weapons still in use today, second only to the club. The lack of reinforcements along the shaft leaves it vulnerable to being split in two."
@@ -355,7 +355,7 @@
 	desc = "A decrepit old spear. Aeon's grasp is upon it."
 	icon_state = "ancient_spear"
 	smeltresult = /obj/item/ingot/aalloy
-	force = 13
+	force = 26
 	force_wielded = 22
 	max_integrity = 120
 	blade_dulling = DULLING_SHAFT_CONJURED
@@ -372,7 +372,7 @@
 	name = "psydonian spear"
 	desc = "An ornate spear, plated in a ceremonial veneer of silver. The barbs pierce your palm, and - for just a moment - you see red. Never forget that you are why the ten wept."
 	icon_state = "psyspear"
-	force = 15
+	force = 30
 	force_wielded = 25
 	minstr = 11
 	wdefense = 6
@@ -412,7 +412,7 @@
 				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 
 /obj/item/rogueweapon/spear/bonespear
-	force = 18
+	force = 36
 	force_wielded = 22
 	name = "bone spear"
 	desc = "A spear made of bones..."
@@ -446,7 +446,7 @@
 	throwforce = 15
 
 /obj/item/rogueweapon/spear/improvisedbillhook
-	force = 12
+	force = 24
 	force_wielded = 25
 	name = "improvised billhook"
 	desc = "Looks hastily made, even a little flimsy."
@@ -457,7 +457,7 @@
 	throwforce = 10
 
 /obj/item/rogueweapon/spear/stone
-	force = 15
+	force = 30
 	force_wielded = 18
 	name = "stone spear"
 	desc = "This handmade spear is simple, but does the job."
@@ -492,7 +492,7 @@
 	smeltresult = null
 
 /obj/item/rogueweapon/fishspear
-	force = 20
+	force = 40
 	possible_item_intents = list(SPEAR_THRUST, SPEAR_BASH, SPEAR_CAST) //bash is for nonlethal takedowns, only targets limbs
 	name = "fishing spear"
 	desc = "This two-pronged and barbed spear was made to catch those pesky fish."
@@ -523,7 +523,7 @@
 	sheathe_sound = 'sound/foley/equip/swordlarge1.ogg'
 
 /obj/item/rogueweapon/fishspear/depthseek //DO NOT ADD RECIPE. MEANT TO BE AN ABYSSORITE RELIC. IDEA COURTESY OF LORDINQPLAS
-	force = 45
+	force = 80
 	name = "blessed depthseeker"
 	desc = "A beautifully crafted weapon, with handle carved of some beast's bone, inlaid with smooth seaglass at pommel and head, with two prongs smithed of fine dwarven steel. The seaglass carving at the head is a masterwork in and of itself, you can feel an abyssal energy radiating off it."
 	icon_state = "depthseek"
@@ -713,7 +713,7 @@
 					)
 
 /obj/item/rogueweapon/halberd
-	force = 15
+	force = 30
 	force_wielded = 30
 	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, /datum/intent/axe/chop/battle/halberd, SPEAR_BASH)
@@ -764,7 +764,7 @@
 	desc = "A mutual effort of Noc and Astrata's followers, this halberd was forged with both Silver and Gold alike. Blessed to hold strength and bring hope. Whether dae or nite. The reinforced shaft provides greater durability."
 	icon_state = "gsspear"
 	max_integrity = 300
-	force = 20
+	force = 40
 	force_wielded = 35
 	is_silver = TRUE
 
@@ -784,7 +784,7 @@
 	name = "decrepit bardiche"
 	desc = "A decrepit bardiche. Aeon's grasp upon it."
 	max_integrity = 180
-	force = 12
+	force = 24
 	force_wielded = 22
 	icon_state = "ancient_bardiche"
 	smeltresult = /obj/item/ingot/aalloy
@@ -824,8 +824,8 @@
 	name = "psydonian halberd"
 	desc = "A reliable design that has served humenkind to fell the enemy and defend Psydon's flock - now fitted with a lengthier blade and twin, silver-tipped beaks."
 	icon_state = "silverhalberd"
-	force = 10
-	force_wielded = 25
+	force = 20
+	force_wielded = 35
 	minstr = 11
 	wdefense = 7
 	is_silver = TRUE
@@ -866,8 +866,8 @@
 
 
 /obj/item/rogueweapon/eaglebeak
-	force = 15
-	force_wielded = 30
+	force = 30
+	force_wielded = 50
 	possible_item_intents = list(/datum/intent/spear/thrust/eaglebeak, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(/datum/intent/spear/thrust/eaglebeak, /datum/intent/mace/smash/eaglebeak, SPEAR_BASH)
 	name = "eagle's beak"
@@ -916,8 +916,8 @@
 /obj/item/rogueweapon/eaglebeak/lucerne
 	name = "lucerne"
 	desc = "A polehammer of simple iron. Fracture bone and dissent with simple brute force. The studding along its shaft makes for a slightly more reinforced weapon."
-	force = 12
-	force_wielded = 25
+	force = 24
+	force_wielded = 50
 	icon_state = "polehammer"
 	smeltresult = /obj/item/ingot/iron
 	max_blade_int = 150
@@ -948,8 +948,8 @@
 
 
 /obj/item/rogueweapon/greatsword
-	force = 12
-	force_wielded = 30
+	force = 24
+	force_wielded = 55
 	possible_item_intents = list(/datum/intent/sword/chop,/datum/intent/sword/strike) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(/datum/intent/sword/cut/zwei, /datum/intent/sword/chop, /datum/intent/sword/thrust/zwei, /datum/intent/sword/peel/big)
 	alt_intents = list(/datum/intent/effect/daze, /datum/intent/sword/strike, /datum/intent/sword/bash)
@@ -1007,8 +1007,8 @@
 /obj/item/rogueweapon/greatsword/aalloy
 	name = "decrepit greatsword"
 	desc = "A decrepit old greatsword. You'd be lucky if it chopped anything in half. Aeon's grasp is upon its form."
-	force = 10
-	force_wielded = 25
+	force = 20
+	force_wielded = 40
 	max_integrity = 150
 	icon_state = "ancient_gsw"
 	smeltresult = /obj/item/ingot/aalloy
@@ -1030,8 +1030,8 @@
 	smelt_bar_num = 3
 	max_blade_int = 220
 	wdefense = 4
-	force = 14
-	force_wielded = 35
+	force = 28
+	force_wielded = 48
 
 /obj/item/rogueweapon/greatsword/grenz
 	name = "steel zweihander"
@@ -1039,15 +1039,15 @@
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 3
 	max_blade_int = 240
-	force = 14
-	force_wielded = 35
+	force = 28
+	force_wielded = 48
 
 /obj/item/rogueweapon/greatsword/miaodao
 	name = "steel miaodao"
 	icon_state = "odachi"
 	desc = "An unusually long saber of Lingyunese origin. The lighter blade lends itself to one-handed use better than a zweihander, but maintaining edge alignment is tricky and requires experience."
-	force = 24
-	force_wielded = 30
+	force = 50
+	force_wielded = 70
 	minstr = 8
 	wdefense = 6
 	wdefense_wbonus = 1 //Only +1 defense from wielding
@@ -1069,8 +1069,8 @@
 	name = "psydonian greatsword"
 	desc = "It is said that a Psydonian smith was guided by Saint Malum himself to forge such a formidable blade, and given the task to slay a daemon preying on the Otavan farmlands. The design was retrieved, studied, and only a few replicas made - for they believe it dulls its edge."
 	icon_state = "silverexealt"
-	force = 8
-	force_wielded = 25
+	force = 16
+	force_wielded = 32
 	minstr = 11
 	wdefense = 6
 	is_silver = TRUE
@@ -1090,7 +1090,7 @@
 /obj/item/rogueweapon/greatsword/psygsword/relic
 	name = "Apocrypha"
 	desc = "In the Otavan mosaics, Saint Ravox - bare in all but a beaked helmet and loincloth - is often depicted wielding such an imposing greatweapon against the Dark Star, Graggar. Regardless of whether this relic was actually wielded by divinity-or-not, its unparallel strength will nevertheless command even the greatest foes to fall."
-	force = 25
+	force = 50
 	icon_state = "psygsword"
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/peel, /datum/intent/rend, /datum/intent/axe/chop)
@@ -1110,8 +1110,8 @@
 	name = "old psydonian broadsword"
 	desc = "Even the most ignorant of zealots know that the holy silver loses its properties when not blessed by Adjudicators and Priests of the Holy See for an extended period of time. Its edge remains as lethal as ever, however."
 	icon_state = "oldpsybroadsword"
-	force = 20
-	force_wielded = 25
+	force = 40
+	force_wielded = 60
 	minstr = 11
 	wdefense = 6
 	possible_item_intents = list(/datum/intent/sword/cut,/datum/intent/sword/chop,/datum/intent/stab,/datum/intent/rend/krieg)
@@ -1186,8 +1186,8 @@
 	pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	force = 12
-	force_wielded = 25
+	force = 24
+	force_wielded = 50
 	possible_item_intents = list(
 		/datum/intent/sword/chop,
 		/datum/intent/sword/strike,
@@ -1302,8 +1302,8 @@
 	icon_state = "naledistaff"
 	possible_item_intents = list(SPEAR_BASH)
 	gripped_intents = list(/datum/intent/spear/bash/ranged,/datum/intent/mace/smash/wood/ranged)
-	force = 18
-	force_wielded = 22
+	force = 36
+	force_wielded = 50
 	max_integrity = 250
 
 /obj/item/rogueweapon/woodstaff/naledi/getonmobprop(tag)
@@ -1318,8 +1318,8 @@
 /obj/item/rogueweapon/woodstaff/quarterstaff
 	name = "wooden quarterstaff"
 	desc = "A staff that makes any journey easier. Durable and swift, capable of bludgeoning stray volves and ruffians alike. Its length allow it to be used for a thrusting attack."
-	force = 15
-	force_wielded = 20
+	force = 30
+	force_wielded = 50
 	gripped_intents = list(/datum/intent/spear/bash/ranged/quarterstaff, /datum/intent/spear/thrust/quarterstaff)
 	icon_state = "quarterstaff"
 	max_integrity = 300
@@ -1327,8 +1327,8 @@
 /obj/item/rogueweapon/woodstaff/quarterstaff/iron
 	name = "iron quarterstaff"
 	desc = "A quarterstaff reinforced with iron tips. It is capable of dealing more damage than a wooden one, and its blunt ends make for a decent blunt thrusting weapon. Can be used to bash down your opponents weapons."
-	force = 16
-	force_wielded = 22
+	force = 32
+	force_wielded = 55
 	gripped_intents = list(/datum/intent/spear/bash/ranged/quarterstaff, /datum/intent/spear/thrust/quarterstaff)
 	icon_state = "quarterstaff_iron"
 	max_integrity = 300
@@ -1337,8 +1337,8 @@
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel
 	name = "steel quarterstaff"
 	desc = "A quarterstaff reinforced with steel tips and steel rings, blurring the line between a light polehammer and a reinforced quarterstaff. Extremely durable, and more than capable of bludgeoning brigands to death. Durable enough to break your opponents weapons."
-	force = 18
-	force_wielded = 25
+	force = 36
+	force_wielded = 55
 	gripped_intents = list(/datum/intent/spear/bash/ranged/quarterstaff, /datum/intent/spear/thrust/quarterstaff)
 	icon_state = "quarterstaff_steel"
 	max_integrity = 400
@@ -1347,8 +1347,8 @@
 /obj/item/rogueweapon/spear/partizan
 	name = "partizan"
 	desc = "A reinforced spear-like polearm of disputed origin: A studded shaft fitted with a steel spearhead with protrusions to aid in parrying. An extremely recent invention that is seeing increasingly more usage in the Western lands."
-	force = 8	//Not a possible one-handed weapon. Also too heavy!
-	force_wielded = 30
+	force = 16	//Not a possible one-handed weapon. Also too heavy!
+	force_wielded = 35
 	possible_item_intents = list(SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(SPEAR_THRUST, PARTIZAN_REND, PARTIZAN_PEEL)
 	icon_state = "partizan"
@@ -1374,8 +1374,8 @@
 	It is also useful for parrying and stopping a charging opponent."
 	icon = 'icons/roguetown/weapons/polearms64.dmi'
 	icon_state = "boarspear"
-	force =  22 // 10% base damage increase
-	force_wielded = 33 // 10% base damage increase
+	force =  44 // 10% base damage increase
+	force_wielded = 65 // 10% base damage increase
 	wdefense = 6 // A little bit extra
 	max_blade_int = 200 // 50% more sharpness but it barely matter lol
 
@@ -1396,8 +1396,8 @@
 	the shaft on impact. "
 	icon = 'icons/roguetown/weapons/polearms64.dmi'
 	icon_state = "lance"
-	force = 15 // Its gonna sucks for 1 handed use
-	force_wielded = 20 // Lower damage because a 3 tiles thrust without full charge time still deal base damage.
+	force = 30 // Its gonna sucks for 1 handed use
+	force_wielded = 45 // Lower damage because a 3 tiles thrust without full charge time still deal base damage.
 	wdefense = 4 // 2 Lower than spear
 	max_integrity = 200
 	max_blade_int = 200 // Better sharpness
@@ -1408,8 +1408,8 @@
 /obj/item/rogueweapon/spear/naginata
 	name = "naginata"
 	desc = "A traditional Kazengunese polearm, combining the reach of a spear with the cutting power of a curved blade. Due to the brittle quality of Kazengunese bladesmithing, weaponsmiths have adapted its blade to be easily replaceable when broken by a peg upon the end of the shaft."
-	force = 16
-	force_wielded = 30
+	force = 32
+	force_wielded = 55
 	possible_item_intents = list(/datum/intent/spear/cut/naginata, SPEAR_BASH) // no stab for you little chuddy, it's a slashing weapon
 	gripped_intents = list(/datum/intent/spear/cut/naginata, /datum/intent/rend/reach, PARTIZAN_PEEL, SPEAR_BASH)
 	icon_state = "naginata"
@@ -1435,8 +1435,8 @@
 	gripped_intents = list(/datum/intent/spear/thrust/glaive, /datum/intent/spear/cut/glaive, /datum/intent/axe/chop/scythe, SPEAR_BASH)
 	name = "'Deliverer'"
 	desc = "As if glaives werent hard enough to produce, this one in particular is made out of blacksteel. A piece of art made for the realm's champion, its a tool to deliver valor and protect those weaker than the wielder."
-	force = 17
-	force_wielded = 35
+	force = 34
+	force_wielded = 64
 	icon = 'icons/roguetown/weapons/polearms64.dmi'
 	icon_state = "champglaive"
 	anvilrepair = /datum/skill/craft/weaponsmithing
@@ -1463,8 +1463,8 @@
 	minstr = 15 //have you seen the size of this thing??
 	item_flags = GIANT_WEAPON
 	smelt_bar_num = 2
-	force = 20
-	force_wielded = 35
+	force = 40
+	force_wielded = 65
 	max_blade_int = 250
 	max_integrity = 260
 
@@ -1472,8 +1472,8 @@
 	name = "Mace of Malum"
 	desc = "Sometimes an ogre comes across an abandoned blacksmith's forge, and finds an intact anvil. Few minds but an ogre's can think to use a tool of pure creation to beat people to paste."
 	icon_state = "ogre_anvil"
-	force = 20
-	force_wielded = 40
+	force = 40
+	force_wielded = 60
 	possible_item_intents = list(/datum/intent/mace/strike/reach)
 	gripped_intents = list(/datum/intent/mace/strike/reach, /datum/intent/mace/smash/reach, /datum/intent/effect/daze)
 	smeltresult = /obj/item/ingot/steel
@@ -1487,8 +1487,8 @@
 	name = "Ogre's Mace"
 	desc = "Only a giant can effectively make use of this weapon. It has fed one at the expense of many lives."
 	icon_state = "ogre_mace"
-	force = 25
-	force_wielded = 45 // i dont even think thisll do much, compare it to the tetsubo
+	force = 50
+	force_wielded = 70 // i dont even think thisll do much, compare it to the tetsubo
 	gripped_intents = list(/datum/intent/mace/strike/reach, /datum/intent/mace/smash/reach, /datum/intent/effect/daze)
 	smelt_bar_num = 2
 	minstr = 15

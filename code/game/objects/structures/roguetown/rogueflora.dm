@@ -327,7 +327,7 @@
 		var/mob/living/L = AM
 		if(L.m_intent == MOVE_INTENT_RUN && (L.mobility_flags & MOBILITY_STAND))
 			if(!ishuman(L))
-				to_chat(L, span_warning("I'm cut on a thorn!"))
+				to_chat(L, span_warning("Я режусь об шип!"))
 				L.apply_damage(5, BRUTE)
 
 			else
@@ -360,13 +360,13 @@
 				if(B)
 					B = new B(user.loc)
 					user.put_in_hands(B)
-					user.visible_message(span_notice("[user] finds [B] in [src]."))
+					user.visible_message(span_notice("[user] находит [B] в [src]."))
 					return
-			user.visible_message(span_warning("[user] searches through [src]."))
+			user.visible_message(span_warning("[user] что-то ищет в [src]."))
 			if(looty.len)
 				attack_hand(user)
 			if(!looty.len)
-				to_chat(user, span_warning("Picked clean... I should try later."))
+				to_chat(user, span_warning("Выглядит собранным... Можно попытаться поискать позже."))
 /obj/structure/flora/roguegrass/bush/update_icon()
 	icon_state = "bush[rand(2, 4)]"
 
@@ -820,5 +820,37 @@
 	stump_type = /obj/structure/flora/roguetree/stump/pine
 
 /obj/structure/flora/roguetree/pine/dead/Initialize()
+	. = ..()
+	icon_state = "dead[rand(1, 3)]"
+
+
+/obj/structure/flora/roguetree/pinesnow
+	name = "pine tree"
+	icon_state = "pinesnow1"
+	desc = ""
+	icon = 'icons/obj/flora/pines.dmi'
+	pixel_w = -24
+	density = 0
+	max_integrity = 100
+	static_debris = list(/obj/item/grown/log/tree = 2)
+	stump_type = null
+
+/obj/structure/flora/roguetree/pinesnow/Initialize()
+	. = ..()
+	icon_state = "pinesnow[rand(1, 4)]"
+
+/obj/structure/flora/roguetree/pinesnow/burn()
+	new /obj/structure/flora/roguetree/pinesnow/dead(get_turf(src))
+	qdel(src)
+
+/obj/structure/flora/roguetree/pinesnow/dead
+	name = "burnt pine tree"
+	icon_state = "dead1"
+	max_integrity = 50
+	static_debris = list(/obj/item/rogueore/coal/charcoal = 1)
+	resistance_flags = FIRE_PROOF
+	stump_type = /obj/structure/flora/roguetree/stump/pine
+
+/obj/structure/flora/roguetree/pinesnow/dead/Initialize()
 	. = ..()
 	icon_state = "dead[rand(1, 3)]"
