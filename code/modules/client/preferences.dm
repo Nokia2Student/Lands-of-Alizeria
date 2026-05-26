@@ -920,7 +920,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Militia Captain", "Daronne", "Caid", "Burgomaster", "Prevost of Gendarmes", "Knight", "Priest", "Loudmouth", "Adventurer", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
+/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Militia Captain", "Commander", "Daronne", "Caid", "Burgomaster", "Prevost of Gendarmes", "Knight", "Priest", "Loudmouth", "Adventurer", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
 	if(!SSjob)
 		return
 

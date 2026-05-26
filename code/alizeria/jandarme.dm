@@ -3,13 +3,12 @@
 	flag = OJAN
 	department_flag = MERCENARIES
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	tutorial = "“ы - офицер жандармов, боец элитного королевского войска.  огда-то ты прибыл на остров вместе со своим маршаллом и наместником, без лишних вопросов подавив вскоре вспыхнувший м€теж. “ы покл€лс€ защищать народ, однако пон€тие народа дл€ короны весьма своеобразно. «ащищай двор€н и взымай с них плату, ведь со штормами плат€т тебе теперь не из королевской казны, а из местной."
 	display_order = JDO_OJAN
-	always_show_on_latechoices = TRUE
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	allowed_patrons = CODEX
 

@@ -421,7 +421,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	var/atom/movable/screen/area_text/T = new()
 	client.screen += T
 	T.maptext = {"<span style='vertical-align:top; text-align:center;
-				color: #820000; font-size: 300%;
+				color: #3dabf0; font-size: 250%;
 				text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 				font-family: "CCSpellcaster", "Gabriela";'>[A.first_time_text]</span>"}
 	T.maptext_width = 205

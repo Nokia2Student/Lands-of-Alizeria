@@ -681,3 +681,27 @@
 	unequip_delay_self = 10 SECONDS
 
 	max_integrity = 1200
+
+
+/obj/item/rogueore/alizeria/insulatedcrystall
+	name = "insulated crystall"
+	desc = "Кристал изолированного хладагента. Некогда являлся 'утерянной' технологией павшей Империи, однако десятилетие назад учёные Монфора смогли воссоздать точную копию подобного артефакта. С тех пор они питают целые города, как когда-то это делали тысячи лет назад."
+	icon_state = "orecoal1"
+	firefuel = 30 MINUTES
+	smeltresult = /obj/item/rogueore/alizeria/insulatedcrystall
+	sellprice = 350
+	light_system = MOVABLE_LIGHT
+	light_outer_range = 4
+	light_power = 1
+	light_color = "#73eef7"
+	icon = 'icons/roguetown/alizeria/items.dmi'
+	icon_state = "refrig"
+	item_state = "refrig"
+
+/obj/effect/spawner/lootdrop/roguetown/dungeon/insulatedcrystall
+	icon_state = "refrig"
+	loot = list(
+		/obj/item/rogueore/alizeria/insulatedcrystall = 1,
+		null = 3  // 3 пустых слота = 75% шанс ничего не спавнится
+	)
+	lootcount = 1

@@ -4,8 +4,8 @@
 	department_flag = COURTIERS
 	faction = "Station"
 	advjob_examine = TRUE
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_NOBLE_RACES
 	allowed_sexes = list(FEMALE)
 	tutorial = "Ты - гувернантка и по совместительству глава всех слуг во дворце после леди милорда. Помогай правящей семье в обучении и воспитании наследника, либо же руководи делами слуг."

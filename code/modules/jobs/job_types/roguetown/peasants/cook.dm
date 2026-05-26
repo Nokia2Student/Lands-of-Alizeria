@@ -3,8 +3,8 @@
 	flag = COOK
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 
 	allowed_races = ALIZ_ALL_RACES
 	tutorial = "Ты - повар и по совместительству официант самой известной таверны в вольном городе. Помогай её владельцу на кухне, работай усердно и возможно когда-нибудь она достанется именно тебе."

@@ -3,13 +3,12 @@
 	flag = JAN
 	department_flag = MERCENARIES
 	faction = "Station"
-	total_positions = 6
-	spawn_positions = 6
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	tutorial = "Обычный боец жандармерии. Ты прошёл далеко не столько битв, что бы называться бывалым воином, но подготовкой тебя не обделили. Всего месяц или неделю назад ты смог успешно закончить академию, вместе с этим принеся клятву представителю королевской семьи. Теперь ты стоишь на страже народа, который готов платить тебе за твою службу."
 	display_order = JDO_JAN
-	always_show_on_latechoices = TRUE
 	allowed_patrons = CODEX
 
 	outfit = /datum/outfit/job/jandarme

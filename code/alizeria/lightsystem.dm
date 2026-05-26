@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 	desc = "Старенький, но верно работающий генератор. Снабжает энергией уличные фонари и множество иных устройств. Требует изолированный хладагент, либо же уголь для своей работы."
 	icon_state = "gen1"
 	base_state = "gen"
-	density = FALSE
+	density = 1
 	layer = 2.8
 	brightness = 5
 	on = FALSE
@@ -33,6 +33,8 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 	soundloop = /datum/looping_sound/fireloop
 	var/list/linked_cold_lamps = list()
 	var/gen_area_name = null
+	var/current_fuel_type = "crystall" // "crystall" или "coal"
+	var/pending_fuel_type = null // Тип топлива, ожидающий применения при включении
 
 /obj/machinery/light/rogue/alizeria/generator/Initialize()
 	. = ..()
@@ -76,9 +78,33 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 				lamp.icon_state = "[lamp.base_state][lamp.off_state_suffix]"
 				lamp.update()
 
+/obj/machinery/light/rogue/alizeria/generator/proc/apply_fuel_type()
+	if(current_fuel_type == "coal")
+		bulb_colour = "#fd855d"
+		if(on)
+			icon_state = "coalgen1"
+		else
+			icon_state = "coalgen0"
+	else // crystall
+		bulb_colour = "#6addec"
+		if(on)
+			icon_state = "gen1"
+		else
+			icon_state = "gen0"
+
+	set_light(l_color = bulb_colour)
+	update_icon()
+
 /obj/machinery/light/rogue/alizeria/generator/fire_act(added, maxstacks)
 	if(!on && ((fueluse > 0) || (initial(fueluse) == 0)))
 		on = TRUE
+
+		// Применяем ожидающий тип топлива при включении
+		if(pending_fuel_type)
+			current_fuel_type = pending_fuel_type
+			pending_fuel_type = null
+			apply_fuel_type()
+
 		update()
 		set_light(l_on = TRUE)
 		update_icon()
@@ -124,6 +150,57 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 					to_chat(H, "<span class='info'>The warmth of the fire comforts me, affording me a short rest.</span>")
 					H.add_stress(/datum/stressevent/campfire)
 		return TRUE
+
+/obj/machinery/light/rogue/alizeria/generator/attackby(obj/item/W, mob/living/user, params)
+	// Проверка на допустимое топливо
+	if(istype(W, /obj/item/rogueore/alizeria/insulatedcrystall) || istype(W, /obj/item/rogueore/coal))
+		// Проверяем, может ли это топливо быть использовано
+		if(initial(fueluse))
+			if(fueluse > initial(fueluse) - 5 SECONDS)
+				to_chat(user, "<span class='warning'>[src] is fully fueled.</span>")
+				return
+		else
+			if(!on)
+				return
+
+		// Удаляем предмет и добавляем топливо
+		user.dropItemToGround(W)
+
+		// Определяем тип и количество топлива
+		var/old_fuel_type = current_fuel_type
+		if(istype(W, /obj/item/rogueore/alizeria/insulatedcrystall))
+			fueluse += 30 MINUTES
+			current_fuel_type = "crystall"
+			pending_fuel_type = null
+		else if(istype(W, /obj/item/rogueore/coal))
+			fueluse += 30 SECONDS
+			pending_fuel_type = "coal"
+			if(on)
+				current_fuel_type = "coal"
+
+		// Меняем спрайт и свет если генератор включен
+		if(on && current_fuel_type != old_fuel_type)
+			apply_fuel_type()
+
+		user.visible_message("<span class='warning'>[user] feeds [W] to [src].</span>")
+		qdel(W)
+		return TRUE
+
+	// Для всего остального - отклоняем
+	to_chat(user, "<span class='warning'>[src] cannot be fueled with [W]!</span>")
+	return TRUE
+
+/obj/machinery/light/rogue/alizeria/generator/update_icon()
+	if(on)
+		if(current_fuel_type == "coal")
+			icon_state = "coalgen1"
+		else
+			icon_state = "gen1"
+	else
+		if(current_fuel_type == "coal")
+			icon_state = "coalgen0"
+		else
+			icon_state = "gen0"
 
 /obj/machinery/light/roguestreet/cold
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
@@ -190,3 +267,18 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 		to_chat(user, span_warning("Без энергии генератора это не работает..."))
 		return TRUE
 	return ..()
+
+/obj/item/rogueore/alizeria/insulatedcrystall
+	name = "insulated crystall"
+	desc = "Кристал изолированного хладагента. Некогда являлся 'утерянной' технологией павшей Империи, однако десятилетие назад учёные Монфора смогли воссоздать точную копию подобного артефакта. С тех пор они питают целые города, как когда-то это делали тысячи лет назад."
+	icon_state = "orecoal1"
+	firefuel = 30 MINUTES
+	smeltresult = /obj/item/rogueore/alizeria/insulatedcrystall
+	sellprice = 350
+	light_system = MOVABLE_LIGHT
+	light_outer_range = 4
+	light_power = 1
+	light_color = "#73eef7"
+	icon = 'icons/roguetown/alizeria/items.dmi'
+	icon_state = "refrig"
+	item_state = "refrig"

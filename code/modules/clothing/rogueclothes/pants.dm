@@ -307,7 +307,7 @@
 	armor = ARMOR_PANTS_CHAIN
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = CHAINHIT
-	max_integrity = 300
+	max_integrity = 600
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -326,7 +326,7 @@
 	desc = "Splint mail and brigandine chausses, designed to protect the legs while still providing almost complete free range of movement."
 	icon_state = "splintlegs"
 	item_state = "splintlegs"
-	max_integrity = 250
+	max_integrity = 500
 	armor = ARMOR_PANTS_BRIGANDINE
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = SOFTHIT
@@ -357,7 +357,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	body_parts_covered = GROIN
 	blocksound = CHAINHIT
-	max_integrity = 300
+	max_integrity = 600
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -369,7 +369,7 @@
 /obj/item/clothing/under/roguetown/chainlegs/iron
 	name = "iron chain chausses"
 	icon_state = "ichain_legs"
-	max_integrity = 250
+	max_integrity = 500
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/iron
 
@@ -384,7 +384,7 @@
 	armor = ARMOR_PLATE
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = PLATEHIT
-	max_integrity = 400
+	max_integrity = 800
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -405,7 +405,7 @@
 	desc = "Decrepit, old plate chausses. Aeon's grasp is upon them."
 	icon_state = "ancientplate_legs"
 	smeltresult = /obj/item/ingot/aalloy
-	max_integrity = 150
+	max_integrity = 300
 
 /obj/item/clothing/under/roguetown/platelegs/paalloy
 	name = "ancient plate chausses"
@@ -418,7 +418,7 @@
 	desc = "Plate chausses which stir with the innate violence driving our world"
 	icon_state = "graggarplatelegs"
 	armor = ARMOR_ASCENDANT
-	max_integrity = 400 // Good good resistances, but less crit resist than the other ascendant armors. In trade, we can take off our pants to repair, and they are medium rather than heavy.
+	max_integrity = 800 // Good good resistances, but less crit resist than the other ascendant armors. In trade, we can take off our pants to repair, and they are medium rather than heavy.
 	armor_class = ARMOR_CLASS_MEDIUM
 
 /obj/item/clothing/under/roguetown/platelegs/graggar/pickup(mob/living/user)
@@ -430,7 +430,7 @@
 	..()
 
 /obj/item/clothing/under/roguetown/platelegs/matthios
-	max_integrity = 600
+	max_integrity = 1200
 	name = "gilded leggings"
 	desc = "But my outside to behold:"
 	icon_state = "matthioslegs"
@@ -449,7 +449,7 @@
 
 
 /obj/item/clothing/under/roguetown/platelegs/zizo
-	max_integrity = 600
+	max_integrity = 1200
 	name = "darksteel garments"
 	desc = "Leg garments worn by true anointed of the Dame of Progress. In Her name."
 	icon_state = "zizocloth"
@@ -557,7 +557,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = PLATEHIT
-	max_integrity = 500
+	max_integrity = 1000
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
@@ -577,7 +577,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = PLATEHIT
-	max_integrity = 500
+	max_integrity = 1000
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
@@ -645,7 +645,7 @@
 	sewrepair = TRUE
 	anvilrepair = null
 	armor = list("blunt" = 70, "slash" = 60, "stab" = 50, "piercing" = 30, "fire" = 30, "acid" = 0) //Around Hardened leather
-	max_integrity = 225
+	max_integrity = 250
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = PLATEHIT
 	var/do_sound = FALSE
@@ -665,7 +665,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	icon_state = "ogre_pants"
 	allowed_race = OGRE_RACE_TYPES
-	max_integrity = 250
+	max_integrity = 500
 
 /obj/item/clothing/under/roguetown/chainlegs/ogre
 	name = "giant chain chausses"

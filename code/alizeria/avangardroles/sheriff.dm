@@ -11,6 +11,7 @@
 	display_order = JDO_COMMANDER
 	selection_color = JCOLOR_AVANGARD
 	allowed_patrons = CODEX
+	social_rank = SOCIAL_RANK_YEOMAN
 	tutorial = "Когда-то ты был обычным человеком среди таких же голодных и злых горожан. Пока знать пряталась за стенами, а жандармы ждали приказов, именно вы вышли на улицы с топорами, молотами и охотничьими ружьями. После революции толпа разошлась по домам, но оружие осталось у тех, кто сумел выжить. Теперь ты возглавляешь Народную Стражу от имени бургомистра. Для одних ты герой восстания, для других - узаконенный бандит. Следи за порядком, собирай людей в трудный час и помни: народ быстро ставит на пьедестал, но ещё быстрее тащит с него вниз, а страшнее народа только цепные псы короны со штыками. Они посадили на них столько повстанцев, что ты сбился со счёта. Помни, что выше тебя всё ещё кто-то есть. Бургомистр ждёт послушания, знать требует защиты, беднота требует справедливости, а жандармы только и ждут момента доказать, что без них город снова захлебнётся в крови. Держи улицы в кулаке, но не сжимай слишком сильно. Иначе однажды ночью в дверь постучат те, с кем ты когда-то стоял плечом к плечу."
 	whitelist_req = FALSE
 	outfit = /datum/outfit/job/commander
@@ -20,14 +21,11 @@
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/combat_guard.ogg'
-	advclass_cat_rolls = list(CTAG_COMMANDER = 20)
+	advclass_cat_rolls = list(CTAG_COMMANDER = 1)
 	job_traits = list(TRAIT_HEAVYARMOR, TRAIT_STEELHEARTED, TRAIT_PERFECT_TRACKER, TRAIT_TEMPO, TRAIT_JUSTICARSIGHT, TRAIT_SHARPER_BLADES)
 	job_subclasses = list(
 		/datum/advclass/commander/classic
 	)
-
-/datum/outfit/job/commander
-	job_bitflag = BITFLAG_GARRISON
 
 /datum/outfit/job/commander/pre_equip(mob/living/carbon/human/H)
 	..()

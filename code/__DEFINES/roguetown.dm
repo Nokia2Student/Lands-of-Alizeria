@@ -450,6 +450,8 @@ Balloon Alert / Floating Text defines
 
 #define CODEX list(/datum/patron/inhument/zizot, /datum/faith/inhument/standardt, /datum/patron/inhument)
 
+#define IMPER list(/datum/patron/inhument/zizottttt)
+
 #define ALL_INHUMEN_PATRONS list(/datum/patron/inhumen/zizo, /datum/patron/inhumen)
 
 #define NON_PSYDON_PATRONS list(/datum/patron/divine/astrata, /datum/patron/divine, /datum/patron/inhumen)
@@ -540,7 +542,8 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_BANDIT			"CAT_BANDIT"		// Bandit class - Tied to the bandit antag really
 #define CTAG_CHALLENGE 		"CAT_CHALLENGE"  	// Challenge class - Meant to be free for everyone
 #define CTAG_VAGABOND		"CAT_VAGABOND"		// Vagabond class - start with nothing and work your way up
-#define CTAG_INQUISITION	"CAT_INQUISITION"	// For Orthodoxist subclasses
+#define CTAG_INQUISITION	"CAT_INQUISITION"
+#define CTAG_AVANGARD		"CAT_AVANGARD"
 #define CTAG_PURITAN		"CAT_PURITAN"		// For Inquisitor subclasses
 #define CTAG_ABSOLVER		"CAT_ABSOLVER"		// For Absolver (sub)class
 #define CTAG_COURTAGENT		"CAT_COURTAGENT"	// Court agent classes
@@ -582,9 +585,14 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_NIGHTMAIDEN	"CAT_NIGHTMAIDEN"	// Bathhouse Attendant's aesthetic choices.
 #define CTAG_PRISONER "CAT_PRISONER"
 #define CTAG_HOSTAGE "CAT_HOSTAGE"
-#define CTAG_OGRE			"CAT_OGRE"
+#define CTAG_OGRE			"CAT_OGRE"					// ogre classes - handles ogre class selector
 
-#define CTAG_COMMANDER			"CTAG_COMMANDER"
+#define CTAG_COMMANDER			"CAT_COMMANDER"
+#define CTAG_TRAVELLER			"CAT_TRAVELLER"
+#define CTAG_EXPEDITOR			"CAT_EXPEDITOR"
+#define CTAG_TAVERNIER			"CAT_TAVERNIER"
+#define CTAG_MASTER				"CAT_MASTER"
+#define CTAG_SUPP				"CAT_SUPP"
 
 #define CTAG_HFT_LORD "CAT_HFT_LORD"  // Heartfelt Lord Class - Handles Heartfelt Lord class selector.
 #define CTAG_HFT_HAND "CAT_HFT_HAND"  // Heartfelt Hand Class - Handles Heartfelt Hand class selector.

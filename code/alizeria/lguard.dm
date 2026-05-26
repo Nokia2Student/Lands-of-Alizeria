@@ -3,8 +3,8 @@
 	flag = KNIGHT
 	department_flag = NOBLEMEN
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_ONLY_HUMAN
 	tutorial = "Ты - член королевской гвардии. Пускай твой лорд и не является даже герцогом, твой долг - защищать его жизнь, ибо таков был указ твоего короля. Пускай он и является безумным - предать клятву данную ему, тебе не позволяет честь. Любой ценой защищай жизнь своего лорда и его семьи."

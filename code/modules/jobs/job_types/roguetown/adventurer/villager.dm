@@ -3,8 +3,8 @@
 	flag = VILLAGER
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 10
-	spawn_positions = 10
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = RACES_ALL_KINDS
 	disallowed_races = /datum/species/ogre
 	tutorial = "Ты - обычный житель земель Ализерии. Тебя не особо волнуют нависающая над тобой власть господ, ведь иначе бы ты примкнул к их армии. Торгуй, живи и общайся, более от тебя ничего не ждут. Пока что..."
@@ -20,7 +20,6 @@
 	round_contrib_points = 2
 	wanderer_examine = FALSE
 	advjob_examine = TRUE
-	always_show_on_latechoices = TRUE
 	same_job_respawn_delay = 0
 	class_setup_examine = TRUE
 	cmode_music = 'sound/music/combat_towner.ogg'

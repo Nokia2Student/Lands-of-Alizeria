@@ -852,7 +852,7 @@
 			these interlinked layers are superb at warding off the blows of inhumen claws and axes."
 	icon_state = "ornatehauberk"
 	item_state = "ornatehauberk"
-	max_integrity = 350
+	max_integrity = 700
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/matthios
 	name = "gilded hauberk"
@@ -923,7 +923,7 @@
 	allowed_race = CLOTHED_RACES_TYPES
 	nodismemsleeves = TRUE
 	blocking_behavior = null
-	max_integrity = 300
+	max_integrity = 600
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
@@ -934,7 +934,7 @@
 	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."
 	armor = ARMOR_LIGHTCUIRASS
 	armor_class = ARMOR_CLASS_LIGHT
-	max_integrity = 170
+	max_integrity = 240
 	smelt_bar_num = 1
 	icon_state = "fencercuirass"
 	item_state = "fencercuirass"
@@ -965,7 +965,7 @@
 	desc = "A sturdy steel cuirass with tassets. Supposedly protective, though maybe not against crossbow bolts."
 
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
-	max_integrity = 350
+	max_integrity = 700
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
 	name = "silver cuirass"
@@ -973,13 +973,13 @@
 	desc = "An ornate steel cuirass with tassets, favored by both the Holy Inquisition and the Order of the Silver cross. \
 			Made to endure."
 
-	max_integrity = 300
+	max_integrity = 600
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/iron
 	name = "iron breastplate"
 	desc = "A basic cuirass of iron, protective and moderately durable."
 	icon_state = "ibreastplate"
-	max_integrity = 200
+	max_integrity = 400
 	smeltresult = /obj/item/ingot/iron
 	smelt_bar_num = 2
 
@@ -987,7 +987,7 @@
 	name = "heart protector"
 	desc = "Very simple and crude protection for the chest. Ancient fighters once used similar gear, with better quality..."
 	icon_state = "copperchest"
-	max_integrity = 150
+	max_integrity = 300
 	armor = list("blunt" = 75, "slash" = 75, "stab" = 75, "piercing" = 40, "fire" = 0, "acid" = 0)	//idk what this armor is but I ain't making a define for it
 	smeltresult = /obj/item/ingot/copper
 	body_parts_covered = CHEST
@@ -1006,7 +1006,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "lamellar"
-	max_integrity = 200
+	max_integrity = 400
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -1032,7 +1032,7 @@
 	armor = ARMOR_PLATE
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	nodismemsleeves = TRUE
-	max_integrity = 500
+	max_integrity = 1000
 	allowed_sex = list(MALE, FEMALE)
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -1062,14 +1062,14 @@
 	equip_delay_self = 6 SECONDS
 	unequip_delay_self = 6 SECONDS
 
-	max_integrity = 600
+	max_integrity = 1200
 	body_parts_covered = COVERAGE_SHIRT
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/graggar
 	name = "vicious half-plate"
 	desc = "A fluted half-plate armour-set which stirs with the same violence driving our world. This inner motive makes it far less restrictive."
 	armor_class = ARMOR_CLASS_MEDIUM
-	max_integrity = 500 // We are probably one of the best medium armor sets. At higher integ than most(heavy armor levels, pretty much. But worse resistances, we get the bonus over the other sets of being medium and being unequippable.)
+	max_integrity = 1000 // We are probably one of the best medium armor sets. At higher integ than most(heavy armor levels, pretty much. But worse resistances, we get the bonus over the other sets of being medium and being unequippable.)
 	icon_state = "graggarplate"
 	armor = ARMOR_CUIRASS
 
@@ -1099,7 +1099,7 @@
 			Favored by both the Holy Inquisition and the Order of Silver cross. It smells of the madness of an enduring God."
 	icon_state = "ornatehalfplate"
 
-	max_integrity = 400
+	max_integrity = 800
 
 /obj/item/clothing/suit/roguetown/armor/plate/full
 	name = "plate armor"
@@ -1120,7 +1120,7 @@
 	equip_delay_self = 14 SECONDS
 	unequip_delay_self = 14 SECONDS
 
-	max_integrity = 600
+	max_integrity = 1200
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "silver plate"
@@ -1128,7 +1128,7 @@
 			Favored by both the Holy Inquisition and the Order of Silver. It smells of the madness of an enduring Gods."
 	icon_state = "ornateplate"
 
-	max_integrity = 500
+	max_integrity = 1000
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/equipped(mob/living/user, slot)
 	. = ..()
@@ -1151,7 +1151,7 @@
 	name = "gilded fullplate"
 	desc = "Often, you have heard that told,"
 	icon_state = "matthiosarmor"
-	max_integrity = 700
+	max_integrity = 1400
 
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/matthios/Initialize()
@@ -1168,7 +1168,7 @@
 	name = "darksteel fullplate"
 	desc = "Full plate. Called forth from the edge of what should be known. In Her name."
 	icon_state = "zizoplate"
-	max_integrity = 700
+	max_integrity = 1400
 	peel_threshold = 5	//-Any- weapon will require 5 peel hits to peel coverage off of this armor.
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/zizo/Initialize()
@@ -1215,7 +1215,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	nodismemsleeves = TRUE
 	blocking_behavior = null
-	max_integrity = 400
+	max_integrity = 800
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_HEAVY
@@ -1244,7 +1244,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	allowed_sex = list(MALE, FEMALE)
 	nodismemsleeves = TRUE
-	max_integrity = 300
+	max_integrity = 600
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -1308,7 +1308,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	allowed_sex = list(MALE, FEMALE)
 	nodismemsleeves = TRUE
-	max_integrity = 350
+	max_integrity = 700
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -1327,7 +1327,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	allowed_sex = list(MALE, FEMALE)
 	nodismemsleeves = TRUE
-	max_integrity = 350
+	max_integrity = 700
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -1428,7 +1428,7 @@
 	blocksound = SOFTHIT
 	body_parts_covered = COVERAGE_SHIRT
 	armor = ARMOR_CUIRASS
-	max_integrity = 250
+	max_integrity = 500
 	smeltresult = /obj/item/ingot/iron
 	equip_delay_self = 40
 	armor_class = ARMOR_CLASS_MEDIUM
@@ -1471,7 +1471,7 @@
 	item_state = "inqcoat"
 	sleevetype = "shirt"
 	sewrepair = TRUE
-	max_integrity = 300
+	max_integrity = 600
 	anvilrepair = /datum/skill/craft/armorsmithing
 	equip_delay_self = 4 SECONDS
 	armor_class = ARMOR_CLASS_LIGHT
@@ -1508,7 +1508,7 @@
 	icon_state = "inqcoata"
 	item_state = "inqcoata"
 	equip_delay_self = 4 SECONDS
-	max_integrity = 300
+	max_integrity = 600
 	armor_class = ARMOR_CLASS_MEDIUM
 	armor = ARMOR_CUIRASS
 	smelt_bar_num = 2
@@ -1534,7 +1534,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	allowed_race = CLOTHED_RACES_TYPES
 	blocking_behavior = null
-	max_integrity = 650
+	max_integrity = 1300
 	smeltresult = /obj/item/ingot/blacksteel
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
@@ -1554,7 +1554,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	allowed_race = CLOTHED_RACES_TYPES
 	blocking_behavior = null
-	max_integrity = 650
+	max_integrity = 1300
 	smeltresult = /obj/item/ingot/blacksteel
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
@@ -1571,7 +1571,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	allowed_race = CLOTHED_RACES_TYPES
 	blocking_behavior = null
-	max_integrity = 400
+	max_integrity = 800
 	smeltresult = /obj/item/ingot/blacksteel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
@@ -1587,7 +1587,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/race_armor.dmi'
 	icon_state = "welfchest"
 	item_state = "welfchest"
-	max_integrity = 500
+	max_integrity = 1000
 	anvilrepair = /datum/skill/craft/carpentry
 	smeltresult = /obj/item/rogueore/coal
 	smelt_bar_num = 4
@@ -1618,7 +1618,7 @@
 	blade_dulling = DULLING_BASHCHOP
 	sewrepair = TRUE
 	nodismemsleeves = TRUE
-	max_integrity = 175 //can be increased if it turns out that having full coverage with such a low integ. isnt worth it
+	max_integrity = 300 //can be increased if it turns out that having full coverage with such a low integ. isnt worth it
 	sellprice = 20
 	armor_class = ARMOR_CLASS_LIGHT
 	allowed_race = NON_DWARVEN_RACE_TYPES
@@ -1639,7 +1639,7 @@
 	icon_state = "eastsuit2"
 	item_state = "eastsuit2"
 	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/suit/roguetown/armor/basiceast/crafteast/outlaw
 	color = "#bbbbbb"
@@ -1669,7 +1669,7 @@
 	item_state = "eastsuit1"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit/light
 	name = "worn dobo robe"
@@ -1683,7 +1683,7 @@
 	icon_state = "eastsuit4"
 	item_state = "eastsuit4"
 	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
-	max_integrity = 300
+	max_integrity = 600
 	sellprice = 25
 
 /obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe/light
@@ -1714,7 +1714,7 @@
 	armor_class = ARMOR_CLASS_HEAVY
 	armor = ARMOR_PLATE_GOOD
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
-	max_integrity = 500
+	max_integrity = 1000
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST, BCLASS_PICK, BCLASS_SMASH, BCLASS_CUT, BCLASS_CHOP)
 
 /obj/item/clothing/suit/roguetown/armor/champion/lordcolor(primary,secondary)
@@ -1743,7 +1743,7 @@
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	armor = list("blunt" = 70, "slash" = 85, "stab" = 60, "piercing" = 60, "fire" = 25, "acid" = 0) //Slightly above carapace cuirass
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
-	max_integrity = 225
+	max_integrity = 450
 	allowed_sex = list(MALE, FEMALE)
 	var/do_sound = TRUE
 	sewrepair = TRUE
@@ -1768,7 +1768,7 @@
 	icon_state = "carapacecuirass"
 	item_state = "carapacecuirass"
 	flags_inv = HIDEBOOB
-	max_integrity = 200
+	max_integrity = 400
 	equip_delay_self = 30
 
 /obj/item/clothing/suit/roguetown/armor/velvetcoat
@@ -1834,5 +1834,5 @@
 	desc = "An absurdly large piece of armor, meant for an absurdly large man."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	icon_state = "ogre_cuirass"
-	max_integrity = 600 // wow these guys are super weak
+	max_integrity = 1200 // wow these guys are super weak
 	allowed_race = OGRE_RACE_TYPES

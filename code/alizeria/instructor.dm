@@ -3,13 +3,12 @@
 	flag = INS
 	department_flag = MERCENARIES
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	tutorial = "Ќикакое войско не держитс€ на одних мундирах и угрозах. Ѕудучи »нспектором, ты €вл€ешьс€ правой рукой ѕрево и надзираешь за пор€дком в р€дах жандармов. “ебе поручено обучать новобранцев, карать ленивых, продвигать полезных и скрывать неудобных. ƒл€ теб€ происхождение солдата не имеет значени€: двор€нский сын и уличный сирота одинаково кричат под твоим давлением. √лавное не метод, а результат. ’от€ жестокость почему-то всегда оказываетс€ самым попул€рным методом."
 	display_order = JDO_INS
-	always_show_on_latechoices = TRUE
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	allowed_patrons = CODEX
 

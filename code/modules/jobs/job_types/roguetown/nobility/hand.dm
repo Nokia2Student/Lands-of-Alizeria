@@ -7,8 +7,8 @@
 	flag = HAND
 	department_flag = NOBLEMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/hand

@@ -103,3 +103,10 @@
 	contains = list(
 					/obj/item/reagent_containers/food/snacks/fish/clownfish
 				)
+
+/datum/supply_pack/rogue/food/hladogent
+	name = "Изолированный хладагент"
+	cost = 500
+	contains = list(
+					/obj/item/rogueore/alizeria/insulatedcrystall
+				)

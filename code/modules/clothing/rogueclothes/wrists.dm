@@ -32,7 +32,7 @@
 	body_parts_covered_dynamic = 384 //Ditto
 	icon_state = "bracers"
 	item_state = "bracers"
-	max_integrity = 300
+	max_integrity = 600
 	armor = ARMOR_BOOTS_PLATED
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = PLATEHIT
@@ -47,7 +47,7 @@
 	desc = "Iron bracers that protect the arms."
 	icon_state = "bracers" // Lacks their own iron bracers sprite
 	item_state = "bracers" // Lacks their own iron bracers sprite
-	max_integrity = 260
+	max_integrity = 500
 	armor = ARMOR_BOOTS_PLATED_IRON
 	smeltresult = /obj/item/ingot/iron
 
@@ -82,7 +82,7 @@
 			user.dropItemToGround(src)
 			user.put_in_hands(P)
 		P.obj_integrity = src.obj_integrity
-		user.adjustBruteLoss(25)	
+		user.adjustBruteLoss(25)
 		qdel(src)
 	else
 		user.visible_message(span_warning("[user] stops reshaping [src]."))

@@ -3,13 +3,12 @@
 	flag = ACADEM
 	department_flag = MERCENARIES
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	tutorial = "Шевалье - низшая ступень коронной службы и первый материал для будущей жандармерии. Чаще всего сюда попадают отпрыски богатых семей, от которых родители устали раньше, чем успели воспитать, а также юнцы, мечтающие о славе и красивой форме. Здесь из них делают солдат при помощи муштры, унижений, дисциплины и прочих любимых традиций Монфора. Если не сломаешься - станешь полезным. Если сломаешься - станешь примером для остальных."
 	display_order = JDO_ACADEM
-	always_show_on_latechoices = TRUE
 	allowed_patrons = CODEX
 
 	outfit = /datum/outfit/job/academian

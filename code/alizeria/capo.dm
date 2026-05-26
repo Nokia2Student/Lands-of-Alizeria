@@ -3,8 +3,8 @@
 	flag = CAPO
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_ALL_RACES
 	tutorial = "Ты являешься правой рукой главаря криминального мира в вольном городе. Пока он занимается заработком денег, ведя свой 'бизнес' - ты занимаешься исполнением различных заказов и важных поручений. С твоих рук давно не стекала кровь, возможно настало время это исправить."
 	allowed_sexes = list(MALE, FEMALE)

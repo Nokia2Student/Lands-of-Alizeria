@@ -3,8 +3,8 @@
 	flag = STEWARD
 	department_flag = COURTIERS
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_NOBLE_RACES
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_STEWARD
@@ -14,7 +14,6 @@
 	noble_income = 40
 	min_pq = 0 //Please don't give the vault keys to somebody that's going to lock themselves in on accident
 	max_pq = null
-	always_show_on_latechoices = TRUE
 	round_contrib_points = 3
 	cmode_music = 'sound/music/combat_noble.ogg'
 	social_rank = SOCIAL_RANK_NOBLE

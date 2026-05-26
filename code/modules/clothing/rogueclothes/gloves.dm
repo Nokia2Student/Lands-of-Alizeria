@@ -95,7 +95,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT)
 	resistance_flags = FIRE_PROOF
 	blocksound = CHAINHIT
-	max_integrity = 250
+	max_integrity = 500
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
@@ -149,7 +149,7 @@
 	icon_state = "icgloves"
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/iron
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/gloves/roguetown/otavan
 	name = "otavan leather gloves"
@@ -160,7 +160,7 @@
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = SOFTHIT
-	max_integrity = 250
+	max_integrity = 500
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
@@ -185,7 +185,7 @@
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = PLATEHIT
-	max_integrity = 300
+	max_integrity = 600
 	blade_dulling = DULLING_BASH
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
@@ -201,7 +201,7 @@
 	desc = "Decrepit old plate gauntlets. Aeon's grasp is upon them."
 	icon_state = "agauntlets"
 	smeltresult = /obj/item/ingot/aalloy
-	max_integrity = 150
+	max_integrity = 300
 
 /obj/item/clothing/gloves/roguetown/plate/paalloy
 	name = "ancient plate gauntlets"
@@ -212,7 +212,7 @@
 /obj/item/clothing/gloves/roguetown/plate/graggar
 	name = "vicious gauntlets"
 	desc = "Plate gauntlets which carry the motive force of this world, violence."
-	max_integrity = 500
+	max_integrity = 1000
 	icon_state = "graggarplategloves"
 	unarmed_bonus = 1.25
 
@@ -228,7 +228,7 @@
 	name = "gilded gauntlets"
 	desc = "Many a man his life hath sold,"
 	icon_state = "matthiosgloves"
-	max_integrity = 500
+	max_integrity = 1000
 	unarmed_bonus = 1.25
 
 /obj/item/clothing/gloves/roguetown/plate/matthios/Initialize()
@@ -246,7 +246,7 @@
 	name = "darksteel gauntlets"
 	desc = "darksteel plate gauntlets. Called forth from the edge of what should be known. In Her name."
 	icon_state = "zizogauntlets"
-	max_integrity = 500
+	max_integrity = 1000
 	unarmed_bonus = 1.25
 
 /obj/item/clothing/gloves/roguetown/plate/zizo/Initialize()
@@ -295,7 +295,7 @@
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = PLATEHIT
-	max_integrity = 400
+	max_integrity = 800
 	blade_dulling = DULLING_BASH
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
@@ -314,7 +314,7 @@
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = PLATEHIT
-	max_integrity = 400
+	max_integrity = 800
 	blade_dulling = DULLING_BASH
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
@@ -341,7 +341,7 @@
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_SMASH, BCLASS_PICK)
 	resistance_flags = FIRE_PROOF
 	blocksound = SOFTHIT
-	max_integrity = 200
+	max_integrity = 400
 	anvilrepair = /datum/skill/craft/carpentry
 	unarmed_bonus = 1.1
 
@@ -351,7 +351,7 @@
 	desc = "Made with Otava's Finest leather, these gloves are fashioned to last."
 	icon_state = "psydongloves"
 	item_state = "psydongloves"
-	salvage_result = /obj/item/natural/hide/cured	
+	salvage_result = /obj/item/natural/hide/cured
 	allowed_race = ALL_RACES_TYPES
 
 /obj/item/clothing/gloves/roguetown/eastgloves1
@@ -391,7 +391,7 @@
 	desc = "Strong carapace plated gauntlets to sink your pincers into."
 	icon_state = "carapace_gauntlets"
 	armor = list("blunt" = 60, "slash" = 50, "stab" = 50, "piercing" = 30, "fire" = 30, "acid" = 0) //Around chain level
-	max_integrity = 225
+	max_integrity = 450
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT)
 	resistance_flags = null
 	blocksound = PLATEHIT

@@ -841,7 +841,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	blocksound = PLATEHIT
-	max_integrity = 200
+	max_integrity = 400
 	grid_height = 64
 	grid_width = 64
 	experimental_onhip = TRUE
@@ -884,7 +884,7 @@
 	name = "horned cap"
 	desc = "An iron helmet with two horns poking out of the sides."
 	icon_state = "hornedcap"
-	max_integrity = 225
+	max_integrity = 450
 	body_parts_covered = HEAD|HAIR
 	smeltresult = /obj/item/ingot/iron
 
@@ -892,7 +892,7 @@
 	name = "winged cap"
 	desc = "A helmet with two wings on its sides."
 	icon_state = "wingedcap"
-	max_integrity = 225
+	max_integrity = 450
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	bloody_icon = 'icons/effects/blood64.dmi'
 	worn_x_dimension = 64
@@ -903,7 +903,7 @@
 	name = "kettle helmet"
 	desc = "A steel helmet which protects the top and sides of the head."
 	icon_state = "kettle"
-	max_integrity = 215
+	max_integrity = 430
 	body_parts_covered = HEAD|HAIR|EARS
 	armor = ARMOR_HEAD_HELMET
 
@@ -938,7 +938,7 @@
 	name = "sallet"
 	icon_state = "sallet"
 	desc = "A steel helmet which protects the ears."
-	max_integrity = 215
+	max_integrity = 430
 	smeltresult = /obj/item/ingot/steel
 	body_parts_covered = HEAD|HAIR|EARS
 
@@ -946,7 +946,7 @@
 	name = "holysteel thorns"
 	icon_state = "holythorns"
 	desc = "A crown of thorns made with silver and steel wires. It protects your head and ears despite pricking them."
-	max_integrity = 225
+	max_integrity = 450
 	smeltresult = /obj/item/ingot/steel
 	body_parts_covered = HEAD|HAIR|EARS
 
@@ -954,7 +954,7 @@
 	name = "beast skull"
 	desc = "The skull of a horned beast, carved and fashioned into a helmet. An iron skull cap has been inserted on the inside."
 	icon_state = "marauder_head"
-	max_integrity = 280
+	max_integrity = 560
 	smeltresult = /obj/item/ingot/iron
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	worn_x_dimension = 64
@@ -987,7 +987,7 @@
 	name = "visored sallet"
 	desc = "A steel helmet which protects the ears, and when the visor is flipped it includes the nose, and eyes at the cost of situational awareness."
 	icon_state = "sallet_visor"
-	max_integrity = 285
+	max_integrity = 600
 	adjustable = CAN_CADJUST
 	flags_inv = HIDEFACE|HIDESNOUT|HIDEHAIR
 	flags_cover = HEADCOVERSEYES
@@ -1056,7 +1056,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
-	max_integrity = 300
+	max_integrity = 600
 	detail_tag = "_detail"
 	color = "#FFFFFF"
 	detail_color = "#c7732f"
@@ -1094,12 +1094,12 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
-	max_integrity = 350
+	max_integrity = 700
 
 /obj/item/clothing/head/roguetown/helmet/heavy/aalloy
 	name = "decrepit barbute"
 	desc = "A withered old barbute. Aeon's grasp is upon it."
-	max_integrity = 200
+	max_integrity = 400
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	smeltresult = /obj/item/ingot/aalloy
 	icon_state = "ancientbarbute"
@@ -1151,7 +1151,7 @@
 	desc = "All that glitters is not gold,"
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT|HIDEHAIR|HIDEFACIALHAIR
 	icon_state = "matthioshelm"
-	max_integrity = 600
+	max_integrity = 1200
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 	bloody_icon = 'icons/effects/blood64.dmi'
@@ -1162,7 +1162,7 @@
 	name = "vicious helmet"
 	desc = "A rugged helmet which stirs with the same violence which drives our world."
 	icon_state = "graggarplatehelm"
-	max_integrity = 600
+	max_integrity = 1200
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT|HIDEHAIR|HIDEFACIALHAIR
 	var/active_item = FALSE
 
@@ -1204,7 +1204,7 @@
 	desc = "A darksteel barbute. This one has an adjustable visor. Called forth from the edge of what should be known. In Her name."
 	adjustable = CAN_CADJUST
 	icon_state = "zizobarbute"
-	max_integrity = 600
+	max_integrity = 1200
 	peel_threshold = 4
 	var/frogstyle = FALSE
 
@@ -1283,7 +1283,7 @@
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
 	block2add = FOV_BEHIND
-	max_integrity = 325
+	max_integrity = 650
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
 
@@ -1408,7 +1408,7 @@
 	desc = "A helmet which covers the whole of the head. Offers excellent protection."
 	icon_state = "topfhelm"
 	item_state = "topfhelm"
-	max_integrity = 335
+	max_integrity = 700
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
 	block2add = FOV_BEHIND
@@ -1588,7 +1588,7 @@
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD|NECK
 	block2add = FOV_BEHIND // now good
-	max_integrity = 370
+	max_integrity = 700
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -1692,7 +1692,7 @@
 	body_parts_covered = HEAD|HAIR|EARS
 	flags_inv = HIDEEARS|HIDEHAIR
 	block2add = FOV_BEHIND
-	max_integrity = 250
+	max_integrity = 500
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/head/roguetown/helmet/bascinet/pigface
@@ -1700,7 +1700,7 @@
 	desc = "A steel bascinet helmet with a pigface visor that protects the entire head and face. Add a feather to show the colors of your family or allegiance."
 	icon_state = "hounskull"
 	item_state = "hounskull"
-	max_integrity = 325
+	max_integrity = 750
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD
@@ -1789,7 +1789,7 @@
 	desc = "A steel bascinet helmet with a straight visor, or \"klappvisier\", which can greatly reduce visibility. Though it was first developed in Etrusca, it is also widely used in Grenzelhoft."
 	icon_state = "klappvisier"
 	item_state = "klappvisier"
-	max_integrity = 325
+	max_integrity = 750
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD
@@ -1833,7 +1833,7 @@
 	body_parts_covered = FULL_HEAD|NECK
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	block2add = FOV_RIGHT|FOV_LEFT
-	max_integrity = 450
+	max_integrity = 900
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
 
@@ -1882,7 +1882,7 @@
 	icon_state = "volfhead"
 	item_state = "volfhead"
 	armor = ARMOR_HEAD_HELMET_BAD
-	max_integrity = 200
+	max_integrity = 400
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
 	sewrepair = TRUE
@@ -1898,7 +1898,7 @@
 	worn_y_dimension = 64
 	bloody_icon = 'icons/effects/blood64.dmi'
 	armor = ARMOR_HEAD_HELMET_BAD
-	max_integrity = 120
+	max_integrity = 240
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT
 	flags_cover = HEADCOVERSEYES
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES
@@ -2133,7 +2133,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
 	block2add = FOV_BEHIND
-	max_integrity = 425
+	max_integrity = 850
 	smeltresult = /obj/item/ingot/blacksteel
 	smelt_bar_num = 2
 
@@ -2150,7 +2150,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
 	block2add = FOV_BEHIND
-	max_integrity = 425
+	max_integrity = 850
 	smeltresult = /obj/item/ingot/blacksteel
 	smelt_bar_num = 2
 
@@ -2205,7 +2205,7 @@
 	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/head/roguetown/roguehood/psydon/confessor
 	name = "confessional hood"
@@ -2222,7 +2222,7 @@
 	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/head/roguetown/roguehood/hierophant
 	name = "hierophant's pashmina"
@@ -2257,7 +2257,7 @@
 	desc = "A plain leather hat with decorative buckle. An Otavan variant, reinforced with heavy leather."
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	armor = ARMOR_HEAD_PSYDON
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/head/roguetown/duelhat //lifeweb sprite
 	name = "duelist's hat"
@@ -2275,7 +2275,7 @@
 	desc = "A steel bascinet helmet with a volfish visor protecting the head, ears, eyes, nose and mouth."
 	icon_state = "volfplate"
 	item_state = "volfplate"
-	max_integrity = 325
+	max_integrity = 650
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
@@ -2340,7 +2340,7 @@
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	smeltresult = /obj/item/rogueore/coal
 	anvilrepair = /datum/skill/craft/carpentry
-	max_integrity = 300
+	max_integrity = 600
 	blocksound = SOFTHIT
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
@@ -2443,7 +2443,7 @@
 	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/clothing/head/roguetown/roguehood/warden/antler
 	name = "warden's antlered hood"
@@ -2510,7 +2510,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/champion.dmi'
 	icon_state = "champbarbute"
 	block2add = FOV_BEHIND
-	max_integrity = 350
+	max_integrity = 750
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT|HIDEEYES
 	body_parts_covered = HEAD|HAIR|EARS|MOUTH|NOSE|EYES
 
@@ -2561,7 +2561,7 @@
 	body_parts_covered = FULL_HEAD
 	flags_inv = HIDEEARS|HIDEHAIR
 	block2add = FOV_BEHIND
-	max_integrity = 250
+	max_integrity = 500
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/head/roguetown/helmet/carapacecap

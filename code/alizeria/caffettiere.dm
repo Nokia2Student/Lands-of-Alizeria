@@ -3,8 +3,8 @@
 	flag = CAFE
 	department_flag = YEOMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	tutorial = "“ы - один из немногих двор€нинов, что €вл€етс€ весьма ло€льным короне, при этом наход€сь в городе. “воЄ заведение - роскошно, а также твоими клиентами чаще всего €вл€етс€ знать. ќни считают таверну чем-то простым, дл€ смердов, и по сути так и есть. Ѕлаго у них есть альтернатива в виде твоего заведени€."

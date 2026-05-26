@@ -45,12 +45,6 @@ GLOBAL_LIST_EMPTY(triumph_loadout_items)
 	tr_cost = 5
 	desc = "Железный молоток, который может пригодиться в кузнечном деле."
 
-/datum/triumph_loadout_item/flint
-	name = "Огниво"
-	path = /obj/item/flint
-	tr_cost = 3
-	desc = "Простая железка, с помощью которой можно легко что-нибудь разжечь."
-
 /obj/item/clothing/gloves/roguetown/leather/tr
 	name = "leather gloves"
 

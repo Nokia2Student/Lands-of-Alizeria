@@ -208,7 +208,7 @@
 	item_state = "fencerboots"
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = SOFTHIT
-	max_integrity = 200
+	max_integrity = 400
 	armor = ARMOR_BOOTS
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	salvage_amount = 1
@@ -248,7 +248,7 @@
 	color = null
 	blocksound = PLATEHIT
 	resistance_flags = FIRE_PROOF
-	max_integrity = 300
+	max_integrity = 600
 	armor = ARMOR_BOOTS_PLATED
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -256,7 +256,7 @@
 /obj/item/clothing/shoes/roguetown/boots/armor/graggar
 	name = "vicious boots"
 	desc = "Plated boots which stir with the same violence driving our world. They have treaded a thousand skulls."
-	max_integrity = 500
+	max_integrity = 1000
 	armor = ARMOR_ASCENDANT
 	icon_state = "graggarplateboots"
 
@@ -270,15 +270,11 @@
 
 
 /obj/item/clothing/shoes/roguetown/boots/armor/matthios
-	max_integrity = 500
+	max_integrity = 1000
 	name = "gilded boots"
 	desc = "Gilded tombs do worm enfold."
 	icon_state = "matthiosboots"
 	armor = ARMOR_ASCENDANT
-
-/obj/item/clothing/shoes/roguetown/boots/armor/matthios/Initialize()
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/shoes/roguetown/boots/armor/matthios/dropped(mob/living/carbon/human/user)
 	. = ..()
@@ -287,7 +283,7 @@
 	qdel(src)
 
 /obj/item/clothing/shoes/roguetown/boots/armor/zizo
-	max_integrity = 500
+	max_integrity = 1000
 	name = "darksteel boots"
 	desc = "Plate boots. Called forth from the edge of what should be known. In Her name."
 	icon_state = "zizoboots"
@@ -312,7 +308,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	color = null
 	blocksound = PLATEHIT
-	max_integrity = 200
+	max_integrity = 1000
 	armor = ARMOR_BOOTS_PLATED_IRON
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/iron
@@ -410,7 +406,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	color = null
 	blocksound = PLATEHIT
-	max_integrity = 400
+	max_integrity = 800
 	armor = ARMOR_PLATE_BSTEEL
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
@@ -427,7 +423,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	color = null
 	blocksound = PLATEHIT
-	max_integrity = 400
+	max_integrity = 800
 	armor = ARMOR_PLATE_BSTEEL
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
@@ -502,7 +498,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	icon_state = "ogre_plateboots"
 	allowed_race = OGRE_RACE_TYPES
-	max_integrity = 250
+	max_integrity = 500
 	armor = ARMOR_BOOTS_PLATED_IRON
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 
@@ -514,5 +510,5 @@
 	icon_state = "ogre_boots"
 	allowed_race = OGRE_RACE_TYPES
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_TWIST)	//Same as gloves
-	max_integrity = 150	
+	max_integrity = 150
 	armor = ARMOR_BOOTS

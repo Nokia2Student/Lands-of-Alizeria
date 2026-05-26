@@ -70,14 +70,14 @@
 			ADD_TRAIT(user, TRAIT_NOCSHADES, "redlens")
 			return
 
-/obj/item/clothing/mask/rogue/spectacles/inq/update_icon(mob/user, slot)	
+/obj/item/clothing/mask/rogue/spectacles/inq/update_icon(mob/user, slot)
 	cut_overlays()
 	..()
 	if(slot == SLOT_WEAR_MASK || slot == SLOT_HEAD)
 		var/mutable_appearance/redlenses = mutable_appearance(mob_overlay_icon, "bglasses_glow")
 		redlenses.layer = 19
 		redlenses.plane = 20
-		user.add_overlay(redlenses)	
+		user.add_overlay(redlenses)
 
 /obj/item/clothing/mask/rogue/spectacles/inq/attack_right(mob/user, slot)
 	..()
@@ -92,7 +92,7 @@
 	lensmoved = FALSE
 
 /obj/item/clothing/mask/rogue/spectacles/inq/dropped(mob/user, slot)
-	..()		
+	..()
 	if(slot != SLOT_WEAR_MASK || slot == SLOT_HEAD)
 		if(!lensmoved)
 			REMOVE_TRAIT(user, TRAIT_NOCSHADES, "redlens")
@@ -127,7 +127,7 @@
 			to_chat(user, span_notice("Time to build"))
 			active_item = TRUE
 			return
-		else 
+		else
 			to_chat(user, span_notice("I can't understand these words and numbers before my eyes"))
 			return
 	else
@@ -184,7 +184,7 @@
 	name = "golden halfmask"
 	desc = "Half of your face turned gold."
 	icon_state = "lmask"
-	sellprice = 50
+	sellprice = 100
 	anvilrepair = /datum/skill/craft/armorsmithing
 	resistance_flags = FIRE_PROOF
 
@@ -210,7 +210,7 @@
 	body_parts_covered = FACE|HEAD
 	block2add = FOV_BEHIND
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
-	armor = ARMOR_PADDED 
+	armor = ARMOR_PADDED
 	sewrepair = TRUE
 
 /obj/item/clothing/mask/rogue/sack/psy
@@ -224,7 +224,7 @@
 	icon_state = "confessormask"
 	max_integrity = 200
 	equip_sound = 'sound/items/confessormaskon.ogg'
-	smeltresult = /obj/item/ingot/steel	
+	smeltresult = /obj/item/ingot/steel
 	var/worn = FALSE
 	slot_flags = ITEM_SLOT_MASK
 
@@ -253,7 +253,7 @@
 			qdel(I)
 		else
 			user.visible_message(span_warning("[user] stops inserting the lenses into [src]."))
-		return		
+		return
 
 /obj/item/clothing/mask/rogue/facemask/steel/confessor/lensed
 	name = "stranger mask"
@@ -280,11 +280,11 @@
 	lensmoved = FALSE
 
 /obj/item/clothing/mask/rogue/facemask/steel/confessor/lensed/dropped(mob/user, slot)
-	..()		
+	..()
 	if(slot != SLOT_WEAR_MASK || slot == SLOT_HEAD)
 		if(!lensmoved)
 			REMOVE_TRAIT(user, TRAIT_NOCSHADES, "redlens")
-			return	
+			return
 
 /obj/item/clothing/mask/rogue/wildguard
 	name = "wild guard"
@@ -308,7 +308,7 @@
 	name = "iron mask"
 	desc = "An iron mask which protects the eyes, nose and mouth while also obscuring the face it."
 	icon_state = "imask"
-	max_integrity = 100
+	max_integrity = 200
 	blocksound = PLATEHIT
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
@@ -341,7 +341,7 @@
 	name = "hound mask"
 	desc = "An mask of iron with a shape of a hound's muzzle which protects the eyes, nose and mouth while also obscuring the face it."
 	icon_state = "imask_hound"
-	max_integrity = 100
+	max_integrity = 200
 	blocksound = PLATEHIT
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
@@ -460,7 +460,7 @@
 /obj/item/clothing/mask/rogue/facemask/steel/steppesman
 	name = "steppesman war mask"
 	desc = "A steel mask shaped like the face of a rather charismatic fellow! Pronounced cheeks, a nose, and a large mustache. Well, people outside of Aavnr don't think you'd look charismatic at all wearing this."
-	max_integrity = 250
+	max_integrity = 500
 	icon_state = "steppemask"
 	layer = HEAD_LAYER
 
@@ -479,7 +479,7 @@
 	icon_state = "feldmask"
 
 	block2add = null
-	max_integrity = 100
+	max_integrity = 200
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
 	body_parts_covered = FULL_HEAD
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
@@ -492,7 +492,7 @@
 /obj/item/clothing/mask/rogue/facemask/goldmask
 	name = "gold mask"
 	icon_state = "goldmask"
-	max_integrity = 150
+	max_integrity = 300
 	sellprice = 100
 	smeltresult = /obj/item/ingot/gold
 
@@ -559,7 +559,7 @@
 	name = "skull mask"
 	desc = "A mask in the shape of a skull, designed to terrify."
 	icon_state = "skullmask"
-	max_integrity = 100
+	max_integrity = 200
 	blocksound = PLATEHIT
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
@@ -595,7 +595,7 @@
 	item_state = "naledimask"
 	icon_state = "naledimask"
 	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross. Armored to protect the wearer's face."
-	max_integrity = 100
+	max_integrity = 200
 	armor = ARMOR_MASK_METAL
 	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	adjustable = CAN_CADJUST

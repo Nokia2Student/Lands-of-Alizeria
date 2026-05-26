@@ -8,8 +8,8 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	flag = ADVENTURER
 	department_flag = YOUNGFOLK
 	faction = "Station"
-	total_positions = 25
-	spawn_positions = 25
+	total_positions = 10
+	spawn_positions = 10
 	allowed_races = ALIZ_ALL_RACES
 	disallowed_races = /datum/species/ogre
 	tutorial = "Ты - путешественник. Один из многих, что возможно найдёт свою кончину в пьяной драке или на опасных дорогах. Мало кто ценит твоё ремесло, но есть один плюс - ты полностью предоставлен сам себе."

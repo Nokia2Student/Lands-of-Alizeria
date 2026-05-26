@@ -3,8 +3,8 @@
 	flag = NECROMIST
 	department_flag = YEOMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_ONLY_HUMAN
 	tutorial = "После того, как миру стали известны места, куда попадают людские души после смерти - появилась такая профессия как некромист. Они являются 'судьями' мeртвых, собирая и анализируя информацию о проведeнной жизни своих клиентов. После этого они подводят итоги, избирая способ захоронения. Именно от него зависит то, куда попадeт душа."

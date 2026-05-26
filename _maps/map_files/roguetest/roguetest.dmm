@@ -565,7 +565,7 @@
 "BN" = (/obj/item/clothing/gloves/roguetown/nomagic,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "BO" = (/obj/item/clothing/head/roguetown/helmet/otavan,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "BP" = (/obj/item/clothing/gloves/roguetown/otavan,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
-"BR" = (/obj/structure/flora/roguegrass,/turf/open/floor/rogue/dirt/road,/area/rogue/indoors)
+"BR" = (/obj/structure/flora/roguegrass,/obj/effect/spawner/lootdrop/roguetown/dungeon/insulatedcrystall,/turf/open/floor/rogue/dirt/road,/area/rogue/indoors)
 "BT" = (/obj/item/clothing/suit/roguetown/armor/silkcoat,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Ca" = (/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Cc" = (/turf/open/floor/rogue/ruinedwood,/area/rogue/indoors)
@@ -573,6 +573,7 @@
 "Cf" = (/obj/item/clothing/neck/roguetown/zcross/aalloy,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Cj" = (/obj/effect/decal/alizeria/decals/wooddecal4,/obj/item/clothing/under/roguetown/brayette,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Ck" = (/obj/machinery/light/rogue/wallfire/candle/l,/turf/open/floor/rogue/hay,/area/rogue/indoors)
+"Co" = (/obj/effect/spawner/lootdrop/roguetown/dungeon/insulatedcrystall,/turf/open/floor/rogue/grass,/area/rogue/indoors)
 "Cq" = (/obj/item/clothing/head/roguetown/helmet/bascinet/wizardhelm,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Cv" = (/obj/item/clothing/wrists/roguetown/bracers/leather/heavy,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Cx" = (/obj/item/clothing/head/roguetown/nyle,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
@@ -898,6 +899,7 @@
 "Tt" = (/turf/open/floor/rogue/rooftop{icon_state = "roofg"},/area/rogue/outdoors)
 "Tu" = (/obj/item/clothing/head/roguetown/beekeeper,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "Tx" = (/obj/item/clothing/under/roguetown/platelegs/blacksteel/modern,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
+"TA" = (/obj/structure/flora/roguegrass,/obj/effect/spawner/lootdrop/roguetown/dungeon/insulatedcrystall,/turf/open/floor/rogue/grass,/area/rogue/indoors)
 "TD" = (/obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "TH" = (/obj/item/storage/belt/rogue/leather/ogre,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "TI" = (/turf/open/floor/rogue/carpet,/area/rogue/outdoors)
@@ -1046,9 +1048,9 @@ ozozozozozThOgkHlOaiOgUJhlgjLvHOuOJLLgPePePePeHdOgtPtPBGdNOZmrdNczqADmVfVfDmDmDm
 ozozozozozThOgOgLqOgOgdALqLqLqxaxaOgLofzfzfzLoLoOgtPtPmfRlBxxmyXmflsMXUMzHDmgYPpNjToYqOgThozozozozoz
 ozozozozozThOgEplRDWXXvmvmhacdalalalalalalqAqAqAXbqAOgrWczcTMcFimfDmDmDmDmDmDmDmDmDmDmOgThozozozozoz
 ozozozozozThOglWnwhuQSaYaYaYKWalalBJtZtZtZpqpqDmqAqAqAczpkczczmfmfJQaPpHnPDmRRwobQdHsyOgThozozozozoz
-ozozozozozThOgFPFPVFHAaYaYaYIAEABJBJLFLFLFFnFnVfVfBRBRinmfczczczmfVfVfVfVfDmDmDmDmDmDmOgThozozozozoz
-ozozozozozThOgCkWQhuHAaYaYwnCNalBJBJLFLFLFFnFnVfVfZMZMZMMtMtMtqADmkmfLYwjpDmIiBFNgOIEuOgThozozozozoz
-ozozozozozThOgNxTdhuHAclclUWalalBJHALFLFvGFnbSVfVfVfzZDmDmDmDmDmDmDmzZVfVfDmDmDmDmDmDmOgThozozozozoz
+ozozozozozThOgFPFPVFHAaYaYaYIAEABJBJLFLFLFFnFnVfCoBRBRinmfczczczmfVfVfVfVfDmDmDmDmDmDmOgThozozozozoz
+ozozozozozThOgCkWQhuHAaYaYwnCNalBJBJLFLFLFFnFnVfCoTATAZMMtMtMtqADmkmfLYwjpDmIiBFNgOIEuOgThozozozozoz
+ozozozozozThOgNxTdhuHAclclUWalalBJHALFLFvGFnbSVfCoCozZDmDmDmDmDmDmDmzZVfVfDmDmDmDmDmDmOgThozozozozoz
 ozozRNozozThOgbpbpOgHAHAHABJalalBJHAclclcllElEVfVfVfDmDmMtMtMtDmDmDmDmVfVfDmsLZLwMMRWyOgThozozozozoz
 ozozozozozThOgTdTdgmHAHAHAzpalalBJzpHAHAHAVfVfVfzZDmDmDmUIDmDmDmDmDmDmDmzZHADmDmDmDmDmOgThozozozozoz
 ozozozozozThOgQMTdhuHAHAHAHAalalBJHAPWjMjMjhjhHABJUHBJUHBJUHTIWBTIUHBJUHBJOTVfVfDmDmCLOgThozozozozoz

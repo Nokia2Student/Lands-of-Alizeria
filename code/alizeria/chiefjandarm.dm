@@ -5,14 +5,13 @@
 	flag = MARSHGEN
 	department_flag = MERCENARIES
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
 	tutorial = "ќтносительно недавно ты прибыл на јлизерию, когда корона решила окончательно превратить остров в своЄ владение. ѕосле подавлени€ беспор€дков именно ты оказалс€ самым вли€тельным двор€нином среди местной знати и вз€л на себ€ брем€ несени€ воли ћонфора. ƒл€ одних ты гарант пор€дка, дл€ других - лицо оккупации. “еперь улицы спокойнее, но покой здесь всегда стоит дорого. —умеешь ли ты удержать власть, когда штормы бушуют не только в море?"
 	display_order = JDO_MARSHGEN
 	selection_color = JCOLOR_MERCENARY
-	always_show_on_latechoices = TRUE
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	allowed_patrons = CODEX
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/gendarme)

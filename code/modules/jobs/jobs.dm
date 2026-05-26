@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT(inquisition_positions, list(
 
 
 GLOBAL_LIST_INIT(yeoman_positions, list(
-	"Merchant",
+	"Quartermaster",
 	"Shophand",
 	"Magician",
 	"Physician",
@@ -130,12 +130,9 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 ))
 
 GLOBAL_LIST_INIT(youngfolk_positions, list(
-	"Adventurer",
 	"Mercenary",
-))
-
-GLOBAL_LIST_INIT(avangard_positions, list(
-	"Commander"
+	"Adventurer",
+	"Traveller",
 ))
 
 GLOBAL_LIST_INIT(allmig_positions, list(
@@ -160,6 +157,14 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 
 GLOBAL_LIST_INIT(test_positions, list(
 	"Tester",
+))
+
+GLOBAL_LIST_INIT(avangard_positions, list(
+	"Commander",
+	"Expeditor",
+	"Tavernier",
+	"Master",
+	"Supplier",
 ))
 
 GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())

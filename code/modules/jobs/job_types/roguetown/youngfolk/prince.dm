@@ -4,8 +4,8 @@
 	flag = PRINCE
 	department_flag = YOUNGFOLK
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	f_title = "Princess"
 	allowed_races = ALIZ_ONLY_HUMAN //Maybe a system to force-pick lineage based on king and queen should be implemented. (No it shouldn't.)
 	allowed_patrons = CODEX

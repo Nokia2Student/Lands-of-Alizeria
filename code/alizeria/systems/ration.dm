@@ -6,8 +6,8 @@
 	icon = 'icons/roguetown/alizeria/items.dmi'
 	icon_state = "ration_closed"
 	w_class = WEIGHT_CLASS_SMALL
-	grid_width = 2
-	grid_height = 1
+	grid_width = 32
+	grid_height = 32
 
 	// Переменные для механики
 	var/is_opened = FALSE
@@ -36,9 +36,15 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/ration/update_icon()
 	if(is_opened)
-		icon_state = "ration_open"
-		if(is_heated)
+		if(bitecount >= 1 && bitecount <= 3)
+			if(is_heated)
+				icon_state = "ration_open_warm_bite[bitecount]"
+			else
+				icon_state = "ration_open_bite[bitecount]"
+		else if(is_heated)
 			icon_state = "ration_open_warm"
+		else
+			icon_state = "ration_open"
 	else
 		icon_state = "ration_closed"
 
@@ -74,6 +80,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/ration/On_Consume(mob/living/eater)
 	..()
+	update_icon()
 
 	// Обновляем спрайт при каждом укусе
 	var/bite_visual_state = bitecount

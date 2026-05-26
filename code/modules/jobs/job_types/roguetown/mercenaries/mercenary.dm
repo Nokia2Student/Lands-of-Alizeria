@@ -1,10 +1,10 @@
 /datum/job/roguetown/mercenary
 	title = "Mercenary"
 	flag = MERCENARY
-	department_flag = MERCENARIES
+	department_flag = YOUNGFOLK
 	faction = "Station"
-	total_positions = 8
-	spawn_positions = 8
+	total_positions = 10
+	spawn_positions = 10
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_ALL_RACES
 	disallowed_races = /datum/species/ogre
@@ -43,9 +43,6 @@
 		/datum/advclass/mercenary/grenzelhoft/crossbowman,
 		/datum/advclass/mercenary/gronn,
 		/datum/advclass/mercenary/gronnheavy,
-		/datum/advclass/mercenary/rumaclan,
-		/datum/advclass/mercenary/rumaclan/ishu,
-		/datum/advclass/mercenary/kashira,
 		/datum/advclass/mercenary/steppesman,
 		/datum/advclass/mercenary/warscholar,
 		/datum/advclass/mercenary/warscholar/pontifex,

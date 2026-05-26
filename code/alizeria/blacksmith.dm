@@ -3,8 +3,8 @@
 	flag = PBLACKSMITH
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = RACES_ALL_KINDS
 	tutorial = " огда-то давно кузнецы ценились почти также, как и пленники-лорды. “еперь же их времена прошли. ћногие доспехи возможно пробить болтом или пулей, так что выбор многих стал уходить в кожанное снар€жение. Ѕывают и исключени€, например городска€ стража, что €вл€ютс€ твоими частыми клиентами."
 	advclass_cat_rolls = list(CTAG_PBLACKSMITH = 20)
@@ -19,7 +19,6 @@
 	round_contrib_points = 2
 	wanderer_examine = FALSE
 	advjob_examine = TRUE
-	always_show_on_latechoices = TRUE
 	same_job_respawn_delay = 0
 	class_setup_examine = TRUE
 	cmode_music = 'sound/music/combat_towner.ogg'

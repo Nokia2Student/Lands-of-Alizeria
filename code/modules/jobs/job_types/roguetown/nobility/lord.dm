@@ -7,8 +7,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	flag = LORD
 	department_flag = NOBLEMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	selection_color = JCOLOR_NOBLE
 	allowed_races = ALIZ_ONLY_HUMAN
 	advclass_cat_rolls = list(CTAG_LORD = 20)

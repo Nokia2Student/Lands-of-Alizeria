@@ -3,8 +3,8 @@
 	flag = SERVANT
 	department_flag = COURTIERS
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_ALL_RACES
 	disallowed_races = list(
 		/datum/species/lamia,

@@ -3,8 +3,8 @@
 	flag = SHOPHAND
 	department_flag = YEOMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_ALL_RACES
 	tutorial = "Ты являешься помощником настоящего торговца. У тебя имеется своя лавка, что находится в весьма оживлённом месте. В отличие от своего мастера - ты вряд ли будешь заниматься чем-то кроме торговли."

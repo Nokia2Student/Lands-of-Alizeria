@@ -1,10 +1,10 @@
 /datum/job/roguetown/merchant
 	title = "Quartermaster"
 	flag = MERCHANT
-	department_flag = YEOMEN
+	department_flag = AVANGARD
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	allowed_races = ALIZ_ALL_RACES
 	tutorial = "Когда-то давно у тебя была собственная лавка, а также внушительные связи в торговой сфере. Почти всё из этого пропало, когда усилиями наместника в торговле появилась монополия. Из-за страха оказаться на улице в конечном итоге ты согласился работать на корону, помогая бургомистру вести мелкие торговые сделки. Кто знает, может когда-нибудь тебе удастся вернуть былое величие в городских стенах?"
 	selection_color = JCOLOR_YEOMAN

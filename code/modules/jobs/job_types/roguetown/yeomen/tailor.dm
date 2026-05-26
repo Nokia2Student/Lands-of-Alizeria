@@ -4,8 +4,8 @@
 	department_flag = PEASANTS
 	faction = "Station"
 	tutorial = "Каждый хочет красиво одеваться, а кому-то хочется больше быть защищённым. Будучи портным - у тебя имеются все инструменты для того, что бы совместить два этих желания. Впрочем, тебе также не помешает лишняя связь с кузнецом. Может у вас получится помочь друг другу?"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	min_pq = 0
 	allowed_races = ALIZ_ALL_RACES
 	disallowed_races = list(

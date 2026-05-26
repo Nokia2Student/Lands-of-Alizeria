@@ -7,6 +7,7 @@
 	anchored = TRUE
 	max_integrity = 100
 	var/sprite_category = 1
+	layer = 3.1
 
 /obj/structure/just_toy_doll
 	name = "toy doll"
@@ -17,6 +18,7 @@
 	anchored = TRUE
 	max_integrity = 100
 	var/sprite_category = 1
+	layer = 3.1
 
 /obj/structure/toy_doll_inactive/Initialize()
 	. = ..()
@@ -68,6 +70,7 @@
 	icon_state = "toy1"
 	icon_living = "toy1"
 	icon_dead = "toy1_corpse"
+	layer = 3.1
 
 	mob_biotypes = MOB_ORGANIC
 	health = 150

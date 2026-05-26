@@ -3,8 +3,8 @@
 	flag = BOGGUARD
 	department_flag = GARRISON
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 0
+	spawn_positions = 0
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_ALL_RACES
 	disallowed_races = list(
@@ -21,7 +21,6 @@
 	round_contrib_points = 2
 	cmode_music = 'sound/music/combat_warden.ogg'
 	social_rank = SOCIAL_RANK_PEASANT
-	always_show_on_latechoices = TRUE
 
 	virtue_restrictions = list(
 		/datum/virtue/utility/noble,
