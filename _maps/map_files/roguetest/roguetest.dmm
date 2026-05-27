@@ -205,6 +205,7 @@
 "jS" = (/obj/item/clothing/ring/topazs,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "jT" = (/obj/item/clothing/head/roguetown/hatblu,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "jV" = (/obj/item/clothing/suit/roguetown/shirt/dress/silkydress/invyicta,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
+"jZ" = (/turf/open/floor/rogue/snow/scoop,/area/rogue/outdoors/woods/alizeria/iceland)
 "ka" = (/obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "kh" = (/obj/item/clothing/neck/roguetown/zcross/iron,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "kl" = (/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
@@ -295,6 +296,7 @@
 "oi" = (/obj/item/clothing/shoes/roguetown/boots/carapace,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "ok" = (/obj/item/storage/belt/rogue/leather/knifebelt/black/psydon,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "om" = (/obj/structure/fluff/railing/border,/turf/open/floor/rogue/wood,/area/rogue/indoors)
+"on" = (/obj/item/rogueweapon/shovel,/turf/open/floor/rogue/cobblerock,/area/rogue/outdoors/woods/alizeria/iceland)
 "or" = (/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "os" = (/obj/item/clothing/head/roguetown/helmet/bascinet/etruscan,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
 "ou" = (/obj/item/clothing/suit/roguetown/shirt/undershirt/puritan,/obj/effect/decal/alizeria/decals/wooddecal1,/turf/open/floor/rogue/ruinedwood/alizeria/tiles/wood5,/area/rogue/outdoors)
@@ -1047,8 +1049,8 @@ ozozozozozThOgZpZpZpZpuObjJPJPrKuOJLhwPePePePePeOgOgOgzfWhtudGczczjuDmVfDmDmeoDF
 ozozozozozThOgkHlOaiOgUJhlgjLvHOuOJLLgPePePePeHdOgtPtPBGdNOZmrdNczqADmVfVfDmDmDmDmDmDmOgThozozozozoz
 ozozozozozThOgOgLqOgOgdALqLqLqxaxaOgLofzfzfzLoLoOgtPtPmfRlBxxmyXmflsMXUMzHDmgYPpNjToYqOgThozozozozoz
 ozozozozozThOgEplRDWXXvmvmhacdalalalalalalqAqAqAXbqAOgrWczcTMcFimfDmDmDmDmDmDmDmDmDmDmOgThozozozozoz
-ozozozozozThOglWnwhuQSaYaYaYKWalalBJtZtZtZpqpqDmqAqAqAczpkczczmfmfJQaPpHnPDmRRwobQdHsyOgThozozozozoz
-ozozozozozThOgFPFPVFHAaYaYaYIAEABJBJLFLFLFFnFnVfCoBRBRinmfczczczmfVfVfVfVfDmDmDmDmDmDmOgThozozozozoz
+ozozozozozThOglWnwhuQSaYaYaYKWalalBJtZtZtZpqpqDmqAqAqAczpkonczmfmfJQaPpHnPDmRRwobQdHsyOgThozozozozoz
+ozozozozozThOgFPFPVFHAaYaYaYIAEABJBJLFLFLFFnFnVfCoBRBRinjZjZjZczmfVfVfVfVfDmDmDmDmDmDmOgThozozozozoz
 ozozozozozThOgCkWQhuHAaYaYwnCNalBJBJLFLFLFFnFnVfCoTATAZMMtMtMtqADmkmfLYwjpDmIiBFNgOIEuOgThozozozozoz
 ozozozozozThOgNxTdhuHAclclUWalalBJHALFLFvGFnbSVfCoCozZDmDmDmDmDmDmDmzZVfVfDmDmDmDmDmDmOgThozozozozoz
 ozozRNozozThOgbpbpOgHAHAHABJalalBJHAclclcllElEVfVfVfDmDmMtMtMtDmDmDmDmVfVfDmsLZLwMMRWyOgThozozozozoz

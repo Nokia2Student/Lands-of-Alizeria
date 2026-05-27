@@ -2,85 +2,85 @@
 	title = "Dark Witch"
 	flag = DARKWITCH
 	department_flag = AVANGARD
+	allowed_sexes = list(FEMALE)
+	allowed_races = ALIZ_ALL_RACES
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	allowed_races = ALIZ_ALL_RACES
-	tutorial = "Когда-то давно у тебя была собственная лавка, а также внушительные связи в торговой сфере. Почти всё из этого пропало, когда усилиями наместника в торговле появилась монополия. Из-за страха оказаться на улице в конечном итоге ты согласился работать на корону, помогая бургомистру вести мелкие торговые сделки. Кто знает, может когда-нибудь тебе удастся вернуть былое величие в городских стенах?"
-	display_order = JDO_DKWITCH
+	tutorial = "В местах, где живeт мало людей - редко можно встретить обученных лекарей. Их место довольно часто занимают тeмные знахари, которые не пользуются хорошей репутацией, но к которым идут с любыми болезнями просто из-за отсутствия иных вариантов. Ты избрал для себя путь оккультизма и веры в Падшую Императрицу. Она, либо же нечто иное - одарила тебя тeмными силами. Немногие из твоих пациентов выживают, будь то по твоей вине, либо же нет. Впрочем, это не так важно, ведь ты всегда найдeшь применение даже мeртвым."
+	display_order = JDO_DARKWITCH
+	cmode_music = 'sound/music/combat_cult.ogg'
 
-	outfit = /datum/outfit/job/supplier
-	give_bank_account = 22
-	noble_income = 30 // Guild Support - The sole Money Role outside of the keep, should help them keep pace a bit + pick up if they get completely knocked out of coin.
+	spells = list(/obj/effect/proc_holder/spell/targeted/shapeshift/witch/cat/black, /obj/effect/proc_holder/spell/targeted/shapeshift/witch/crow, /obj/effect/proc_holder/spell/targeted/shapeshift/witch/bat)
+
+	outfit = /datum/outfit/job/darkwitch/darkwitch
+	give_bank_account = 35
 	min_pq = 0
 	max_pq = null
 	required = TRUE
 	round_contrib_points = 3
-	cmode_music = 'sound/music/combat_noble.ogg'
-	social_rank = SOCIAL_RANK_YEOMAN
 
+	job_traits = list(TRAIT_DEATHSIGHT, TRAIT_RITUALIST, TRAIT_WITCH, TRAIT_TALENTED_ALCHEMIST, TRAIT_ARCYNE_T3)
 
-	virtue_restrictions = list(/datum/virtue/utility/blacksmith)
-
-	job_traits = list(TRAIT_SEEPRICES, TRAIT_CICERONE)
-
-	advclass_cat_rolls = list(CTAG_DKWITCH = 5)
+	advclass_cat_rolls = list(CTAG_DARKWITCH = 6)
 	job_subclasses = list(
-		/datum/advclass/merchant
+		/datum/advclass/darkwitch
 	)
 
-/datum/advclass/supplier
-	name = "Supplier"
-	tutorial = "You were born into wealth, learning from before you could talk about the basics of mathematics. \
-	Counting coins is a simple pleasure for any person, but you've made it an art form. \
-	These people are addicted to your wares, and you are the literal beating heart of this economy: \
-	Don't let these filth-covered troglodytes ever forget that."
-	outfit = /datum/outfit/job/supplier/supplier
-	category_tags = list(CTAG_SUPP)
+/datum/advclass/darkwitch
+	name = "Dark Witch"
+	tutorial = "В местах, где живeт мало людей - редко можно встретить обученных лекарей. Их место довольно часто занимают тeмные знахари, которые не пользуются хорошей репутацией, но к которым идут с любыми болезнями просто из-за отсутствия иных вариантов. Ты избрал для себя путь оккультизма и веры в Падшую Императрицу. Она, либо же нечто иное - одарила тебя тeмными силами. Немногие из твоих пациентов выживают, будь то по твоей вине, либо же нет. Впрочем, это не так важно, ведь ты всегда найдeшь применение даже мeртвым."
+	outfit = /datum/outfit/job/darkwitch/darkwitch
+	category_tags = list(CTAG_DARKWITCH)
 	allowed_races = ALIZ_ALL_RACES
 
 	subclass_stats = list(
 		STATKEY_PER = 3,
-		STATKEY_INT = 2,
-		STATKEY_STR = -1
+		STATKEY_INT = 3,
+		STATKEY_STR = -2,
+		STATKEY_LCK = 1
 	)
+
+	subclass_spellpoints = 12
 
 	subclass_skills = list(
-		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/combat/maces = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/combat/crossbows = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/combat/bows = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/combat/knives = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_NOVICE,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/reading = SKILL_LEVEL_MASTER,
-		/datum/skill/misc/sneaking = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/misc/stealing = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/craft/cooking = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/misc/riding = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/sneaking = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/stealing = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/medicine = SKILL_LEVEL_MASTER,
+		/datum/skill/craft/cooking = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/lockpicking = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/combat/guns = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/craft/alchemy = SKILL_LEVEL_MASTER,
+		/datum/skill/magic/blood = SKILL_LEVEL_MASTER,
+		/datum/skill/magic/arcane = SKILL_LEVEL_JOURNEYMAN,
 	)
 
-/datum/outfit/job/supplier/supplier/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/darkwitch/darkwitch/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
 
-	backpack_contents = /obj/item/rogueweapon/huntingknife/idagger/navaja
-	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-	cloak = /obj/item/clothing/suit/roguetown/armor/haori
-	armor = /obj/item/clothing/suit/roguetown/shirt/robe/hierophant
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+	head = /obj/item/clothing/head/flowers/poppy
+	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather/black
-	beltl = /obj/item/quiver/pylipistol
-	beltr = /obj/item/gun/ballistic/revolver/grenadelauncher/aliz/gun/gangpistol
 	id = /obj/item/scomstone
-	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather/aristocratic
-	backr = /obj/item/storage/backpack/rogue/satchel
-	mask = /obj/item/clothing/mask/rogue/spectacles/golden
+	cloak = /obj/item/clothing/cloak/alizeria/witchcloak
+	armor = /obj/item/clothing/suit/roguetown/shirt/dress/alizeria/witch
+	neck = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
+	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/ucolored
+	gloves = /obj/item/clothing/gloves/roguetown/alizeria/witchgloves
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
+	beltr = /obj/item/rogueweapon/huntingknife/idagger/steel
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
-	pants = /obj/item/clothing/under/roguetown/trou/leather
-	if(H.mind)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular/pileappraisal)
+
+	backpack_contents = list(
+						/obj/item/reagent_containers/glass/mortar = 1,
+						/obj/item/pestle = 1,
+						/obj/item/candle/yellow = 2,
+						/obj/item/recipe_book/alchemy = 1,
+						/obj/item/recipe_book/survival = 1,
+						/obj/item/recipe_book/magic = 1,
+						/obj/item/ritechalk = 1,
+						)

@@ -273,6 +273,8 @@
 #define EXPEDITOR		(1<<2)
 #define TAVERNIER		(1<<3)
 #define MASTER			(1<<4)
+#define DARKWITCH		(1<<5)
+#define NOBLETAILOR		(1<<6)
 
 // ==========================================
 // JOB COLOR DEFINITIONS
@@ -364,7 +366,6 @@
 #define JDO_WENCH 4.7
 
 // YEOMEN/CITIZENS (5.0 - 5.99)
-#define JDO_MAGICIAN 5.2
 #define JDO_MAGEAPPRENTICE 0
 #define JDO_PHYSICIAN 5.3
 #define JDO_APOTHECARY 0
@@ -389,6 +390,8 @@
 #define JDO_MASTER 20.3
 #define JDO_SUPP 20.4
 #define JDO_DARKWITCH 20.5
+#define JDO_NOBLETAILOR 20.6
+#define JDO_MAGICIAN 20.7
 
 // COOKING TRADES (27.0 - 27.99)
 #define JDO_COOK 27
@@ -544,4 +547,5 @@
 	/datum/job/roguetown/tavernier,\
 	/datum/job/roguetown/merchant,\
 	/datum/job/roguetown/supplier,\
+	/datum/job/roguetown/darkwitch,\
 	/datum/job/roguetown/traveller

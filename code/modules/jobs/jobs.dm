@@ -108,7 +108,6 @@ GLOBAL_LIST_INIT(inquisition_positions, list(
 GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Quartermaster",
 	"Shophand",
-	"Magician",
 	"Physician",
 	"Archivist",
 	"Guildmaster",
@@ -165,6 +164,9 @@ GLOBAL_LIST_INIT(avangard_positions, list(
 	"Tavernier",
 	"Master",
 	"Supplier",
+	"Dark Witch",
+	"Noble Tailor",
+	"Magician",
 ))
 
 GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())

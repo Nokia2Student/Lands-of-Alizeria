@@ -6,7 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = ALIZ_ALL_RACES
-	tutorial = "Когда-то давно у тебя была собственная лавка, а также внушительные связи в торговой сфере. Почти всё из этого пропало, когда усилиями наместника в торговле появилась монополия. Из-за страха оказаться на улице в конечном итоге ты согласился работать на корону, помогая бургомистру вести мелкие торговые сделки. Кто знает, может когда-нибудь тебе удастся вернуть былое величие в городских стенах?"
+	tutorial = "Абсолютно никакая более менее военнизированная группа людей не сможет обойтись без своего 'личного' поставщика. Ты являешься и торговцем и контрабандистом в одном лице. Будь то работая ради идеи, либо же ради какой-то иной цели - ты поддерживаешь торговую связь экспедиционной группы с континентом. Помогай своим товарищам щедрыми скидками и эксплуатируй всех остальных, ведь они для тебя ничего не значат. Монфору всегда важна прибыль... "
 	display_order = JDO_SUPP
 
 	outfit = /datum/outfit/job/supplier
@@ -31,10 +31,7 @@
 
 /datum/advclass/supplier
 	name = "Supplier"
-	tutorial = "You were born into wealth, learning from before you could talk about the basics of mathematics. \
-	Counting coins is a simple pleasure for any person, but you've made it an art form. \
-	These people are addicted to your wares, and you are the literal beating heart of this economy: \
-	Don't let these filth-covered troglodytes ever forget that."
+	tutorial = "Абсолютно никакая более менее военнизированная группа людей не сможет обойтись без своего 'личного' поставщика. Ты являешься и торговцем и контрабандистом в одном лице. Будь то работая ради идеи, либо же ради какой-то иной цели - ты поддерживаешь торговую связь экспедиционной группы с континентом. Помогай своим товарищам щедрыми скидками и эксплуатируй всех остальных, ведь они для тебя ничего не значат. Монфору всегда важна прибыль... "
 	outfit = /datum/outfit/job/supplier/supplier
 	category_tags = list(CTAG_SUPP)
 	allowed_races = ALIZ_ALL_RACES

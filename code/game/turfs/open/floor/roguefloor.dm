@@ -254,6 +254,50 @@
 			return
 	. = ..()
 
+/turf/open/floor/rogue/snow/scoop
+	name = "snow"
+	desc = "A gentle blanket of snow."
+	icon_state = "snow"
+	layer = MID_TURF_LAYER
+	footstep = FOOTSTEP_GRASS
+	barefootstep = FOOTSTEP_SOFT_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	landsound = 'sound/foley/jumpland/grassland.wav'
+	slowdown = 0
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/floor/rogue/ice)
+	neighborlay = "snowedge"
+	spread_chance = 0
+
+/turf/open/floor/rogue/snow/scoop/Initialize()
+	dir = pick(GLOB.cardinals)
+	. = ..()
+
+/turf/open/floor/rogue/snow/scoop/cardinal_smooth(adjacencies)
+	roguesmooth(adjacencies)
+
+/turf/open/floor/rogue/snow/scoop/attackby(obj/item/C, mob/user, params)
+	if(user.used_intent.type == /datum/intent/fill)
+		if(C.reagents)
+			if(C.reagents.holder_full())
+				to_chat(user, span_warning("[C] is full."))
+				return
+			playsound(user, 'sound/alizeria/snowgrab.ogg', 100, FALSE)
+			if(do_after(user, 8, target = src))
+				user.changeNext_move(CLICK_CD_MELEE)
+				C.reagents.add_reagent(water_reagent, 200)
+				to_chat(user, span_notice("I gather snow from [src]."))
+			return
+	if(user.used_intent.type == /datum/intent/shovelscoop)
+		playsound(user, 'sound/alizeria/snowgrab.ogg', 100, FALSE)
+		if(do_after(user, 8, target = src))
+			user.changeNext_move(CLICK_CD_MELEE)
+			src.ChangeTurf(/turf/open/floor/rogue/cobble, flags = CHANGETURF_INHERIT_AIR)
+			to_chat(user, span_notice("I scoop the snow away, revealing cobblestone underneath."))
+		return
+	. = ..()
+
 /turf/open/floor/rogue/snowrough
 	name = "rough snow"
 	desc = "A rugged blanket of snow."
@@ -318,6 +362,7 @@
 	smooth = SMOOTH_TRUE
 	neighborlay = "grass_coldedge"
 	canSmoothWith = list(/turf/open/floor/rogue/ice,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snow)
 /turf/open/floor/rogue/grasscold/Initialize()
 	dir = pick(GLOB.cardinals)
@@ -341,6 +386,7 @@
 	smooth = SMOOTH_TRUE
 	neighborlay = "grass_swampedge"
 	canSmoothWith = list(/turf/open/floor/rogue/ice,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snow)
 /turf/open/floor/rogue/grassswamp/Initialize()
 	dir = pick(GLOB.cardinals)
@@ -366,6 +412,7 @@
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/snowpatchy,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snowrough,)
 	neighborlay = "grass_rededge"
@@ -391,6 +438,7 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/snowpatchy,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snowrough,)
 	neighborlay = "grass_yeledge"
@@ -418,6 +466,7 @@
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/snowpatchy,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snowrough,)
 	neighborlay = "grassedge"
@@ -472,6 +521,7 @@
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/snow,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/AzureSand)
 	neighborlay = "dirtedge"
@@ -613,6 +663,7 @@
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/snow,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/AzureSand,)
 	neighborlay = "roadedge"
 	slowdown = 0
@@ -800,6 +851,7 @@
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/snowpatchy,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snowrough,)
 
@@ -876,6 +928,7 @@
 						/turf/open/floor/rogue/cobble,
 						/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
@@ -911,6 +964,7 @@
 						/turf/closed/wall/mineral/rogue/stone,
 						/turf/closed/wall/mineral/rogue/stone/moss,
 						/turf/open/floor/rogue/cobble,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
 						/turf/open/floor/rogue/grassred,
@@ -947,6 +1001,7 @@
 						/turf/closed/wall/mineral/rogue/stone/moss,
 						/turf/open/floor/rogue/cobble,
 						/turf/open/floor/rogue/dirt,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grass,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
@@ -982,6 +1037,7 @@
 						/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
 						/turf/open/floor/rogue/grassred,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
 						/turf/open/floor/rogue/snowpatchy,
@@ -1013,6 +1069,7 @@
 						/turf/closed/wall/mineral/rogue/stone/moss,
 						/turf/open/floor/rogue/cobble,
 						/turf/open/floor/rogue/dirt,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grass,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
@@ -1043,6 +1100,7 @@
 						/turf/open/floor/rogue/blocks,
 						/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
@@ -1114,6 +1172,7 @@
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snowpatchy,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snowrough,
@@ -1139,6 +1198,7 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
@@ -1296,6 +1356,7 @@
 						/turf/open/floor/rogue/cobble,
 						/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
@@ -1368,6 +1429,7 @@
 						/turf/open/floor/rogue/cobble,
 						/turf/open/floor/rogue/dirt,
 						/turf/open/floor/rogue/grass,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
@@ -1402,6 +1464,7 @@
 						/turf/closed/wall/mineral/rogue/stone/moss,
 						/turf/open/floor/rogue/cobble,
 						/turf/open/floor/rogue/dirt,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/grass,
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
@@ -1441,6 +1504,7 @@
 						/turf/open/floor/rogue/grassred,
 						/turf/open/floor/rogue/grassyel,
 						/turf/open/floor/rogue/grasscold,
+						/turf/open/floor/rogue/snow/scoop,
 						/turf/open/floor/rogue/snowpatchy,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snowrough,)

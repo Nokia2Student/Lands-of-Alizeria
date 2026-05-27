@@ -52,6 +52,16 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 
 /obj/machinery/light/rogue/alizeria/generator/process()
 	..()
+	// CHECK FUEL AND EXTINGUISH IF EMPTY
+	if(on && initial(fueluse) > 0)
+		if(fueluse <= 0)
+			burn_out()
+			on = FALSE
+			set_light(l_on = FALSE)
+			toggle_linked_lamps(FALSE)
+			update_icon()
+			return
+
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		if(IS_WET_OPEN_TURF(O))
@@ -93,7 +103,6 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 			icon_state = "gen0"
 
 	set_light(l_color = bulb_colour)
-	update_icon()
 
 /obj/machinery/light/rogue/alizeria/generator/fire_act(added, maxstacks)
 	if(!on && ((fueluse > 0) || (initial(fueluse) == 0)))
@@ -178,9 +187,10 @@ GLOBAL_LIST_EMPTY(alizeria_generators)
 			if(on)
 				current_fuel_type = "coal"
 
-		// Меняем спрайт и свет если генератор включен
-		if(on && current_fuel_type != old_fuel_type)
+		// Меняем спрайт и свет если генератор включен и тип топлива изменился
+		if(current_fuel_type != old_fuel_type)
 			apply_fuel_type()
+			update_icon()
 
 		user.visible_message("<span class='warning'>[user] feeds [W] to [src].</span>")
 		qdel(W)

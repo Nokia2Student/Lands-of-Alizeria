@@ -9,7 +9,7 @@
 
 	allowed_races = ALIZ_ALL_RACES
 
-	tutorial = "“во€ таверна - самое большое здание в вольном городе. ¬озможно оно будет даже больше дворца. —давай комнаты уставшим путникам, веди с ними беседы и готовь лучшие блюда. ¬месте с тобой также проживает журналист и мастер гильдии. ¬озможно, вам вместе удастс€ сделать таверну более знаменитой."
+	tutorial = "≈сть один товар, который будет абсолютно всегда иметь спрос у обычных людей, а именно еда, вода и кров. ¬сe это у теб€ есть, а также только ты на этих холодных земл€х способен приготовить что-то, что хот€ бы кому-нибудь придeтс€ по вкусу. ќднако продукты быстро порт€тс€, поэтому цены на них сильно кусаютс€. ¬прочем, тебе практически ничего не мешает использовать продукты собственного производства, ведь у теб€ есть собственна€ теплица и необходимые навыки дл€ охоты. "
 
 	outfit = /datum/outfit/job/tavernier
 	display_order = JDO_TAVERNIER
@@ -27,7 +27,7 @@
 
 /datum/advclass/tavernier
 	name = "Innkeeper"
-	tutorial = "Adventurers and warriors alike have two exit plans; the early grave or even earlier retirement. As the proud owner of this fine establishment, you took the latter: The Azurian Pint, tavern, inn, and bathhouse! You even have an assortment of staff to help you, and plenty of business from the famished townsfolk looking to eat, weary travelers looking to rest, and characters of dubious repute seeking their own sort of success. Your bladework has gotten a little rusty, and the church across the street gives you the odd evil eye for the extra 'delights' of the bathhouse--but, well...you can't win 'em all!"
+	tutorial = "≈сть один товар, который будет абсолютно всегда иметь спрос у обычных людей, а именно еда, вода и кров. ¬сe это у теб€ есть, а также только ты на этих холодных земл€х способен приготовить что-то, что хот€ бы кому-нибудь придeтс€ по вкусу. ќднако продукты быстро порт€тс€, поэтому цены на них сильно кусаютс€. ¬прочем, тебе практически ничего не мешает использовать продукты собственного производства, ведь у теб€ есть собственна€ теплица и необходимые навыки дл€ охоты. "
 	outfit = /datum/outfit/job/tavernier/basic
 	category_tags = list(CTAG_TAVERNIER)
 	subclass_stats = list(
@@ -61,10 +61,15 @@
 
 /datum/outfit/job/tavernier/basic/pre_equip(mob/living/carbon/human/H)
 	..()
+	backpack_contents = list(
+		/obj/item/recipe_book/survival,
+		/obj/item/roguekey/tavern,
+		/obj/item/bottle_kit
+	)
 	H.adjust_blindness(-3)
 	pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	backr = /obj/item/storage/backpack/rogue/satchel/otavan
+	backr = /obj/item/storage/backpack/rogue/satchel
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather/aristocratic
 	id = /obj/item/scomstone
@@ -78,8 +83,3 @@
 		cloak = /obj/item/clothing/cloak/apron/cook
 	else if(should_wear_masc_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/confessor
-	backpack_contents = list(
-		/obj/item/recipe_book/survival,
-		/obj/item/roguekey/tavern,
-		/obj/item/bottle_kit
-	)

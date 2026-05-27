@@ -30,7 +30,7 @@
 	outfit = /datum/outfit/job/tailor/basic
 	category_tags = list(CTAG_TAILOR)
 
-	traits_applied = list(TRAIT_DYES, TRAIT_PEASANTMILITIA)
+	traits_applied = list(TRAIT_DYES, TRAIT_PEASANTMILITIA, TRAIT_NOBLE)
 	subclass_stats = list(
 		STATKEY_INT = 2,
 		STATKEY_PER = 1,

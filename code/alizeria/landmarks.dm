@@ -173,3 +173,56 @@
 /obj/effect/landmark/start/alizeria/caffe
 	name = "Caffettiere"
 	icon_state = "arrow"
+
+//// АВАНГАРД
+/obj/effect/landmark/start/avangard/traveller
+	name = "Traveller"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/commander
+	name = "Commander"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/expeditor
+	name = "Expeditor"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/tavernier
+	name = "Tavernier"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/master
+	name = "Master"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/supplier
+	name = "Supplier"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/dark
+	name = "Dark Witch"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/mag
+	name = "Magician"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/priest
+	name = "Priest"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/nobt
+	name = "Noble Tailor"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/druidess
+	name = "Druidess"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/adventurer
+	name = "Adventurer"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/avangard/mercenary
+	name = "Mercenary"
+	icon_state = "arrow"

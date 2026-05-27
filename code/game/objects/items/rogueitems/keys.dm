@@ -2,7 +2,7 @@
 /obj/item/roguekey
 	name = "key"
 	desc = "An unremarkable iron key."
-	icon_state = "iron"
+	icon_state = "brownkey"
 	icon = 'icons/roguetown/items/keys.dmi'
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
@@ -722,4 +722,4 @@
 			if(src.holdname)
 				KE.name = src.holdname
 			to_chat(user, span_notice("You add [src] to [K]."))
-			qdel(src)	
+			qdel(src)

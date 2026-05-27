@@ -593,6 +593,8 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_TAVERNIER			"CAT_TAVERNIER"
 #define CTAG_MASTER				"CAT_MASTER"
 #define CTAG_SUPP				"CAT_SUPP"
+#define CTAG_DARKWITCH			"CAT_DARKWITCH"
+#define CTAG_NTAIL				"CAT_NTAIL"
 
 #define CTAG_HFT_LORD "CAT_HFT_LORD"  // Heartfelt Lord Class - Handles Heartfelt Lord class selector.
 #define CTAG_HFT_HAND "CAT_HFT_HAND"  // Heartfelt Hand Class - Handles Heartfelt Hand class selector.

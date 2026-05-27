@@ -411,10 +411,37 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/rogue/snow,
 				/turf/open/floor/rogue/grasscold)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
-				/mob/living/carbon/human/species/skeleton/npc/hard = 20,
-				/mob/living/carbon/human/species/skeleton/npc/medium = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 35)
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 14,
+				/mob/living/carbon/human/species/skeleton/npc/hard = 14,
+				/mob/living/carbon/human/species/skeleton/npc/medium = 14,
+				/mob/living/carbon/human/species/goblin/npc/ambush/moon = 14,
+				/mob/living/carbon/human/species/dwarfskeleton/ambush = 14,
+				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 14,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 16)
+	converted_type = /area/rogue/indoors/shelter/alizeria/iceland
+	threat_region = THREAT_REGION_SCARLET_GROVE
+
+/area/rogue/outdoors/woods/alizeria/avangard
+	name = "avangard"
+	icon = 'icons/roguetown/alizeria/areas.dmi'
+	icon_state = "ice"
+	icon_state = "ice"
+	ambientsounds = null
+	ambientnight = null
+	spookysounds = null
+	cold_system = TRUE
+	spookynight = SPOOKY_FOREST
+	droning_sound = 'sound/alizeria/areas/icelandmorning.ogg'
+	droning_sound_dawn = 'sound/alizeria/areas/iceland.ogg'
+	droning_sound_dusk = 'sound/alizeria/areas/icelandevening.ogg'
+	droning_sound_night = 'sound/alizeria/areas/icelandnight.ogg'
+	soundenv = 30
+	first_time_text = "АВАНГАРД"
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_types = list(
+				/turf/open/floor/rogue/dirt,
+				/turf/open/floor/rogue/snow,
+				/turf/open/floor/rogue/grasscold)
 	converted_type = /area/rogue/indoors/shelter/alizeria/iceland
 	threat_region = THREAT_REGION_SCARLET_GROVE
 

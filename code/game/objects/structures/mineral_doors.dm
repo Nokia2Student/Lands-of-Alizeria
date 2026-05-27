@@ -816,6 +816,7 @@
 	repair_cost_second = /obj/item/grown/log/tree/small
 	repair_skill = /datum/skill/craft/carpentry
 	smashable = TRUE
+	keylock = FALSE
 
 /obj/structure/mineral_door/wood/Initialize()
 	if(icon_state =="woodhandle")
@@ -898,6 +899,7 @@
 	desc = ""
 	over_state = "fancy_woodopen"
 	smashable = TRUE
+	keylock = FALSE
 
 /obj/structure/mineral_door/wood/fancywood/knight
 	locked = TRUE

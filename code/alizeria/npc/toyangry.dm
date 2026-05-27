@@ -316,3 +316,11 @@
 	var/turf/death_spot = get_turf(src)
 	new /obj/effect/decal/cleanable/chem_pile(death_spot)
 	qdel(src)
+
+/obj/effect/spawner/lootdrop/roguetown/dungeon/alizeria/pashalkispawner/aya
+	icon_state = "aya"
+	loot = list(
+		/mob/living/simple_animal/hostile/retaliate/rogue/toy_doll/aya = 1,
+		null = 2
+	)
+	lootcount = 1
