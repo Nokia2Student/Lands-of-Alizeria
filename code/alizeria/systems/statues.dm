@@ -13,43 +13,43 @@
 
 /datum/prayer_blessing/astrata
 	trait_name = TRAIT_DARKVISION
-	message_success = "Астрата наполняет мои очи светом..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/abyssor
 	trait_name = TRAIT_WATERBREATHING
-	message_success = "Абиссор дарует мне способность дышать под водой..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/xylix
 	trait_name = TRAIT_LIGHT_STEP
-	message_success = "Ксиликс делает мои шаги легче, как перо..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/ravox
 	trait_name = TRAIT_CIVILIZEDBARBARIAN
-	message_success = "Равокс одаривает меня силой..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/malum
 	trait_name = TRAIT_FORGEBLESSED
-	message_success = "Малум наделяет меня благословением кузнеца..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/dendor
 	trait_name = TRAIT_OUTDOORSMAN
-	message_success = "Дендор дарует мне знания о природе..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/necra
 	trait_name = TRAIT_SOUL_EXAMINE
-	message_success = "Некра позволяет мне видеть через завесу смерти..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/noc
 	trait_name = TRAIT_NOCINSPIRE
-	message_success = "Нок наполняет меня вдохновением ночи..."
+	message_success = "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/eora
 	trait_name = TRAIT_EMPATH
-	message_success = "Эора открывает мне понимание чувств других..."
+	message_success = "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..."
 
 /datum/prayer_blessing/pestra
 	trait_name = TRAIT_CRITICAL_RESISTANCE
-	message_success = "Пестра защищает мою жизненную силу от смертельных ударов..."
+	message_success = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..."
 
 /// Extend statue objects to include prayer interaction
 /obj/structure/fluff/statue/alizeria
@@ -59,7 +59,7 @@
 
 /obj/structure/fluff/statue/alizeria/astrata
 	name = "astrata statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -68,7 +68,7 @@
 
 /obj/structure/fluff/statue/alizeria/abyssor
 	name = "abyssor statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "abyssoralt"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -77,7 +77,7 @@
 
 /obj/structure/fluff/statue/alizeria/xylix
 	name = "xylix statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "xylix"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -86,7 +86,7 @@
 
 /obj/structure/fluff/statue/alizeria/ravox
 	name = "ravox statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "ravox"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -95,7 +95,7 @@
 
 /obj/structure/fluff/statue/alizeria/malum
 	name = "malum statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "malum"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -104,7 +104,7 @@
 
 /obj/structure/fluff/statue/alizeria/dendor
 	name = "dendor statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "dendor"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -113,7 +113,7 @@
 
 /obj/structure/fluff/statue/alizeria/necra
 	name = "necra statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "necra"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -122,7 +122,7 @@
 
 /obj/structure/fluff/statue/alizeria/noc
 	name = "noc statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "noc"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -131,7 +131,7 @@
 
 /obj/structure/fluff/statue/alizeria/eora
 	name = "eora statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "eora"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -140,7 +140,7 @@
 
 /obj/structure/fluff/statue/alizeria/pestra
 	name = "pestra statue"
-	desc = "Статуя одного из древних богов. Молитва ей - способна одарить силами, если верить слухам."
+	desc = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ."
 	icon_state = "pestra"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
@@ -154,11 +154,11 @@
 		return
 
 	if(is_praying)
-		to_chat(user, span_warning("Статуя уже получает молитву..."))
+		to_chat(user, span_warning("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..."))
 		return
 
 	if(!prayer_type || !statue_id)
-		to_chat(user, span_warning("Эта статуя не имеет настроенного благословения молитвы."))
+		to_chat(user, span_warning("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ."))
 		return
 
 	// Check if player has already prayed to THIS SPECIFIC statue
@@ -170,7 +170,7 @@
 
 	// Check if player has already prayed to this specific statue this round
 	if(H.mob_timers[timer_key])
-		to_chat(user, span_warning("Я уже молился этой статуе..."))
+		to_chat(user, span_warning("пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ..."))
 		return
 
 	// Start the prayer action
@@ -184,16 +184,16 @@
 	is_praying = TRUE
 
 	// Notify all nearby players
-	visible_message(span_notice("[user] начинает молиться [src]..."),
-		range = 3)
+	visible_message(span_notice("[user] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [src]..."),
+		vision_distance = 3)
 
 	// Show action timer to the user
-	to_chat(user, span_notice("Я молюсь [src]. Это займет 5 секунд..."))
+	to_chat(user, span_notice("пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ [src]. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 5 пїЅпїЅпїЅпїЅпїЅпїЅ..."))
 
 	// Wait for prayer duration
 	if(!do_after(user, PRAYER_DURATION, target = src))
 		is_praying = FALSE
-		to_chat(user, span_warning("Молитва прервана!"))
+		to_chat(user, span_warning("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!"))
 		return
 
 	is_praying = FALSE
@@ -229,9 +229,9 @@
 
 	// Check if player already has this trait
 	if(HAS_TRAIT(user, blessing.trait_name))
-		to_chat(user, span_notice("Я уже благословлен этой силой..."))
-		visible_message(span_notice("[user] молитва была услышана, но благословение уже было с ними..."),
-			range = 3)
+		to_chat(user, span_notice("пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ..."))
+		visible_message(span_notice("[user] пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ..."),
+			vision_distance = 3)
 		return
 
 	// Add trait
@@ -241,18 +241,18 @@
 	to_chat(user, span_notice(blessing.message_success))
 
 	// Notify others
-	visible_message(span_notice("[user] светится, когда [src] отвечает на молитву!"),
-		range = 3)
+	visible_message(span_notice("[user] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ [src] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!"),
+		vision_distance = 3)
 
 	// Log the blessing for admin purposes
 	log_game("[user] received blessing [blessing.trait_name] from statue prayer at [get_area(src)]")
 
 /// Apply prayer failure - stress event
 /obj/structure/fluff/statue/alizeria/proc/apply_prayer_failure(mob/living/user)
-	to_chat(user, span_red("Мои молитвы не были услышаны..."))
+	to_chat(user, span_red("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ..."))
 
-	visible_message(span_notice("[user] выглядит разочарованным, молчание [src] говорит само за себя."),
-		range = 3)
+	visible_message(span_notice("[user] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [src] пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ."),
+		vision_distance = 3)
 
 	// Apply stress event if user is human with stress system
 	if(ishuman(user))
@@ -261,7 +261,7 @@
 			log_game("[user] received stress event from failed prayer at [get_area(src)]")
 
 /datum/stressevent/prayer_rejected
-	desc = span_red("Мои молитвы не были услышаны...")
+	desc = span_red("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ...")
 	stressadd = 2
 	timer = 180 SECONDS
 

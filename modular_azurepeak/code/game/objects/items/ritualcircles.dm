@@ -58,7 +58,9 @@
 	var/mob/living/rite_target
 
 /datum/circle_rite/proc/pre_rite(mob/living/carbon/human/user)
-	if((user.patron?.type) != patron)
+	var/obj/structure/ritualcircle/C = linked_circle
+	var/datum/patron/active_patron = C.get_active_patron(user)
+	if(active_patron?.type != patron)
 		to_chat(user, span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -110,6 +112,16 @@
 /datum/circle_rite/proc/rite_proc(mob/living/carbon/human/user)
 	to_chat(user, span_bloody("BASE PROC CALLED. DEFINE A SPECIFIC PROC"))
 	return
+
+/obj/structure/ritualcircle/proc/get_active_patron(mob/living/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.mind?.active_miracle_set)
+			for(var/path in GLOB.patrons_by_faith[/datum/faith/divine/standard])
+				var/datum/patron/p = GLOB.patronlist[path]
+				if(p?.name == H.mind.active_miracle_set)
+					return p
+	return user.patron
 
 // This'll be our tutorial ritual for those who want to make more later, let's go into details in comments, mm? - Onutsio 
 /obj/structure/ritualcircle/astrata
@@ -227,7 +239,7 @@
 	var/lunarrites = list("Moonlight Dance") // list for more to be added later
 
 /obj/structure/ritualcircle/noc/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/noc))
+	if(!istype(get_active_patron(user), /datum/patron/divine/noc))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -262,7 +274,7 @@
 	var/trickeryrites = list("Rite of the Pratfall")
 
 /obj/structure/ritualcircle/xylix/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/xylix))
+	if(!istype(get_active_patron(user), /datum/patron/divine/xylix))
 		to_chat(user, span_smallred("I don't know the proper rites for this..."))
 		return
 
@@ -319,7 +331,7 @@
 	var/plaguerites = list("Flylord's Triage", "Continuity")
 
 /obj/structure/ritualcircle/pestra/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/pestra))
+	if(!istype(get_active_patron(user), /datum/patron/divine/pestra))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -445,7 +457,7 @@
 	var/bestialrites = list("Rite of the Lesser Wolf","Borrowed Madness","Spider Kinship")
 
 /obj/structure/ritualcircle/dendor/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/dendor))
+	if(!istype(get_active_patron(user), /datum/patron/divine/dendor))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -552,7 +564,7 @@
 var/forgerites = list("Ritual of Blessed Reforgance")
 
 /obj/structure/ritualcircle/malum/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/malum))
+	if(!istype(get_active_patron(user), /datum/patron/divine/malum))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -604,7 +616,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	icon_state = "abyssoralt_active" // change to abyssoralt_chalky if adding a new ritual, and use the active state instead for it.
 
 /obj/structure/ritualcircle/abyssor/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/abyssor))
+	if(!istype(get_active_patron(user), /datum/patron/divine/abyssor))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -649,7 +661,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/deathrites = list("Undermaiden's Bargain")
 
 /obj/structure/ritualcircle/necra/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/necra))
+	if(!istype(get_active_patron(user), /datum/patron/divine/necra))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -693,7 +705,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/peacerites = list("Rite of Pacification")
 
 /obj/structure/ritualcircle/eora/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/divine/eora))
+	if(!istype(get_active_patron(user), /datum/patron/divine/eora))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -742,7 +754,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/zizorites = list("Rite of Armaments", "Rite of the Dark Crystal", "Path of Rituos")
 
 /obj/structure/ritualcircle/zizo/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/inhumen/zizo))
+	if(!istype(get_active_patron(user), /datum/patron/inhumen/zizo))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -955,7 +967,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 
 
 /obj/structure/ritualcircle/matthios/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/inhumen/matthios))
+	if(!istype(get_active_patron(user), /datum/patron/inhumen/matthios))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -1035,7 +1047,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/graggarrites = list("Rite of Armaments", "War Ritual")
 
 /obj/structure/ritualcircle/graggar/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/inhumen/graggar))
+	if(!istype(get_active_patron(user), /datum/patron/inhumen/graggar))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
@@ -1171,7 +1183,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/baotharites = list("Rite of Joy")
 
 /obj/structure/ritualcircle/baotha/attack_hand(mob/living/user)
-	if(!istype(user.patron, /datum/patron/inhumen/baotha))
+	if(!istype(get_active_patron(user), /datum/patron/inhumen/baotha))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
