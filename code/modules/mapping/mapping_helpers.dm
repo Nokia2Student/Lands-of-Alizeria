@@ -171,6 +171,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 				T.empty()
 
 	log_world("SSMapping: Loading template [template.name] at [start_turf]")
+	
+	INVOKE_ASYNC(src, PROC_REF(load_template_async), template, start_turf)
+	
+/obj/effect/landmark/map_load_mark/proc/load_template_async(datum/map_template/template, turf/start_turf)
 	if(template.load(start_turf))
 		log_world("SSMapping: Successfully loaded template [template.name]")
 		LAZYREMOVE(SSmapping.map_load_marks, src)
