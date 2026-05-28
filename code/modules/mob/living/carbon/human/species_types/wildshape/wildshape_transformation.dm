@@ -73,10 +73,27 @@
 	
 	// Transfer devotion datum directly to wildshape form so they can transform back
 	// Must be done BEFORE mind.transfer_to() to avoid context issues
-	var/mob/living/carbon/human/H = src
-	W.devotion = H.devotion
-	
+	var/datum/devotion/stored_devotion = devotion
+	var/has_cleric = (locate(/mob/living/carbon/human/proc/devotionreport) in verbs)
+	var/has_priest = (locate(/mob/living/carbon/human/proc/change_miracle_set) in verbs)
 	mind.transfer_to(W)
+	W.devotion = stored_devotion
+	if(W.devotion)
+		W.devotion.holder = W
+		W.hud_used?.initialize_bloodpool()
+		W.hud_used?.bloodpool?.set_fill_color("#3C41A4")
+		W.hud_used?.bloodpool?.set_value(1, 1)
+	if(has_cleric)
+		W.verbs += /mob/living/carbon/human/proc/devotionreport
+		W.verbs += /mob/living/carbon/human/proc/clericpray
+	if(has_priest)
+		W.verbs += /mob/living/carbon/human/proc/coronate_lord
+		W.verbs += /mob/living/carbon/human/proc/churchexcommunicate
+		W.verbs += /mob/living/carbon/human/proc/churchannouncement
+		W.verbs += /mob/living/carbon/human/proc/churchpriestcurse
+		W.verbs += /mob/living/carbon/human/proc/churcheapostasy
+		W.verbs += /mob/living/carbon/human/proc/completesermon
+		W.verbs += /mob/living/carbon/human/proc/change_miracle_set
 	skills?.known_skills = list()
 	skills?.skill_experience = list()
 	W.grant_language(/datum/language/beast)
@@ -154,7 +171,14 @@
 
 	W.forceMove(get_turf(src))
 
+	var/datum/devotion/stored_devotion = devotion
 	mind.transfer_to(W)
+	W.devotion = stored_devotion
+	if(W.devotion)
+		W.devotion.holder = W
+		W.hud_used?.initialize_bloodpool()
+		W.hud_used?.bloodpool?.set_fill_color("#3C41A4")
+		W.hud_used?.bloodpool?.set_value(1, 1)
 
 	var/mob/living/carbon/human/species/wildshape/WA = src
 	W.copy_known_languages_from(WA.stored_language)

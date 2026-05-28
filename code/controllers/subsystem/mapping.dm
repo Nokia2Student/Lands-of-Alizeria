@@ -95,7 +95,7 @@ SUBSYSTEM_DEF(mapping)
 	generate_z_level_linkages()
 	calculate_default_z_level_gravities()
 	load_marks()  // ← ДОБАВЬТЕ ЭТУ СТРОКУ
-	return ...()
+	return ..()
 
 /datum/controller/subsystem/mapping/proc/calculate_default_z_level_gravities()
 	for(var/z_level in 1 to length(z_list))

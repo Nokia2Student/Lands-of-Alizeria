@@ -355,7 +355,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		GLOB.player_details[ckey] = player_details
 
 #if (PRELOAD_RSC == 0)
-	preload_rsc = GLOB.external_rsc_urls[1]
+	if(length(GLOB.external_rsc_urls))
+		preload_rsc = GLOB.external_rsc_urls[1]
 #endif
 
 	. = ..()	//calls mob.Login()

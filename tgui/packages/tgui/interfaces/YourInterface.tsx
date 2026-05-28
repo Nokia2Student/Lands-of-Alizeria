@@ -1,7 +1,9 @@
 // tgui/packages/tgui/interfaces/YourInterface.tsx
-import { Button, Stack, Window } from 'tgui-core/components';
+import { Button, Stack } from 'tgui-core/components';
+import { Window } from '../layouts';
 import { useBackend } from '../backend';
 import './YourInterface.scss';
+
 
 export const YourInterface = (props, context) => {
 	const { act, data } = useBackend();
