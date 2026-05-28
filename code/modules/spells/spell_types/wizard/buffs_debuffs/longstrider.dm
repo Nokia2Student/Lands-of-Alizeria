@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/longstrider
-	name = "Longstrider"
-	desc = "Grant yourself and any creatures adjacent to you free movement through rough terrain."
+	name = "Долгий шаг"
+	desc = "Дарует вам и всем существам рядом с вами свободное передвижение по пересечённой местности."
 	cost = 2
 	xp_gain = TRUE
 	school = "transmutation"
@@ -22,7 +22,7 @@
 
 /obj/effect/proc_holder/spell/invoked/longstrider/cast(list/targets, mob/user = usr)
 
-	user.visible_message("[user] mutters an incantation and a dim pulse of light radiates out from them.")
+	user.visible_message("[user] бормочет заклинание, и от них исходит тусклый импульс света.")
 
 	for(var/mob/living/L in range(1, usr))
 		L.apply_status_effect(/datum/status_effect/buff/longstrider)

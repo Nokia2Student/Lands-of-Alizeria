@@ -1,111 +1,111 @@
 // Just store all of the alcohol reagents that isn't base tg here
 /datum/reagent/consumable/ethanol/beer
-	name = "Beer"
+	name = "Пиво"
 	description = ""
 	color = "#a17c10" // rgb: 102, 67, 0
 	nutriment_factor = 0.1
 	boozepwr = 25
-	taste_description = "ale"
-	glass_name = "glass of beer"
+	taste_description = "эль"
+	glass_name = "стакан пива"
 	glass_desc = ""
 
 /datum/reagent/consumable/ethanol/rum
-	name = "Rum"
-	description = "Where has the rum gone?"
+	name = "Ром"
+	description = "Куда делся ром?"
 	color = "#5f3b23" // rgb: 102, 67, 0
 	boozepwr = 40
-	taste_description = "sweetness with hint of caramel and vanilla"
+	taste_description = "сладость с оттенком карамели и ванили"
 
 /datum/reagent/consumable/ethanol/cider
-	name = "Apple Cider"
+	name = "Яблочный сидр"
 	boozepwr = 40
-	taste_description = "crisp freshness of apple"
-	glass_name = "glass of cider"
+	taste_description = "свежая яблочная хрусткость"
+	glass_name = "стакан сидра"
 	color = "#6aa945"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/cider/pear
-	name = "Pear Cider"
+	name = "Грушевый сидр"
 	boozepwr = 40
-	taste_description = "sweet subtle delights of pear"
-	glass_name = "Glass of Pear Cider"
+	taste_description = "нежная грушевая сладость"
+	glass_name = "стакан грушевого сидра"
 	color = "fffc6c"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/cider/strawberry
-	name = "Strawberry Cider"
+	name = "Клубничный сидр"
 	boozepwr = 40
-	taste_description = "a subtle hint of strawberry sweetness"
+	taste_description = "тонкий намёк на клубничную сладость"
 	color = "#da4d4d"
-	taste_description = "strawberry cider"
+	taste_description = "клубничный сидр"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/aqua_vitae
-	name = "Aqua Vitae"
+	name = "Аква Вита"
 	boozepwr = 150
-	taste_description = "death"
+	taste_description = "смерть"
 	color = "#6e6e6e"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/brandy
-	name = "Apple Brandy"
+	name = "Яблочный бренди"
 	boozepwr = 60
-	taste_description = "caramel oak brandy"
-	glass_name = "glass of brandy"
+	taste_description = "карамельно-дубовый бренди"
+	glass_name = "бокал бренди"
 	color = "#6aa945"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/brandy/pear
-	name = "Pear Brandy"
+	name = "Грушевый бренди"
 	boozepwr = 60
-	taste_description = "ripe pear with a hint of spice"
+	taste_description = "спелая груша с пряной искоркой"
 	color = "b9b607"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/brandy/strawberry
-	name = "Strawberry Brandy"
+	name = "Клубничный бренди"
 	boozepwr = 60
-	taste_description = "overwhelming sweetness with a smooth finish"
+	taste_description = "густая сладость с мягким послевкусием"
 	color = "#bb1a1a"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/brandy/tangerine
-	name = "Tangerine Brandy"
+	name = "Мандариновый бренди"
 	boozepwr = 60
-	taste_description = "spice and a twist of citrus"
+	taste_description = "пряность с цитрусовым акцентом"
 	color = "#bb751a"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/brandy/plum
-	name = "Plum Brandy"
+	name = "Сливовый бренди"
 	boozepwr = 60
-	taste_description = "purple sweetness and vanila"
+	taste_description = "пурпурная сладость и ваниль"
 	color = "#5c0449"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/wine
-	name = "Wine"
+	name = "Вино"
 	boozepwr = 30
-	taste_description = "wine"
-	glass_name = "glass of wine"
+	taste_description = "вино"
+	glass_name = "бокал вина"
 	color = "#8a0b0b"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/light
-	name = "Light Beer"
-	description = "An alcoholic beverage brewed since ancient times on Old Earth. This variety has reduced calorie and alcohol content."
+	name = "Лёгкое пиво"
+	description = "Алкогольный напиток, сваренный с древних времён на Старой Земле. Этот сорт обладает пониженной калорийностью и крепостью."
 	boozepwr = 5 //Space Europeans hate it
-	taste_description = "dish water"
-	glass_name = "glass of light beer"
+	taste_description = "помои"
+	glass_name = "стакан лёгкого пива"
 	glass_desc = ""
 
 /datum/reagent/consumable/ethanol/green
-	name = "Green Beer"
-	description = "An alcoholic beverage brewed since ancient times on Old Earth. This variety is dyed a festive green."
+	name = "Зелёное пиво"
+	description = "Алкогольный напиток, сваренный с древних времён на Старой Земле. Этот сорт окрашен в праздничный зелёный цвет."
 	color = "#A8E61D"
-	taste_description = "green piss water"
+	taste_description = "зелёная моча"
 	glass_icon_state = "greenbeerglass"
-	glass_name = "glass of green beer"
+	glass_name = "стакан зелёного пива"
 	glass_desc = ""
 
 /datum/reagent/consumable/ethanol/green/on_mob_life(mob/living/carbon/M)
@@ -117,13 +117,13 @@
 	M.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, color)
 
 /datum/reagent/consumable/ethanol/ale
-	name = "Ale"
-	description = "A dark alcoholic beverage made with malted barley and yeast."
+	name = "Эль"
+	description = "Тёмный алкогольный напиток из соложёного ячменя и дрожжей."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 25
-	taste_description = "hearty barley ale"
+	taste_description = "ядрёный ячменный эль"
 	glass_icon_state = "aleglass"
-	glass_name = "glass of ale"
+	glass_name = "кружка эля"
 	glass_desc = ""
 
 
@@ -132,110 +132,110 @@
 // Humen Production - Underwhelming, but cheap.
 
 /datum/reagent/consumable/ethanol/zagul
-	name = "Zagul Brew"
+	name = "Лагер Загул"
 	boozepwr = 15
-	taste_description = "cheap pisswater"
+	taste_description = "дешёвая моча"
 	color = "#DBD77F"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/gin
-	name = "Gin"
+	name = "Джин"
 	boozepwr = 65
-	taste_description = "strong, piney flavor"
+	taste_description = "резкий, хвойный вкус"
 	color = "#809978"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/spottedhen
-	name = "Spotted Hen"
+	name = "Пятнистая курица"
 	boozepwr = 15
-	taste_description = "cheap pisswater"
+	taste_description = "дешёвая моча"
 	color = "#DBD77F"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/hagwoodbitter
-	name = "Hagwood Bitter"
+	name = "Горькое пиво Грензельхофта"
 	boozepwr = 25
-	taste_description = "dull crispness"
+	taste_description = "пресная горечь"
 	color = "#BBB525"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/blackgoat
-	name = "Black Gote Kriek"
+	name = "Чёрный козёл"
 	boozepwr = 25
-	taste_description = "overwhelming sourness"
+	taste_description = "обжигающая кислота"
 	color = "#401806"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/onion
-	name = "Onion Cognac"
+	name = "Коньяк «Крысиная заначка»"
 	boozepwr = 10
-	taste_description = "spicy sweet malty overtones"
+	taste_description = "пряная сладость с солодовыми оттенками"
 	color = "#683e00"
 	quality = DRINK_NICE
 
 // Elf Production - LEAF-LOVERS MOTHERFUCKER
 
 /datum/reagent/consumable/ethanol/aurorian
-	name = "Aurorian"
+	name = "Аурориан"
 	boozepwr = 5
-	taste_description = "subtle herbacious undertones"
+	taste_description = "тонкие травяные нотки"
 	color = "#5D8A8A"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/fireleaf // cabbbage
-	name = "Fireleaf"
+	name = "Огненный лист"
 	boozepwr = 2
-	taste_description = "awful liquor"
+	taste_description = "отвратительный ликёр"
 	color = "#475e45"
 	quality = DRINK_NICE
 
 // Dwarven Production - Best in the Realms
 
 /datum/reagent/consumable/ethanol/butterhairs
-	name = "Butterhairs"
+	name = "Масляные косы"
 	boozepwr = 30
-	taste_description = "buttery richness"
+	taste_description = "маслянистая насыщенность"
 	color = "#5D8A8A"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/stonebeards
-	name = "Stonebeard Reserve"
+	name = "Резерв Каменной Бороды"
 	boozepwr = 40
-	taste_description = "potent oatlike liquor"
+	taste_description = "крепкий овсяный ликёр"
 	color = "#5D8A8A"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/voddena // Definitely Actually Just Vodka Now. 
-	name = "Voddena"
+	name = "Воддена"
 	boozepwr = 40  // now it's just vodka
-	taste_description = "clean liquor"
+	taste_description = "чистый алкоголь"
 	color = "#a1a1a1"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/sazdistal // Definitely Not Vodka. 
-	name = "Saz Distal"
+	name = "Сац-Дисталь"
 	boozepwr = 55  // holy shit
-	taste_description = "spicy chilis, ginger, and dirt"
+	taste_description = "жгучий перец, имбирь и земля"
 	color = "#2D1D1D"
 	quality = DRINK_GOOD	
 
 /datum/reagent/consumable/ethanol/limoncello
-	name = "Limoncello"
+	name = "Лимончелло"
 	boozepwr = 45  // holy shit
-	taste_description = "burning and lemony"
+	taste_description = "жгучий и лимонный"
 	color = "#d2da63"
 	quality = DRINK_GOOD
 
 // Generic Rice
 /datum/reagent/consumable/ethanol/ricewine
-	name = "Rice Wine"
-	taste_description = "floral sweetness with a subtle umami taste."
+	name = "Рисовое вино"
+	taste_description = "цветочная сладость с тонким умами"
 	color = "#F5E6C4" // rgb: 210, 218, 99
 	boozepwr = 30
 
 /datum/reagent/consumable/ethanol/ricespirit
-	name = "Rice Spirit"
-	taste_description = "clean heat and dry finish."
+	name = "Рисовый спирт"
+	taste_description = "чистое тепло и сухое послевкусие"
 	color = "#F8FDFC" // rgb: 210, 218, 99
 	boozepwr = 55
 	quality = DRINK_NICE
@@ -245,272 +245,272 @@
 // Humen Production - Grape Based
 
 /datum/reagent/consumable/ethanol/sourwine // Peasant grade shit.
-	name = "Sour Wine"
+	name = "Кислое вино"
 	boozepwr = 20
-	taste_description = "sour wine"
+	taste_description = "кислое вино"
 	color = "#552b4b"
 
 /datum/reagent/consumable/ethanol/whitewine
-	name = "White Wine"
+	name = "Белое вино"
 	boozepwr = 30
-	taste_description = "sweet white wine"
+	taste_description = "сладкое белое вино"
 	color = "#F3ED91"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/redwine
-	name = "Red Wine"
+	name = "Красное вино"
 	boozepwr = 30
-	taste_description = "tannin-stricken wine"
+	taste_description = "вино с яркими танинами"
 	color = "#571111"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/jackberrywine
-	name = "Jackberry Wine"
+	name = "Ежевичное вино"
 	boozepwr = 15
-	taste_description = "sickly sweet young wine"
+	taste_description = "приторно-сладкое молодое вино"
 	color = "#3b2342"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/jackberrywine/aged
-	name = "Aged Jackberry Wine"
+	name = "Выдержанное ежевичное вино"
 	boozepwr = 30
-	taste_description = "sweet aged wine"
+	taste_description = "сладкое выдержанное вино"
 	color = "#402249"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/jackberrywine/delectable
-	name = "Delectable Jackberry Wine"
+	name = "Изысканное ежевичное вино"
 	boozepwr = 30
-	taste_description = "sweet delectably aged wine"
+	taste_description = "изысканно сладкое выдержанное вино"
 	color = "#652679"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/plum_wine
-	name = "Umeshu"
+	name = "Умешу"
 	boozepwr = 15
-	taste_description = "sickly sour young wine"
+	taste_description = "приторно-кислое молодое вино"
 	color = "#c997d8"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/plum_wine/aged
-	name = "Aged Umeshu"
+	name = "Выдержанное умешу"
 	boozepwr = 30
-	taste_description = "sweet slightly sour aged wine"
+	taste_description = "сладкое с лёгкой кислинкой выдержанное вино"
 	color = "#c27cd8"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/plum_wine/delectable
-	name = "Delectable Umeshu"
+	name = "Изысканное умешу"
 	boozepwr = 30
-	taste_description = "delectably aged sour sweet wine"
+	taste_description = "изысканно выдержанное кисло-сладкое вино"
 	color = "#a854c2"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/tangerine
-	name = "Tangerine Wine"
+	name = "Мандариновое вино"
 	boozepwr = 15
-	taste_description = "bittersweet, citrusy young wine"
+	taste_description = "горьковато-сладкое цитрусовое молодое вино"
 	color = "#e7aa59"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/tangerine/aged
-	name = "Aged Tangerine Wine"
+	name = "Выдержанное мандариновое вино"
 	boozepwr = 30
-	taste_description = "bittersweet, citrusy aged wine"
+	taste_description = "горьковато-сладкое цитрусовое выдержанное вино"
 	color = "#d68d2d"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/tangerine/delectable
-	name = "Delectable Tangerine Wine"
+	name = "Изысканное мандариновое вино"
 	boozepwr = 30
-	taste_description = "bittersweet, citrusy delectably aged wine"
+	taste_description = "горьковато-сладкое цитрусовое изысканно выдержанное вино"
 	color = "#eb9321"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/raspberry
-	name = "Raspberry Wine"
+	name = "Малиновое вино"
 	boozepwr = 15
-	taste_description = "tart sweet young wine"
+	taste_description = "терпко-сладкое молодое вино"
 	color = "#ee5ea6"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/raspberry/aged
-	name = "Aged Raspberry Wine"
+	name = "Выдержанное малиновое вино"
 	boozepwr = 30
-	taste_description = "tart sweet aged wine"
+	taste_description = "терпко-сладкое выдержанное вино"
 	color = "#d83788"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/raspberry/delectable
-	name = "Delectable Raspberry Wine"
+	name = "Изысканное малиновое вино"
 	boozepwr = 30
-	taste_description = "tart sweet delectably aged wine"
+	taste_description = "терпко-сладкое изысканно выдержанное вино"
 	color = "#db0d74"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/blackberry
-	name = "Blackberry Wine"
+	name = "Черничное вино"
 	boozepwr = 15
-	taste_description = "bitter tart young wine"
+	taste_description = "горько-терпкое молодое вино"
 	color = "#861491"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/blackberry/aged
-	name = "Aged Blackberry Wine"
+	name = "Выдержанное черничное вино"
 	boozepwr = 30
-	taste_description = "bitter tart aged wine"
+	taste_description = "горько-терпкое выдержанное вино"
 	color = "#58065f"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/blackberry/delectable
-	name = "Delectable Blackberry Wine"
+	name = "Изысканное черничное вино"
 	boozepwr = 30
-	taste_description = "bitter tart delectably aged wine"
+	taste_description = "горько-терпкое изысканно выдержанное вино"
 	color = "#330038"
 	quality = DRINK_VERYGOOD
 
 // Elf Production - Berries & Herbal
 
 /datum/reagent/consumable/ethanol/elfred
-	name = "Elven Red"
+	name = "Эльфийское красное"
 	boozepwr = 15
-	taste_description = "delectable fruity notes"
+	taste_description = "изысканные фруктовые ноты"
 	color = "#6C0000"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/elfblue
-	name = "Valmora Blue"
+	name = "Лазурное вино Вальмора"
 	boozepwr = 50
-	taste_description = "saintly sweetness"
+	taste_description = "божественная сладость"
 	color = "#2C9DAF"
 	quality = DRINK_FANTASTIC
 
 // Azure Drinks
 /datum/reagent/consumable/ethanol/jagdtrunk // JÄGERMEISTER!!!!
-	name = "Jagdtrunk"
+	name = "Ягдтрунк"
 	boozepwr = 55  // gotta be stronk
-	taste_description = "spicy herbal remedy"
+	taste_description = "пряное травяное снадобье"
 	color = "#331f18"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/apfelweinheim
-	name = "Appelheimer"
+	name = "Апфельвайнхаймский сидр"
 	boozepwr = 45
-	taste_description = "tart crispness and mellow sweetness"
+	taste_description = "терпкая свежесть и мягкая сладость"
 	color = "#e0cb55"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/rtoper
-	name = "Lirvas Toper"
+	name = "Рокхилл Тоупер"
 	boozepwr = 40
-	taste_description = "overwhelming tartness"
+	taste_description = "мощная терпкость"
 	color = "#e0a400"
 	quality = DRINK_NICE
 
 /datum/reagent/consumable/ethanol/nred
-	name = "Norwardine Red"
+	name = "Норвандинский красный эль"
 	boozepwr = 30
-	taste_description = "heavy caramel note and slight bitterness"
+	taste_description = "насыщенная карамельная нота с лёгкой горчинкой"
 	color = "#543633"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/gronnmead
-	name = "Ragnar's Brew"
+	name = "Мёд Рагнара"
 	boozepwr = 35
-	taste_description = "notes of honey and red berries" //I love red mead ok...
+	taste_description = "ноты мёда и красных ягод" //I love red mead ok...
 	color = "#772C48"
 	quality = DRINK_GOOD
 
 //Avar boozes
 
 /datum/reagent/consumable/ethanol/avarmead
-	name = "Zögiin bal"
+	name = "Зёгийн бал"
 	boozepwr = 30
-	taste_description = "spicy honey"
+	taste_description = "пряный мёд"
 	color = "#e0a400"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/avarrice
-	name = "Makkolir"
+	name = "Макколир"
 	boozepwr = 30
-	taste_description = "tangy sweetness"
+	taste_description = "кисло-сладкий вкус"
 	color = "#ddcbc9"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/saigamilk //No way, kumys from avar!!!
-	name = "Bökhiin Arkhi"
+	name = "Бёхийн Архи"
 	boozepwr = 15
-	taste_description = "bubbly, sour salt"
+	taste_description = "шипучая кислая соль"
 	color = "#dddddd"
 
 //Kazengun boozes
 
 /datum/reagent/consumable/ethanol/kgunlager
-	name = "Yamaguchi Pale"
+	name = "Ямагути Пэйл"
 	boozepwr = 10 //A PALE imitation actual beer...
-	taste_description = "mellow bitterness and a hint of green tea"
+	taste_description = "мягкая горечь с оттенком зелёного чая"
 	color = "#d7dbbc"
 
 /datum/reagent/consumable/ethanol/kgunsake
-	name = "Junmai-ginjo"
+	name = "Джунмай-гиндзё"
 	boozepwr = 50
-	taste_description = "dry sweetness"
+	taste_description = "сухая сладость"
 	color = "#ccd7e0"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/kgunshochu
-	name = "Shochu"
+	name = "Сётю"
 	boozepwr = 60
-	taste_description = "dry, clean finish"
+	taste_description = "сухое, чистое послевкусие"
 	color = "#F8FDFC"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/kgunplum
-	name = "Umeshu"
+	name = "Умешу"
 	boozepwr = 30
-	taste_description = "a mix of sweet and sour"
+	taste_description = "смесь сладкого и кислого"
 	color = "#ddb99b"
 	quality = DRINK_GOOD
 
 // Zhongese
 /datum/reagent/consumable/ethanol/huangjiu
-	name = "Huangjiu"
+	name = "Хуанцзю"
 	boozepwr = 30
-	taste_description = "a mix of sweet and sour"
+	taste_description = "смесь сладкого и кислого"
 	color = "#d8b84c"
 
 /datum/reagent/consumable/ethanol/baijiu
-	name = "Baijiu"
+	name = "Байцзю"
 	boozepwr = 60
-	taste_description = "fiery and pungent alcohol with a hint of sweetness"
+	taste_description = "огненный и резкий алкоголь с ноткой сладости"
 	color = "#f8fdfc"
 	quality = DRINK_GOOD
 
 /datum/reagent/consumable/ethanol/yaojiu
-	name = "Yaojiu"
+	name = "Яоцзю"
 	boozepwr = 50
-	taste_description = "bittersweet alcohol with deep herbal notes"
+	taste_description = "горько-сладкий алкоголь с глубокими травяными нотами"
 	color = "#8C4B1F"
 	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/shejiu
-	name = "Shejiu"
+	name = "Шэцзю"
 	boozepwr = 50
-	taste_description = "musky and strong alcohol with a hint of gameiness"
+	taste_description = "мускусный и крепкий алкоголь с оттенком дичи"
 	color = "#C49A6C"
 	quality = DRINK_VERYGOOD
 
 // Mead 
 /datum/reagent/consumable/ethanol/mead
-	name = "Mead"
-	description = "A warriors drink, though a cheap one."
+	name = "Мёд"
+	description = "Напиток воинов, хоть и дёшев."
 	color = "#664300" // rgb: 102, 67, 0
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 30
 	quality = DRINK_NICE
-	taste_description = "sweet, sweet alcohol"
+	taste_description = "сладкий-пресладкий алкоголь"
 	glass_icon_state = "meadglass"
-	glass_name = "Mead"
+	glass_name = "Мёд"
 	glass_desc = ""
 
 /datum/reagent/consumable/ethanol/mead/spider
@@ -518,9 +518,9 @@
 
 // Special Drugs
 /datum/reagent/consumable/ethanol/murkwine // not Toilet wine
-	name = "mürkwine"
+	name = "Мутное вино"
 	boozepwr = 50  // bubba's best
-	taste_description = "hints of questionable choices--a bouqet of murkwater and pure ethanol"
+	taste_description = "ноты сомнительных решений — букет мутной воды и чистого этанола"
 	color = "#4b1e00"
 
 /datum/reagent/consumable/ethanol/murkwine/on_mob_life(mob/living/carbon/M)
@@ -533,9 +533,9 @@
 	M.remove_status_effect(/datum/status_effect/buff/murkwine)
 
 /datum/reagent/consumable/ethanol/nocshine // wait, no, NOCSHINE
-	name = "noc's shine"
+	name = "Самогон Нокса"
 	boozepwr = 70  // YEEEEEHAAAWWWWWW
-	taste_description = "what might be my throat melting and nose hair burning"
+	taste_description = "то ли плавится горло, то ли горят волосы в носу"
 	color = "#d8fbfd63"
 	quality = DRINK_NICE
 
@@ -553,9 +553,9 @@
 	M.remove_status_effect(/datum/status_effect/buff/nocshine)
 
 /datum/reagent/consumable/ethanol/luxwine
-	name = "Luxintebere"
+	name = "Люксинтебере"
 	boozepwr = 100 //get out of here nocshine this is made for true alcohol vicers
-	taste_description = "a green numbness and then a burning vigor in the heart"
+	taste_description = "зелёное онемение, а затем жгучая бодрость в сердце"
 	color = "#86CCA3"
 	quality = DRINK_FANTASTIC //having this should get you fragged so it should be worth the risk
 	overdose_threshold = 10
@@ -576,4 +576,4 @@
 	M.adjustOrganLoss(ORGAN_SLOT_HEART, 0.25*REM)
 	M.adjustFireLoss(0.25*REM, 0)
 	..()
-	. = 1
+	. = 1\

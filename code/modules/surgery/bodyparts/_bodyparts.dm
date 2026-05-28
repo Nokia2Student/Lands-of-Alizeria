@@ -780,7 +780,7 @@
 	return ..()
 
 /obj/item/bodypart/chest
-	name = "chest"
+	name = "грудь"
 	desc = ""
 	icon_state = "default_human_chest"
 	max_damage = 300
@@ -830,7 +830,7 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_arm
-	name = "left arm"
+	name = "левая рука"
 	desc = ""
 	icon_state = "default_human_l_arm"
 	attack_verb = list("slapped", "punched")
@@ -887,7 +887,7 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_arm
-	name = "right arm"
+	name = "правая рука"
 	desc = ""
 	icon_state = "default_human_r_arm"
 	attack_verb = list("slapped", "punched")
@@ -944,7 +944,7 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_leg
-	name = "left leg"
+	name = "левая нога"
 	desc = ""
 	icon_state = "default_human_l_leg"
 	attack_verb = list("kicked", "stomped")
@@ -993,7 +993,7 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_leg
-	name = "right leg"
+	name = "правая нога"
 	desc = ""
 	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"

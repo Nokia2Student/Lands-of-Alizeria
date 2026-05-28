@@ -1,8 +1,8 @@
 //A spell to choose new spells, upon spawning or gaining levels
 // TODO: Implement per patron spell lists
 /obj/effect/proc_holder/spell/self/learnspell
-	name = "Attempt to learn a new spell"
-	desc = "Draw upon your Arcyne knowledge to learn a new spell."
+	name = "Попытаться выучить новое заклинание"
+	desc = "Используйте свои арканные знания, чтобы выучить новое заклинание."
 	school = "transmutation"
 	overlay_state = "book1"
 	chargedrain = 0
@@ -25,19 +25,19 @@
 
 	choices = sortList(choices)
 
-	var/choice = input("Choose a spell, points left: [user.mind.spell_points - user.mind.used_spell_points]") as null|anything in choices
+	var/choice = input("Выберите заклинание, осталось очков: [user.mind.spell_points - user.mind.used_spell_points]") as null|anything in choices
 	var/obj/effect/proc_holder/spell/item = choices[choice]
 
 	if(!item)
 		return     // user canceled;
-	if(alert(user, "[item.desc]", "[item.name]", "Learn", "Cancel") == "Cancel") //gives a preview of the spell's description to let people know what a spell does
+	if(alert(user, "[item.desc]", "[item.name]", "Выучить", "Отмена") == "Отмена") //gives a preview of the spell's description to let people know what a spell does
 		return
 	for(var/obj/effect/proc_holder/spell/knownspell in user.mind.spell_list)
 		if(knownspell.type == item.type)
-			to_chat(user,span_warning("You already know this one!"))
+			to_chat(user,span_warning("Вы уже знаете это заклинание!"))
 			return	//already know the spell
 	if(item.cost > user.mind.spell_points - user.mind.used_spell_points)
-		to_chat(user,span_warning("You do not have enough experience to create a new spell."))
+		to_chat(user,span_warning("У вас недостаточно опыта, чтобы создать новое заклинание."))
 		return		// not enough spell points
 	else
 		user.mind.used_spell_points += item.cost

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/leap
-	name = "Leap"
-	desc = "You empower your target's legs to allow them to leap to great heights. This allows your target to jump up floor levels, however does not prevent the damage from falling down one."
+	name = "Прыжок"
+	desc = "Вы наделяете ноги цели силой, позволяющей совершать огромные прыжки. Цель сможет запрыгивать на этажи выше, но это не спасёт от ран при падении."
 	cost = 2
 	releasedrain = 35
 	chargedrain = 1
@@ -24,16 +24,16 @@
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		if(HAS_TRAIT(target,TRAIT_ZJUMP))
-			to_chat(user, "<span class='warning'>They're already able to jump that high!</span>")
+			to_chat(user, "<span class='warning'>Они уже могут так высоко прыгать!</span>")
 			revert_cast()
 			return
 		ADD_TRAIT(target, TRAIT_ZJUMP, MAGIC_TRAIT)
-		to_chat(target, span_warning("My legs feel stronger! I feel like I can jump up high!"))
+		to_chat(target, span_warning("Мои ноги чувствуют себя сильнее! Я чувствую, что могу высоко прыгнуть!"))
 		addtimer(CALLBACK(src, PROC_REF(remove_buff), target), wait = 20 SECONDS)
 		return TRUE
 	
 
 /obj/effect/proc_holder/spell/invoked/leap/proc/remove_buff(mob/living/carbon/target)
 	REMOVE_TRAIT(target, TRAIT_ZJUMP, MAGIC_TRAIT)
-	to_chat(target, span_warning("My legs feel remarkably weaker."))
+	to_chat(target, span_warning("Мои ноги чувствуют себя заметно слабее."))
 	target.Immobilize(5)

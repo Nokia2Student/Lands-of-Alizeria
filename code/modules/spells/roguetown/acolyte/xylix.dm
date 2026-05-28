@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/wheel
-	name = "The Wheel"
-	desc = "Invoke pure random chance upon the target, altering their fortune."
+	name = "Колесо"
+	desc = "Призовите чистую случайность на цель, изменив её удачу."
 	releasedrain = 10
 	chargedrain = 0
 	chargetime = 3
@@ -25,8 +25,8 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/mastersillusion
-	name = "Set Decoy"
-	desc = "Create a vanishing decoy in your likeness."
+	name = "Поставить муляж"
+	desc = "Создайте исчезающий муляж в вашем подобии."
 	releasedrain = 10
 	chargedrain = 0
 	chargetime = 0
@@ -43,11 +43,11 @@
 
 /obj/effect/proc_holder/spell/invoked/mastersillusion/cast(list/targets, mob/living/carbon/human/user = usr)
 	if(firstcast)
-		to_chat(user, span_italics("...Oh, oh, thy visage is so grand! Let us prepare it for tricks!"))
+		to_chat(user, span_italics("...О, о, твой облик так великолепен! Давай подготовим его для трюков!"))
 		clone_icon = get_flat_human_icon("[user.real_name] decoy", null, null, DUMMY_HUMAN_SLOT_MANIFEST, GLOB.cardinals, TRUE, user, TRUE) // We can only set our decoy icon once. This proc is sort of expensive on generation.
 		firstcast = FALSE
-		name = "Master's Illusion"
-		to_chat(user, "There we are... Perfect.")
+		name = "Иллюзия Мастера"
+		to_chat(user, "Ну вот... Идеально.")
 		revert_cast()
 		return
 	var/turf/T = get_turf(user)
@@ -55,11 +55,11 @@
 	animate(user, alpha = 0, time = 0 SECONDS, easing = EASE_IN)
 	user.mob_timers[MT_INVISIBILITY] = world.time + 7 SECONDS
 	addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon/human, update_sneak_invis), TRUE), 7 SECONDS)
-	addtimer(CALLBACK(user, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[user] fades back into view."), span_notice("You become visible again.")), 7 SECONDS)
+	addtimer(CALLBACK(user, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[user] появляется снова из ниоткуда."), span_notice("Вы снова становитесь видимым.")), 7 SECONDS)
 	return TRUE
 
 /mob/living/simple_animal/hostile/rogue/xylixdouble
-	name = "Xylixian Double - You shouldnt be seeing this."
+	name = "Ксиликсианский двойник — Вы не должны это видеть."
 	desc = ""
 	gender = NEUTER
 	mob_biotypes = MOB_HUMANOID
@@ -89,8 +89,8 @@
 
 
 /obj/effect/proc_holder/spell/invoked/mockery
-	name = "Vicious Mockery"
-	desc = "Mock your target. How fun!"
+	name = "Злая насмешка"
+	desc = "Высмеять цель. Как весело!"
 	releasedrain = 50
 	associated_skill = /datum/skill/misc/music
 	recharge_time = 2 MINUTES
@@ -121,31 +121,31 @@
 	if(ishuman(user))
 		switch(pick(1,2,3,4,5,6,7,8,9,10,11,12,13))
 			if(1)
-				user.say("Your mother was a Rous, and your father smelled of jacksberries!", forced = "spell")
+				user.say("Твоя мать была русалкой, а отец пахнул можжевельником!", forced = "spell")
 			if(2)
-				user.say("What are you going to do for a face when the Archdevil wants his arse back?!", forced = "spell")
+				user.say("Что ты будешь делать с лицом, когда Архидьяволу понадобится его задница обратно?!", forced = "spell")
 			if(3)
-				user.say("Wandought thine blades stand, much like thine loving parts!", forced = "spell")
+				user.say("Да устоят твои клинки, как и твои любовные части!", forced = "spell")
 			if(4)
-				user.say("That's a face not even Eora could love!", forced = "spell")
+				user.say("Это лицо даже Эора не смогла бы полюбить!", forced = "spell")
 			if(5)
-				user.say("Your breath smells like raw butter and cheap beer!.", forced = "spell")
+				user.say("Твоё дыхание пахнет сырым маслом и дешёвым пивом!", forced = "spell")
 			if(6)
-				user.say("I bite mine thumb, ser!", forced = "spell")
+				user.say("Я кусаю свой большой палец, сэр!", forced = "spell")
 			if(7)
-				user.say("But enough talk- have at thee!", forced = "spell")
+				user.say("Но довольно слов — защищайтесь!", forced = "spell")
 			if(8)
-				user.say("My grandmother fights better than you!", forced = "spell")
+				user.say("Моя бабушка дерётся лучше тебя!", forced = "spell")
 			if(9)
-				user.say("Need you borrow mine spectacles? Come get them!", forced = "spell")
+				user.say("Не одолжить ли тебе мои очки? Иди и возьми!", forced = "spell")
 			if(10)
-				user.say("How much sparring did it take to become this awful?!", forced = "spell")
+				user.say("Сколько же спаррингов нужно было провести, чтобы стать настолько ужасным?!", forced = "spell")
 			if(11)
-				user.say("You may need a smith- for you seem ill-equipped for a battle of wits!", forced = "spell")
+				user.say("Тебе, возможно, нужен кузнец — ибо ты плохо снаряжён для битвы ума!", forced = "spell")
 			if(12)
-				user.say("Looks as if thou art PSY-DONE! No? Too soon? Alright.", forced = "spell")
+				user.say("Похоже, ты PSY-DONE! Нет? Слишком рано? Ладно.", forced = "spell")
 			if(13)
-				user.say("Ravox bring justice to your useless mentor, ser!", forced = "spell")
+				user.say("Да покарает Равокс твоего бесполезного наставника, сэр!", forced = "spell")
 
 /datum/status_effect/debuff/viciousmockery
 	id = "viciousmockery"
@@ -161,18 +161,18 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/debuff/viciousmockery
-	name = "Vicious Mockery"
+	name = "Злая насмешка"
 	icon_state = "muscles"
 
 /atom/movable/screen/alert/status_effect/debuff/viciousmockery/bard
-	desc = "<span class='warning'>THAT ARROGANT BARD! ARGH!</span>\n"
+	desc = "<span class='warning'>ЭТОТ НАГЛЫЙ БАРД! АРГХ!</span>\n"
 
 /atom/movable/screen/alert/status_effect/debuff/viciousmockery/xylixian
-	desc = "<span class='warning'>THAT ARROGANT XYLIXIAN! ARGH!</span>\n"
+	desc = "<span class='warning'>ЭТОТ НАГЛЫЙ КСИЛИКСИАНЕЦ! АРГХ!</span>\n"
 
 /obj/effect/proc_holder/spell/self/xylixslip
-	name = "Xylixian Slip"
-	desc = "Slip forward a moderate distance."
+	name = "Ксиликсианский уход"
+	desc = "Скользните вперёд на умеренное расстояние."
 	overlay_state = "xylix_slip"
 	releasedrain = 10
 	chargedrain = 0
@@ -200,7 +200,7 @@
 		return FALSE
 
 	if(H.IsOffBalanced())
-		H.visible_message(span_warning("[H] loses their footing!"))
+		H.visible_message(span_warning("[H] теряет равновесие!"))
 		var/turnangle = (prob(50) ? 270 : 90)
 		var/turndir = turn(dir, turnangle)
 		var/dist = rand(1, 2)
@@ -213,7 +213,7 @@
 	else
 		var/current_turf = get_turf(H)
 		var/turf/target_turf = get_ranged_target_turf(current_turf, H.dir, leap_dist)
-		H.visible_message(span_warning("[H] slips away!"))
+		H.visible_message(span_warning("[H] ускользает!"))
 		H.throw_at(target_turf, leap_dist, 1, H, TRUE)
 		if(target_turf.landsound)
 			playsound(target_turf, target_turf.landsound, 100, FALSE)
@@ -224,17 +224,17 @@
 		return TRUE
 
 /obj/effect/proc_holder/spell/self/xylixslip/kazengun
-	name = "Xyjian Slip"
+	name = "Ксиджианский уход"
 
 /obj/effect/proc_holder/spell/invoked/projectile/fetch/miracle
-	name = "Divine Fetch"
+	name = "Божественное притяжение"
 	miracle = TRUE
 	devotion_cost = 10
 	invocation = null
 	associated_skill = /datum/skill/magic/holy
 
 /obj/effect/proc_holder/spell/invoked/projectile/repel/miracle
-	name = "Divine Repel"
+	name = "Божественный отпор"
 	miracle = TRUE
 	devotion_cost = 14
 	invocation = null

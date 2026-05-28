@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/featherfall
-	name = "Featherfall"
-	desc = "Grant yourself and any creatures adjacent to you some defense against falls."
+	name = "Полёт пера"
+	desc = "Дарует вам и всем существам рядом с вами некоторую защиту от падений."
 	cost = 2
 	xp_gain = TRUE
 	school = "transmutation"
@@ -23,7 +23,7 @@
 
 /obj/effect/proc_holder/spell/invoked/featherfall/cast(list/targets, mob/user = usr)
 
-	user.visible_message("[user] mutters an incantation and a dim pulse of light radiates out from them.")
+	user.visible_message("[user] бормочет заклинание, и от них исходит тусклый импульс света.")
 
 	for(var/mob/living/L in range(1, usr))
 		L.apply_status_effect(/datum/status_effect/buff/featherfall)

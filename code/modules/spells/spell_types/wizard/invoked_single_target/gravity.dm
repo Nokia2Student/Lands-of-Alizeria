@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/gravity // to do: get scroll icon
-	name = "Gravity"
-	desc = "Weighten space around someone, crushing them and knocking them to the floor. Stronger opponents will resist and be off-balanced."
+	name = "Гравитация"
+	desc = "Утяжеляет пространство вокруг цели, сбивая с ног и нанося урон. Более сильные противники устоят, но потеряют равновесие."
 	cost = 3
 	overlay_state = "hierophant"
 	xp_gain = TRUE
@@ -45,26 +45,26 @@
 		new /obj/effect/temp_visual/gravity(affected_turf)
 		for(var/mob/living/L in affected_turf.contents) 
 			if(L.anti_magic_check())
-				visible_message(span_warning("The gravity fades away around you [L] "))  //antimagic needs some testing
+				visible_message(span_warning("Гравитация рассеивается вокруг [L]"))  //antimagic needs some testing
 				playsound(L, 'sound/magic/magic_nulled.ogg', 100)
 				return TRUE
 
 			if(L.STASTR <= 15)
 				L.adjustBruteLoss(60)
 				L.Knockdown(5)
-				to_chat(L, "<span class='userdanger'>You're magically weighed down, losing your footing!</span>")
+				to_chat(L, "<span class='userdanger'>Вас магически придавило к земле, вы теряете опору!</span>")
 			else
 				L.OffBalance(10)
 				L.adjustBruteLoss(15)
-				to_chat(L, "<span class='userdanger'>You're magically weighed down, and your strength resist!</span>")
+				to_chat(L, "<span class='userdanger'>Вас магически придавило, но ваша сила помогла устоять!</span>")
 			
 			
 	return TRUE
 /obj/effect/temp_visual/gravity
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "hierophant_squares"
-	name = "gravity magic"
-	desc = "Get out of the way!"
+	name = "магия гравитации"
+	desc = "Прочь с дороги!"
 	randomdir = FALSE
 	duration = 3 SECONDS
 	layer = MASSIVE_OBJ_LAYER
@@ -75,8 +75,8 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "hierophant_blast"
 	dir = NORTH
-	name = "rippling arcyne energy"
-	desc = "Get out of the way!"
+	name = "пульсирующая арканная энергия"
+	desc = "Прочь с дороги!"
 	randomdir = FALSE
 	duration = 5 SECONDS
 	layer = MASSIVE_OBJ_LAYER

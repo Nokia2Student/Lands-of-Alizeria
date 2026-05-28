@@ -2,37 +2,37 @@
 // Like container, bedrolls etc.
 
 /datum/supply_pack/rogue/adventure_supplies
-	group = "Adventuring Supplies"
+	group = "Припасы для приключений"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/adventure_supplies/bedroll
-	name = "Bedroll"
+	name = "Спальный мешок"
 	cost = 13
 	contains = list(/obj/item/bedroll)
 
 /datum/supply_pack/rogue/adventure_supplies/waterskin
-	name = "Waterskin"
+	name = "Бурдюк с водой"
 	cost = 13
 	contains = list(/obj/item/reagent_containers/glass/bottle/waterskin)
 
 /datum/supply_pack/rogue/adventure_supplies/satchel
-	name = "Satchel"
+	name = "Сумка"
 	cost = 13
 	contains = list(/obj/item/storage/backpack/rogue/satchel)
 
 /datum/supply_pack/rogue/adventure_supplies/short_satchel
-	name = "Short Satchel"
+	name = "Малая сумка"
 	cost = 10
 	contains = list(/obj/item/storage/backpack/rogue/satchel/short)
 
 /datum/supply_pack/rogue/adventure_supplies/backpack
-	name = "Backpack"
+	name = "Рюкзак"
 	cost = 18
 	contains = list(/obj/item/storage/backpack/rogue/backpack)
 
 /datum/supply_pack/rogue/adventure_supplies/pouches
-	name = "Pouch"
+	name = "Мешочек"
 	cost = 8
 	contains = list(
 					/obj/item/storage/belt/rogue/pouch,
@@ -40,7 +40,7 @@
 					/obj/item/storage/belt/rogue/pouch)
 
 /datum/supply_pack/rogue/adventure_supplies/belts
-	name = "Belt"
+	name = "Пояс"
 	cost = 14
 	contains = list(
 					/obj/item/storage/belt/rogue/leather,
@@ -49,14 +49,14 @@
 				)
 
 /datum/supply_pack/rogue/adventure_supplies/sheath
-	name = "Sheath"
+	name = "Ножны"
 	cost = 12
 	contains = list(
 					/obj/item/rogueweapon/scabbard/sheath
 				)
 
 /datum/supply_pack/rogue/adventure_supplies/scabbard
-	name = "Scabbard"
+	name = "Ножны (длинные)"
 	cost = 15
 	contains = list(
 					/obj/item/rogueweapon/scabbard/sword
@@ -64,7 +64,7 @@
 
 
 /datum/supply_pack/rogue/adventure_supplies/ropes
-	name = "Ropes"
+	name = "Верёвки"
 	cost = 10
 	contains = list(
 					/obj/item/rope,
@@ -73,34 +73,34 @@
 				)
 
 /datum/supply_pack/rogue/adventure_supplies/woodstaff
-	name = "Six Foot Pole"
+	name = "Шест"
 	cost = 6
 	contains = list(/obj/item/rogueweapon/woodstaff)
 
 /datum/supply_pack/rogue/adventure_supplies/lamptern
-	name = "Lamptern"
+	name = "Фонарь"
 	cost = 15
 	contains = list(/obj/item/flashlight/flare/torch/lantern)
 
 /datum/supply_pack/rogue/adventure_supplies/folding_table
-	name = "Folding Table"
+	name = "Складной стол"
 	cost = 35
 	contains = list(/obj/item/folding_table_stored)
 
 /datum/supply_pack/rogue/adventure_supplies/mess_kit
-	name = "Mess Kit"
+	name = "Походный набор"
 	cost = 60
 	contains = list(/obj/item/storage/gadget/messkit)
 
 /datum/supply_pack/rogue/adventure_supplies/needles
-	name = "Needles"
+	name = "Иглы"
 	cost = 15
 	contains = list(/obj/item/needle,
 					/obj/item/needle,
 					/obj/item/needle)
 
 /datum/supply_pack/rogue/adventure_supplies/rationpaper
-	name = "Ration Papers"
+	name = "Паёк"
 	cost = 20
 	contains = list(
 					/obj/item/ration,

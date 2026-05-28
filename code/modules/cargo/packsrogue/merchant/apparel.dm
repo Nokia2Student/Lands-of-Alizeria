@@ -1,10 +1,10 @@
 /datum/supply_pack/rogue/apparel
-	group = "Apparel"
+	group = "Одежда"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/apparel/hoods
-	name = "Shoulder Hood"
+	name = "Наплечный капюшон"
 	cost = 30
 	contains = list(
 					/obj/item/clothing/head/roguetown/roguehood/random,
@@ -13,78 +13,78 @@
 				)
 
 /datum/supply_pack/rogue/apparel/crosses/silver
-	name = "Silver Cross"
+	name = "Серебряный крест"
 	cost = 150
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonastrata
-	name = "Astratan Amulet"
+	name = "Амулет Астраты"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/astrata,
 				)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonmalum
-	name = "Malumite Amulet"
+	name = "Амулет Малума"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/malum,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheoneora
-	name = "Eoran Amulet"
+	name = "Амулет Эоры"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/eora,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonravox
-	name = "Ravox Amulet"
+	name = "Амулет Равокса"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/ravox,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonpestra
-	name = "Pestran Amulet"
+	name = "Амулет Пестры"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/pestra,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonnecra
-	name = "Necran Amulet"
+	name = "Амулет Некры"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/necra,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheondendor
-	name = "Dendor Amulet"
+	name = "Амулет Дендора"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/dendor,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonabyssor
-	name = "Abyssor Amulet"
+	name = "Амулет Абиссора"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/abyssor,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonnoc
-	name = "Noc Amulet"
+	name = "Амулет Нока"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/noc,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonxylix
-	name = "Xylix Amulet"
+	name = "Амулет Ксиликса"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/xylix,)
 
 /datum/supply_pack/rogue/apparel/crosses/psicross
-	name = "Psicross"
+	name = "Псикрест"
 	cost = 20
 	contains = list(/obj/item/clothing/neck/roguetown/psicross)
 
 /datum/supply_pack/rogue/apparel/gloves/leather
-	name = "Leather Gloves"
+	name = "Кожаные перчатки"
 	cost = 15
 	contains = list(
 					/obj/item/clothing/gloves/roguetown/leather,
@@ -93,7 +93,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/boots/leather
-	name = "Leather Boots"
+	name = "Кожаные сапоги"
 	cost = 15
 	contains = list(
 					/obj/item/clothing/shoes/roguetown/boots/leather,
@@ -102,7 +102,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/trousers/leather
-	name = "Leather Trousers"
+	name = "Кожаные штаны"
 	cost = 15
 	contains = list(
 					/obj/item/clothing/under/roguetown/trou/leather,
@@ -111,7 +111,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/cloaks/leather
-	name = "Rain Cloak"
+	name = "Плащ от дождя"
 	cost = 80
 	contains = list(
 					/obj/item/clothing/cloak/raincloak/brown,
@@ -120,7 +120,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/shirts/tunic
-	name = "Shirt"
+	name = "Рубаха"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/suit/roguetown/shirt/tunic,
@@ -129,7 +129,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/shirts
-	name = "Undershirt"
+	name = "Малая рубаха"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/suit/roguetown/shirt/undershirt/random,
@@ -138,7 +138,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/trousrs
-	name = "Trousers"
+	name = "Штаны"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/under/roguetown/trou,
@@ -147,7 +147,7 @@
 				)
 
 /datum/supply_pack/rogue/apparel/hair_dye
-	name = "Hair Dye Cream"
+	name = "Крем для окраски волос"
 	cost = 10
 	contains = list(
 					/obj/item/hair_dye_cream,

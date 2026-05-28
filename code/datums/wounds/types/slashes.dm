@@ -1,5 +1,5 @@
 /datum/wound/slash
-	name = "slash"
+	name = "порез"
 	whp = 30
 	sewn_whp = 10
 	bleed_rate = 0.4
@@ -14,7 +14,7 @@
 	can_cauterize = TRUE
 
 /datum/wound/slash/small
-	name = "small slash"
+	name = "небольшой порез"
 	whp = 15
 	sewn_whp = 5
 	bleed_rate = 0.2
@@ -26,7 +26,7 @@
 	sew_threshold = 25
 
 /datum/wound/slash/large
-	name = "gruesome slash"
+	name = "ужасный порез"
 	whp = 40
 	sewn_whp = 12
 	bleed_rate = 1
@@ -38,7 +38,7 @@
 	sew_threshold = 75
 
 /datum/wound/dynamic/slash
-	name = "slash"
+	name = "порез"
 	whp = 15
 	sewn_whp = 5
 	bleed_rate = 1
@@ -54,10 +54,10 @@
 	can_sew = TRUE
 	can_cauterize = TRUE
 	severity_names = list(
-		"light" = 5,
-		"deep" = 10,
-		"gnarly" = 15,
-		"lethal" = 20,
+		"лёгкий" = 5,
+		"глубокий" = 10,
+		"жуткий" = 15,
+		"смертельный" = 20,
 	)
 
 //Slash Omniwounds
@@ -89,12 +89,12 @@
 #undef SLASH_ARMORED_BLEED_CLAMP
 
 /datum/wound/slash/disembowel
-	name = "disembowelment"
+	name = "потрошение"
 	check_name = span_userdanger("<B>GUTS</B>")
 	severity = WOUND_SEVERITY_FATAL
 	crit_message = list(
-		"%VICTIM spills %P_THEIR organs!",
-		"%VICTIM spills %P_THEIR entrails!",
+		"%VICTIM теряет свои органы!",
+		"%VICTIM теряет свои внутренности!",
 	)
 	sound_effect = 'sound/combat/crit2.ogg'
 	whp = 100
@@ -148,7 +148,7 @@
 			cavity.cavity_item = null
 
 /datum/wound/slash/incision
-	name = "incision"
+	name = "разрез"
 	check_name = span_bloody("<B>INCISION</B>")
 	severity = WOUND_SEVERITY_SUPERFICIAL
 	whp = 40
@@ -170,14 +170,14 @@
 	return TRUE
 
 /datum/wound/slash/incision/construct
-	name = "open hatch"
+	name = "открытый люк"
 	check_name = span_bloody("<B>OPEN HATCH</B>")
 	bleed_rate = 0
 	sewn_bleed_rate = 0.0
 	bypass_bloody_wound_check = TRUE
 
 /datum/wound/slash/vein
-	name= "vein"
+	name= "вена"
 	check_name = span_bloody("<B>VEIN</B")
 	severity = WOUND_SEVERITY_LIGHT
 	whp = 40
@@ -191,7 +191,7 @@
 	sleep_healing = 0
 
 /datum/wound/dynamic/lashing
-	name = "lashing"
+	name = "порка"
 	whp = 30
 	sewn_whp = 12
 	bleed_rate = 0
@@ -231,7 +231,7 @@
 #undef LASHING_ARMORED_BLEED_CLAMP
 
 /datum/wound/dynamic/punish
-	name = "flogging"
+	name = "бичевание"
 	whp = 30
 	sewn_whp = 12
 	bleed_rate = 0

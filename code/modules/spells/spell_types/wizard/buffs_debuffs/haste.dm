@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/haste
-	name = "Haste"
-	desc = "Cause a target to be magically hastened. (+5 Speed, 0.85 x Action Cooldown)"
+	name = "Ускорение"
+	desc = "Магически ускоряет цель. (+5 к скорости, перезарядка действий x0.85)"
 	cost = 4
 	xp_gain = TRUE
 	releasedrain = 60
@@ -31,18 +31,18 @@
 	playsound(spelltarget, 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)
-		user.visible_message("[user] mutters an incantation and [spelltarget] briefly shines yellow.")
+		user.visible_message("[user] бормочет заклинание, и [spelltarget] ненадолго озаряется жёлтым.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/haste, 2 MINUTES)
-		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		to_chat(user, span_notice("С другим человеком как проводником, длительность моего заклинания удваивается."))
 	else
-		user.visible_message("[user] mutters an incantation and they briefly shine yellow.")
+		user.visible_message("[user] бормочет заклинание и ненадолго озаряется жёлтым.")
 		spelltarget.apply_status_effect(/datum/status_effect/buff/haste, 1 MINUTES)
 
 	return TRUE
 	
 /atom/movable/screen/alert/status_effect/buff/haste
-	name = "Haste"
-	desc = "I am magically hastened."
+	name = "Ускорение"
+	desc = "Я магически ускорен."
 	icon_state = "buff"
 
 #define HASTE_FILTER "haste_glow"
@@ -67,12 +67,12 @@
 	var/filter = owner.get_filter(HASTE_FILTER)
 	if (!filter)
 		owner.add_filter(HASTE_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 25, "size" = 1))
-	to_chat(owner, span_warning("My limbs move with uncanny swiftness."))
+	to_chat(owner, span_warning("Мои конечности движутся с неестественной быстротой."))
 
 /datum/status_effect/buff/haste/on_remove()
 	. = ..()
 	owner.remove_filter(HASTE_FILTER)
-	to_chat(owner, span_warning("My body move slowly again..."))
+	to_chat(owner, span_warning("Моё тело снова двигается медленно..."))
 
 #undef HASTE_FILTER
 

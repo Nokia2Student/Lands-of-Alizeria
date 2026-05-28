@@ -2,7 +2,7 @@
 	name = "severed artery"
 	check_name = span_artery("<B>ARTERY</B>")
 	severity = WOUND_SEVERITY_CRITICAL
-	crit_message = "Blood sprays from %VICTIM's %BODYPART!"
+	crit_message = "Кровь брызжет из %BODYPART %VICTIM!"
 	sound_effect = 'sound/combat/crit.ogg'
 	whp = 50
 	sewn_whp = ARTERY_LIMB_BLEEDRATE
@@ -41,7 +41,7 @@
 	name = "torn carotid"
 	check_name = span_artery("<B>CAROTID</B>")
 	severity = WOUND_SEVERITY_FATAL
-	crit_message = "Blood sprays from %VICTIM's throat!"
+	crit_message = "Кровь брызжет из горла %VICTIM!"
 	whp = 120
 	sewn_whp = 25
 	bleed_rate = 25
@@ -77,11 +77,11 @@
 		var/mob/living/carbon/carbon_affected = affected
 		carbon_affected.vomit(blood = TRUE)
 	var/static/list/heartaches = list(
-		"OOHHHH MY HEART!",
-		"MY HEART! IT HURTS!",
-		"I AM DYING!",
-		"MY HEART IS TORN!",
-		"MY HEART IS BLEEDING!",
+		"О-О-ОХ, МОЕ СЕРДЦЕ!",
+		"МОЕ СЕРДЦЕ! УЖАСНО БОЛЬНО!",
+		"Я УМИРАЮ!",
+		"МОЕ СЕРДЦЕ РАЗОРВАНО!",
+		"МОЕ СЕРДЦЕ ИСТЕКАЕТ КРОВЬЮ!",
 	)
 	to_chat(affected, span_userdanger("[pick(heartaches)]"))
 

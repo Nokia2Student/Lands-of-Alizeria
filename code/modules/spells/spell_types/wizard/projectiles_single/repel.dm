@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/repel
-	name = "Repel"
-	desc = "Shoot out a magical bolt that pushes out the target struck away from the caster."
+	name = "Отпор"
+	desc = "Выпускает магический снаряд, отбрасывающий поражённую цель от заклинателя."
 	clothes_req = FALSE
 	range = 10
 	projectile_type = /obj/projectile/magic/repel
@@ -26,7 +26,7 @@
 	xp_gain = TRUE
 
 /obj/projectile/magic/repel
-	name = "bolt of repeling"
+	name = "снаряд отпора"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "curseblob"
 	range = 15
@@ -52,7 +52,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !firer)
-			L.visible_message(span_warning("[src] vanishes on contact with [target]!"))
+			L.visible_message(span_warning("[src] исчезает при контакте с [target]!"))
 			return BULLET_ACT_BLOCK
 		L.throw_at(throw_target, 7, 4)
 	else

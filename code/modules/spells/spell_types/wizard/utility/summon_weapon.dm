@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/summonweapon
-	name = "Summon Weapon"
-	desc = "Summon an imbued weapon."
+	name = "Призвать оружие"
+	desc = "Призывает зачарованное оружие."
 	clothes_req = FALSE
 	range = -1
 	include_user = TRUE
@@ -25,26 +25,26 @@
 				if(SEND_SIGNAL(item, COMSIG_ITEM_MARK_RETRIEVAL) & COMPONENT_BLOCK_MARK_RETRIEVAL)
 					continue
 				if(HAS_TRAIT(item, TRAIT_NODROP))
-					message += "Though it feels redundant, "
+					message += "Хотя это кажется излишним, "
 				marked_item = 		item
-				message += "You imbue [item] for summoning.</span>"
-				name = "Summon [item]"
+				message += "Вы зачаровываете [item] для призыва.</span>"
+				name = "Призвать [item]"
 				break
 
 			if(!marked_item)
 				if(hand_items)
-					message = span_warning("I aren't holding anything that can be imbued to summon!")
+					message = span_warning("Я не держу ничего, что можно зачаровать для призыва!")
 				else
-					message = span_warning("I must hold the desired weapon in my hands to imbue it for summoning!")
+					message = span_warning("Я должен держать желаемое оружие в руках, чтобы зачаровать его для призыва!")
 
 		else if(marked_item && (marked_item in hand_items)) //unlinking item to the spell
-			message = span_notice("I remove the imbuement on [marked_item] to use elsewhere.")
-			name = "Instant Summons"
+			message = span_notice("Я снимаю зачарование с [marked_item], чтобы использовать в другом месте.")
+			name = "Мгновенный призыв"
 			marked_item = 		null
 
 		else if(marked_item && QDELETED(marked_item)) //the item was destroyed at some point
-			message = span_warning("I sense my imbued weapon has been destroyed!")
-			name = "summon weapon"
+			message = span_warning("Я чувствую, что моё зачарованное оружие было уничтожено!")
+			name = "призвать оружие"
 			marked_item = 		null
 
 		else	//Getting previously marked item
@@ -65,7 +65,7 @@
 							var/obj/item/bodypart/part = X
 							if(item_to_retrieve in part.embedded_objects)
 								part.remove_embedded_object(item_to_retrieve)
-								to_chat(C, span_warning("The [item_to_retrieve] that was embedded in your [part.name] has mysteriously vanished. How fortunate!"))
+								to_chat(C, span_warning("[item_to_retrieve], застрявший в вашей [part.name], загадочно исчез. Какая удача!"))
 								break
 					if(!isturf(item_to_retrieve.loc))
 						item_to_retrieve = item_to_retrieve.loc
@@ -76,13 +76,13 @@
 				return
 
 			if(item_to_retrieve.loc)
-				item_to_retrieve.loc.visible_message(span_warning("The [item_to_retrieve.name] suddenly disappears!"))
+				item_to_retrieve.loc.visible_message(span_warning("[item_to_retrieve.name] внезапно исчезает!"))
 			if(!L.put_in_hands(item_to_retrieve))
 				item_to_retrieve.forceMove(L.drop_location())
-				item_to_retrieve.loc.visible_message(span_warning("The [item_to_retrieve.name] suddenly appears!"))
+				item_to_retrieve.loc.visible_message(span_warning("[item_to_retrieve.name] внезапно появляется!"))
 				playsound(L, 'sound/blank.ogg', 50, TRUE)
 			else
-				item_to_retrieve.loc.visible_message(span_warning("The [item_to_retrieve.name] suddenly appears in [L]'s hand!"))
+				item_to_retrieve.loc.visible_message(span_warning("[item_to_retrieve.name] внезапно появляется в руке [L]!"))
 				playsound(L, 'sound/blank.ogg', 50, TRUE)
 
 

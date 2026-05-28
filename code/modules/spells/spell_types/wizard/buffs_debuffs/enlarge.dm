@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/enlarge
-	name = "Enlarge Person"
-	desc = "For a time, enlarges your target to a giant hulking version of themselves capable of bashing into doors. Does not work on folk who are already large."
+	name = "Увеличение"
+	desc = "На время увеличивает вашу цель до огромной версии себя, способной выламывать двери. Не работает на тех, кто уже большой."
 	cost = 2
 	releasedrain = 35
 	chargedrain = 1
@@ -24,7 +24,7 @@
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		if(HAS_TRAIT(target,TRAIT_BIGGUY))
-			to_chat(user, "<span class='warning'>They're too big to enlarge!</span>")
+			to_chat(user, "<span class='warning'>Они слишком большие, чтобы их увеличить!</span>")
 			revert_cast()
 			return
 		ADD_TRAIT(target, TRAIT_BIGGUY, MAGIC_TRAIT)
@@ -32,8 +32,8 @@
 		target.transform = target.transform.Scale(1.25, 1.25)
 		target.transform = target.transform.Translate(0, (0.25 * 16))
 		target.update_transform()
-		to_chat(target, span_warning("I feel taller than usual, and like I could run through a door!"))
-		target.visible_message("[target]'s body grows in size!")
+		to_chat(target, span_warning("Я чувствую себя выше обычного и могу пробежать сквозь дверь!"))
+		target.visible_message("Тело [target] увеличивается в размерах!")
 		addtimer(CALLBACK(src, PROC_REF(remove_buff), target), wait = 60 SECONDS)
 		return TRUE
 	
@@ -44,5 +44,5 @@
 	target.transform = target.transform.Scale(1/1.25, 1/1.25)
 	target.transform = target.transform.Translate(0, -(0.25 * 16))
 	target.update_transform()
-	to_chat(target, span_warning("I feel smaller all of a sudden."))
-	target.visible_message("[target]'s body shrinks quickly!")
+	to_chat(target, span_warning("Внезапно я чувствую себя меньше."))
+	target.visible_message("Тело [target] быстро сжимается!")

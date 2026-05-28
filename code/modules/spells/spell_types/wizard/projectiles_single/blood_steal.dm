@@ -1,6 +1,6 @@
 // Lich / Vampire shared list only
 /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal
-	name = "Blood Steal"
+	name = "Кража крови"
 	desc = ""
 	clothes_req = FALSE
 	overlay_state = "bloodsteal"
@@ -25,7 +25,7 @@
 	cost = 3
 
 /obj/projectile/magic/bloodsteal
-	name = "blood steal"
+	name = "кража крови"
 	tracer_type = /obj/effect/projectile/tracer/bloodsteal
 	muzzle_type = null
 	impact_type = null
@@ -44,7 +44,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -52,22 +52,22 @@
 			var/mob/living/carbon/human/H = target
 			H.blood_volume = max(H.blood_volume-45, 0)
 			H.handle_blood()
-			H.visible_message(span_danger("[target] has their blood ripped from their body!"), \
-					span_userdanger("My blood erupts from my body!"), \
+			H.visible_message(span_danger("Кровь [target] вырывают из тела!"), \
+					span_userdanger("Моя кровь вырывается из тела!"), \
 					span_hear("..."), COMBAT_MESSAGE_RANGE, target)
 			new /obj/effect/decal/cleanable/blood/puddle(H.loc)
 
 			if(!H.mind)
-				to_chat(sender, span_warning("It has no mind. Its blood is unfit for me."))
+				to_chat(sender, span_warning("У него нет разума. Его кровь непригодна для меня."))
 				return
 			if(H.dna?.species && (NOBLOOD in H.dna.species.species_traits))
-				to_chat(sender, span_warning("Sigh. No blood."))
+				to_chat(sender, span_warning("Вздох. Нет крови."))
 				return
 			if(H.blood_volume <= 0)
-				to_chat(sender, span_warning("Sigh. No blood."))
+				to_chat(sender, span_warning("Вздох. Нет крови."))
 				return
 			if(H.mob_biotypes & MOB_UNDEAD)
-				to_chat(sender, span_warning("Corrupt blood. I gain nothing from it."))
+				to_chat(sender, span_warning("Порченая кровь. Я ничего не получаю от неё."))
 				return
 			sender.adjust_bloodpool(400)
 	qdel(src)

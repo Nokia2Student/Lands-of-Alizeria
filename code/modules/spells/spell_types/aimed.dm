@@ -1,6 +1,5 @@
-
 /obj/effect/proc_holder/spell/aimed
-	name = "aimed projectile spell"
+	name = "нацеленный метательный снаряд"
 	var/projectile_type = /obj/projectile/magic/teleport
 	var/deactive_msg = null
 	var/active_msg = null
@@ -22,7 +21,7 @@
 		return
 	var/msg
 	if(!can_cast(user))
-		msg = span_warning("I can no longer cast [name]!")
+		msg = span_warning("Я больше не могу применить [name]!")
 		remove_ranged_ability(msg)
 		return
 	if(active)
@@ -37,7 +36,7 @@
 		on_deactivation(user)
 	else
 		if(active_msg)
-			msg = span_notice("[active_msg] <B>Left-click to shoot it at a target!</B>")
+			msg = span_notice("[active_msg] <B>Левый клик, чтобы запустить в цель!</B>")
 		current_amount = projectile_amount
 		active = TRUE
 		add_ranged_ability(user, msg, TRUE)
@@ -97,7 +96,7 @@
 	return
 
 /obj/effect/proc_holder/spell/aimed/fireball // not the one used by RT
-	name = "Fireball"
+	name = "Огненный шар"
 	desc = ""
 	school = "evocation"
 	recharge_time = 60
@@ -110,8 +109,8 @@
 	base_icon_state = "fireball"
 	action_icon_state = "fireball0"
 	sound = 'sound/blank.ogg'
-	active_msg = "You prepare to cast your fireball spell!"
-	deactive_msg = "You extinguish your fireball... for now."
+	active_msg = "Вы готовитесь сотворить заклинание огненного шара!"
+	deactive_msg = "Вы подавляете свой огненный шар... пока что."
 	active = FALSE
 	charge_invocation = list("inthe name","of god","st michael","and st george")
 	releasedrain = 500

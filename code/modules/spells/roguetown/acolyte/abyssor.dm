@@ -1,7 +1,7 @@
 //t1, the bends
 /obj/effect/proc_holder/spell/invoked/abyssor_bends
-	name = "Depth Bends"
-	desc = "Nauseate a target, draining their stamina."
+	name = "Глубинная болезнь"
+	desc = "Вызывает тошноту у цели, истощая её выносливость."
 	overlay_state = "thebends"
 	releasedrain = 15
 	chargedrain = 0
@@ -10,7 +10,7 @@
 	movement_interrupt = FALSE
 	chargedloop = null
 	sound = 'sound/foley/bubb (5).ogg'
-	invocation = "Weight of the deep, crush!"
+	invocation = "Вес глубин, сокруши!"
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -23,7 +23,7 @@
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		user.visible_message("<font color='yellow'>[user] makes a fist at [target]!</font>")
+		user.visible_message("<font color='yellow'>[user] сжимает кулак, глядя на [target]!</font>")
 		if(istype(target, /mob/living/carbon))
 			var/mob/living/carbon = target
 			if(carbon.patron?.type != /datum/patron/divine/abyssor)
@@ -38,8 +38,8 @@
 
 //T0. Stands the character up, if they can stand.
 /obj/effect/proc_holder/spell/self/abyssor_wind
-	name = "Second Wind"
-	desc = "Rise if fallen, and regain some of your stamina."
+	name = "Второе дыхание"
+	desc = "Подняться, если пал, и восстановить часть выносливости."
 	overlay_state = "abyssor_wind"
 	releasedrain = 10
 	chargedrain = 0
@@ -47,7 +47,7 @@
 	sound = 'sound/magic/abyssor_splash.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
-	invocation = "What is drowned shall rise anew!"
+	invocation = "Утонувшее восстанет вновь!"
 	invocation_type = "shout"
 	recharge_time = 120 SECONDS
 	devotion_cost = 30
@@ -60,24 +60,24 @@
 		return FALSE
 	var/mob/living/carbon/human/H = user
 	if(H.IsStun() || H.IsImmobilized() || H.IsOffBalanced())
-		to_chat(user, span_warning("I am too incapacitated!"))
+		to_chat(user, span_warning("Я слишком обездвижен!"))
 		revert_cast()
 		return FALSE
 	var/msg = span_warning("[user] ")
 	if(H.resting)
 		H.set_resting(FALSE, FALSE)
-		msg += span_warning("rises and ")
+		msg += span_warning("поднимается и ")
 	var/regen = (stamregenmod / 100) * H.get_skill_level(associated_skill)
 	H.stamina_add(-(regen * H.max_stamina))
 	H.energy_add(regen * H.max_energy)
-	msg += span_warning("becomes invigorated!")
+	msg += span_warning("чувствует прилив сил!")
 	H.visible_message(msg)
 	return TRUE
 
 //T0 The Fishing
 /obj/effect/proc_holder/spell/invoked/aquatic_compulsion
-	name = "Aquatic Compulsion"
-	desc = "Beckon to water, bringing something within into your reach."
+	name = "Зов вод"
+	desc = "Призовите воду, дабы что-то из неё оказалось в ваших руках."
 	overlay_state = "aqua"
 	releasedrain = 15
 	chargedrain = 0
@@ -86,7 +86,7 @@
 	movement_interrupt = FALSE
 	chargedloop = null
 	sound = 'sound/foley/bubb (5).ogg'
-	invocation = "Splash forth."
+	invocation = "Плеснись вперёд."
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -146,7 +146,7 @@
 			record_featured_stat(FEATURED_STATS_FISHERS, user)
 			record_round_statistic(STATS_FISH_CAUGHT)
 			playsound(T, 'sound/foley/footsteps/FTWAT_1.ogg', 100)
-			user.visible_message("<font color='yellow'>[user] makes a beckoning gesture at [T]!</font>")
+			user.visible_message("<font color='yellow'>[user] делает призывающий жест в сторону [T]!</font>")
 			return TRUE
 		else
 			revert_cast()
@@ -156,8 +156,8 @@
 
 //T2, Abyssal Healing. Totally stole most of this from lesser heal.
 /obj/effect/proc_holder/spell/invoked/abyssheal
-	name = "Abyssal Healing"
-	desc = "Invoke Abyssor's dream to provide a more potent heal to a target. Stronger near water."
+	name = "Исцеление Бездны"
+	desc = "Воззовите к сну Абиссора, дабы даровать более мощное исцеление цели. Сильнее у воды."
 	overlay_state = "thebends"
 	releasedrain = 15
 	chargedrain = 0
@@ -166,7 +166,7 @@
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/foley/waterenter.ogg'
-	invocation = "Healing waters, come forth!"
+	invocation = "Воды исцеления, идите сюда!"
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -179,17 +179,17 @@
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(HAS_TRAIT(target, TRAIT_PSYDONITE))
-			target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+			target.visible_message(span_info("[target] на мгновение вздрагивает, чудо рассеивается."), span_notice("Тусклое тепло наполняет ваше сердце, лишь для того чтобы исчезнуть так же быстро, как появилось."))
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
 		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD)) //THE DEEP CALLS- sorry, the pressure of the deep falls upon those of the undead ilk
-			target.visible_message(span_danger("[target] is crushed by divine pressure!"), span_userdanger("I'm crushed by divine pressure!"))
+			target.visible_message(span_danger("[target] сокрушён божественным давлением!"), span_userdanger("Я сокрушён божественным давлением!"))
 			target.adjustBruteLoss(30)
 			return TRUE
 		var/conditional_buff = FALSE
 		var/situational_bonus = 1
-		target.visible_message(span_info("A wave of divine energy crashes over [target]!"), span_notice("I'm crushed by healing energies!"))
+		target.visible_message(span_info("Волна божественной энергии обрушивается на [target]!"), span_notice("Я сокрушён целительной энергией!"))
 		var/list/water = list(/turf/open/water/bath, /turf/open/water/ocean, /turf/open/water/cleanshallow, /turf/open/water/swamp, /turf/open/water/swamp/deep, /turf/open/water/pond, /turf/open/water/river)
 		situational_bonus = 0
 		// the more warter around us, the more we heal
@@ -204,7 +204,7 @@
 		var/healing = 6.5
 		target.adjustFireLoss(-80)
 		if (conditional_buff)
-			to_chat(user, "Calling upon His power is easier in these conditions!")
+			to_chat(user, "Взывать к Его силе легче в этих условиях!")
 			healing += situational_bonus
 			target.adjustFireLoss(-40)
 		target.apply_status_effect(/datum/status_effect/buff/healing, healing)
@@ -216,8 +216,8 @@
 
 //t3, possible t4 if I put in land surf, summon mossback
 /obj/effect/proc_holder/spell/invoked/call_mossback
-	name = "Call Mossback"
-	desc = "Summon a Mossback to follow your commands."
+	name = "Призыв Мохоспина"
+	desc = "Призовите Мохоспина, дабы следовать вашим приказам."
 	overlay_state = "thebends"
 	range = 7
 	no_early_release = TRUE
@@ -227,7 +227,7 @@
 	chargetime = 2 SECONDS
 	chargedloop = null
 	sound = 'sound/foley/bubb (1).ogg'
-	invocation = "From the abyss, rise!"
+	invocation = "Из бездны, восстань!"
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -249,19 +249,19 @@
 			summoned.faction = list("[user.mind.current.real_name]_faction")
 		return TRUE
 	else
-		to_chat(user, span_warning("The targeted location is blocked. My call fails to draw a mossback."))
+		to_chat(user, span_warning("Указанное место заблокировано. Мой зов не может призвать Мохоспина."))
 		return FALSE
 
 /obj/effect/proc_holder/spell/invoked/call_dreamfiend
-	name = "Summon Dreamfiend"
-	desc = "Draw upon the dreams of your target to manifest a Dreamfiend hostile to them."
+	name = "Призыв Снокошмара"
+	desc = "Извлеките из снов вашей цели ужас, враждебный ей."
 	overlay_state = "dreamfiend"
 	range = 7
 	no_early_release = TRUE
 	charging_slowdown = 1
 	chargetime = 2 SECONDS
 	sound = 'sound/foley/bubb (1).ogg'
-	invocation = "From the dream, consume!"
+	invocation = "Из сна, поглоти!"
 	invocation_type = "shout"
 	recharge_time = 300 SECONDS
 	miracle = TRUE
@@ -278,7 +278,7 @@
 	var/mob/living/carbon/target = targets[1]
 
 	if(!istype(target))
-		to_chat(user, span_warning("This spell only works on creatures capable of dreaming!"))
+		to_chat(user, span_warning("Это заклинание работает только на существах, способных видеть сны!"))
 		revert_cast()
 		return FALSE
 
@@ -291,7 +291,7 @@
 		include_dense = FALSE,
 		include_teleport_restricted = FALSE
 	))
-		to_chat(user, span_warning("No valid space to manifest the dreamfiend!"))
+		to_chat(user, span_warning("Нет подходящего места, чтобы материализовать Снокошмара!"))
 		revert_cast()
 		return FALSE
 
@@ -331,20 +331,19 @@
 	F.ai_controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, target)
 	F.ai_controller.set_blackboard_key(BB_MAIN_TARGET, target)
 
-	F.visible_message(span_notice("A [F] manifests following after [target]... countless teeth bared with hostility!"))
+	F.visible_message(span_notice("[F] появляется позади [target]... бесчисленные зубы оскалены враждебно!"))
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/abyssal_infusion
-	name = "Abyssal Infusion"
+	name = "Настой Бездны"
 	overlay_state = "abyssal_infusion"
-	desc = "Sacrifice an anglerfish to bind a fragment of the abyss into another's soul, granting them the Abyssal Strength miracle if they are capable of dreaming."
+	desc = "Пожертвуйте удильщиком, чтобы вложить осколок бездны в душу другого, даруя им чудо Абиссальной Мощи, если они способны видеть сны."
 	range = 7
 	no_early_release = TRUE
 	charging_slowdown = 1
 	chargetime = 2 SECONDS
 	sound = 'sound/foley/bubb (1).ogg'
-	//Each dreamfiend has a different name to call!
-	invocation = "shogg vulgt!"
+	invocation = "шогг вулгт!"
 	invocation_type = "shout"
 	recharge_time = 600 SECONDS
 	miracle = TRUE
@@ -355,17 +354,17 @@
 	var/mob/living/carbon/human/target = targets[1]
 
 	if(!istype(target, /mob/living/carbon/human) || target.mind == null)
-		to_chat(user, span_warning("This spell only works on creatures capable of dreaming!"))
+		to_chat(user, span_warning("Это заклинание работает только на существах, способных видеть сны!"))
 		revert_cast()
 		return FALSE
 
 	if(target == user)
-		to_chat(user, span_warning("You must maintain the connection to the dreamfiend from a safe spiritual distance or risk being consumed yourself!"))
+		to_chat(user, span_warning("Вы должны поддерживать связь со Снокошмаром с безопасного духовного расстояния, иначе рискуете быть поглощённым!"))
 		revert_cast()
 		return FALSE
 
 	if(target.mind.has_spell(/obj/effect/proc_holder/spell/invoked/abyssal_strength))
-		to_chat(user, span_warning("[target] is already blessed with His strength."))
+		to_chat(user, span_warning("[target] уже благословлён Его силой."))
 		revert_cast()
 		return FALSE
 
@@ -382,26 +381,25 @@
 			break
 
 	if(!anglerfish_found)
-		to_chat(user, span_warning("An anglerfish is required to channel the abyssal energies!"))
+		to_chat(user, span_warning("Удильщик необходим, чтобы направить энергии бездны!"))
 		revert_cast()
 		return FALSE
 
 	target.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/abyssal_strength)
-	to_chat(target, span_warning("My mind writhes, revealing a new ability."))
+	to_chat(target, span_warning("Мой разум искажается, раскрывая новую способность."))
 
 	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/abyssal_strength
-	name = "Abyssal Strength"
+	name = "Абиссальная Мощь"
 	overlay_state = "abyssal_strength1"
-	desc = "Channel the abyss through your own body, greatly empowering your physique while dulling your senses and risking that a Dreamfiend manifests in reality."
+	desc = "Направьте бездну через своё тело, чрезвычайно усиливая физические способности, но притупляя чувства и рискуя явить Снокошмара в реальность."
 	range = 7
 	no_early_release = TRUE
 	charging_slowdown = 1
 	chargetime = 2 SECONDS
 	sound = 'sound/foley/bubb (1).ogg'
-	//Each dreamfiend has a different name to call!
-	invocation = "shogg vulgt!"
+	invocation = "шогг вулгт!"
 	invocation_type = "shout"
 	recharge_time = 750 SECONDS
 
@@ -419,7 +417,7 @@
 	var/mob/living/carbon/target = targets[1]
 
 	if(!istype(target) || !(target == user))
-		to_chat(user, span_warning("This spell only works on myself!"))
+		to_chat(user, span_warning("Это заклинание работает только на мне самом!"))
 		revert_cast()
 		return FALSE
 
@@ -448,7 +446,7 @@
 
 	if(prob(summon_chance))
 		summon_dreamfiend(target = user, user = user, F = spawn_type)
-		to_chat(user, span_userdanger("You feel the dream manifest in reality, bearing a horrifying form!"))
+		to_chat(user, span_userdanger("Вы чувствуете, как сон материализуется в реальность, принимая ужасающую форму!"))
 		user.mind.RemoveSpell(src)
 		return
 
@@ -458,9 +456,9 @@
 			stage++
 			casts_in_stage = 0
 			if(stage == 3)
-				to_chat(user, span_warning("I can feel countless slimy and oozing teeth biting into my skin! Something horrifying is observing me!"))
+				to_chat(user, span_warning("Я чувствую, как бесчисленные склизкие и сочащиеся зубы впиваются в мою кожу! Что-то ужасающее наблюдает за мной!"))
 			else
-				to_chat(user, span_warning("The whispers in your head grow louder..."))
+				to_chat(user, span_warning("Голоса в твоей голове становятся громче..."))
 	else
 		casts_in_stage = min(casts_in_stage + 1, 100)
 
@@ -479,8 +477,8 @@
 	return TRUE
 
 /atom/movable/screen/alert/status_effect/buff/abyssal
-	name = "Abyssal strength"
-	desc = "I feel an unnatural power dwelling in my limbs."
+	name = "Абиссальная мощь"
+	desc = "Я чувствую нечестивую силу, живущую в моих конечностях."
 	icon_state = "abyssal"
 
 #define ABYSSAL_FILTER "abyssal_glow"
@@ -496,7 +494,7 @@
 	var/perception_malus = 0
 	var/outline_colour ="#00051f"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/abyssal
-	examine_text = "SUBJECTPRONOUN has muscles swollen with a strange pale strength."
+	examine_text = "Мышцы SUBJECTPRONOUN распухли от странной бледной силы."
 	id = "abyssal_strength"
 	duration = 450 SECONDS
 
@@ -525,12 +523,12 @@
 	ADD_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, TRAIT_MIRACLE)
 	if (!filter)
 		owner.add_filter(ABYSSAL_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 180, "size" = 1))
-	to_chat(owner, span_warning("My limbs swell with otherworldly power!"))
+	to_chat(owner, span_warning("Мои конечности распухают от потусторонней силы!"))
 
 /datum/status_effect/buff/abyssal/on_remove()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, TRAIT_MIRACLE)
 	owner.remove_filter(ABYSSAL_FILTER)
-	to_chat(owner, span_warning("the strange power fades"))
+	to_chat(owner, span_warning("Странная сила исчезает."))
 
 #undef ABYSSAL_FILTER

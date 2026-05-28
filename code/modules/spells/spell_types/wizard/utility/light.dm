@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/self/light
-	name = "Light"
-	desc = "Summons a condensed orb of light."
+	name = "Свет"
+	desc = "Призывает сгусток света."
 	overlay_state = "light"
 	releasedrain = 50
 	chargetime = 1
@@ -27,7 +27,7 @@
 		QDEL_NULL(item)
 	if(user.dropItemToGround(user.get_active_held_item()))
 		user.put_in_hands(make_item(), TRUE)
-		user.visible_message(span_info("An orb of light condenses in [user]'s hand!"), span_info("You condense an orb of pure light!"))
+		user.visible_message(span_info("Сгусток света формируется в руке [user]!"), span_info("Вы формируете сгусток чистого света!"))
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/light/Destroy()
@@ -42,8 +42,8 @@
 	return item
 
 /obj/item/flashlight/flare/light
-	name = "condensed light"
-	desc = "An orb of condensed light."
+	name = "сгусток света"
+	desc = "Сгусток света."
 	w_class = WEIGHT_CLASS_NORMAL
 	light_outer_range = 10
 	light_color = LIGHT_COLOR_WHITE

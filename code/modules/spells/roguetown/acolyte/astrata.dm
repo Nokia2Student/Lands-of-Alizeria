@@ -8,8 +8,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 //T0. Removes cone vision for a dynamic duration.
 /obj/effect/proc_holder/spell/self/astrata_gaze
-	name = "Astratan Gaze"
-	desc = "Call upon your patron to improve your sight to 360-degrees."
+	name = "Взор Астраты"
+	desc = "Воззовите к своему покровителю, чтобы расширить обзор до 360 градусов."
 	overlay_state = "astrata_gaze"
 	releasedrain = 10
 	chargedrain = 0
@@ -25,7 +25,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	miracle = TRUE
 
 /obj/effect/proc_holder/spell/self/astrata_gaze/kazengun
-	name = "Aisatan Gaze"
+	name = "Взор Айсаты"
 	invocation = "Aisata show me true!"
 
 /obj/effect/proc_holder/spell/self/astrata_gaze/cast(list/targets, mob/user)
@@ -39,8 +39,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 //T0. Ignites torches, ovens, undead, and candles.
 /obj/effect/proc_holder/spell/invoked/ignition
-	name = "Ignition"
-	desc = "Ignite a flammable object at range."
+	name = "Воспламенение"
+	desc = "Поджигает горючий объект на расстоянии."
 	overlay_state = "sacredflame"
 	releasedrain = 30
 	chargedrain = 0
@@ -64,10 +64,10 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	if(isobj(targets[1]))
 		var/obj/O = targets[1]
 		if(O.fire_act())
-			user.visible_message(span_astrata("[user] points at [O], igniting it with sacred flames!"))
+			user.visible_message(span_astrata("[user] указывает на [O], воспламеняя его священным пламенем!"))
 			return TRUE
 		else
-			to_chat(user, span_warning("You point at [O], but it fails to catch fire."))
+			to_chat(user, span_warning("Вы указываете на [O], но оно не загорается."))
 			return FALSE
 	// Check if target is an undead mob
 	if(ismob(targets[1]))
@@ -75,7 +75,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 		if(M.mob_biotypes & MOB_UNDEAD)
 			M.adjust_fire_stacks(1, /datum/status_effect/fire_handler/fire_stacks/sunder)
 			M.ignite_mob()
-			user.visible_message(span_astratabig("[user] points at [M], igniting them with searing holy flames!"))
+			user.visible_message(span_astratabig("[user] указывает на [M], воспламеняя его испепеляющим священным пламенем!"))
 			return TRUE
 	revert_cast()
 	return FALSE
@@ -86,8 +86,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 // Sacred Flame - Ranged holy fire beam that deals extra damage to undead
 /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt/sacred_flame_rogue
-	name = "Sacred Flame"
-	desc = "Launch a laser of holy fire at your target, setting them aflame. Deals increased damage to undead."
+	name = "Священное Пламя"
+	desc = "Запускает луч святого огня в цель, поджигая её. Наносит повышенный урон нежити."
 	overlay_state = "sacredflame"
 	sound = 'sound/magic/bless.ogg'
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
@@ -102,7 +102,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 /obj/projectile/magic/astratablast
 	damage = 25
-	name = "ray of holy fire"
+	name = "луч святого огня"
 	nodamage = FALSE
 	damage_type = BURN
 	speed = 0.3
@@ -121,7 +121,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	if(ismob(target))
 		var/mob/living/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -129,11 +129,11 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			damage *= fuck_that_guy_multiplier
 			// Apply sunder firestacks to undead instead of regular fire
 			M.adjust_fire_stacks(5, /datum/status_effect/fire_handler/fire_stacks/sunder)
-			visible_message(span_warning("[target] erupts in searing holy flame upon being struck by [src]!"))
+			visible_message(span_warning("[target] вспыхивает испепеляющим святым пламенем от удара [src]!"))
 			M.ignite_mob()
 		else
 			M.adjust_fire_stacks(4) //2 pats to put it out
-			visible_message(span_warning("[src] ignites [target]!"))
+			visible_message(span_warning("[src] воспламеняет [target]!"))
 			M.ignite_mob()
 	return FALSE
 
@@ -143,8 +143,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 // Scorch - T2 weapon enhancement that adds pain and stress
 /obj/effect/proc_holder/spell/self/scorch
-	name = "Scorch"
-	desc = "Enhance your weapon with divine fiery wrath. Your next strike will inflict great pain and terror upon your foe."
+	name = "Опаление"
+	desc = "Наполните своё оружие божественным огненным гневом. Ваш следующий удар причинит огромную боль и ужас врагу."
 	overlay_state = "inflictpain"
 	recharge_time = 1 MINUTES
 	movement_interrupt = FALSE
@@ -173,8 +173,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 // Sun's Shield - Fire resistance ability granted by ritual
 /obj/effect/proc_holder/spell/self/suns_shield
-	name = "Sun's Shield"
-	desc = "Call upon Astrata's blessing to shield yourself and nearby divine followers from flame."
+	name = "Щит Солнца"
+	desc = "Призовите благословение Астраты, чтобы защитить себя и находящихся рядом последователей божественного пантеона от пламени."
 	overlay_state = "burning"
 	recharge_time = 4 MINUTES
 	invocation = "By Her light, we are shielded!"
@@ -202,7 +202,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	
 	// Apply to user
 	user.apply_status_effect(/datum/status_effect/buff/suns_shield, user_duration)
-	to_chat(user, span_astratabig("Astrata's radiance flows through you, shielding you from flame!"))
+	to_chat(user, span_astratabig("Сияние Астраты струится сквозь вас, защищая от пламени!"))
 	
 	// Apply to nearby divine pantheon followers
 	for(var/mob/living/carbon/target in view(3, get_turf(user)))
@@ -216,14 +216,14 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			continue
 		
 		target.apply_status_effect(/datum/status_effect/buff/suns_shield, ally_duration)
-		to_chat(target, span_astrata("Astrata's blessing shields you from flame!"))
+		to_chat(target, span_astrata("Благословение Астраты защищает вас от пламени!"))
 	
 	return TRUE
 
 // Anastasis - Revive a dead target or obliterate undead
 /obj/effect/proc_holder/spell/invoked/revive
-	name = "Anastasis"
-	desc = "Call upon Her greatness to return lyfe to a dead target. Obliterates the undead."
+	name = "Анастасис"
+	desc = "Воззовите к Её величию, дабы вернуть жизнь мёртвому. Уничтожает нежить."
 	overlay_state = "revive"
 	releasedrain = 90
 	chargedrain = 0
@@ -252,13 +252,13 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			// Range check - must be within 10 tiles and same z-level
 			var/distance = get_dist(user, target)
 			if(distance > 10)
-				to_chat(user, span_danger("The undead is too far away! I must be closer to channel divine power to unmake them!"))
+				to_chat(user, span_danger("Нежить слишком далеко! Нужно подойти ближе, чтобы направить божественную силу для их уничтожения!"))
 				revert_cast()
 				return FALSE
 			
 			// Z-level check
 			if(user.z != target.z)
-				to_chat(user, span_danger("I must see the undead in front of me, not above or below!"))
+				to_chat(user, span_danger("Я должен видеть нежить перед собой, а не сверху или снизу!"))
 				revert_cast()
 				return FALSE
 			
@@ -275,25 +275,25 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 					
 			// Powerful undead resist unless caster is a Priest
 			if(is_powerful_undead && !HAS_TRAIT(user, TRAIT_CHOSEN))
-				to_chat(user, span_danger("This creature's unholy power is too great! Only an ordained Priest could unmake such a being!"))
-				target.visible_message(span_astratabig("[target] resists the holy light bearing down on them, their ancient power deflecting the divine wrath!"))
+				to_chat(user, span_danger("Нечестивая сила этого существа слишком велика! Только посвящённый Жрец может расправиться с таким!"))
+				target.visible_message(span_astratabig("[target] сопротивляется обрушившемуся на него святому свету, его древняя сила отражает божественный гнев!"))
 				revert_cast()
 				return FALSE
 			
 						// Range check for powerful undead - must be within 6 tiles
 			if(is_powerful_undead)
 				if(distance > 6)
-					to_chat(user, span_danger("This ancient evil is too far away! I must be closer to channel enough divine power to unmake them!"))
+					to_chat(user, span_danger("Это древнее зло слишком далеко! Нужно подойти ближе, чтобы направить достаточно божественной силы для их уничтожения!"))
 					revert_cast()
 					return FALSE
 
 			// Start cinematic destruction sequence
 			if(is_powerful_undead)
-				to_chat(user, span_danger("You channel Astrata's might! [target] begins to burn with holy light!"))
-				target.visible_message(span_astratabig("[target] is struck by astronomical holy light, their form beginning to burn with divine radiance!"))
+				to_chat(user, span_danger("Вы направляете мощь Астраты! [target] начинает гореть святым светом!"))
+				target.visible_message(span_astratabig("[target] поражён астрономическим святым светом, его форма начинает пылать божественным сиянием!"))
 			else
-				to_chat(user, span_danger("[target] is caught in holy light!"))
-				target.visible_message(span_astratabig("[target] begins to burn with holy light!"))
+				to_chat(user, span_danger("[target] охвачен святым светом!"))
+				target.visible_message(span_astratabig("[target] начинает гореть святым светом!"))
 			
 			user.say("Die before the Tyrant's Light!")
 			
@@ -311,8 +311,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 					excomm_found = TRUE
 					break
 			if(ispath(LU.patron?.type, /datum/patron/divine) && excomm_found) {
-				to_chat(user, span_danger("The gods recoil from [target]! Divine fire scorches your hands as your plea is rejected!"))
-				target.visible_message(span_danger("[target] is seared by divine wrath! The gods hate them!"))
+				to_chat(user, span_danger("Боги отшатываются от [target]! Божественный огонь обжигает ваши руки, когда ваша мольба отвергается!"))
+				target.visible_message(span_danger("[target] опалён божественным гневом! Боги ненавидят его!"))
 				revert_cast()
 				return FALSE
 			}
@@ -328,12 +328,12 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			revert_cast()
 			return FALSE
 		if(GLOB.tod == "night")
-			to_chat(user, span_astratabig("Let there be light."))
+			to_chat(user, span_astratabig("Да будет свет."))
 		for(var/obj/structure/fluff/psycross/S in oview(5, user))
 			S.AOE_flash(user, range = 8)
 		target.adjustOxyLoss(-target.getOxyLoss()) //Ye Olde CPR
 		if(!target.revive(full_heal = FALSE))
-			to_chat(user, span_warning("Nothing happens."))
+			to_chat(user, span_warning("Ничего не происходит."))
 			revert_cast()
 			return FALSE
 		testing("revived2")
@@ -341,7 +341,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 		target.Jitter(100)
 		record_round_statistic(STATS_ASTRATA_REVIVALS)
 		target.update_body()
-		target.visible_message(span_astratabig("[target] is revived by holy light!"), span_green("I awake from the void."))
+		target.visible_message(span_astratabig("[target] воскрешён святым светом!"), span_green("Я пробуждаюсь из пустоты."))
 		if(revive_pq && !HAS_TRAIT(target, TRAIT_IWASREVIVED) && user?.ckey)
 			adjust_playerquality(revive_pq, user.ckey)
 			ADD_TRAIT(target, TRAIT_IWASREVIVED, "[type]")
@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	for(var/obj/structure/fluff/psycross/S in oview(5, user))
 		found = S
 	if(!found)
-		to_chat(user, span_warning("I need a holy cross."))
+		to_chat(user, span_warning("Мне нужен святой крест."))
 		return FALSE
 	return TRUE
 
@@ -371,8 +371,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 // Invoked Reverence - T4 pain/stress check that forces kneeling
 /obj/effect/proc_holder/spell/invoked/invoked_reverence
-	name = "Invoked Reverence"
-	desc = "Channel divine majesty to inspire awe in the suffering. Those wracked with pain and terror will be moved to genuflect in Her presence."
+	name = "Призванное Благоговение"
+	desc = "Направьте божественное величие, чтобы внушить трепет страждущим. Те, кто измучен болью и ужасом, будут вынуждены преклонить колени в Её присутствии."
 	overlay_state = "createlight"
 	releasedrain = 50
 	chargedrain = 0
@@ -434,8 +434,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			
 			if(stat_difference >= 4)
 				// Stage 2 effect from stats
-				to_chat(target, span_astratabig("I cannot resist! My legs give out beneath me!"))
-				target.visible_message(span_astrata("[target] is moved to kneel in reverent awe by [user]'s divine presence!"))
+				to_chat(target, span_astratabig("Я не могу сопротивляться! Мои ноги подкашиваются!"))
+				target.visible_message(span_astrata("[target] вынужден преклонить колени в благоговейном трепете перед божественным присутствием [user]!"))
 				target.Immobilize(5 SECONDS)
 				target.set_resting(TRUE, TRUE)
 				target.add_stress(/datum/stressevent/scorch)
@@ -443,8 +443,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 				return TRUE
 			else if(stat_difference >= 2)
 				// Stage 1 effect from stats
-				to_chat(target, span_astrata("The weight of divine majesty bears down on me!"))
-				target.visible_message(span_warning("[user]'s invocation of reverence staggers [target]!"))
+				to_chat(target, span_astrata("Тяжесть божественного величия давит на меня!"))
+				target.visible_message(span_warning("Призванное благоговение [user] заставляет [target] пошатнуться!"))
 				target.Immobilize(3 SECONDS)
 				target.add_stress(/datum/stressevent/scorch)
 				addtimer(CALLBACK(src, PROC_REF(remove_divine_overlay), target), 3 SECONDS)
@@ -453,26 +453,26 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	// Determine effect based on suffering threshold
 	if(total_suffering < 4)
 		// Not enough suffering - minor effect
-		to_chat(target, span_userdanger("The divine presence washes over me, but I stand firm!"))
-		target.visible_message(span_warning("[target] resists the invoked reverence!"))
+		to_chat(target, span_userdanger("Божественное присутствие омывает меня, но я стою твёрдо!"))
+		target.visible_message(span_warning("[target] сопротивляется призванному благоговению!"))
 		target.Immobilize(1 SECONDS)
 	else if(total_suffering < 11)
 		// Stage 1 - Hesitation and brief immobilization
-		to_chat(target, span_astrata("The weight of divine majesty bears down on me!"))
-		target.visible_message(span_warning("[user]'s invocation of reverence staggers [target]!"))
+		to_chat(target, span_astrata("Тяжесть божественного величия давит на меня!"))
+		target.visible_message(span_warning("Призванное благоговение [user] заставляет [target] пошатнуться!"))
 		target.Immobilize(3 SECONDS)
 		target.add_stress(/datum/stressevent/scorch)  // Add more stress from being awed
 	else if(total_suffering < 19)
 		// Stage 2 - Forced to kneel
-		to_chat(target, span_astratabig("I cannot resist! My legs give out beneath me!"))
-		target.visible_message(span_astrata("[target] is moved to kneel in reverent awe by [user]'s divine presence!"))
+		to_chat(target, span_astratabig("Я не могу сопротивляться! Мои ноги подкашиваются!"))
+		target.visible_message(span_astrata("[target] вынужден преклонить колени в благоговейном трепете перед божественным присутствием [user]!"))
 		target.Immobilize(5 SECONDS)
 		target.set_resting(TRUE, TRUE)
 		target.add_stress(/datum/stressevent/scorch)
 	else
 		// Stage 3 - Severe kneeling with extended duration
-		to_chat(target, span_astrataextreme("ASTRATA'S MAJESTY IS ABSOLUTE! I MUST GENUFLECT!"))
-		target.visible_message(span_astratabig("[target] collapses before [user], overwhelmed by divine radiance!"))
+		to_chat(target, span_astrataextreme("ВЕЛИЧИЕ АСТРАТЫ АБСОЛЮТНО! Я ДОЛЖЕН ПРЕКЛОНИТЬ КОЛЕНИ!"))
+		target.visible_message(span_astratabig("[target] падает перед [user], переполненный божественным сиянием!"))
 		target.Immobilize(8 SECONDS)
 		target.set_resting(TRUE, TRUE)
 		target.AdjustKnockdown(20)  // Extra knockdown time
@@ -488,8 +488,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 //============================================
 
 /obj/effect/proc_holder/spell/invoked/sunstrike
-	name = "Smite"
-	desc = "The Sun Tyrant's fury made manifest. Call down solar devastation upon an area after a long channel."
+	name = "Кара"
+	desc = "Ярость Солнечного Тирана, воплощённая в жизнь. Обрушьте солнечное опустошение на область после долгой концентрации."
 	overlay_state = "sunstrike"
 	base_icon_state = "regalyscroll"
 	releasedrain = 200
@@ -519,7 +519,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	if(GLOB.tod != "night")
 		check = TRUE
 	else
-		to_chat(user, span_astrata("Her fury may only be called upon with the sun in the sky."))
+		to_chat(user, span_astrata("Её ярость можно призвать лишь когда солнце в небе."))
 	if(!check)
 		revert_cast()
 		return FALSE
@@ -531,7 +531,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	animate(mark_on_user, alpha = 255, time = 20, flags = ANIMATION_PARALLEL)
 	if(!do_after(user, 20 SECONDS, target = target))
 		mark_on_user.alpha = 255
-		to_chat(user, span_warning("Astratan might requires unwavering focus to channel!"))
+		to_chat(user, span_warning("Мощь Астраты требует непоколебимой концентрации!"))
 		qdel(mark)
 		qdel(mark_on_user)
 		revert_cast()
@@ -547,8 +547,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 
 //T0. Astratan Gaze Support Code
 /atom/movable/screen/alert/status_effect/buff/astrata_gaze
-	name = "Astratan's Gaze"
-	desc = "She shines through me, illuminating all injustice."
+	name = "Взор Астраты"
+	desc = "Она сияет сквозь меня, освещая всякую несправедливость."
 	icon_state = "astrata_gaze"
 
 /datum/status_effect/buff/astrata_gaze
@@ -588,7 +588,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
         H.hide_cone()
         H.update_cone_show()
 
-    to_chat(owner, span_astrata("She shines through me! I can perceive all clear as dae!"))
+    to_chat(owner, span_astrata("Она сияет сквозь меня! Я вижу всё ясно как день!"))
 
     return ..()
 
@@ -657,8 +657,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	// Add stress event
 	living_target.add_stress(/datum/stressevent/scorch)
 	
-	living_target.visible_message(span_warning("Divine light erupts from [user]'s strike against [living_target]!"), \
-		span_userdanger("Searing pain floods through me from [user]'s strike!"))
+	living_target.visible_message(span_warning("Божественный свет извергается из удара [user] по [living_target]!"), \
+		span_userdanger("Жгучая боль пронзает меня от удара [user]!"))
 	
 	qdel(src)
 
@@ -683,14 +683,14 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	// Add stress event
 	H.add_stress(/datum/stressevent/scorch)
 	
-	H.visible_message(span_warning("Divine light erupts from [M]'s strike against [H]!"), \
-		span_userdanger("Searing pain floods through me from [M]'s strike!"))
+	H.visible_message(span_warning("Божественный свет извергается из удара [M] по [H]!"), \
+		span_userdanger("Жгучая боль пронзает меня от удара [M]!"))
 	
 	qdel(src)
 
 /atom/movable/screen/alert/status_effect/buff/scorch
-	name = "Scorch"
-	desc = "My weapon glows with divine wrath. My next strike will bring pain and terror."
+	name = "Опаление"
+	desc = "Моё оружие светится божественным гневом. Мой следующий удар принесёт боль и ужас."
 	icon_state = "strike"
 
 //T3. Sun's shield Support Code
@@ -707,16 +707,16 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 /datum/status_effect/buff/suns_shield/on_apply()
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_NOFIRE, "[type]")
-	to_chat(owner, span_astrata("I am shielded from flame by Astrata's light!"))
+	to_chat(owner, span_astrata("Я защищён от пламени светом Астраты!"))
 
 /datum/status_effect/buff/suns_shield/on_remove()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_NOFIRE, "[type]")
-	to_chat(owner, span_warning("Astrata's flame shield fades."))
+	to_chat(owner, span_warning("Огненный щит Астраты угасает."))
 
 /atom/movable/screen/alert/status_effect/buff/suns_shield
-	name = "Sun's Shield"
-	desc = "Astrata's blessing shields me from flame."
+	name = "Щит Солнца"
+	desc = "Благословение Астраты защищает меня от пламени."
 	icon_state = "immolation"
 
 //T3. Anastasis Support Code
@@ -742,7 +742,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	
 	// Message sequence - different timings based on power
 	// 0 seconds - initial
-	to_chat(target, span_astrataextreme("Astrata's light burns into my very being, I am being unmade!"))
+	to_chat(target, span_astrataextreme("Свет Астраты вжигается в само моё существо, я уничтожаюсь!"))
 	
 	if(is_powerful)
 		// Full 90 second sequence for powerful undead
@@ -789,28 +789,28 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	
 	switch(stage)
 		if(1)
-			to_chat(target, span_astrata("The light grows brighter! I can feel it searing through me!"))
-			target.visible_message(span_astrata("[target] glows brighter with holy light, their form beginning to crack!"))
+			to_chat(target, span_astrata("Свет становится ярче! Я чувствую, как он прожигает меня насквозь!"))
+			target.visible_message(span_astrata("[target] сияет всё ярче святым светом, его форма начинает трескаться!"))
 			target.add_filter("divine_glow", 1, list("type" = "outline", "size" = 3, "color" = "#FFD700CC"))
 			target.mob_light("#FFD700", 3, 1.5)
 		if(2)
-			to_chat(target, span_astrata("The radiance is overwhelming! My unholy essence is being torn apart!"))
-			target.visible_message(span_astrata("[target] burns ever brighter, cracks of golden light spreading across their body!"))
+			to_chat(target, span_astrata("Сияние переполняет! Моя нечестивая сущность разрывается на части!"))
+			target.visible_message(span_astrata("[target] пылает всё ярче, трещины золотого света расползаются по его телу!"))
 			target.add_filter("divine_glow", 1, list("type" = "outline", "size" = 4, "color" = "#FFD700FF"))
 			target.mob_light("#FFD700", 4, 2)
 		if(3)
-			to_chat(target, span_astratabig("I CANNOT ESCAPE! THE LIGHT IS EVERYTHING!"))
-			target.visible_message(span_astrata("[target] is now blazing with divine radiance, barely visible through the golden glow!"))
+			to_chat(target, span_astratabig("Я НЕ МОГУ СБЕЖАТЬ! СВЕТ — ЭТО ВСЁ!"))
+			target.visible_message(span_astrata("[target] теперь пылает божественным сиянием, едва видимый сквозь золотое свечение!"))
 			target.add_filter("divine_glow", 1, list("type" = "outline", "size" = 6, "color" = "#FFFFFF"))
 			target.mob_light("#FFFFFF", 6, 2.5)
 		if(4)
-			to_chat(target, span_astratabig("MY FORM FRACTURES! I AM BEING UNMADE!"))
-			target.visible_message(span_astrata("[target] is now a pillar of searing golden light!"))
+			to_chat(target, span_astratabig("МОЯ ФОРМА РАЗЛАГАЕТСЯ! Я УНИЧТОЖАЮСЬ!"))
+			target.visible_message(span_astrata("[target] теперь столп палящего золотого света!"))
 			target.add_filter("divine_glow", 1, list("type" = "outline", "size" = 8, "color" = "#FFFFFF"))
 			target.mob_light("#FFFFFF", 8, 3)
 		if(5)
-			to_chat(target, span_astrataextreme("ASTRATA'S WRATH IS ABSOLUTE! I AM—"))
-			target.visible_message(span_astratabig("[target]'s form is barely holding together, light pouring from every crack!"))
+			to_chat(target, span_astrataextreme("ГНЕВ АСТРАТЫ АБСОЛЮТЕН! Я ЕСТЬ—"))
+			target.visible_message(span_astratabig("Форма [target] едва держится вместе, свет вырывается из каждой трещины!"))
 			target.add_filter("divine_glow", 1, list("type" = "outline", "size" = 10, "color" = "#FFFFFF"))
 			target.mob_light("#FFFFFF", 10, 4)
 
@@ -823,9 +823,9 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 		return
 	
 	if(is_powerful)
-		target.visible_message(span_astrataextreme("[target] ERUPTS in a catastrophic explosion of holy light!"))
+		target.visible_message(span_astrataextreme("[target] ВЗРЫВАЕТСЯ катастрофическим взрывом святого света!"))
 	else
-		target.visible_message(span_astratabig("[target] EXPLODES in a burst of divine radiance!"))
+		target.visible_message(span_astratabig("[target] ВЗРЫВАЕТСЯ вспышкой божественного сияния!"))
 	
 	playsound(target, 'sound/misc/holyexplosion.ogg', 150, FALSE, 7)
 	
@@ -879,8 +879,8 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	target.apply_status_effect(/datum/status_effect/thaumaturgy, 4)
 	
 	// Messages
-	to_chat(target, span_big(span_userdanger("I REFUSE TO BE UNMADE! MY BONES WILL BECOME MY VENGEANCE!")))
-	target.visible_message(span_big(span_danger("[target]'s holy light suddenly turns to BURNING RED as they begin to vibrate with terrible energy!")))
+	to_chat(target, span_big(span_userdanger("Я ОТКАЗЫВАЮСЬ БЫТЬ УНИЧТОЖЕННЫМ! МОИ КОСТИ СТАНУТ МОЕЙ МЕСТЬЮ!")))
+	target.visible_message(span_big(span_danger("Святой свет [target] внезапно становится ПЫЛАЮЩИМ КРАСНЫМ, когда они начинают вибрировать ужасной энергией!")))
 	
 	// 15 second explosion sequence with messages
 	// 5 seconds
@@ -898,12 +898,12 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 	
 	switch(stage)
 		if(1)
-			to_chat(target, span_big(span_userdanger("THE CALCIFICATION INTENSIFIES! I FEEL MY BONES CRACKING WITH POWER!")))
-			target.visible_message(span_big(span_danger("[target] glows even BRIGHTER with crimson energy, cracks spreading across their form!")))
+			to_chat(target, span_big(span_userdanger("КАЛЬЦИФИКАЦИЯ УСИЛИВАЕТСЯ! Я ЧУВСТВУЮ, КАК МОИ КОСТИ ТРЕЩАТ ОТ СИЛЫ!")))
+			target.visible_message(span_big(span_danger("[target] сияет ещё ЯРЧЕ багровой энергией, трещины расползаются по их форме!")))
 			target.add_filter("calcification_glow", 1, list("type" = "outline", "size" = 12, "color" = "#FF0000"))
 		if(2)
-			to_chat(target, span_big(span_userdanger("WITNESS THE POWER OF UNDEATH! I AM BECOME DEATH!")))
-			target.visible_message(span_big(span_danger("[target] is now a BLAZING PILLAR OF RED LIGHT!")))
+			to_chat(target, span_big(span_userdanger("УЗРИТЕ СИЛУ НЕЖИТИ! Я СТАНОВЛЮСЬ СМЕРТЬЮ!")))
+			target.visible_message(span_big(span_danger("[target] теперь ПЫЛАЮЩИЙ СТОЛП КРАСНОГО СВЕТА!")))
 			target.add_filter("calcification_glow", 1, list("type" = "outline", "size" = 15, "color" = "#FF0000"))
 
 /obj/effect/proc_holder/spell/invoked/revive/proc/calcification_finale(mob/living/target)
@@ -911,7 +911,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 		return
 	
 	// Epic explosion message
-	target.visible_message(span_big(span_userdanger("[target] DETONATES in a CATACLYSMIC EXPLOSION OF BONE AND FURY!")))
+	target.visible_message(span_big(span_userdanger("[target] ВЗРЫВАЕТСЯ КАТАКЛИЗМИЧЕСКИМ ВЗРЫВОМ КОСТЕЙ И ЯРОСТИ!")))
 	
 	// Remove filter and moblights
 	target.remove_filter("calcification_glow")
@@ -939,7 +939,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			break
 
 	if(!holy_requirement)
-		to_chat(user, span_warning("I must cast in the presence of a Pantheon Cross or the Priest"))
+		to_chat(user, span_warning("Я должен творить в присутствии Креста Пантеона или Жреца"))
 		revert_cast()
 		return FALSE
 	return TRUE
@@ -975,11 +975,11 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 /obj/effect/temp_visual/firewave/sunstrike/primary/proc/pre_strike()
 	var/turf/T = get_turf(src)
 	playsound(T,'sound/magic/revive.ogg', 80, TRUE)
-	loud_message("<font size = 5>[span_astrataextreme("THE SKY IS FLOODED WITH WHITE FIRE!!")]</font><br>", hearing_distance = 21)
+	loud_message("<font size = 5>[span_astrataextreme("НЕБЕСА ЗАЛИТЫ БЕЛЫМ ОГНЁМ!!")]</font><br>", hearing_distance = 21)
 
 	for(var/turf/Target_turf in range(1, get_turf(src)))
 		for(var/mob/living/L in Target_turf.contents)
-			to_chat(L, span_astratabig("The Tyrant's oppressive gaze is upon you. Flee or Perish."))
+			to_chat(L, span_astratabig("Давящий взор Тирана направлен на вас. Бегите или Погибните."))
 
 /obj/effect/temp_visual/firewave/sunstrike/primary/proc/strike(mob/living/carbon/caster)
 	var/turf/T = get_turf(src)
@@ -993,7 +993,7 @@ GLOBAL_LIST_EMPTY(divine_destruction_mobs) // Tracks mobs undergoing divine dest
 			new /obj/effect/hotspot(get_turf(turf))
 	for(var/turf/Target_turf in range(5, T))
 		for(var/mob/living/victim in Target_turf.contents)
-			to_chat(victim, span_astrataextreme("DIVINE FLAME RAINS DOWN FROM THE SKY!"))
+			to_chat(victim, span_astrataextreme("БОЖЕСТВЕННОЕ ПЛАМЯ ЛЬЁТСЯ С НЕБЕС!"))
 			var/dist_to_epicenter = get_dist(T, victim)
 			var/firedamage = 200 - (dist_to_epicenter*30)
 			var/firestack = 10 - dist_to_epicenter

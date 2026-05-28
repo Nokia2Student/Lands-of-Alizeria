@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/create_campfire
-	name = "Create Campfire"
-	desc = "Creates a magical campfire to cook on. 3 tiles range. Lasts for 10 minutes."
+	name = "Создание костра"
+	desc = "Создаёт магический костёр для приготовления пищи. Дальность — 3 тайла. Существует 10 минут."
 	overlay_state = "create_campfire"
 	sound = list('sound/magic/whiteflame.ogg')
 
@@ -39,7 +39,7 @@
 	return TRUE
 
 /obj/machinery/light/rogue/campfire/create_campfire
-	name = "magical campfire"
+	name = "магический костёр"
 	icon_state = "densefire1"
 	base_state = "densefire"
 	density = FALSE

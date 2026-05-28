@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/vigorousexchange
-	name = "Vigorous Exchange"
-	desc = "Return energy to your target."
+	name = "Энергичный обмен"
+	desc = "Вернуть энергию вашей цели."
 	overlay_state = "vigorousexchange"
 	releasedrain = 0
 	chargedrain = 0
@@ -25,8 +25,8 @@
 	invocation = "Through flame and ash, let vigor rise, by Mamuke’s hand, let strength reprise!"
 
 /obj/effect/proc_holder/spell/invoked/heatmetal
-	name = "Heat Metal"
-	desc = "Call upon Malum to smelt the target object into a usable ingot, if it can be smelted."
+	name = "Нагреть металл"
+	desc = "Воззвать к Малуму, чтобы переплавить целевой предмет в годный слиток, если это возможно."
 	overlay_state = "heatmetal"
 	releasedrain = 30
 	chargedrain = 0
@@ -52,8 +52,8 @@
 	invocation = "With heat I wield, with flame I claim, Let metal serve in Mamuke's name!"
 
 /obj/effect/proc_holder/spell/invoked/hammerfall
-	name = "Hammerfall"
-	desc = "Invoke Malum's hammer to crush a target area, damaging structures and potentially knocking over those in its radius."
+	name = "Молотобой"
+	desc = "Призвать молот Малума, чтобы сокрушить область, повреждая постройки и, возможно, сбивая с ног тех, кто окажется в радиусе."
 	overlay_state = "Hammerfall"
 	releasedrain = 30
 	chargedrain = 0
@@ -131,7 +131,7 @@
 /proc/handle_item_smelting(obj/item/target, mob/user, datum/effect_system/spark_spread/sparks, list/nosmeltore)
 	if (!target.smeltresult) return
 	var/obj/item/itemtospawn = target.smeltresult
-	show_visible_message(user, "After [user]'s incantation, [target] glows brightly and melts into an ingot.", null)
+	show_visible_message(user, "После заклинания [user], [target] ярко светится и переплавляется в слиток.", null)
 	new itemtospawn(target.loc)
 	sparks.set_up(1, 1, target.loc)
 	sparks.start()
@@ -140,7 +140,7 @@
 /proc/handle_living_entity(mob/target, mob/user, list/nosmeltore)
 	var/obj/item/targeteditem = get_targeted_item(user, target)
 	if (!targeteditem || targeteditem.smeltresult == /obj/item/ash || target.anti_magic_check(TRUE,TRUE))
-		show_visible_message(user, "After their incantation, [user] points at [target] but it seems to have no effect.", "After your incantation, you point at [target] but it seems to have no effect.")
+		show_visible_message(user, "После своего заклинания [user] указывает на [target], но, похоже, это не возымело эффекта.", "После вашего заклинания вы указываете на [target], но, похоже, это не возымело эффекта.")
 		return
 	if (istype(targeteditem, /obj/item/rogueweapon/tongs))
 		handle_tongs(targeteditem, user)
@@ -197,13 +197,13 @@
 	T.hott = tyme
 	addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/rogueweapon/tongs, make_unhot), tyme), 100)
 	T.update_icon()
-	show_visible_message(user, "After [user]'s incantation, the ingot inside [T] starts glowing.", "After your incantation, the ingot inside [T] starts glowing.")
+	show_visible_message(user, "После заклинания [user], слиток внутри [T] начинает светиться.", "После вашего заклинания слиток внутри [T] начинает светиться.")
 
 /proc/handle_heating_in_hand(mob/living/carbon/target, obj/item/targeteditem, mob/user)
 	var/datum/effect_system/spark_spread/sparks = new()
 	apply_damage_to_hands(target, user)
 	target.dropItemToGround(targeteditem)
-	show_visible_message(target, "[target]'s [targeteditem.name] glows brightly, searing their flesh.", "Your [targeteditem.name] glows brightly, It burns!")
+	show_visible_message(target, "[targeteditem.name] [target] ярко светится, обжигая их плоть.", "Ваш(а) [targeteditem.name] ярко светится. Он(а) обжигает!")
 	target.emote("painscream")
 	playsound(target, 'sound/misc/frying.ogg', 100, FALSE, -1)
 	sparks.set_up(1, 1, target.loc)
@@ -238,7 +238,7 @@
 	apply_damage_if_covered(target, list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), targeteditem, ARMS|HANDS, damage_to_apply)
 	apply_damage_if_covered(target, list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG), targeteditem, GROIN|LEGS|FEET, damage_to_apply)
 	apply_damage_if_covered(target, list(BODY_ZONE_HEAD), targeteditem, HEAD|HAIR|NECK|NOSE|MOUTH|EARS|EYES, damage_to_apply)
-	show_visible_message(target, "[target]'s [targeteditem.name] glows brightly, searing their flesh.", "My [targeteditem.name] glows brightly, It burns!")
+	show_visible_message(target, "[targeteditem.name] [target] ярко светится, обжигая их плоть.", "Мой(я) [targeteditem.name] ярко светится. Он(а) обжигает!")
 	playsound(target, 'sound/misc/frying.ogg', 100, FALSE, -1)
 
 /proc/apply_damage_if_covered(mob/living/carbon/target, list/body_zones, obj/item/clothing/targeteditem, mask, damage)
@@ -262,12 +262,11 @@
 		return
 	if (target == user)
 		target.energy_add(starminatoregen)
-		show_visible_message(usr, "As [user] intones the incantation, vibrant flames swirl around them.", "As you intones the incantation, vibrant flames swirl around you, You feel refreshed.")
+		show_visible_message(usr, "Пока [user] произносит заклинание, вокруг них кружатся яркие языки пламени.", "Пока вы произносите заклинание, вокруг вас кружатся яркие языки пламени. Вы чувствуете себя отдохнувшим.")
 	else if (user.energy > (starminatoregen * 2))
 		user.energy_add(-(starminatoregen * 2))
 		target.energy_add(starminatoregen * 2)
-		show_visible_message(target, "As [user] intones the incantation, vibrant flames swirl around them, a dance of energy flowing towards [target].", "As [user] intones the incantation, vibrant flames swirl around them, a dance of energy flowing towards you. You feel refreshed")
-
+		show_visible_message(target, "Пока [user] произносит заклинание, вокруг них кружатся яркие языки пламени, и танец энергии устремляется к [target].", "Пока [user] произносит заклинание, вокруг них кружатся яркие языки пламени, и танец энергии устремляется к вам. Вы чувствуете себя отдохнувшим.")
 /*
 
 /obj/effect/proc_holder/spell/invoked/craftercovenant/cast(list/targets, mob/user = usr)
@@ -380,7 +379,7 @@ var/global/list/anvil_recipe_prices[][]
 	if(!fallzone)
 		return
 	else
-		show_visible_message(usr, "[usr] raises their arm, conjuring a hammer wreathed in molten fire. As they hurl it toward the ground, the earth trembles under its impact, shaking its very foundations!", "You raise your arm, conjuring a hammer wreathed in molten fire. As you hurl it toward the ground, the earth trembles under its impact, shaking its very foundations!")
+		show_visible_message(usr, "[usr] поднимает руку, вызывая молот, объятый расплавленным огнём. Когда они швыряют его оземь, земля дрожит от удара, сотрясая самые свои основания!", "Вы поднимаете руку, вызывая молот, объятый расплавленным огнём. Когда вы швыряете его оземь, земля дрожит от удара, сотрясая самые свои основания!")
 	for (var/turf/open/visual in view(radius, fallzone))
 		var/obj/effect/temp_visual/lavastaff/Lava = new /obj/effect/temp_visual/lavastaff(visual)
 		animate(Lava, alpha = 255, time = 5)
@@ -391,10 +390,10 @@ var/global/list/anvil_recipe_prices[][]
 		diceroll = roll(2,20) + shaken.STAPER + shaken.STASPD
 		if (diceroll > dc)
 			shaken.apply_effect(1 SECONDS, EFFECT_IMMOBILIZE, 0)
-			show_visible_message(shaken, null, "The ground quakes but I manage to keep my footing.")
+			show_visible_message(shaken, null, "Земля дрожит, но вам удаётся устоять на ногах.")
 		else
 			shaken.apply_effect(1 SECONDS, EFFECT_KNOCKDOWN, 0)
-			show_visible_message(shaken, null, "The ground quakes, making me fall over.")
+			show_visible_message(shaken, null, "Земля дрожит, и вы падаете.")
 	for (var/obj/structure/damaged in view(radius, fallzone))
 		if(!istype(damaged, /obj/structure/flora/newbranch))
 			damaged.take_damage(damage,BRUTE,"blunt",1)
@@ -405,7 +404,7 @@ var/global/list/anvil_recipe_prices[][]
 		aoemining.take_damage(damage,BRUTE,"blunt",1)
 
 /obj/effect/proc_holder/spell/invoked/malum_flame_rogue
-	name = "Malum's Fire"
+	name = "Пламя Малума"
 	overlay_state = "sacredflame"
 	releasedrain = 15
 	chargedrain = 0
@@ -425,13 +424,13 @@ var/global/list/anvil_recipe_prices[][]
 	devotion_cost = 15
 
 /obj/effect/proc_holder/spell/invoked/malum_flame_rogue/kazengun
-	name = "Mamuke's Flame"
+	name = "Пламя Мамуке"
 
 /obj/effect/proc_holder/spell/invoked/malum_flame_rogue/cast(list/targets, mob/user = usr)
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/L = targets[1]
-		user.visible_message("<font color='yellow'>[user] points at [L]!</font>")
+		user.visible_message("<font color='yellow'>[user] указывает на [L]!</font>")
 		if(L.anti_magic_check(TRUE, TRUE))
 			return FALSE
 		L.adjust_fire_stacks(1, /datum/status_effect/fire_handler/fire_stacks/divine)
@@ -442,10 +441,10 @@ var/global/list/anvil_recipe_prices[][]
 	else if(isobj(targets[1]))
 		var/obj/O = targets[1]
 		if(O.fire_act())
-			user.visible_message("<font color='yellow'>[user] points at [O], igniting it with sacred flames!</font>")
+			user.visible_message("<font color='yellow'>[user] указывает на [O], воспламеняя его священным пламенем!</font>")
 			return TRUE
 		else
-			to_chat(user, span_warning("You point at [O], but it fails to catch fire."))
+			to_chat(user, span_warning("Вы указываете на [O], но оно не загорается."))
 			return FALSE
 	return FALSE
 

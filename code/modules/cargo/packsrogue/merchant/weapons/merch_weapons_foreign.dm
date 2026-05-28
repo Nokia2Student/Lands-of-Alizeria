@@ -1,87 +1,87 @@
 // Special Mercenary Weapons, at exorbitant prices
 /datum/supply_pack/rogue/merc_weapons
-	group = "Weapons (Foreign)"
+	group = "Оружие (чужеземное)"
 	crate_name = "merchant guild's crate"
 	mandated_public_profit = 1 // 100% Mandatory Profit Margin on top
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/merc_weapons/saildagger
-	name = "Sail Dagger"
+	name = "Кинжал морехода"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/huntingknife/idagger/steel/parrying/vaquero)
 
 /datum/supply_pack/rogue/merc_weapons/erapier
-	name = "Etruscan Rapier"
+	name = "Этрусская рапира"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/sword/rapier/vaquero)
 
 /datum/supply_pack/rogue/merc_weapons/shamshir
-	name = "Shamshir"
+	name = "Шамшир"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/sword/sabre/shamshir)
 
 /datum/supply_pack/rogue/merc_weapons/handclaw_iron
-	name = "Iron Hound Claw"
+	name = "Железный коготь гончей"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/handclaw)
 
 /datum/supply_pack/rogue/merc_weapons/handclaw_steel
-	name = "Steel Mantis Claw"
+	name = "Стальной коготь"
 	cost = 120
 	contains = list(/obj/item/rogueweapon/handclaw/steel)
 
 /datum/supply_pack/rogue/merc_weapons/handclaw_gronn
-	name = "Gronnic Beast Claw"
+	name = "Гроннский звериный коготь"
 	cost = 100
 	contains = list(/obj/item/rogueweapon/handclaw/gronn)
 
 /datum/supply_pack/rogue/merc_weapons/beardedaxe
-	name = "Bearded Axe"
+	name = "Бородатый топор"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/stoneaxe/woodcut/steel/atgervi)
 
 /datum/supply_pack/rogue/merc_weapons/naledistaff
-	name = "Naledi Warstaff"
+	name = "Боевой посох наледи"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/woodstaff/naledi)
 
 /datum/supply_pack/rogue/merc_weapons/pulaxe
-	name = "Pulaski Axe"
+	name = "Топор Пуласки"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/stoneaxe/woodcut/pick)
 
 /datum/supply_pack/rogue/merc_weapons/nagaika
-	name = "Nagaika Whip"
+	name = "Кнут-нагайка"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/whip/nagaika)
 
 /datum/supply_pack/rogue/merc_weapons/navaja
-	name = "Navaja"
+	name = "Наваха"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/huntingknife/idagger/navaja)
 
 /datum/supply_pack/rogue/merc_weapons/naginata
-	name = "Naginata"
+	name = "Нагината"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/spear/naginata)
 
 /datum/supply_pack/rogue/merc_weapons/katana
-	name = "Kazengun Straight Sword"
+	name = "Прямой меч Кадзенгун"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/sword/sabre/mulyeog,
 					/obj/item/rogueweapon/scabbard/sword/kazengun)
 
 /datum/supply_pack/rogue/merc_weapons/miaodao
-	name = "Miaodao"
+	name = "Мяодао"
 	cost = 120
 	contains = list(/obj/item/rogueweapon/greatsword/miaodao)
 
 /datum/supply_pack/rogue/merc_weapons/tossbladekazengun
-	name = "Tossblade Belt, Eastern"
+	name = "Пояс с метательными клинками, восточный"
 	cost = 60
 	contains = list(/obj/item/storage/belt/rogue/leather/knifebelt/black/kazengun)
 
 /datum/supply_pack/rogue/merc_weapons/psysword
-	name = "Aged Psydonian Longsword"
+	name = "Старый Псайдонский длинный меч"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/sword/long/oldpsysword)

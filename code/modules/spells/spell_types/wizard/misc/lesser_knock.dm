@@ -1,9 +1,9 @@
 /obj/effect/proc_holder/spell/targeted/touch/lesserknock
-	name = "Lesser Knock"
-	desc = "A simple spell used to focus the arcyne into an instrument for lockpicking. Can be dispelled by using it on anything that isn't a locked/unlocked door."
+	name = "Малое отмыкание"
+	desc = "Простое заклинание, фокусирующее аркану в инструмент для взлома замков. Рассеивается при использовании на чём-либо, кроме запертой/открытой двери."
 	clothes_req = FALSE
-	drawmessage = "I prepare to perform a minor arcyne incantation."
-	dropmessage = "I release my minor arcyne focus."
+	drawmessage = "Я готовлюсь произнести малое арканное заклинание."
+	dropmessage = "Я отпускаю свой малый арканный фокус."
 	school = "transmutation"
 	overlay_state = "rune4"
 	chargedrain = 0
@@ -19,7 +19,7 @@
 	cost = 2 // Utility and needs lockpicking skills
 
 /obj/effect/proc_holder/spell/targeted/touch/lesserknock/miracle
-	name = "Matthiosan Knock"
+	name = "Малое отмыкание Маттиоса"
 	miracle = TRUE
 	devotion_cost = 30
 	invocation = "From One to Many"
@@ -27,11 +27,11 @@
 	associated_skill = /datum/skill/magic/holy
 
 /obj/effect/proc_holder/spell/targeted/touch/lesserknock/miracle/kazengun
-	name = "Matoko's Knock"
+	name = "Малое отмыкание Матоко"
 
 /obj/item/melee/touch_attack/lesserknock
-	name = "Spectral Lockpick"
-	desc = "A faintly glowing lockpick that appears to be held together by the mysteries of the arcyne. To dispel it, simply use it on anything that isn't a door."
+	name = "Спектральная отмычка"
+	desc = "Тускло светящаяся отмычка, которая, кажется, держится вместе благодаря тайнам арканы. Чтобы рассеять её, просто используйте на чём-либо, кроме двери."
 	catchphrase = null
 	possible_item_intents = list(/datum/intent/use)
 	icon = 'icons/roguetown/items/keys.dmi'

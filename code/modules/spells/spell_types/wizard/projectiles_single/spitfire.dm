@@ -1,8 +1,8 @@
 
 /obj/effect/proc_holder/spell/invoked/projectile/spitfire
-	name = "Spitfire"
-	desc = "Shoot out a low-powered ball of fire that shines brightly on impact, potentially blinding a target. \n\
-	Damage is increased by 100% versus simple-minded creechurs."
+	name = "Огненный плевок"
+	desc = "Выпускает слабый шар пламени, который ярко светится при попадании и может ослепить цель. \n\
+	Урон увеличен на 100% против простодушных созданий."
 	clothes_req = FALSE
 	range = 8
 	projectile_type = /obj/projectile/magic/aoe/fireball/rogue2
@@ -27,7 +27,7 @@
 	cost = 3
 
 /obj/projectile/magic/aoe/fireball/rogue2
-	name = "spitfire"
+	name = "огненный плевок"
 	exp_heavy = 0
 	exp_light = 0
 	exp_flash = 1
@@ -45,14 +45,14 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
 		if(isliving(target))
 			var/mob/living/L = target
 			if(L.has_status_effect(/datum/status_effect/buff/frost) || L.has_status_effect(/datum/status_effect/buff/frostbite))
-				visible_message(span_warning("[src] extinguishes on contact with [target]!"))
+				visible_message(span_warning("[src] гаснет при контакте с [target]!"))
 				playsound(target, 'sound/items/firesnuff.ogg', 100)
 				L.remove_status_effect(/datum/status_effect/buff/frost)
 				L.remove_status_effect(/datum/status_effect/buff/frostbite)

@@ -1,7 +1,7 @@
 // Lesser miracle
 /obj/effect/proc_holder/spell/invoked/lesser_heal
-	name = "Miracle"
-	desc = "Call upon your patron to heal your target."
+	name = "Чудо"
+	desc = "Воззовите к своему покровителю, дабы исцелить цель."
 	overlay_state = "lesserheal"
 	releasedrain = 30
 	chargedrain = 0
@@ -55,12 +55,12 @@
 
 	if (user.devotion?.level == CLERIC_T4)
 		if (get_dist(user, target) >= range)
-			to_chat(user, span_warning("I need to be closer to them to call forth a healing miracle!"))
+			to_chat(user, span_warning("Мне нужно быть ближе к ним, чтобы воззвать к чуду исцеления!"))
 			return FALSE
 		return TRUE
 	
 	if (!user.Adjacent(target))
-		to_chat(user, span_warning("I need to be beside them to perform miraculous healing!"))
+		to_chat(user, span_warning("Мне нужно быть рядом с ними, чтобы совершить чудесное исцеление!"))
 		return FALSE
 	
 	return TRUE	
@@ -71,26 +71,26 @@
 		return FALSE
 
 	if(HAS_TRAIT(target, TRAIT_PSYDONITE))
-		target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+		target.visible_message(span_info("[target] на мгновение вздрагивает, чудо рассеивается."), span_notice("Тусклое тепло наполняет ваше сердце, лишь для того чтобы исчезнуть так же быстро, как появилось."))
 		user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 		playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 		return FALSE
 
 	if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD)) //positive energy harms the undead
-		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
+		target.visible_message(span_danger("[target] обожжён святым светом!"), span_userdanger("Я обожжён святым светом!"))
 		target.adjustFireLoss(10)
 		target.fire_act(1,10)
 		return FALSE
 
 	if(target.has_status_effect(/datum/status_effect/buff/healing))
-		to_chat(user, span_warning("They are already under the effects of a healing aura!"))
+		to_chat(user, span_warning("Они уже находятся под действием исцеляющей ауры!"))
 		revert_cast()
 		return FALSE
 
 	var/is_divine = ispath(user.patron?.type, /datum/patron/divine)
 	if(is_divine && (target.real_name in GLOB.excommunicated_players))
-		to_chat(user, span_danger("The gods recoil from [target]! Divine fire scorches your hands as your plea is rejected!"))
-		target.visible_message(span_danger("[target] is seared by divine wrath! The gods hate them!"), span_userdanger("I am seared by divine wrath! The gods hate me!"))
+		to_chat(user, span_danger("Боги отшатываются от [target]! Божественный огонь обжигает ваши руки, когда ваша мольба отвергается!"))
+		target.visible_message(span_danger("[target] опалён божественным гневом! Боги ненавидят его!"), span_userdanger("Я опалён божественным гневом! Боги ненавидят меня!"))
 		revert_cast()
 		return FALSE
 
@@ -120,9 +120,9 @@
 			if(most_damaged_limb && most_damaged_limb.get_damage() > 0)
 				most_damaged_limb.heal_damage(amount * 2, amount * 2, amount * 2)
 				target.update_damage_overlays()
-				to_chat(target, span_notice("The miracle mends my [most_damaged_limb.name]!"))
+				to_chat(target, span_notice("Чудо исцеляет мою [most_damaged_limb.name]!"))
 		else
-			target.visible_message(span_warning("The wounds tear and rip around the embedded objects!"), span_warning("Agonising pain shoots through your body as magycks try to sew around the embedded objects!"))
+			target.visible_message(span_warning("Раны рвутся и лопаются вокруг застрявших предметов!"), span_warning("Мучительная боль пронзает ваше тело, когда магия пытается сшить ткани вокруг застрявших предметов!"))
 			target.adjustBruteLoss(20)
 			playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
 			target.emote("agony")
@@ -144,7 +144,7 @@
 
 	var/healing = base_healing
 	if (conditional_buff)
-		to_chat(user, span_info("Channeling my patron's power is easier in these conditions!"))
+		to_chat(user, span_info("Направлять силу моего покровителя легче в этих условиях!"))
 		healing += situational_bonus
 	
 	return healing
@@ -164,9 +164,9 @@
 		
 		if (target != user)
 			if (H.devotion?.level == CLERIC_T4)
-				user.visible_message(span_notice("[user] gestures towards [target] with a whispered prayer!"))
+				user.visible_message(span_notice("[user] жестом указывает на [target] с тихой молитвой!"))
 			else
-				user.visible_message(span_notice("[user] lays their hands upon [target], willing flesh and bone to mend..."))
+				user.visible_message(span_notice("[user] возлагает руки на [target], желая плоти и костям исцелиться..."))
 
 			var/datum/beam/healing_beam = user.Beam(target, icon_state="medbeam", time=5 MINUTES)
 			apply_healing(target, user, get_situational_bonus(user, target))
@@ -177,19 +177,19 @@
 						playsound(target, 'sound/magic/heal.ogg', 100)
 						apply_healing(target, user, get_situational_bonus(user, target))
 						H.devotion?.update_devotion(-devotion_cost)
-						to_chat(user, "<font color='purple'>I lose [devotion_cost] devotion!</font>")
+						to_chat(user, "<font color='purple'>Я теряю [devotion_cost] преданности!</font>")
 					else
 						healing_beam.End()
 						return TRUE
 				else
-					to_chat(user, span_warning("My devotion runs dry - I can call upon [user.patron.name] no further for the moment!"))
+					to_chat(user, span_warning("Моя преданность иссякает — я больше не могу взывать к [user.patron.name]!"))
 					healing_beam.End()
 					return TRUE
 
 			healing_beam.End()
 			return TRUE
 		else
-			user.visible_message(span_info("[user] quickly lays their hands upon themselves!"))
+			user.visible_message(span_info("[user] быстро возлагает руки на себя!"))
 			apply_healing(target, user, get_situational_bonus(user, target))
 			return TRUE
 	
@@ -198,8 +198,8 @@
 
 // Miracle
 /obj/effect/proc_holder/spell/invoked/heal
-	name = "Fortify"
-	desc = "Increases the amount of healing your target recieves for a time."
+	name = "Укрепление"
+	desc = "Увеличивает количество исцеления, получаемого вашей целью, на некоторое время."
 	overlay_state = "astrata"
 	releasedrain = 30
 	chargedrain = 0
@@ -223,23 +223,23 @@
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(HAS_TRAIT(target, TRAIT_PSYDONITE))
-			target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+			target.visible_message(span_info("[target] на мгновение вздрагивает, чудо рассеивается."), span_notice("Тусклое тепло наполняет ваше сердце, лишь для того чтобы исчезнуть так же быстро, как появилось."))
 			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
 		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD)) //positive energy harms the undead
-			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
+			target.visible_message(span_danger("[target] обожжён святым светом!"), span_userdanger("Я обожжён святым светом!"))
 			target.adjustFireLoss(25)
 			target.fire_act(1,10)
 			return TRUE
 		// Block if excommunicated and caster is divine pantheon
 		var/is_divine = ispath(user.patron?.type, /datum/patron/divine)
 		if(is_divine && (target.real_name in GLOB.excommunicated_players))
-			to_chat(user, span_danger("The gods recoil from [target]! Divine fire scorches your hands as your plea is rejected!"))
-			target.visible_message(span_danger("[target] is seared by divine wrath! The gods hate them!"), span_userdanger("I am seared by divine wrath! The gods hate me!"))
+			to_chat(user, span_danger("Боги отшатываются от [target]! Божественный огонь обжигает ваши руки, когда ваша мольба отвергается!"))
+			target.visible_message(span_danger("[target] опалён божественным гневом! Боги ненавидят его!"), span_userdanger("Я опалён божественным гневом! Боги ненавидят меня!"))
 			revert_cast()
 			return FALSE
-		target.visible_message(span_info("A wreath of gentle light passes over [target]!"), span_notice("I'm bathed in holy light!"))
+		target.visible_message(span_info("Венок мягкого света окутывает [target]!"), span_notice("Я омыт святым светом!"))
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			C.apply_status_effect(/datum/status_effect/buff/fortify)
@@ -251,7 +251,7 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/regression
-	name = "Regression"
+	name = "Регресс"
 	overlay_state = "regression"
 	releasedrain = 30
 	chargedrain = 0
@@ -298,7 +298,7 @@
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		target.visible_message(span_info("Order filled magic rewind [target]'s wounds!"), span_notice("My wounds, undone!"))
+		target.visible_message(span_info("Магия порядка отматывает раны [target]!"), span_notice("Мои раны исчезли!"))
 		var/healing = 2.5
 		if(target.has_status_effect(/datum/status_effect/buff/stasis))
 			healing += 2.5
@@ -315,7 +315,7 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/convergence
-	name = "Convergence"
+	name = "Схождение"
 	overlay_state = "convergence"
 	releasedrain = 30
 	chargedrain = 0
@@ -338,7 +338,7 @@
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		target.visible_message(span_info("A convergence of fates surrounds [target]!"), span_notice("My past and present converge as one!"))
+		target.visible_message(span_info("Схождение судеб окружает [target]!"), span_notice("Моё прошлое и настоящее сливаются воедино!"))
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			C.apply_status_effect(/datum/status_effect/buff/convergence)
@@ -352,8 +352,8 @@
 
 
 /obj/effect/proc_holder/spell/invoked/stasis
-	name = "Stasis"
-	desc = "You capture your target's current state in time, reverting them to such a state several seconds later."
+	name = "Стазис"
+	desc = "Вы запечатлеваете текущее состояние цели во времени, возвращая её в это состояние несколько секунд спустя."
 	releasedrain = 35
 	chargedrain = 1
 	chargetime = 30
@@ -396,7 +396,7 @@
 		sunderfirestacks = sunder_status?.stacks
 		var/datum/status_effect/fire_handler/fire_stacks/divine/divine_status = target.has_status_effect(/datum/status_effect/fire_handler/fire_stacks/divine)
 		divinefirestacks = divine_status?.stacks
-		to_chat(target, span_warning("I feel a part of me was left behind..."))
+		to_chat(target, span_warning("Я чувствую, что часть меня осталась позади..."))
 		play_indicator(target,'icons/mob/overhead_effects.dmi', "timestop", 100, OBJ_LAYER)
 		addtimer(CALLBACK(src, PROC_REF(remove_buff), target), wait = 10 SECONDS)
 		return TRUE
@@ -463,8 +463,8 @@
 //Instantly heals all wounds & damage on a selected limb.
 //Long CD (so a Medical class would still outpace this if there's more than one patient to heal)
 /obj/effect/proc_holder/spell/invoked/wound_heal
-	name = "Wound Miracle"
-	desc = "Heals all wounds on a targeted limb."
+	name = "Чудо Ран"
+	desc = "Исцеляет все раны на выбранной конечности."
 	overlay_icon = 'icons/mob/actions/genericmiracles.dmi'
 	overlay_state = "woundheal"
 	action_icon_state = "woundheal"
@@ -496,7 +496,7 @@
 		var/obj/item/bodypart/affecting = target.get_bodypart(def_zone)
 
 		if(HAS_TRAIT(target, TRAIT_PSYDONITE))
-			target.visible_message(span_info("[target] stirs for a moment, then the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+			target.visible_message(span_info("[target] на мгновение вздрагивает, чудо рассеивается."), span_notice("Тусклое тепло наполняет ваше сердце, лишь для того чтобы исчезнуть так же быстро, как появилось."))
 			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
@@ -510,12 +510,12 @@
 				if(!istype(object, /obj/item/natural/worms/leech))	//Leeches and surgical cheeles are made an exception.
 					no_embeds = FALSE
 			if(!no_embeds)
-				to_chat(user, span_warning("We cannot seal wounds with objects inside this limb!"))
+				to_chat(user, span_warning("Мы не можем запечатать раны с предметами внутри этой конечности!"))
 				revert_cast()
 				return FALSE
 		if(!do_after(user, (delay - (0.5 SECONDS * HU.get_skill_level(associated_skill)))))
 			revert_cast()
-			to_chat(user, span_warning("We were interrupted!"))
+			to_chat(user, span_warning("Нас прервали!"))
 			return FALSE
 		var/foundwound = FALSE
 		if(length(affecting.wounds))
@@ -523,7 +523,7 @@
 				if(!isnull(wound) && wound.healable_by_miracles)
 					wound.heal_wound(wound.whp)
 					foundwound = TRUE
-					user.visible_message(("<font color = '#488f33'>The [wound.name] oozes a clear fluid and closes shut, forming into a sore bruise!</font>"))
+					user.visible_message(("<font color = '#488f33'>[wound.name] источает чистую жидкость и закрывается, превращаясь в болезненный синяк!</font>"))
 					affecting.add_wound(/datum/wound/bruise/woundheal)
 			if(foundwound)
 				playsound(target, 'sound/magic/woundheal_crunch.ogg', 100, TRUE)
@@ -532,7 +532,7 @@
 			target.update_damage_hud()
 			return TRUE
 		else
-			to_chat(user, span_warning("The limb is free of wounds."))
+			to_chat(user, span_warning("Конечность не имеет ран."))
 			revert_cast()
 			return FALSE
 	revert_cast()
@@ -540,8 +540,8 @@
 
 
 /obj/effect/proc_holder/spell/invoked/blood_heal
-	name = "Bloodbond"
-	desc = "Transfers some of my lyfeblood to a target in need."
+	name = "Кровная связь"
+	desc = "Передаёт часть моей жизненной крови нуждающейся цели."
 	overlay_icon = 'icons/mob/actions/genericmiracles.dmi'
 	overlay_state = "bloodheal"
 	action_icon_state = "bloodheal"
@@ -567,32 +567,32 @@
 
 /obj/effect/proc_holder/spell/invoked/blood_heal/proc/bond_check(mob/living/carbon/human/user, mob/living/target, revert = TRUE)
 	if (!istype(user, /mob/living/carbon/human) || !istype(target, /mob/living/carbon/human))
-		to_chat(user, span_warning("I can only forge a bloodbond with other humanoids!"))
+		to_chat(user, span_warning("Я могу установить кровную связь только с другими гуманоидами!"))
 		if (revert)
 			revert_cast()
 		return FALSE
 	if (target == user)
-		to_chat(user, span_warning("I can't start a bloodbond on myself! It has to be on someone else!"))
+		to_chat(user, span_warning("Я не могу начать кровную связь с собой! Она должна быть с кем-то другим!"))
 		if (revert)
 			revert_cast()
 		return
 	if (!user.Adjacent(target))
-		to_chat(user, span_warning("I need to be next to my target to maintain a bloodbond with them!"))
+		to_chat(user, span_warning("Мне нужно быть рядом с целью, чтобы поддерживать кровную связь!"))
 		if (revert)
 			revert_cast()
 		return FALSE
 	if(NOBLOOD in user.dna?.species?.species_traits)
-		to_chat(user, span_warning("I have no blood to provide."))
+		to_chat(user, span_warning("У меня нет крови."))
 		if (revert)
 			revert_cast()
 		return FALSE
 	if(target.blood_volume >= BLOOD_VOLUME_NORMAL)
-		to_chat(user, span_warning("Their lyfeblood is at capacity. There is no need."))
+		to_chat(user, span_warning("Их жизненная кровь в порядке. В этом нет нужды."))
 		if (revert)
 			revert_cast()
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_PSYDONITE))
-		target.visible_message(span_info("[target] stirs for a moment, then the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+		target.visible_message(span_info("[target] на мгновение вздрагивает, чудо рассеивается."), span_notice("Тусклое тепло наполняет ваше сердце, лишь для того чтобы исчезнуть так же быстро, как появилось."))
 		user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 		playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 		return FALSE
@@ -604,7 +604,7 @@
 		var/mob/living/carbon/human/target = targets[1]
 		// Check if user is human before accessing dna
 		if(!ishuman(user))
-			to_chat(user, span_warning("I cannot transfer blood in this form!"))
+			to_chat(user, span_warning("Я не могу передавать кровь в этой форме!"))
 			revert_cast()
 			return FALSE
 		var/mob/living/carbon/human/UH = user
@@ -612,7 +612,7 @@
 		if (!bond_check(UH, target, revert = TRUE))
 			return FALSE
 
-		UH.visible_message(span_warning("Tiny strands of red link between [UH] and [target], and droplets of blood flow through it!"))
+		UH.visible_message(span_warning("Крошечные красные нити связывают [UH] и [target], и капли крови бегут по ним!"))
 		playsound(UH, 'sound/magic/bloodheal_start.ogg', 100, TRUE)
 		var/user_skill = UH.get_skill_level(associated_skill)
 		
@@ -635,11 +635,11 @@
 					var/devo_cost = round(0 - (devotion_cost / max_loops), 1)
 					UH.devotion?.update_devotion(devo_cost)
 				else
-					UH.visible_message(span_warning("The bloodbond between [UH] and [target] breaks!"))
+					UH.visible_message(span_warning("Кровная связь между [UH] и [target] разрывается!"))
 					bloodbeam.End()
 					return TRUE
 			else
-				UH.visible_message(span_warning("The bloodbond between [UH] and [target] breaks!"))
+				UH.visible_message(span_warning("Кровная связь между [UH] и [target] разрывается!"))
 				bloodbeam.End()
 				return TRUE
 		bloodbeam.End()

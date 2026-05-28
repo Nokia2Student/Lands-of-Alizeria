@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/projectile/guided_bolt
-	name = "Guided Bolt"
-	desc = "Shoot out a bolt of arcyne magic in an indirect arc. Difficult to hit, but quick to recharge and able to arc over friendly. Inflicts blunt damage. \n\
-	Damage is increased by 50% versus simple-minded creechurs."
+	name = "Направленный снаряд"
+	desc = "Выпускает снаряд арканной магии по кривой траектории. Сложен для попадания, но быстро перезаряжается и может огибать союзников. Наносит дробящий урон.\n\
+	Урон увеличен на 50% против простодушных созданий."
 	clothes_req = FALSE
 	range = 12
 	projectile_type = /obj/projectile/energy/guided_bolt
@@ -26,7 +26,7 @@
 	cost = 2 // slightly less useful than Arcyne Bolt and supportish, so 2 cost
 
 /obj/projectile/energy/guided_bolt
-	name = "Guided Bolt"
+	name = "направленный снаряд"
 	icon_state = "arcane_barrage"
 	damage = 40
 	woundclass = BCLASS_BLUNT
@@ -41,7 +41,7 @@
 	if(ismob(target))
 		var/mob/living/carbon/M = target
 		if(M.anti_magic_check())
-			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			visible_message(span_warning("[src] шипит при контакте с [target]!"))
 			playsound(target, 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK

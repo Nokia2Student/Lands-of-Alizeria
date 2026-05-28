@@ -23,23 +23,23 @@
 		    <h1>[name]</h1>
 		"}
 
-	html += "Requires [SSskills.level_names_plain[skill_required]] level of skills<br>"
+	html += "Требуется уровень навыка: [SSskills.level_names_plain[skill_required]]<br>"
 	
-	html += "Boil 30+ ounces of water in a Cauldron.<br>"
+	html += "Вскипятите в котле 30+ унций воды.<br>"
 
-	html += "Add at least two ingredients with the smell of [smells_like]<br>"
+	html += "Добавьте не менее двух ингредиентов с запахом: [smells_like]<br>"
 
 	if(output_reagents.len)
-		html += "<div><strong>Creates:</strong><br>"
+		html += "<div><strong>Создаёт:</strong><br>"
 		for(var/path as anything in output_reagents)
 			var/count = output_reagents[path]
 			if(ispath(path, /datum/reagent))
 				var/datum/reagent/R = path
-				html += "[CEILING(count / 3, 1)] oz of [initial(R.name)]<br>"
+				html += "[CEILING(count / 3, 1)] унц. [initial(R.name)]<br>"
 		html += "</div>"
 
 	if(output_items.len)
-		html += "<div><strong>Guaranteed Outputs</strong><br>"
+		html += "<div><strong>Гарантированный выход</strong><br>"
 		for(var/path as anything in output_items)
 			var/count = output_items[path]
 			if(ispath(path, /obj))

@@ -1,5 +1,5 @@
 /datum/wound/puncture
-	name = "puncture"
+	name = "укол"
 	whp = 40
 	sewn_whp = 20
 	bleed_rate = 0.4
@@ -14,7 +14,7 @@
 	can_cauterize = TRUE
 
 /datum/wound/puncture/small
-	name = "small puncture"
+	name = "небольшой укол"
 	whp = 20
 	sewn_whp = 10
 	bleed_rate = 0.2
@@ -26,7 +26,7 @@
 	sew_threshold = 35
 
 /datum/wound/puncture/large
-	name = "gaping puncture"
+	name = "зияющий укол"
 	whp = 40
 	sewn_whp = 20
 	bleed_rate = 1
@@ -38,7 +38,7 @@
 	sew_threshold = 100
 
 /datum/wound/dynamic/puncture
-	name = "puncture"
+	name = "укол"
 	whp = 1
 	sewn_whp = 0
 	bleed_rate = 1
@@ -52,11 +52,11 @@
 	can_sew = TRUE
 	can_cauterize = TRUE
 	severity_names = list(
-		"shallow" = 3,
-		"deep" = 6,
-		"gnarly" = 9,
-		"vicious" = 12,
-		"lethal" = 20,
+		"легкий" = 3,
+		"глубокий" = 6,
+		"жуткий" = 9,
+		"свирепый" = 12,
+		"смертельный" = 20,
 	)
 
 //Puncture (Stab -- not Pick) Omniwounds
@@ -88,7 +88,7 @@
 #undef PUNC_ARMORED_BLEED_CLAMP
 
 /datum/wound/dynamic/gouge
-	name = "gouge"
+	name = "вмятина"
 	whp = 1
 	sewn_whp = 0
 	bleed_rate = 1
@@ -102,11 +102,11 @@
 	can_sew = TRUE
 	can_cauterize = FALSE
 	severity_names = list(
-		"shallow" = 2,
-		"deep" = 4,
-		"gnarly" = 8,
-		"vicious" = 12,
-		"lethal" = 20,
+		"легкий" = 2,
+		"глубокий" = 4,
+		"жуткий" = 8,
+		"свирепый" = 12,
+		"смертельный" = 20,
 	)
 
 //Gouge (Pick) Omniwounds
@@ -139,7 +139,7 @@
 #undef GOUGE_ARMORED_BLEED_CLAMP
 
 /datum/wound/puncture/drilling
-	name = "drilling"
+	name = "сверление"
 	check_name = span_bloody("<B>DRILLING</B>")
 	severity = WOUND_SEVERITY_SUPERFICIAL
 	whp = 40

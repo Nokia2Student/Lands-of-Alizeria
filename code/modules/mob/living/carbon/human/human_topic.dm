@@ -5,7 +5,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 	var/observer_privilege = isobserver(usr)
 
 	if(href_list["task"] == "bloodpoolinfo")
-		to_chat(usr, span_notice("Usable blood that yields Vitae and total blood is not the same thing. It takes some time for blood to become nourishing for us."))
+		to_chat(usr, span_notice("Годная для витэ кровь и общий объём крови — не одно и то же. Нужно время, чтобы кровь стала для нас питательной."))
 		return
 
 	if(href_list["task"] == "view_headshot")
@@ -36,16 +36,16 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(legacy_check)	//If this is how a Legacy char was established, we save it.
 			client.prefs?.save_character()
 		if(is_legacy)
-			dat += "<center><i><font color = '#b9b9b9'; font size = 1>This is a LEGACY Profile from naive days of Psydon.</font></i></center>"
+			dat += "<center><i><font color = '#b9b9b9'; font size = 1>Это СТАРЫЙ профиль из наивных дней Psydon.</font></i></center>"
 		var/agevetted = client.check_agevet()
-		dat += "<br><center>This person is [agevetted ? "<font color='#1cb308'>Age Vetted.</font>" : "<font color='#aa0202'>Not Age Vetted</font>"]</center>"
+		dat += "<br><center>Этот человек [agevetted ? "<font color='#1cb308'>подтверждён совершеннолетним</font>" : "<font color='#aa0202'>не подтверждён совершеннолетним</font>"]</center>"
 		if(valid_headshot_link(null, headshot_link, TRUE) && agevetted)
 			dat += ("<div align='center'><img src='[headshot_link]' width='350px' height='350px'></div>")
 		if(flavortext)
 			dat += "<div align='left'>[flavortext_display]</div>"
 		if(ooc_notes)
 			dat += "<br>"
-			dat += "<div align='center'><b>OOC notes</b></div>"
+			dat += "<div align='center'><b>OOC заметки</b></div>"
 			dat += "<div align='left'>[ooc_notes_display]</div>"
 		if(ooc_extra && agevetted)
 			dat += "[ooc_extra]"
@@ -55,7 +55,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			if(nsfw_headshot_link && !(wear_armor && wear_armor.flags_inv) && !(wear_shirt && wear_shirt.flags_inv))
 				dat += ("<br><div align='center'><img src='[nsfw_headshot_link]' width='600px'></div>")
 			else if(nsfw_headshot_link && (wear_armor || wear_shirt))
-				dat += "<br><center><i><font color = '#9d0080'; font size = 5>There is more to see but they are not naked...</font></i></center>"
+				dat += "<br><center><i><font color = '#9d0080'; font size = 5>Можно увидеть больше, но они не обнажены...</font></i></center>"
 		var/datum/browser/popup = new(user, "[src]", nwidth = 700, nheight = 800)
 		popup.set_content(dat.Join())
 		popup.open(FALSE)
@@ -66,11 +66,11 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		var/msg = ""
 		if(rumour && length(rumour))
-			msg += "<b>You recall what you heard around Town about [src]...</b><br>[rumour]"
+			msg += "<b>Ты вспоминаешь, что слышал о [src] в городе...</b><br>[rumour]"
 		if((HAS_TRAIT(usr, TRAIT_NOBLE) || HAS_TRAIT(usr, TRAIT_ROYALSERVANT)) || observer_privilege && length(gossip))
 			if(msg) 
 				msg += "<br><br>"
-			msg += "<b>You recall what the other Blue-bloods hushed about [src]...</b><br>[gossip]"
+			msg += "<b>Ты вспоминаешь, о чём шептались другие голубые крови насчёт [src]...</b><br>[gossip]"
 		if(msg)
 			to_chat(usr, "<span class='info'>[msg]</span>")
 		return
@@ -86,10 +86,10 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 				msg += bodypart_status
 			else
 				msg += "<B>[capitalize(bodypart.name)]:</B>"
-				msg += "[bodypart] is healthy."
+				msg += "[bodypart] здорова."
 		else
 			msg += "<B>[capitalize(parse_zone(checked_zone))]:</B>"
-			msg += "<span class='dead'>Limb is missing!</span>"
+			msg += "<span class='dead'>Конечность отсутствует!</span>"
 		to_chat(usr, "<span class='info'>[msg.Join("\n")]</span>")
 
 	if(href_list["embedded_object"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
@@ -101,9 +101,9 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		var/time_taken = I.embedding.embedded_unsafe_removal_time*I.w_class
 		if(usr == src)
-			usr.visible_message("<span class='warning'>[usr] attempts to remove [I] from [usr.p_their()] [L.name].</span>","<span class='warning'>I attempt to remove [I] from my [L.name]...</span>")
+			usr.visible_message("<span class='warning'>[usr] пытается извлечь [I] из своей [L.name].</span>","<span class='warning'>Я пытаюсь извлечь [I] из моей [L.name]...</span>")
 		else
-			usr.visible_message("<span class='warning'>[usr] attempts to remove [I] from [src]'s [L.name].</span>","<span class='warning'>I attempt to remove [I] from [src]'s [L.name]...</span>")
+			usr.visible_message("<span class='warning'>[usr] пытается извлечь [I] из [L.name] [src].</span>","<span class='warning'>Я пытаюсь извлечь [I] из [L.name] [src]...</span>")
 		if(do_after(usr, time_taken, needhand = TRUE, target = src))
 			if(QDELETED(I) || QDELETED(L) || !L.remove_embedded_object(I))
 				return
@@ -114,9 +114,9 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 				emote("pain", TRUE)
 			playsound(loc, 'sound/foley/flesh_rem.ogg', 100, TRUE, -2)
 			if(usr == src)
-				usr.visible_message("<span class='notice'>[usr] rips [I] out of [usr.p_their()] [L.name]!</span>", "<span class='notice'>I successfully remove [I] from my [L.name].</span>")
+				usr.visible_message("<span class='notice'>[usr] вырывает [I] из своей [L.name]!</span>", "<span class='notice'>Я успешно извлекаю [I] из моей [L.name].</span>")
 			else
-				usr.visible_message("<span class='notice'>[usr] rips [I] out of [src]'s [L.name]!</span>", "<span class='notice'>I successfully remove [I] from [src]'s [L.name].</span>")
+				usr.visible_message("<span class='notice'>[usr] вырывает [I] из [L.name] [src]!</span>", "<span class='notice'>Я успешно извлекаю [I] из [L.name] [src].</span>")
 
 	if(href_list["bandage"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		var/obj/item/bodypart/L = locate(href_list["bandaged_limb"]) in bodyparts
@@ -124,16 +124,16 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 
 		if(!usr.Adjacent(src))
-			to_chat(usr, span_warning("I need to be closer to remove that!"))
+			to_chat(usr, span_warning("Нужно подойти ближе, чтобы снять это!"))
 			return
 
 		var/obj/item/I = L.bandage
 		if(!I)
 			return
 		if(usr == src)
-			usr.visible_message("<span class='warning'>[usr] starts unbandaging [usr.p_their()] [L.name].</span>","<span class='warning'>I start unbandaging [L.name]...</span>")
+			usr.visible_message("<span class='warning'>[usr] начинает снимать повязку со своей [L.name].</span>","<span class='warning'>Я начинаю снимать повязку с [L.name]...</span>")
 		else
-			usr.visible_message("<span class='warning'>[usr] starts unbandaging [src]'s [L.name].</span>","<span class='warning'>I start unbandaging [src]'s [L.name]...</span>")
+			usr.visible_message("<span class='warning'>[usr] начинает снимать повязку с [L.name] [src].</span>","<span class='warning'>Я начинаю снимать повязку с [L.name] [src]...</span>")
 		if(do_after(usr, 50, needhand = TRUE, target = src))
 			if(QDELETED(I) || QDELETED(L) || (L.bandage != I))
 				return
@@ -143,7 +143,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 	if(href_list["item"]) //canUseTopic check for this is handled by mob/Topic()
 		var/slot = text2num(href_list["item"])
 		if(slot in check_obscured_slots(TRUE))
-			to_chat(usr, span_warning("I can't reach that! Something is covering it."))
+			to_chat(usr, span_warning("Не могу дотянуться! Что-то прикрывает это."))
 			return
 
 	if(href_list["species_lore"])
@@ -157,11 +157,11 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 	if(href_list["undiesthing"]) //canUseTopic check for this is handled by mob/Topic()
 		if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
-			to_chat(usr, span_warning("I can't reach that! Something is covering it."))
+			to_chat(usr, span_warning("Не могу дотянуться! Что-то прикрывает это."))
 			return
 		if(!underwear)
 			return
-		usr.visible_message(span_warning("[usr] starts taking off [src]'s [underwear.name]."),span_warning("I start taking off [src]'s [underwear.name]..."))
+		usr.visible_message(span_warning("[usr] начинает снимать [underwear.name] с [src]."),span_warning("Я начинаю снимать [underwear.name] с [src]..."))
 		if(do_after(usr, 50, needhand = 1, target = src))
 			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
 			chest.remove_bodypart_feature(underwear.undies_feature)
@@ -173,11 +173,11 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 	if(href_list["legwearsthing"]) //canUseTopic check for this is handled by mob/Topic()
 		if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
-			to_chat(usr, span_warning("I can't reach that! Something is covering it."))
+			to_chat(usr, span_warning("Не могу дотянуться! Что-то прикрывает это."))
 			return
 		if(!legwear_socks)
 			return
-		usr.visible_message(span_warning("[usr] starts taking off [src]'s [legwear_socks.name]."),span_warning("I start taking off [src]'s [legwear_socks.name]..."))
+		usr.visible_message(span_warning("[usr] начинает снимать [legwear_socks.name] с [src]."),span_warning("Я начинаю снимать [legwear_socks.name] с [src]..."))
 		if(do_after(usr, 50, needhand = 1, target = src))
 			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
 			chest.remove_bodypart_feature(legwear_socks.legwears_feature)
@@ -196,10 +196,10 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		var/delay_denominator = 1
 		if(pocket_item && !(pocket_item.item_flags & ABSTRACT))
 			if(HAS_TRAIT(pocket_item, TRAIT_NODROP))
-				to_chat(usr, "<span class='warning'>I try to empty [src]'s [pocket_side] pocket, it seems to be stuck!</span>")
-			to_chat(usr, "<span class='notice'>I try to empty [src]'s [pocket_side] pocket.</span>")
+				to_chat(usr, "<span class='warning'>Я пытаюсь опустошить [pocket_side] карман [src], но он, кажется, застрял!</span>")
+			to_chat(usr, "<span class='notice'>Я пытаюсь опустошить [pocket_side] карман [src].</span>")
 		else if(place_item && place_item.mob_can_equip(src, usr, pocket_id, 1) && !(place_item.item_flags & ABSTRACT))
-			to_chat(usr, "<span class='notice'>I try to place [place_item] into [src]'s [pocket_side] pocket.</span>")
+			to_chat(usr, "<span class='notice'>Я пытаюсь положить [place_item] в [pocket_side] карман [src].</span>")
 			delay_denominator = 4
 		else
 			return
@@ -217,7 +217,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 				//updating inv screen after handled by living/Topic()
 		else
 			// Display a warning if the user mocks up
-			to_chat(src, "<span class='warning'>I feel your [pocket_side] pocket being fumbled with!</span>")
+			to_chat(src, "<span class='warning'>Я чувствую, как кто-то копается в моём [pocket_side] кармане!</span>")
 
 	if(href_list["task"] == "assess")
 		if(!ishuman(usr))
@@ -243,9 +243,9 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(get_dist(user, H) <= (2 + clamp(floor(((user.STAPER - 10))),-1, 4) + intellectual))
 			success = TRUE
 		if(!success)
-			to_chat(user, span_info("They've moved too far away!"))
+			to_chat(user, span_info("Он отошёл слишком далеко!"))
 			return
-		user.visible_message("[user] begins assessing [src].")
+		user.visible_message("[user] начинает оценивать [src].")
 		
 		if(do_mob(user, src, ((intellectual ? 20 : 40)) - (user.STAINT - 10) - (user.STAPER - 10) - user.get_skill_level(/datum/skill/misc/reading), uninterruptible = intellectual, double_progress = (intellectual ? FALSE : TRUE)))
 			var/is_guarded = HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS)	//Will scramble Stats and prevent skills from being shown
@@ -266,7 +266,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			dat += "<tr>"
 			dat += "<td style='width:16%;text-align:left;vertical-align: text-top'>"
 			if(intellectual && (!obscured_name || H.client?.prefs.masked_examine))
-				dat += "<b>STATS:</b><br><br>"
+				dat += "<b>ХАРАКТЕРИСТИКИ:</b><br><br>"
 				if(!is_guarded)
 					dat +=("STR: \Roman [H.STASTR]<br>")
 					dat +=("PER: \Roman [H.STAPER]<br>")
@@ -282,7 +282,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 					dat +=("END: \Roman [rand(1,20)]<br>")
 					dat +=("SPD: \Roman [rand(1,20)]<br>")
 				if(is_guarded || job == "Jester")
-					dat += "Something feels off..."
+					dat += "Что-то тут не так..."
 				dat += "</td>"
 			else
 				dat += "</td>"
@@ -411,7 +411,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 						coverage_exposed.Remove(READABLE_ZONE_MOUTH, READABLE_ZONE_EYES, READABLE_ZONE_NOSE)
 
 			if(!is_stupid)
-				dat += "<b><center>BODY:</center></b><br>"
+				dat += "<b><center>ТЕЛО:</center></b><br>"
 			if(length(coverage))
 				var/str
 				if(!is_smart && !is_normal)	//We get a significantly simplified printout if we don't have the stats / trait
@@ -422,19 +422,19 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 					if(is_normal || is_smart)
 						if(length(coverage_exposed))
 							for(var/exposed in coverage_exposed)
-								str += "<b>[exposed]</b>: <font color = '#770404'><b>EXPOSED!</B></font><br>"
+								str += "<b>[exposed]</b>: <font color = '#770404'><b>НЕ ЗАЩИЩЕНО!</B></font><br>"
 					for(var/thing in coverage)
-						str += "<b>[thing]</b> LAYERS: <b>[coverage[thing]]</b> | [colorgrade_rating("", blunt_max[thing], TRUE)] | [colorgrade_rating("", slash_max[thing], TRUE)] | [colorgrade_rating("", stab_max[thing], TRUE)] | [colorgrade_rating("", piercing_max[thing], TRUE)] <br><font color = '#a35252'>[crit_weakness[thing]]</font><br>"
+						str += "<b>[thing]</b> СЛОЁВ: <b>[coverage[thing]]</b> | [colorgrade_rating("", blunt_max[thing], TRUE)] | [colorgrade_rating("", slash_max[thing], TRUE)] | [colorgrade_rating("", stab_max[thing], TRUE)] | [colorgrade_rating("", piercing_max[thing], TRUE)] <br><font color = '#a35252'>[crit_weakness[thing]]</font><br>"
 					dat += str
 				else
-					dat += "<b><center>I don't know! Just hit them!</center></b>"
+					dat += "<b><center>Я не знаю! Просто бей его!</center></b>"
 			else
-				dat += "<b><center>They're wearing nothing.</center></b>"
+				dat += "<b><center>На нём ничего нет.</center></b>"
 			dat += "</td>"
 
 			dat += "<td style='width:40%;text-align:center;vertical-align: text-top'>"
 			if(!is_guarded && !is_stupid && (!obscured_name || H.client?.prefs.masked_examine))	//We don't see Guarded people's skills at all.
-				dat += "<b>SKILLS:</b><br><br>"
+				dat += "<b>НАВЫКИ:</b><br><br>"
 				var/list/wornstuff = list(H.backr, H.backl, H.beltl, H.beltr)
 				if(!is_normal && !is_smart)	//At minimum we get to see the skills of the weapons the person is holding, if we have them.
 					for(var/stuff in wornstuff)
@@ -483,7 +483,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			popup.set_content(dat.Join())
 			popup.open(FALSE)
 		else
-			user.visible_message("[user] fails to assess [src]!")
+			user.visible_message("[user] не удаётся оценить [src]!")
 		return
 	return ..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that. - I made it worse sorry guys.
 
@@ -588,28 +588,28 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 /proc/skilldiff_report(var/input)
 	switch (input)
 		if(-6)
-			return "<font color = '#ff4ad2'>I know nothing. They -- everything</font>"
+			return "<font color = '#ff4ad2'>Я ничего не знаю. Он — всё</font>"
 		if(-5)
-			return "<font color = '#eb0000'><i>I stand no chance against them</i></font>"
+			return "<font color = '#eb0000'><i>У меня нет против него ни шанса</i></font>"
 		if(-4)
-			return "<font color = '#c53c3c'><i>I am inferior</i></font>"
+			return "<font color = '#c53c3c'><i>Я уступаю</i></font>"
 		if(-3)
-			return "<font color = '#db8484'><i>I am notably worse</i></font>"
+			return "<font color = '#db8484'><i>Я заметно хуже</i></font>"
 		if(-2)
-			return "<font color = '#e4a1a1'><i>I am worse</i></font>"
+			return "<font color = '#e4a1a1'><i>Я хуже</i></font>"
 		if(-1)
-			return "<font color = '#f8d3d3'><i>I am slightly worse</i></font>"
+			return "<font color = '#f8d3d3'><i>Я слегка хуже</i></font>"
 		if(0)
-			return "We are equal"
+			return "Мы равны"
 		if(1)
-			return "<font color = '#3f6343'>I am slightly better</font>"
+			return "<font color = '#3f6343'>Я слегка лучше</font>"
 		if(2)
-			return "<font color = '#49944f'>I am better</font>"
+			return "<font color = '#49944f'>Я лучше</font>"
 		if(3)
-			return "<font color = '#44db51'>I am notably better</font>"
+			return "<font color = '#44db51'>Я заметно лучше</font>"
 		if(4)
-			return"<font color = '#62b4be'>I am superior</font>"
+			return"<font color = '#62b4be'>Я превосхожу</font>"
 		if(5)
-			return "<font color = '#2bdcfc'>They have no chance in this field</font>"
+			return "<font color = '#2bdcfc'>У него нет шансов в этом деле</font>"
 		if(6)
-			return "<font color = '#ff4ad2'>They know nothing. A whelp</font>"
+			return "<font color = '#ff4ad2'>Он ничего не знает. Щенок</font>"

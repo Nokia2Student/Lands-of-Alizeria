@@ -6,7 +6,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 // more... RPG-like.
 
 /obj/item
-	name = "item"
+	name = "предмет"
 	icon = 'icons/obj/items_and_weapons.dmi'
 	///icon state name for inhanf overlays
 	var/item_state = null
@@ -240,7 +240,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
-	
+
 	/// Angle of the icon, these are used for attack animations.
 	var/icon_angle = 50 // most of our icons are angled
 
@@ -258,7 +258,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(!pixel_x && !pixel_y && !bigboy)
 		pixel_x = rand(-5,5)
 		pixel_y = rand(-5,5)
-		
+
 	if(twohands_required)
 		has_inspect_verb = TRUE
 
@@ -445,64 +445,64 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(href_list["inspect"])
 		if(!usr.canUseTopic(src, be_close=TRUE))
 			return
-		var/list/inspec = list(span_notice("Properties of [src.name]"))
+		var/list/inspec = list(span_notice("Свойства [src.name]"))
 		if(minstr)
-			inspec += "\n<b>MIN.STR:</b> [minstr]"
+			inspec += "\n<b>МИН.СИЛА:</b> [minstr]"
 
 		if(force)
-			inspec += "\n<b>FORCE:</b> [get_force_string(force)]"
+			inspec += "\n<b>УРОН:</b> [get_force_string(force)]"
 		if(gripped_intents && !wielded)
 			if(force_wielded)
-				inspec += "\n<b>WIELDED FORCE:</b> [get_force_string(force_wielded)]"
+				inspec += "\n<b>УРОН ДВУМЯ РУКАМИ:</b> [get_force_string(force_wielded)]"
 
 		if(wbalance)
-			inspec += "\n<b>BALANCE: </b>"
+			inspec += "\n<b>БАЛАНС: </b>"
 			if(wbalance == WBALANCE_HEAVY)
-				inspec += "Heavy"
+				inspec += "Тяжёлый"
 			if(wbalance == WBALANCE_SWIFT)
-				inspec += "Swift"
+				inspec += "Быстрый"
 
 		if(wlength != WLENGTH_NORMAL)
-			inspec += "\n<b>LENGTH:</b> "
+			inspec += "\n<b>ДЛИНА:</b> "
 			switch(wlength)
 				if(WLENGTH_SHORT)
-					inspec += "Short"
+					inspec += "Короткое"
 				if(WLENGTH_LONG)
-					inspec += "Long"
+					inspec += "Длинное"
 				if(WLENGTH_GREAT)
-					inspec += "Great"
+					inspec += "Огромное"
 
 		if(alt_intents)
-			inspec += "\n<b>ALT-GRIP (RIGHT CLICK WHILE IN HAND)</b>"
+			inspec += "\n<b>АЛЬТ-ХВАТ (ПКМ В РУКЕ)</b>"
 
 		var/shafttext = get_blade_dulling_text(src, verbose = TRUE)
 		if(shafttext)
-			inspec += "\n<b>SHAFT:</b> [shafttext]"
+			inspec += "\n<b>РУКОЯТЬ:</b> [shafttext]"
 
 		if(gripped_intents)
-			inspec += "\n<b>TWO-HANDED</b>"
+			inspec += "\n<b>ДВУРУЧНОЕ</b>"
 
 		if(twohands_required)
-			inspec += "\n<b>BULKY</b>"
+			inspec += "\n<b>ГРОМОЗДКОЕ</b>"
 
 		if(can_parry)
-			inspec += "\n<b>DEFENSE:</b> [wdefense_dynamic]"
+			inspec += "\n<b>ЗАЩИТА:</b> [wdefense_dynamic]"
 
 		if(max_blade_int)
-			inspec += "\n<b>SHARPNESS:</b> "
+			inspec += "\n<b>ОСТРОТА:</b> "
 			var/percent = round(((blade_int / max_blade_int) * 100), 1)
 			inspec += "[percent]% ([blade_int])"
 
 		if(associated_skill && associated_skill.name)
-			inspec += "\n<b>SKILL:</b> [associated_skill.name]"
+			inspec += "\n<b>НАВЫК:</b> [associated_skill.name]"
 
 		if(istype(src, /obj/item/rogueweapon))
 			var/obj/item/rogueweapon/W = src
 			if(W.special)
 				inspec += "[W.special.get_examine()]"
-		
+
 		if(intdamage_factor != 1 && force >= 5)
-			inspec += "\n<b>INTEGRITY DAMAGE:</b> [intdamage_factor * 100]%"
+			inspec += "\n<b>ИЗНОС ПРИ УДАРЕ:</b> [intdamage_factor * 100]%"
 
 //**** CLOTHING STUFF
 
@@ -511,9 +511,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 			inspec += "<br>"
 			inspec += C.defense_examine()
 			inspec += "<table align='center'; width='100%'; height='100%';border: 1px solid white;border-collapse: collapse><tr style='vertical-align:top'><td width = 35%>"
-			inspec += "<b>COVERAGE: <br></b>"
+			inspec += "<b>ПОКРЫТИЕ: <br></b>"
 			if(!C.body_parts_covered)
-				inspec += "<b>NONE!</b>"
+				inspec += "<b>НЕТ!</b>"
 			if(C.body_parts_covered == C.body_parts_covered_dynamic)
 				var/count = 1
 				var/list/zonelist = body_parts_covered2organ_names(C.body_parts_covered)
@@ -554,9 +554,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 					count++
 			inspec += "<br>"
 			inspec += "</td>"
-			inspec += "<td width = 60%><b>PREVENTS CRITS:</b><br>"
+			inspec += "<td width = 60%><b>ПРЕДОТВРАЩАЕТ КРИТЫ:</b><br>"
 			if(!length(C.prevent_crits))
-				inspec += "\n<b>NONE!</b>"
+				inspec += "\n<b>НЕТ!</b>"
 			var/count = 1
 			for(var/X in C.prevent_crits)
 				if(X == BCLASS_PICK)	//BCLASS_PICK is named "stab", and "stabbing" is its own damage class. Prevents confusion.
@@ -571,7 +571,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 			inspec += "<br></td>"
 			inspec += "</tr></table>"
 			if(C.body_parts_inherent)
-				inspec += "<b>CANNOT BE PEELED: </b>"
+				inspec += "<b>НЕЛЬЗЯ ОБНАЖИТЬ: </b>"
 				var/peelcolor = "#77cde2"
 				var/list/inherentList = body_parts_covered2organ_names(C.body_parts_inherent)
 				if(length(inherentList) == 1)
@@ -584,7 +584,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 //**** General durability
 
 		if(max_integrity)
-			inspec += "\n<b>DURABILITY:</b> "
+			inspec += "\n<b>ПРОЧНОСТЬ:</b> "
 			var/eff_maxint = max_integrity - (max_integrity * integrity_failure)
 			var/eff_currint = max(obj_integrity - (max_integrity * integrity_failure), 0)
 			var/ratio =	(eff_currint / eff_maxint)
@@ -597,14 +597,14 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 			var/str
 			switch(C.armor_class)
 				if(ARMOR_CLASS_NONE)
-					str = "None"
+					str = "Нет"
 				if(ARMOR_CLASS_LIGHT)
-					str = "Light"
+					str = "Лёгкая"
 				if(ARMOR_CLASS_MEDIUM)
-					str = "Medium"
+					str = "Средняя"
 				if(ARMOR_CLASS_HEAVY)
-					str = "Heavy"
-			inspec += "\n<b>ARMOR CLASS:</b> [str]"
+					str = "Тяжёлая"
+			inspec += "\n<b>КЛАСС БРОНИ:</b> [str]"
 
 		var/output = inspec.Join()
 		if(!usr.client.prefs.no_examine_blocks)
@@ -639,14 +639,14 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	if(twohands_required)
 		if(user.get_num_arms() < 2)
-			to_chat(user, span_warning("[src] is too bulky to carry in one hand!"))
+			to_chat(user, span_warning("[src] слишком громоздкое, чтобы нести в одной руке!"))
 			return
 		var/obj/item/twohanded/required/H
 		H = user.get_inactive_held_item()
 		if(get_dist(src,user) > 1)
 			return
 		if(H != null)
-			to_chat(user, span_warning("[src] is too bulky to carry in one hand!"))
+			to_chat(user, span_warning("[src] слишком громоздкое, чтобы нести в одной руке!"))
 			return
 
 	if(w_class == WEIGHT_CLASS_GIGANTIC)
@@ -664,9 +664,9 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 		if(can_handle_hot)
 			extinguish()
-			user.visible_message(span_warning("[user] puts out the fire on [src]."))
+			user.visible_message(span_warning("[user] тушит огонь на [src]."))
 		else
-			user.visible_message(span_warning("[user] burns [user.p_their()] hand putting out the fire on [src]!"))
+			user.visible_message(span_warning("[user] обжигает руку, туша огонь на [src]!"))
 			extinguish()
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
@@ -677,7 +677,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		var/mob/living/carbon/C = user
 		if(istype(C))
 			if(!C.gloves || (!(C.gloves.resistance_flags & (UNACIDABLE|ACID_PROOF))))
-				to_chat(user, span_warning("The acid on [src] burns my hand!"))
+				to_chat(user, span_warning("Кислота на [src] обжигает руку!"))
 				var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					C.update_damage_overlays()
@@ -689,7 +689,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,span_notice("I start picking up [src]..."))
+		to_chat(user,span_notice("Начинаю поднимать [src]..."))
 		if(!do_mob(user,src,30*grav_power))
 			return
 
@@ -752,10 +752,10 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 // afterattack() and attack() prototypes moved to _onclick/item_attack.dm for consistency
 
-/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
-		owner.visible_message(span_danger("[owner] blocks [attack_text] with [src]!"))
+		owner.visible_message(span_danger("[owner] блокирует [attack_text] с помощью [src]!"))
 		return 1
 	return 0
 
@@ -868,7 +868,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(V_lord?.generation >= GENERATION_METHUSELAH)
 			return
 
-		to_chat(M, span_userdanger("I can't pick up the silver, it is my BANE!"))
+		to_chat(M, span_userdanger("Я не могу взять серебро, это моя ПОГИБЕЛЬ!"))
 		M.Knockdown(10)
 		M.Paralyze(10)
 		M.adjustFireLoss(25)
@@ -879,12 +879,12 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	//	user.add_stress(/datum/stressevent/blessed_weapon)
 	if(twohands_required)
 		if(!disable_warning)
-			to_chat(M, span_warning("[src] is too bulky to carry with anything but my hands!"))
+			to_chat(M, span_warning("[src] слишком громоздкое, чтобы нести что-то ещё в руках!"))
 		return 0
 	if(!M)
 		return FALSE
 	if(HAS_TRAIT(M, TRAIT_CHUNKYFINGERS) && (!equipper || equipper == M) && src.type != /obj/item/grabbing/bite) //If a zombie's trying to put something on without assistance that's not a bite
-		to_chat(M, span_warning("...What?"))
+		to_chat(M, span_warning("...Что?"))
 		return FALSE
 
 	return M.can_equip(src, slot, disable_warning, bypass_equip_delay_self)
@@ -892,7 +892,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
 	set hidden = 1
-	set name = "Pick up"
+	set name = "Подобрать"
 
 	if(usr.incapacitated() || !Adjacent(usr))
 		return
@@ -925,11 +925,11 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	if(M.is_eyes_covered())
 		// you can't stab someone in the eyes wearing a mask!
-		to_chat(user, span_warning("You're going to need to remove [M.p_their()] eye protection first!"))
+		to_chat(user, span_warning("Сначала нужно снять [M.p_their()] защиту глаз!"))
 		return
 
 	if(isbrain(M))
-		to_chat(user, span_warning("I cannot locate any organic eyes on this brain!"))
+		to_chat(user, span_warning("Не могу найти глаза у этого мозга!"))
 		return
 
 	src.add_fingerprint(user)
@@ -939,12 +939,12 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	user.do_attack_animation(M)
 
 	if(M != user)
-		M.visible_message(span_danger("[user] has stabbed [M] in the eye with [src]!"), \
-							span_danger("[user] stabs you in the eye with [src]!"))
+		M.visible_message(span_danger("[user] ударил [M] в глаз [src]!"), \
+							span_danger("[user] бьёт тебя в глаз [src]!"))
 	else
 		user.visible_message( \
-			span_danger("[user] has stabbed [user.p_them()]self in the eyes with [src]!"), \
-			span_danger("I stab myself in the eyes with [src]!") \
+			span_danger("[user] ударил [user.p_them()] себя в глаз [src]!"), \
+			span_danger("Я ударил себя в глаз [src]!") \
 		)
 	if(is_human_victim)
 		var/mob/living/carbon/human/U = M
@@ -965,20 +965,20 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(eyes.damage >= 10)
 		M.adjust_blurriness(15)
 		if(M.stat != DEAD)
-			to_chat(M, span_danger("My eyes start to bleed profusely!"))
+			to_chat(M, span_danger("Мои глаза начинают сильно кровоточить!"))
 		if(!(HAS_TRAIT(M, TRAIT_BLIND) || HAS_TRAIT(M, TRAIT_NEARSIGHT)))
-			to_chat(M, span_danger("I become nearsighted!"))
+			to_chat(M, span_danger("Я стал близорук!"))
 		M.become_nearsighted(EYE_DAMAGE)
 		if(prob(50))
 			if(M.stat != DEAD)
 				if(M.drop_all_held_items())
-					to_chat(M, span_danger("I drop what I'm holding and clutch at my eyes!"))
+					to_chat(M, span_danger("Я роняю то, что держал, и хватаюсь за глаза!"))
 			M.adjust_blurriness(10)
 			M.Unconscious(20)
 			M.Paralyze(40)
 		if (prob(eyes.damage - 10 + 1))
 			M.become_blind(EYE_DAMAGE)
-			to_chat(M, span_danger("I go blind!"))
+			to_chat(M, span_danger("Я слепну!"))
 
 /obj/item/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(hit_atom && !QDELETED(hit_atom))
@@ -1122,7 +1122,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = "<span class='notice'>[user] lights [A] with [src].</span>"
+		. = "<span class='notice'>[user] поджигает [A] с помощью [src].</span>"
 	else
 		. = ""
 
@@ -1141,7 +1141,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(w_class == WEIGHT_CLASS_HUGE || w_class == WEIGHT_CLASS_GIGANTIC)
 			ash_type = /obj/item/ash
 		var/obj/item/ash/A = new ash_type(T)
-		A.desc += "\nLooks like this used to be \an [name] some time ago."
+		A.desc += "\nПохоже, когда-то это было [name]."
 		..()
 
 /obj/item/acid_melt()
@@ -1170,19 +1170,19 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/proc/get_force_string(var/force)
 	switch(force)
 		if(0 to 9)
-			return "Puny"
+			return "Крошечный"
 		if(10 to 14)
-			return "Weak"
+			return "Слабый"
 		if(15 to 19)
-			return "Modest"
+			return "Средний"
 		if(20 to 24)
-			return "Fine"
+			return "Хороший"
 		if(25 to 29)
-			return "Great"
+			return "Отличный"
 		if(30 to 35)
-			return "Grand"
+			return "Грандиозный"
 		else
-			return "Mighty"
+			return "Могучий"
 
 /obj/item/MouseEntered(location, control, params)
 	. = ..()
@@ -1303,7 +1303,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(!wielded)
 			return
 		if(show_message)
-			to_chat(user, span_notice("I drop [src]."))
+			to_chat(user, span_notice("Я бросаю [src]."))
 		show_message = FALSE
 	if(wielded)
 		wielded = FALSE
@@ -1318,7 +1318,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	else
 		user.update_inv_hands()
 	if(show_message)
-		to_chat(user, "<span class='notice'>I wield [src] normally.</span>")
+		to_chat(user, "<span class='notice'>Я держу [src] как обычно.</span>")
 	if(user.get_active_held_item() == src)
 		user.update_a_intents()
 	icon_angle = initial(icon_angle)
@@ -1329,7 +1329,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		return
 	altgripped = TRUE
 	update_transform()
-	to_chat(user, span_notice("I wield [src] with an alternate grip"))
+	to_chat(user, span_notice("Я беру [src] обратным хватом"))
 	if(user.get_active_held_item() == src)
 		if(alt_intents)
 			user.update_a_intents()
@@ -1338,13 +1338,13 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(wielded)
 		return
 	if(user.get_inactive_held_item())
-		to_chat(user, span_warning("I need a free hand first."))
+		to_chat(user, span_warning("Сначала нужно освободить вторую руку."))
 		return
 	if(user.get_num_arms() < 2)
-		to_chat(user, span_warning("I don't have enough hands."))
+		to_chat(user, span_warning("У меня недостаточно рук."))
 		return
 	if (obj_broken)
-		to_chat(user, span_warning("It's completely broken."))
+		to_chat(user, span_warning("Оно полностью сломано."))
 		return
 	wielded = TRUE
 	if(force_wielded)
@@ -1352,7 +1352,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	wdefense_dynamic = (wdefense + wdefense_wbonus)
 	update_transform()
 	if(show_message)
-		to_chat(user, span_notice("I wield [src] with both hands."))
+		to_chat(user, span_notice("Я беру [src] двумя руками."))
 	if(!wieldsound)
 		playsound(loc, pick('sound/combat/weaponr1.ogg','sound/combat/weaponr2.ogg'), 100, TRUE)
 	if(twohands_required)
@@ -1388,15 +1388,15 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(istype(src, /obj/item/clothing))
 		var/obj/item/clothing/C = src
 		if(C.armor)
-			var/defense = "<u><b>ABSORPTION: </b></u><br>"
+			var/defense = "<u><b>ПОГЛОЩЕНИЕ УРОНА: </b></u><br>"
 			var/datum/armor/def_armor = C.armor
-			defense += "[colorgrade_rating("BLUNT", def_armor.blunt, elaborate = TRUE)] | "
-			defense += "[colorgrade_rating("SLASH", def_armor.slash, elaborate = TRUE)] | "
-			defense += "[colorgrade_rating("STAB", def_armor.stab, elaborate = TRUE)] | "
-			defense += "[colorgrade_rating("PIERCING", def_armor.piercing, elaborate = TRUE)] "
+			defense += "[colorgrade_rating("ДРОБЯЩИЙ", def_armor.blunt, elaborate = TRUE)] | "
+			defense += "[colorgrade_rating("РЕЖУЩИЙ", def_armor.slash, elaborate = TRUE)] | "
+			defense += "[colorgrade_rating("КОЛЮЩИЙ", def_armor.stab, elaborate = TRUE)] | "
+			defense += "[colorgrade_rating("ПРОНЗАЮЩИЙ", def_armor.piercing, elaborate = TRUE)] "
 			str += "[defense]<br>"
 		else
-			str += "NO DEFENSE"
+			str += "НЕТ ЗАЩИТЫ"
 	return str
 
 /obj/item/obj_break(damage_flag)
@@ -1410,7 +1410,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(altgripped || wielded)
 		ungrip(M, FALSE)
 
-	to_chat(M, "\The [src] BREAKS...!")
+	to_chat(M, "\The [src] ЛОМАЕТСЯ...!")
 
 /obj/item/obj_fix()
 	..()
@@ -1455,7 +1455,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/coveragezone = attackzone2coveragezone(bodypart)
 	if((body_parts_inherent & coveragezone))
 		playsound(src, 'sound/combat/failpeel.ogg', 100, TRUE)
-		visible_message(span_warning("Peel struck an area too thick!"))
+		visible_message(span_warning("Peel задел слишком прочное место!"))
 		last_peeled_limb = coveragezone
 		reset_peel()
 		return
@@ -1463,7 +1463,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		var/peel_goal = peel_threshold
 		if(divisor > peel_goal)
 			peel_goal = divisor
-			
+
 		var/list/peeledpart = body_parts_covered2organ_names(coveragezone, precise = TRUE)
 
 		if(peel_count < peel_goal)
@@ -1475,21 +1475,21 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 			var/parttext
 			if(length(peeledpart))
 				parttext = peeledpart[1]	//There should really only be one bodypart that gets exposed here.
-			visible_message("<font color = '#f5f5f5'><b>[parttext ? parttext : "Coverage"]</font></b> gets peeled off of [src]!")
-			var/balloon_msg = "<font color = '#bb1111'>[parttext] peeled!</font>"
+			visible_message("<font color = '#f5f5f5'><b>[parttext ? parttext : "Покрытие"]</font></b> содрано с [src]!")
+			var/balloon_msg = "<font color = '#bb1111'>[parttext] обнажено!</font>"
 			if(length(peeledpart))
 				balloon_alert_to_viewers(balloon_msg, balloon_msg, DEFAULT_MESSAGE_RANGE)
 			reset_peel(success = TRUE)
 		else
 			if(owner)
-				owner.visible_message(span_info("Peel strikes [src]! <b>[ROUND_UP(peel_count)]</b>!"))
+				owner.visible_message(span_info("Peel задевает [src]! <b>[ROUND_UP(peel_count)]</b>!"))
 			var/balloon_msg = "Peel! \Roman[ROUND_UP(peel_count)] <br><font color = '#8b7330'>[peeledpart[1]]!</font>"
 			var/has_guarded = HAS_TRAIT(owner, TRAIT_DECEIVING_MEEKNESS)
 			if(length(peeledpart) && !has_guarded)
 				filtered_balloon_alert(TRAIT_COMBAT_AWARE, balloon_msg)
 			else if(length(peeledpart) && has_guarded)
 				if(prob(10))
-					balloon_msg = "<i>Guarded...</i>"
+					balloon_msg = "<i>Защищено...</i>"
 					filtered_balloon_alert(TRAIT_COMBAT_AWARE, balloon_msg)
 
 /obj/item/proc/repair_coverage()
@@ -1498,7 +1498,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 /obj/item/proc/reset_peel(success = FALSE)
 	if(peel_count > 0 && !success)
-		visible_message(span_info("Peel count lost on [src]!"))
+		visible_message(span_info("Peel сброшен с [src]!"))
 	peel_count = 0
 
 /obj/item/proc/reduce_peel(amt)
@@ -1506,7 +1506,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		peel_count -= amt
 	else
 		peel_count = 0
-	visible_message(span_info("Peel reduced to [peel_count == 0 ? "none" : "[peel_count]"] on [src]!"))
+	visible_message(span_info("Peel уменьшен до [peel_count == 0 ? "нет" : "[peel_count]"] на [src]!"))
 
 /proc/attackzone2coveragezone(location)
 	switch(location)
@@ -1554,7 +1554,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/examine(mob/user)
 	. = ..()
 	if(item_flags & GIANT_WEAPON)
-		. += span_warning("This weapon is designed for giants. Those without giant strength will require double the normal strength to wield it effectively.")
+		. += span_warning("Это оружие предназначено для гигантов. Обычным людям потребуется удвоенная сила, чтобы эффективно им пользоваться.")
 	if(isliving(user))
 		var/mob/living/L = user
 		if(L.STAINT < 9)
@@ -1562,12 +1562,12 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(isnull(anvilrepair) && isnull(sewrepair))
 		return .
 	else
-		var/str = "This object can be repaired using "
+		var/str = "Этот предмет можно починить с помощью "
 		if(anvilrepair)
 			var/datum/skill/S = anvilrepair		//Should only ever be a skill or null
-			str += "<b>[initial(S.name)]</b> and a hammer."
+			str += "<b>[initial(S.name)]</b> и молота."
 		if(sewrepair)
-			str += "<b>Sewing</b> and a needle."
+			str += "<b>Шитья</b> и иглы."
 		str = span_info(str)
 		. += str
 

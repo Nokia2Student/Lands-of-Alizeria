@@ -16,12 +16,12 @@
 	var/current_cat = "1"
 	var/lockid = "nightman"
 	var/list/categories = list(
-		"Alcohols",
-		"Drugs",
-		"Exotic Apparel",
-		"Instruments",
-		"Perfumes",
-		"Roguery",
+		"Алкоголь",
+		"Наркотики",
+		"Экзотическая одежда",
+		"Инструменты",
+		"Парфюмы",
+		"Воровские принадлежности",
 		)
 
 /obj/structure/roguemachine/bathvend/Initialize()

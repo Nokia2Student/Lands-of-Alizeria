@@ -213,7 +213,7 @@
 	if(user.mind?.assigned_role == "Priest" && isitem(target) && user.used_intent?.type == /datum/intent/bless)
 		var/datum/component/silverbless/CP = target.GetComponent(/datum/component/silverbless)
 		if(!CP)
-			to_chat(user, span_info("\The [target] не может быть благословлён"))
+			to_chat(user, span_info(" [target] не может быть благословлён"))
 			return
 		else if(!CP.is_blessed && (CP.silver_type & SILVER_TENNITE))
 			playsound(user, 'sound/magic/censercharging.ogg', 100)

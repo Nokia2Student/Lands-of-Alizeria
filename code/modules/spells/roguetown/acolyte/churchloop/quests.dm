@@ -404,8 +404,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 // ---------------------------------------------------------------------
 
 /obj/item/quest_token
-	name = "quest token"
-	desc = "A token tied to a task. Report to local admin if you see this to get ERP token"
+	name = "жетон задания"
+	desc = "Жетон, привязанный к задаче. Сообщите администратору, если увидите это"
 	icon = 'icons/roguetown/items/misc.dmi'
 	w_class = WEIGHT_CLASS_TINY
 
@@ -431,7 +431,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 			owner_name = M.name || owner_ckey
 
 	if(!length(owner_name))
-		owner_name = "unknown"
+		owner_name = "неизвестный"
 
 	delete_at = world.time + (3 * 60 * 10)
 	addtimer(CALLBACK(src, PROC_REF(_maybe_qdel_self)), 10, TIMER_LOOP)
@@ -484,10 +484,10 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		if(HH.client.ckey == owner_ckey)
 			HH.church_favor += amount
-			to_chat(HH, span_notice("+[amount] Favor for completing a miracle quest."))
+			to_chat(HH, span_notice("+[amount] Милости за выполнение чудесного задания."))
 		else
 			HH.church_favor += half_bonus
-			to_chat(HH, span_notice("+[half_bonus] shared Favor for a completed miracle quest."))
+			to_chat(HH, span_notice("+[half_bonus] общей Милости за выполненное чудесное задание."))
 
 /obj/item/quest_token/proc/_ensure_attacker(user)
 	if(!user || !ismob(user)) return FALSE
@@ -499,27 +499,27 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 		u_ckey = ckey(M.key)
 
 	if(u_ckey != owner_ckey)
-		to_chat(user, span_warning("It does not heed your hand. (Owner: [owner_name].)"))
+		to_chat(user, span_warning("Оно не слушается вашей руки. (Владелец: [owner_name].)"))
 		return FALSE
 
 	if(!HAS_TRAIT(M, TRAIT_CLERGY))
-		to_chat(user, span_warning("Only clergy may invoke this."))
+		to_chat(user, span_warning("Только духовенство может использовать это."))
 		return FALSE
 
 	return TRUE
 
 /obj/item/quest_token/proc/_ensure_target_player(H, user)
 	if(!istype(H, /mob/living/carbon/human))
-		to_chat(user, span_warning("Target must be a person."))
+		to_chat(user, span_warning("Цель должна быть человеком."))
 		return FALSE
 
 	var/mob/living/carbon/human/HH = H
 	if(!HH.client)
-		to_chat(user, span_warning("Target must be a player."))
+		to_chat(user, span_warning("Цель должна быть игроком."))
 		return FALSE
 
 	if(HAS_TRAIT(HH, TRAIT_CLERGY))
-		to_chat(user, span_warning("Clergy cannot be targeted."))
+		to_chat(user, span_warning("Духовенство не может быть целью."))
 		return FALSE
 
 	return TRUE
@@ -531,8 +531,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 /*
 /obj/item/quest_token/antag_find
-	name = "insight sigil"
-	desc = "Gather forbidden knowledge from the enemy."
+	name = "сигил прозрения"
+	desc = "Соберите запретное знание с врага."
 	icon_state = "questflaw"
 	var/list/allowed_tiers = list()
 
@@ -544,11 +544,11 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_target_player(H, user)) return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(allowed_tiers) || !allowed_tiers.len)
-		to_chat(user, span_warning("This sigil is misconfigured."))
+		to_chat(user, span_warning("Этот сигил неверно настроен."))
 		return
 
 	if(!do_after(user, 15 SECONDS, H)) return
@@ -558,18 +558,18 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	_apply_quest_lock(H)
 
 	if(tier && (tier in allowed_tiers))
-		to_chat(user, span_notice("Hidden malice is revealed. You have completed the research."))
+		to_chat(user, span_notice("Скрытая злоба раскрыта. Вы завершили исследование."))
 		_payout(reward_amount)
 	else
-		to_chat(user, span_notice("No forbidden taint of that caliber is found. The sigil is spent."))
+		to_chat(user, span_notice("Запретной скверны такого калибра не найдено. Сигил исчерпан."))
 
 	qdel(src)
 */
 
 // 2) Find Expertise
 /obj/item/quest_token/skill_bless
-	name = "mark of craft"
-	desc = "Get an opinion of an expert of specified skills."
+	name = "метка ремесла"
+	desc = "Получить мнение эксперта по указанным навыкам."
 	icon_state = "questflaw"
 	var/list/required_skills = list()
 
@@ -581,11 +581,11 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_target_player(H, user)) return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(required_skills) || !required_skills.len)
-		to_chat(user, span_warning("This token is misconfigured. (no skills set)"))
+		to_chat(user, span_warning("Этот жетон неверно настроен. (не заданы навыки)"))
 		return
 
 	var/is_ok = FALSE
@@ -595,7 +595,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 			break
 
 	if(!is_ok)
-		to_chat(user, span_warning("They are not an EXPERT of the required skills."))
+		to_chat(user, span_warning("Они не являются ЭКСПЕРТОМ требуемых навыков."))
 		return
 
 	if(!do_after(user, 15 SECONDS, H)) return
@@ -608,8 +608,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 // 3) Blood Research
 /obj/item/quest_token/blood_draw
-	name = "sanctified lancet"
-	desc = "Draw blood from certain bloodlines."
+	name = "освящённый ланцет"
+	desc = "Возьмите кровь у определённых родословных."
 	icon_state = "questblood"
 	var/list/required_race_keys = list()
 
@@ -621,11 +621,11 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_target_player(H, user)) return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(required_race_keys) || !required_race_keys.len)
-		to_chat(user, span_warning("This token is misconfigured. (no race keys set)"))
+		to_chat(user, span_warning("Этот жетон неверно настроен. (не заданы ключи расы)"))
 		return
 
 	var/matchrace = FALSE
@@ -635,7 +635,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 			break
 
 	if(!matchrace)
-		to_chat(user, span_warning("They are not of the required bloodline(s)."))
+		to_chat(user, span_warning("Они не принадлежат к требуемой(ым) родословной(ым)."))
 		return
 
 	if(!do_after(user, 15 SECONDS, H)) return
@@ -648,8 +648,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 // 4) Tithe
 /obj/item/quest_token/coin_chest
-	name = "tithe chest"
-	desc = "Feed it with mammon. When it is satisfied, it vanishes."
+	name = "сундук десятины"
+	desc = "Наполните его мамоной. Когда он насытится, он исчезнет."
 	icon_state = "questbox"
 	var/sum = 0
 	var/required_sum = 250
@@ -658,7 +658,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!I) return
 	if(!_ensure_attacker(user)) return
 	if(_has_quest_lock(user))
-		to_chat(user, span_warning("You are under the Edict and cannot perform another routine."))
+		to_chat(user, span_warning("Вы под Декретом и не можете выполнять другое рутинное задание."))
 		return
 
 	if(istype(I, /obj/item/roguecoin/aalloy)) return
@@ -669,10 +669,10 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 		sum += C.get_real_price()
 		qdel(C)
 
-		to_chat(user, span_notice("Deposited. Current tithe: [sum]."))
+		to_chat(user, span_notice("Внесено. Текущая десятина: [sum]."))
 
 		if(sum >= required_sum)
-			to_chat(user, span_notice("The chest accepts the tithe."))
+			to_chat(user, span_notice("Сундук принимает десятину."))
 			_payout(reward_amount)
 			qdel(src)
 		return
@@ -683,8 +683,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 // 5) Reliquary
 
 /obj/item/quest_token/reliquary
-	name = "sealed reliquary"
-	desc = "An ancient box sealed by divine sigils."
+	name = "запечатанный реликварий"
+	desc = "Древняя шкатулка, запечатанная божественными сигилами."
 	icon_state = "questbox"
 	w_class = WEIGHT_CLASS_NORMAL
 
@@ -716,9 +716,9 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(_patron_matches_any(H, bonus_patron_names))
-			. += "<br><span class='notice'>Divine insight: <b>[code]</b></span>"
+			. += "<br><span class='notice'>Божественное откровение: <b>[code]</b></span>"
 		else
-			. += "<br><span class='info'>Followers of [jointext(bonus_patron_names, ", ")] see the code clearly.</span>"
+			. += "<br><span class='info'>Последователи [jointext(bonus_patron_names, ", ")] видят код ясно.</span>"
 
 /obj/item/quest_token/reliquary/proc/_ensure_ui_access(mob/living/user)
 	if(!user) return FALSE
@@ -740,18 +740,18 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	var/s = left_s % 60
 	var/s2 = (s < 10) ? "0[s]" : "[s]"
 
-	var/html = "<center><b>Sealed Reliquary</b></center><hr>"
-	html += "Enter the 4-digit code to open the box.<br>"
-	html += "<b>Attempts:</b> once every <b>20 seconds</b>.<br>"
-	html += "<b>Hint:</b> <span style='color:#2ecc71'>green</span> = correct place, "
-	html += "<span style='color:#f1c40f'>yellow</span> = correct digit wrong place.<br><br>"
+	var/html = "<center><b>Запечатанный Реликварий</b></center><hr>"
+	html += "Введите 4-значный код, чтобы открыть шкатулку.<br>"
+	html += "<b>Попытки:</b> раз в <b>20 секунд</b>.<br>"
+	html += "<b>Подсказка:</b> <span style='color:#2ecc71'>зелёный</span> = правильное место, "
+	html += "<span style='color:#f1c40f'>жёлтый</span> = правильная цифра не на месте.<br><br>"
 
 	if(locked)
-		html += "<span style='color:#7f8c8d'>Next attempt in [m]:[s2]</span>"
+		html += "<span style='color:#7f8c8d'>Следующая попытка через [m]:[s2]</span>"
 	else
-		html += "<a href='?src=[REF(src)];trycode=1'>Try code</a>"
+		html += "<a href='?src=[REF(src)];trycode=1'>Попробовать код</a>"
 
-	var/datum/browser/B = new(user, "RELIQUARY_UI", "Sealed Reliquary", 360, 220)
+	var/datum/browser/B = new(user, "RELIQUARY_UI", "Запечатанный Реликварий", 360, 220)
 	B.set_content(html)
 	B.open()
 	return TRUE
@@ -763,7 +763,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_ui_access(usr)) return
 
 	if(_has_quest_lock(usr))
-		to_chat(usr, span_warning("You are under the Edict and cannot perform another routine."))
+		to_chat(usr, span_warning("Вы под Декретом и не можете выполнять другое рутинное задание."))
 		return
 
 	if(href_list["trycode"])
@@ -771,14 +771,14 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 			attack_hand(usr)
 			return
 
-		var/guess = input(usr, "Enter 4 digits (0-9).", "Reliquary") as null|text
+		var/guess = input(usr, "Введите 4 цифры (0-9).", "Реликварий") as null|text
 		if(isnull(guess))
 			attack_hand(usr)
 			return
 
 		guess = copytext(guess, 1, 5)
 		if(!_is_digit_string(guess) || length(guess) != 4)
-			to_chat(usr, span_warning("Needs exactly four digits 0-9."))
+			to_chat(usr, span_warning("Нужно ровно четыре цифры 0-9."))
 			attack_hand(usr)
 			return
 
@@ -798,12 +798,12 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 		next_attempt_ds = world.time + (20 SECONDS)
 
 		if(guess == code)
-			to_chat(usr, span_notice("The reliquary opens."))
+			to_chat(usr, span_notice("Реликварий открывается."))
 			_payout(reward_amount)
 			qdel(src)
 			return
 		else
-			to_chat(usr, "<span class='notice'>Feedback - <span style='color:#2ecc71'>green</span>: [correct_pos], <span style='color:#f1c40f'>yellow</span>: [correct_digit]</span>")
+			to_chat(usr, "<span class='notice'>Результат — <span style='color:#2ecc71'>зелёный</span>: [correct_pos], <span style='color:#f1c40f'>жёлтый</span>: [correct_digit]</span>")
 
 		attack_hand(usr)
 		return
@@ -811,8 +811,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 // 6) Deliver Ration
 /obj/item/quest_token/ration_delivery
-	name = "charity ration"
-	desc = "Deliver food and care to the designated professions."
+	name = "благотворительный паёк"
+	desc = "Доставьте еду и заботу указанным профессиям."
 	icon_state = "questration"
 	var/list/required_job_types = list()
 
@@ -824,15 +824,15 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_target_player(H, user)) return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(required_job_types) || !required_job_types.len)
-		to_chat(user, span_warning("This ration is misconfigured. (no job list set)"))
+		to_chat(user, span_warning("Этот паёк неверно настроен. (не задан список профессий)"))
 		return
 
 	if(!_mob_matches_any_job(H, required_job_types))
-		to_chat(user, span_warning("They are not in any of the required professions."))
+		to_chat(user, span_warning("Они не являются представителями ни одной из требуемых профессий."))
 		return
 
 	if(!do_after(user, 15 SECONDS, H)) return
@@ -856,8 +856,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 // 7) Offering of Supplies
 /obj/item/quest_token/donation_box
-	name = "offering coffer"
-	desc = "Accepts one designated offering."
+	name = "сундук для подношений"
+	desc = "Принимает одно заданное подношение."
 	icon_state = "questbox"
 	var/list/need_types = list()
 	var/collected = FALSE
@@ -867,25 +867,25 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_attacker(user)) return
 
 	if(_has_quest_lock(user))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run"))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти"))
 		return
 
 	for(var/T in need_types)
 		if(istype(I, T))
 			qdel(I)
 			collected = TRUE
-			to_chat(user, span_notice("The offering is accepted."))
+			to_chat(user, span_notice("Подношение принято."))
 			_payout(reward_amount)
 			qdel(src)
 			return
 
-	to_chat(user, span_warning("This is not an acceptable offering."))
+	to_chat(user, span_warning("Это неприемлемое подношение."))
 
 // 8) Minor Sermon
 
 /obj/item/quest_token/sermon_minor
-	name = "sermon token"
-	desc = "Deliver a Minor Sermon to a follower of a specific patron."
+	name = "жетон проповеди"
+	desc = "Произнесите Малую Проповедь последователю определённого покровителя."
 	icon_state = "questflaw"
 
 	var/list/required_patron_names = list()
@@ -899,7 +899,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 /obj/item/quest_token/sermon_minor/examine(mob/user)
 	. = ..()
 	if(islist(required_patron_names) && required_patron_names.len)
-		. += "<br><span class='info'>This sermon seeks a follower of: <b>[jointext(required_patron_names, ", ")]</b>.</span>"
+		. += "<br><span class='info'>Эта проповедь ищет последователя: <b>[jointext(required_patron_names, ", ")]</b>.</span>"
 
 /obj/item/quest_token/sermon_minor/attack(mob/living/target, mob/living/user)
 	if(!istype(target, /mob/living/carbon/human))
@@ -912,28 +912,28 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 		return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(required_patron_names) || !required_patron_names.len)
-		to_chat(user, span_warning("This token is misconfigured. (no patron list set)"))
+		to_chat(user, span_warning("Этот жетон неверно настроен. (не задан список покровителей)"))
 		return
 
 	if(!_patron_matches_any(H, required_patron_names))
-		to_chat(user, span_warning("They do not follow any required patron."))
+		to_chat(user, span_warning("Они не следуют ни одному из требуемых покровителей."))
 		return
 
 	user.visible_message(
-		span_notice("[user] begins a brief sermon to [H]."),
-		span_notice("I begin a brief sermon to [H].")
+		span_notice("[user] начинает краткую проповедь для [H]."),
+		span_notice("Я начинаю краткую проповедь для [H].")
 	)
 
 	if(!do_after(user, 15 SECONDS, target = H))
 		return
 
 	user.visible_message(
-		span_notice("[user] finishes the sermon for [H]."),
-		span_notice("I finish the sermon for [H].")
+		span_notice("[user] заканчивает проповедь для [H]."),
+		span_notice("Я заканчиваю проповедь для [H].")
 	)
 
 	_apply_parish_boon(H)
@@ -946,8 +946,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 // 9) Witness the Sermon (replaced with find a buff)
 
 /obj/item/quest_token/sermon_witness
-	name = "pharmacology probe"
-	desc = "Record the reaction: the target must bear an allowed effect."
+	name = "фармакологический зонд"
+	desc = "Запишите реакцию: цель должна иметь разрешённый эффект."
 	icon_state = "questflaw"
 	var/list/required_effect_types = list()
 
@@ -970,11 +970,11 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 		return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(required_effect_types) || !required_effect_types.len)
-		to_chat(user, span_warning("This token is misconfigured. (no effect list set)"))
+		to_chat(user, span_warning("Этот жетон неверно настроен. (не задан список эффектов)"))
 		return
 
 	var/matched = FALSE
@@ -985,7 +985,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 				break
 
 	if(!matched)
-		to_chat(user, span_warning("They do not bear any of the required effects."))
+		to_chat(user, span_warning("Они не имеют ни одного из требуемых эффектов."))
 		return
 
 	if(!do_after(user, 10 SECONDS, H))
@@ -999,8 +999,8 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 // 10) Researchment of Addiction
 /obj/item/quest_token/flaw_aid
-	name = "mercy charm"
-	desc = "Soothe a player bearing a listed flaw."
+	name = "амулет милосердия"
+	desc = "Успокоить игрока, имеющего указанный недостаток."
 	icon_state = "questflaw"
 	var/list/required_flaw_types = list()
 
@@ -1012,11 +1012,11 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 	if(!_ensure_target_player(H, user)) return
 
 	if(_has_quest_lock(H))
-		to_chat(user, span_warning("They’ve already answered the call - stand down and let the clock run."))
+		to_chat(user, span_warning("Они уже ответили на зов — отойдите и дайте времени идти."))
 		return
 
 	if(!islist(required_flaw_types) || !required_flaw_types.len)
-		to_chat(user, span_warning("This charm is misconfigured. (no flaw list set)"))
+		to_chat(user, span_warning("Этот амулет неверно настроен. (не задан список недостатков)"))
 		return
 
 	var/matched = FALSE
@@ -1026,7 +1026,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 			break
 
 	if(!matched)
-		to_chat(user, span_warning("Target does not bear any of the required flaws."))
+		to_chat(user, span_warning("Цель не имеет ни одного из требуемых недостатков."))
 		return
 
 	if(!do_after(user, 15 SECONDS, H)) return
@@ -1114,7 +1114,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		tithe_diffs[dn4] = list(
 			"diff"       = dn4,
-			"desc"       = "Donate at least [need_sum] mammon into the chest.",
+			"desc"       = "Пожертвуйте не менее [need_sum] мамоны в сундук.",
 			"reward"     = rew4,
 			"token_path" = /obj/item/quest_token/coin_chest,
 			"params"     = list("required_sum" = need_sum),
@@ -1142,7 +1142,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		skill_diffs[dn2] = list(
 			"diff"       = dn2,
-			"desc"       = "Bless an EXPERT of ANY of skills: [skills_desc_txt].",
+			"desc"       = "Благословите ЭКСПЕРТА ЛЮБОГО из навыков: [skills_desc_txt].",
 			"reward"     = rew2,
 			"token_path" = /obj/item/quest_token/skill_bless,
 			"params"     = list("required_skills" = picked_skills),
@@ -1174,7 +1174,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		blood_diffs[dn3] = list(
 			"diff"       = dn3,
-			"desc"       = "Take blood from ANY of: [races_desc_txt].",
+			"desc"       = "Возьмите кровь у ЛЮБОГО из: [races_desc_txt].",
 			"reward"     = rew3,
 			"token_path" = /obj/item/quest_token/blood_draw,
 			"params"     = list("required_race_keys" = picked_races),
@@ -1206,7 +1206,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		ration_diffs[dn6] = list(
 			"diff"       = dn6,
-			"desc"       = "Deliver a ration to ANY of: [jobs_desc_txt].",
+			"desc"       = "Доставьте паёк ЛЮБОМУ из: [jobs_desc_txt].",
 			"reward"     = rew6,
 			"token_path" = /obj/item/quest_token/ration_delivery,
 			"params"     = list("required_job_types" = picked_jobs),
@@ -1237,7 +1237,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		donate_diffs[dn7] = list(
 			"diff"       = dn7,
-			"desc"       = "Place ONE offering into the coffer - ANY of: [items_desc_txt].",
+			"desc"       = "Поместите ОДНО подношение в сундук — ЛЮБОЕ из: [items_desc_txt].",
 			"reward"     = rew7,
 			"token_path" = /obj/item/quest_token/donation_box,
 			"params"     = list("need_types" = picked_types),
@@ -1265,7 +1265,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		sermon_minor_diffs[dn8] = list(
 			"diff"       = dn8,
-			"desc"       = "Deliver a Minor Sermon to a follower of ANY of: [patrons_desc_txt].",
+			"desc"       = "Произнесите Малую Проповедь последователю ЛЮБОГО из: [patrons_desc_txt].",
 			"reward"     = rew8,
 			"token_path" = /obj/item/quest_token/sermon_minor,
 			"params"     = list("required_patron_names" = picked_patrons),
@@ -1293,7 +1293,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		box_diffs[dn5] = list(
 			"diff"       = dn5,
-			"desc"       = "Solve a 4-digit code (followers of [patrons_hint_txt] can see it).",
+			"desc"       = "Разгадайте 4-значный код (последователи [patrons_hint_txt] могут его видеть).",
 			"reward"     = rew5,
 			"token_path" = /obj/item/quest_token/reliquary,
 			"params"     = list("bonus_patron_names" = picked_patrons2),
@@ -1327,7 +1327,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		witness_diffs[dn9] = list(
 			"diff"       = dn9,
-			"desc"       = "Record the reaction: target must bear ANY of: [effects_desc_txt].",
+			"desc"       = "Запишите реакцию: цель должна иметь ЛЮБОЙ из: [effects_desc_txt].",
 			"reward"     = rew9,
 			"token_path" = /obj/item/quest_token/sermon_witness,
 			"params"     = list("required_effect_types" = picked),
@@ -1355,7 +1355,7 @@ var/global/list/Q_WITNESS_EFFECTS = list(
 
 		flaw_diffs[dn10] = list(
 			"diff"       = dn10,
-			"desc"       = "Soothe a player bearing ANY of: [flaws_desc_txt].",
+			"desc"       = "Успокойте игрока, имеющего ЛЮБОЙ из: [flaws_desc_txt].",
 			"reward"     = rew10,
 			"token_path" = /obj/item/quest_token/flaw_aid,
 			"params"     = list("required_flaw_types" = picked_flaws),

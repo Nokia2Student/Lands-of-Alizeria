@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/fireball/greater
-	name = "Greater Fireball"
-	desc = "Shoot out an immense ball of fire that explodes on impact."
+	name = "Великий огненный шар"
+	desc = "Выпускает огромный шар огня, который взрывается при попадании."
 	clothes_req = FALSE
 	range = 8
 	projectile_type = /obj/projectile/magic/aoe/fireball/rogue/great
@@ -24,7 +24,7 @@
 	xp_gain = TRUE
 
 /obj/projectile/magic/aoe/fireball/rogue/great
-	name = "fireball"
+	name = "огненный шар"
 	exp_heavy = 0
 	exp_light = 1
 	exp_flash = 2

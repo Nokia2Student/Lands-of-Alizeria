@@ -1,5 +1,5 @@
 /obj/item/bodypart/head
-	name = "head"
+	name = "голова"
 	desc = ""
 	icon = 'icons/mob/human_parts.dmi'
 	icon_state = "default_human_head"

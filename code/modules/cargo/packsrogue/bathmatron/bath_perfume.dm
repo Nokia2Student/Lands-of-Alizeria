@@ -5,68 +5,68 @@
 // Other server has it as random. I prefer it to not be random so people can get what they want.
 
 /datum/supply_pack/rogue/bath_perfume
-	group = "Perfumes"
+	group = "Парфюмы"
 	crate_name = "perfumery' crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
 /datum/supply_pack/rogue/bath_perfume/lavender
-	name = "Lavender Perfume"
+	name = "Лавандовый парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/lavender)
 
 /datum/supply_pack/rogue/bath_perfume/cherry
-	name = "Cherry Perfume"
+	name = "Вишнёвый парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/cherry)
 
 /datum/supply_pack/rogue/bath_perfume/rose
-	name = "Rose Perfume"
+	name = "Розовый парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/rose)
 
 /datum/supply_pack/rogue/bath_perfume/jasmine
-	name = "Jasmine Perfume"
+	name = "Жасминовый парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/jasmine)
 
 /datum/supply_pack/rogue/bath_perfume/mint
-	name = "Mint Perfume"
+	name = "Мятный парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/mint)
 
 /datum/supply_pack/rogue/bath_perfume/vanilla
-	name = "Vanilla Perfume"
+	name = "Ванильный парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/vanilla)
 
 /datum/supply_pack/rogue/bath_perfume/pear
-	name = "Pear Perfume"
+	name = "Грушевый парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/pear)
 
 /datum/supply_pack/rogue/bath_perfume/strawberry
-	name = "Strawberry Perfume"
+	name = "Клубничный парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/strawberry)
 
 /datum/supply_pack/rogue/bath_perfume/cinnamon
-	name = "Cinnamon Perfume"
+	name = "Коричный парфюм"
 	cost = CHEAP_PERFUME_PRICE
 	contains = list(/obj/item/perfume/cinnamon)
 
 // "Premium" perfumes they are more expensive by default
 // No special mechanical effects
 /datum/supply_pack/rogue/bath_perfume/frankincense
-	name = "Frankincense Perfume"
+	name = "Ладанный парфюм"
 	cost = EXPENSIVE_PERFUME_PRICE
 	contains = list(/obj/item/perfume/frankincense)
 
 /datum/supply_pack/rogue/bath_perfume/sandalwood
-	name = "Sandalwood Perfume"
+	name = "Сандаловый парфюм"
 	cost = EXPENSIVE_PERFUME_PRICE
 	contains = list(/obj/item/perfume/sandalwood)
 
 /datum/supply_pack/rogue/bath_perfume/myrrh
-	name = "Myrrh Perfume"
+	name = "Мирровый парфюм"
 	cost = EXPENSIVE_PERFUME_PRICE
 	contains = list(/obj/item/perfume/myrrh)

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/engineeranalyze
-	name = "Analyze"
-	desc = "Examine a structure's details"
+	name = "Анализ"
+	desc = "Изучить детали строения"
 	overlay_state = "analyze"
 	releasedrain = 10
 	chargedrain = 0
@@ -22,21 +22,21 @@
 	if(isstructure(targets[1]))
 		var/obj/structure/analyzedstructure = targets[1]
 		var/list/examination = list("<span class='info'>ø ------------ ø")
-		examination += "☼ ANALYZING: [capitalize(analyzedstructure.name)] "
+		examination += "☼ АНАЛИЗ: [capitalize(analyzedstructure.name)] "
 		if (length(analyzedstructure.desc) > 1)
-			examination += "☼ Description: [capitalize(analyzedstructure.desc)] "
+			examination += "☼ Описание: [capitalize(analyzedstructure.desc)] "
 		if (analyzedstructure.max_integrity == 0)
-			examination += "☼ Integrity: INDESTRUCTIBLE"
+			examination += "☼ Целостность: НЕРУШИМО"
 		else
 			healthpercent = (analyzedstructure.obj_integrity/analyzedstructure.max_integrity) * 100
-			examination += "☼ Integrity: [healthpercent]% ([analyzedstructure.obj_integrity]/[analyzedstructure.max_integrity]) "
+			examination += "☼ Целостность: [healthpercent]% ([analyzedstructure.obj_integrity]/[analyzedstructure.max_integrity]) "
 		if(analyzedstructure.redstone_structure)
 			if(analyzedstructure.redstone_attached.len > 0)
-				examination += "☼ ATTACHED STRUCTURES "
+				examination += "☼ ПРИКРЕПЛЁННЫЕ КОНСТРУКЦИИ "
 				for(var/obj/structure/attachedstructures in analyzedstructure.redstone_attached)
 					examination += "   - [attachedstructures.name] "
 			else
-				examination += "☼ NO ATTACHED STRUCTURES"
+				examination += "☼ НЕТ ПРИКРЕПЛЁННЫХ КОНСТРУКЦИЙ"
 		examination += "ø ------------ ø</span>"
 		to_chat(user, examination.Join("\n"))
 		return examination
@@ -45,14 +45,14 @@
 	if(isturf(targets[1]) && istype(targets[1], /turf/closed/wall/))
 		var/turf/closed/wall/analyzeturf = targets[1]
 		var/list/examination = list("<span class='info'>ø ------------ ø")
-		examination += "☼ ANALYZING: [capitalize(analyzeturf.name)] "
+		examination += "☼ АНАЛИЗ: [capitalize(analyzeturf.name)] "
 		if (length(analyzeturf.desc) > 1)
-			examination += "☼ Description: [capitalize(analyzeturf.desc)] "
+			examination += "☼ Описание: [capitalize(analyzeturf.desc)] "
 		if (analyzeturf.max_integrity == 0)
-			examination += "☼ Integrity: INDESTRUCTIBLE"
+			examination += "☼ Целостность: НЕРУШИМО"
 		else
 			healthpercent = (analyzeturf.turf_integrity/analyzeturf.max_integrity) * 100
-			examination += "☼ Integrity: [healthpercent]% ([analyzeturf.turf_integrity]/[analyzeturf.max_integrity]) "
+			examination += "☼ Целостность: [healthpercent]% ([analyzeturf.turf_integrity]/[analyzeturf.max_integrity]) "
 		examination += "ø ------------ ø</span>"
 		to_chat(user, examination.Join("\n"))
 		return examination
