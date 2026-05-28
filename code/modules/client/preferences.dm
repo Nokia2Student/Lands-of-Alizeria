@@ -292,7 +292,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	virtue_origin = new pref_species.origin_default
 	tail_type = /obj/item/bodypart/lamian_tail/lamian_tail
 	if(virtue_origin.uniquefaith)
-		selected_patron = GLOB.patronlist[virtue_origin.uniquefaith[1].godhead]
+		selected_patron = GLOB.patronlist[virtue_origin.uniquefaith.godhead]
 	else
 		selected_patron = /datum/patron/divine/astrata
 
@@ -1694,10 +1694,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("faith")
 					var/list/faiths_named = list()
 					if(virtue_origin.uniquefaith)
-						for(var/path as anything in virtue_origin.uniquefaith)
-							var/datum/faith/faith = GLOB.faithlist[path]
-							if(!faith.name)
-								continue
+						var/datum/faith/faith = virtue_origin.uniquefaith
+						if(faith.name)
 							faiths_named[faith.name] = faith
 					else
 						for(var/path as anything in GLOB.preference_faiths)
@@ -2326,7 +2324,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						virtue_origin = virtue_chosen
 						to_chat(user, process_virtue_text(virtue_chosen))
 						if(virtue_origin.uniquefaith)
-							selected_patron = GLOB.patronlist[virtue_origin.uniquefaith[1].godhead]
+							selected_patron = GLOB.patronlist[virtue_origin.uniquefaith.godhead]
 						else
 							selected_patron = /datum/patron/divine/astrata
 

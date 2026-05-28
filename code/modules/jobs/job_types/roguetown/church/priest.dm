@@ -86,10 +86,10 @@ GLOBAL_LIST_EMPTY(heretical_players)
 /datum/outfit/job/priest/basic/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
-	if(H.patron.parentpatron)
-		H.patron = new H.patron.parentpatron
+	H.patron = GLOB.patronlist[/datum/patron/divine/astrata]
+	head = /obj/item/clothing/head/roguetown/priestmask
 	neck = /obj/item/clothing/neck/roguetown/psicross/astrata
-	shirt = /obj/item/clothing/suit/roguetown/shirt/robe/monk
+	shirt = /obj/item/clothing/suit/roguetown/shirt/robe/priest
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/boots/jandarms/priboots
 	beltl = /obj/item/storage/keyring/priest
@@ -106,6 +106,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		/obj/item/rogueweapon/huntingknife/idagger/steel/holysee = 1,	//Unique knife from the Holy See
 		/obj/item/rogueweapon/surgery/hammer = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/book/rogue/bibble = 1,
 	)
 
 	H.cmode_music = 'sound/music/combat_holy.ogg'
@@ -118,7 +119,11 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	// Create initial devotion for Astrata
 	var/datum/devotion/C = new /datum/devotion(H, H.patron) // This creates the cleric holder used for devotion spells
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
-
+	if(H.patron?.miracles)
+		for(var/spell_type in H.patron.miracles)
+			if(H.patron.miracles[spell_type] <= CLERIC_T4)
+				var/obj/effect/proc_holder/spell/newspell = new spell_type
+				LAZYADD(C.granted_spells, newspell)
 	// Store Astrata's miracle set
 	if(H.mind)
 		H.mind.stored_miracle_sets["Astrata"] = C
@@ -183,7 +188,21 @@ GLOBAL_LIST_EMPTY(heretical_players)
 			break
 	if(!god)
 		return
-
+	var/datum/patron/old_god
+	for(var/path in GLOB.patrons_by_faith[/datum/faith/divine/standard])
+		var/datum/patron/p = GLOB.patronlist[path]
+		if(p?.name == mind.active_miracle_set)
+			old_god = p
+			break
+	if(old_god)
+		if(old_god.traits_tier)
+			for(var/trait in old_god.traits_tier)
+				REMOVE_TRAIT(src, trait, TRAIT_MIRACLE)
+		if(old_god.mob_traits)
+			for(var/trait in old_god.mob_traits)
+				REMOVE_TRAIT(src, trait, TRAIT_MIRACLE)
+		if(old_god.type == /datum/patron/divine/necra)
+			REMOVE_TRAIT(src, TRAIT_DEATHSIGHT, "devotion")
 	// Update devotion and load the selected patron's miracles
 	var/current_devotion_value = devotion ? devotion.devotion : 0
 
@@ -193,6 +212,14 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		mind.stored_miracle_sets[mind.active_miracle_set] = devotion
 
 	// Create or retrieve the new devotion set
+
+	if(mind.stored_miracle_sets[string_choice])
+		var/datum/devotion/D = mind.stored_miracle_sets[string_choice]
+		for(var/obj/effect/proc_holder/spell/S in D.granted_spells)
+	if(string_choice == "Astrata" && mind.stored_miracle_sets["Astrata"])
+		var/datum/devotion/D = mind.stored_miracle_sets["Astrata"]
+		if(!length(D.granted_spells))
+			mind.stored_miracle_sets -= "Astrata"
 	if(!mind.stored_miracle_sets[string_choice])
 		var/datum/devotion/new_devotion = new /datum/devotion(src, god)
 		// Manually configure the devotion without adding spells to mind.spell_list yet
@@ -213,6 +240,15 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 	devotion = mind.stored_miracle_sets[string_choice]
 	START_PROCESSING(SSobj, devotion)
+
+	if(god)
+		if(god.traits_tier)
+			for(var/trait in god.traits_tier)
+				if(god.traits_tier[trait] <= CLERIC_T4)
+					ADD_TRAIT(src, trait, TRAIT_MIRACLE)
+		if(god.mob_traits)
+			for(var/trait in god.mob_traits)
+				ADD_TRAIT(src, trait, TRAIT_MIRACLE)
 
 	var/static/list/always_keep_spells = list(
 		/obj/effect/proc_holder/spell/self/convertrole/templar,
