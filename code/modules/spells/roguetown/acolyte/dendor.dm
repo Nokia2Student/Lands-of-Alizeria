@@ -88,10 +88,10 @@
 
 /obj/effect/proc_holder/spell/targeted/conjure_glowshroom/cast(list/targets, mob/user = usr)
 	// Prevent wildshape forms from casting
-	if(istype(user, /mob/living/carbon/human/species/wildshape))
-		to_chat(user, span_warning("I cannot cast this in beast form!"))
+	/*if(istype(user, /mob/living/carbon/human/species/wildshape))
+		to_chat(user, span_warning("Я не могу применить это в звериной форме!"))
 		revert_cast()
-		return FALSE
+		return FALSE*/
 	. = ..()
 	var/turf/target_turf = get_step(user, user.dir)
 	var/turf/target_turf_two = get_step(target_turf, turn(user.dir, 90))

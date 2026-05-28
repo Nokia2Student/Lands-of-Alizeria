@@ -1,5 +1,3 @@
-#define FIRE_GUARD_COOLDOWN (30 SECONDS)
-
 /datum/job/roguetown/marshgen
 	title = "Marshall of Gendarmes"
 	flag = MARSHGEN
@@ -9,7 +7,7 @@
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALIZ_NOBLE_RACES_W_DWARF
-	tutorial = "Относительно недавно ты прибыл вместе с действующим наместником на этот остров, перед этим дав клятву вместе со своими людьми - защищать и оберегать корону, а также её подданых. Укоренившееся общество Ализерии было неочень радо вашему прибытию на всё готовое и какой-то момент времени вам приходилось подавлять народные волнения. Благо эти времена прошли и на улицах отныне царит относительный порядок, однако сможете ли вы его сохранить?"
+	tutorial = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?"
 	display_order = JDO_MARSHGEN
 	selection_color = JCOLOR_MERCENARY
 	always_show_on_latechoices = TRUE
@@ -42,7 +40,7 @@
 
 /datum/advclass/marshgen
 	name = "Marshall of Gendarmes"
-	tutorial = "Относительно недавно ты прибыл вместе с действующим наместником на этот остров, перед этим дав клятву вместе со своими людьми - защищать и оберегать корону, а также её подданых. Укоренившееся общество Ализерии было неочень радо вашему прибытию на всё готовое и какой-то момент времени вам приходилось подавлять народные волнения. Благо эти времена прошли и на улицах отныне царит относительный порядок, однако сможете ли вы его сохранить?"
+	tutorial = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?"
 	category_tags = list(CTAG_MARSHGEN)
 	subclass_stats = list(
 		STATKEY_STR = 2,
@@ -251,14 +249,14 @@
 
 	// Check if target is actually a Man at Arms (guard with TRAIT_GUARDSMAN)
 	if(!(target.job == "Gendarme"))
-		to_chat(src, span_warning("[target.real_name] не жандарм."))
+		to_chat(src, span_warning("[target.real_name] пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ."))
 		return FALSE
 
 	if(!HAS_TRAIT(target, TRAIT_GUARDSMAN))
 		to_chat(src, span_warning("[target.real_name] is not currently serving as a guard."))
 		return FALSE
 
-	hand_fire_guard_cooldown = world.time + FIRE_GUARD_COOLDOWN
+	hand_fire_guard_cooldown = world.time + 30 SECONDS
 
 	// Fire them - remove guard trait and change job to Towner
 	REMOVE_TRAIT(target, TRAIT_GUARDSMAN, JOB_TRAIT)
@@ -269,31 +267,31 @@
 		target.mind.assigned_role = "Towner"
 
 	to_chat(target, span_boldwarning("You have been dismissed from the guard by [real_name]!"))
-	priority_announce("Маршал уволил [inputty] из жандармерии!", title = "Dismissal", sound = 'sound/misc/bell.ogg')
+	priority_announce("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ [inputty] пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!", title = "Dismissal", sound = 'sound/misc/bell.ogg')
 
 	return TRUE
 
 //////////////////////////////////////
 
 /obj/effect/proc_holder/spell/self/convertrole/gendarme
-	name = "Завербовать жандарма"
+	name = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
 	new_role = "Gendarme"
 	overlay_state = "recruit_brother"
 	recruitment_faction = "Gendarme"
-	recruitment_message = "Защищай власть короны, %RECRUIT!"
-	accept_message = "За короля!"
-	refuse_message = "Я отказываюсь."
+	recruitment_message = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, %RECRUIT!"
+	accept_message = "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ!"
+	refuse_message = "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ."
 
 /obj/effect/proc_holder/spell/self/convertrole/gendarme/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
 	if(HAS_TRAIT(recruit, TRAIT_OUTLANDER))
-		to_chat(recruiter, span_warning("Иноземец в жандармы?... Пускай пройдёт хотя бы год обучения!"))
+		to_chat(recruiter, span_warning("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?... пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!"))
 		return FALSE
 	if(HAS_TRAIT(recruit, TRAIT_INQUISITION))
 		to_chat(recruiter, span_warning("Their loyalty is to Psydon alone! They can't join the militia!"))
 		return FALSE
 	//If you're reading this, please refactor this once we have TRAIT_CLERGY thanks
 	if(recruit.job in list("Priest", "Priestess", "Templar", "Acolyte"))
-		to_chat(recruiter, span_warning("Сильно религиозным людям не место в жандармерии."))
+		to_chat(recruiter, span_warning("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ."))
 		return FALSE
 	..()
 
@@ -306,7 +304,7 @@ GLOBAL_VAR_INIT(last_cief_announcement, -50000) // Inits variable for later, cop
 	if(stat)
 		return
 	if(!src.can_speak_vocal())
-		to_chat(src,span_warning("Я не могу говорить!"))
+		to_chat(src,span_warning("пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!"))
 		return FALSE
 	if(world.time < GLOB.last_elder_announcement + 450 SECONDS)
 		to_chat(src, span_warning("You must wait [round((GLOB.last_elder_announcement + 450 SECONDS - world.time)/600, 0.1)] minutes before making another announcement!"))

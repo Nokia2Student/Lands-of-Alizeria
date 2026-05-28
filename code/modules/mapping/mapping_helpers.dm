@@ -137,3 +137,47 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/landmark/map_load_mark/Initialize()
 	. = ..()
 	LAZYADD(SSmapping.map_load_marks,src)
+	// Проверяем, был ли уже выполнен load_marks() на сервере
+	// Если да - загружаем этот landmark сразу
+	if(SSminor_mapping.initialized)
+		load_landmark_template()
+
+/obj/effect/landmark/map_load_mark/proc/load_landmark_template()
+	if(QDELETED(src))
+		return
+
+	if(!LAZYLEN(templates))
+		log_world("SSMapping: Landmark [src] at [x],[y],[z] has no templates!")
+		return
+
+	var/picked_id = pick(templates)
+	var/datum/map_template/template = SSmapping.map_templates[picked_id]
+	if(!istype(template))
+		log_world("SSMapping: Template [picked_id] not found for landmark [src]!")
+		return
+
+	// Полностью очищаем область перед загрузкой нового шаблона
+	var/turf/start_turf = get_turf(src)
+	if(start_turf && template.width && template.height)
+		var/turf/end_turf = locate(start_turf.x + template.width - 1, start_turf.y + template.height - 1, start_turf.z)
+		if(end_turf)
+			var/list/turfs_to_clear = block(start_turf, end_turf)
+			for(var/turf/T in turfs_to_clear)
+				// Удаляем все объекты на турфе (включая структуры)
+				var/list/contents_copy = T.GetAllContents() - T
+				for(var/atom/A in contents_copy)
+					qdel(A)
+				// Очищаем сам туrf от любых объектов
+				T.empty()
+
+	log_world("SSMapping: Loading template [template.name] at [start_turf]")
+	
+	INVOKE_ASYNC(src, PROC_REF(load_template_async), template, start_turf)
+	
+/obj/effect/landmark/map_load_mark/proc/load_template_async(datum/map_template/template, turf/start_turf)
+	if(template.load(start_turf))
+		log_world("SSMapping: Successfully loaded template [template.name]")
+		LAZYREMOVE(SSmapping.map_load_marks, src)
+		qdel(src)
+	else
+		log_world("SSMapping: Failed to load template: [template.name] ([template.mappath])")

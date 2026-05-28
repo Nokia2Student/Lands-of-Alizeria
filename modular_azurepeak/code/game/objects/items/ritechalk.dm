@@ -13,8 +13,14 @@
 
 	var/ritechoices = list()
 	if(HAS_TRAIT(user, TRAIT_RITUALIST))
-		if(user.patron?.rites)
-			ritechoices += user.patron.rites
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.devotion?.patron?.rites)
+				ritechoices += H.devotion.patron.rites
+			else
+				ritechoices += H.patron?.rites
+		else
+			ritechoices += user.patron?.rites
 
 	var/list/runes_to_draw = list()
 	var/list/runes_to_draw_names = list()
