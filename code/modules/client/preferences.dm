@@ -299,6 +299,97 @@ GLOBAL_LIST_EMPTY(chosen_names)
 #define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
 #define MAX_MUTANT_ROWS 4
 
+/datum/preferences/proc/ShowLoadoutMenu(mob/user, slot)
+	user << browse_rsc('html/loadout_menu.css')
+	var/list/dat = list()
+	var/list/loadout_vars = list("loadout", "loadout2", "loadout3")
+	var/list/hex_vars = list("loadout_1_hex", "loadout_2_hex", "loadout_3_hex")
+	var/datum/loadout_item/current = vars[loadout_vars[slot]]
+	var/current_hex = vars[hex_vars[slot]]
+	dat += "<!DOCTYPE html><html><head>"
+	dat += "<meta charset='UTF-8'>"
+	dat += "<link rel='stylesheet' type='text/css' href='loadout_menu.css'>"
+	dat += "</head><body>"
+	dat += "<div class='section-title'>Доп. Предмет [slot]</div>"
+	dat += "<div class='current-info'>"
+	if(current)
+		dat += "[icon2html(new current.path, user)]"
+		dat += "<span class='current-text'><b>[current.name]</b>"
+		if(current_hex)
+			dat += " <span style='display:inline-block;width:14px;height:14px;border:1px solid #2a4a6a;background-color:[current_hex];vertical-align:middle;'></span>"
+		dat += "</span>"
+		dat += "<a href='?_src_=prefs;preference=loadout_menu;task=clear;slot=[slot]' style='color:#e06060;font-size:16px;'>X</a>"
+	else
+		dat += "<span class='current-text'>Ничего</span>"
+	dat += "</div>"
+	dat += "<div class='color-section'>"
+	dat += "<a href='?_src_=prefs;preference=loadout_menu;task=color;slot=[slot]' class='color-btn'>Выбрать цвет</a>"
+	dat += "<a href='?_src_=prefs;preference=loadout_menu;task=color_clear;slot=[slot]' class='color-btn' style='color:#e06060;border-color:#5a3a3a;'>Сбросить цвет</a>"
+	dat += "</div>"
+	dat += "<div class='loadout-list'>"
+	dat += "<a href='?_src_=prefs;preference=loadout_menu;task=clear;slot=[slot]'>"
+	dat += "<div class='loadout-row[current ? "" : " selected"]'>"
+	dat += "<div style='width:32px;text-align:center;color:#e06060;font-size:16px;'>X</div>"
+	dat += "<div><div class='loadout-name'>Ничего</div></div>"
+	dat += "</div></a>"
+	for(var/loadout_key in GLOB.loadout_items)
+		var/datum/loadout_item/loadout_item = GLOB.loadout_items[loadout_key]
+		if(!loadout_item.name)
+			continue
+		if(loadout_item.donoritem && !loadout_item.donator_ckey_check(user.ckey))
+			continue
+		dat += "<a href='?_src_=prefs;preference=loadout_menu;task=select;slot=[slot];ref=[REF(loadout_item)]'>"
+		dat += "<div class='loadout-row[(current == loadout_item) ? " selected" : ""][loadout_item.donoritem ? " donor" : ""]'>"
+		dat += "<div style='width:32px;height:32px;'>[icon2html(new loadout_item.path, user)]</div>"
+		dat += "<div>"
+		dat += "<div class='loadout-name'>[loadout_item.name]</div>"
+		if(loadout_item.desc)
+			dat += "<div class='loadout-desc'>[loadout_item.desc]</div>"
+		if(loadout_item.donoritem)
+			dat += "<div class='loadout-desc' style='color:#e0a030;'>* DONOR</div>"
+		dat += "</div></div></a>"
+	dat += "</div>"
+	dat += "</body></html>"
+	user << browse(dat.Join(), "window=loadout_menu_[slot];size=460x520")
+
+/datum/preferences/proc/handle_loadout_menu(mob/user, href_list)
+	var/slot = text2num(href_list["slot"])
+	var/list/hex_vars = list("loadout_1_hex", "loadout_2_hex", "loadout_3_hex")
+	var/list/loadout_vars = list("loadout", "loadout2", "loadout3")
+	switch(href_list["task"])
+		if("input")
+			ShowLoadoutMenu(user, slot)
+			return TRUE
+		if("color")
+			var/choice = input(user, "Выберите цвет:", "Цвет") as color|null
+			if(choice)
+				vars[hex_vars[slot]] = choice
+				to_chat(user, span_notice("Цвет установлен."))
+				ShowLoadoutMenu(user, slot)
+				ShowChoices(user)
+			return TRUE
+		if("select")
+			var/datum/loadout_item/item = locate(href_list["ref"])
+			if(!istype(item))
+				return TRUE
+			vars[loadout_vars[slot]] = item
+			to_chat(user, span_notice("Выбран предмет: <b>[item.name]</b>"))
+			ShowLoadoutMenu(user, slot)
+			ShowChoices(user)
+			return TRUE
+		if("clear")
+			vars[loadout_vars[slot]] = null
+			to_chat(user, span_info("Предмет убран."))
+			ShowLoadoutMenu(user, slot)
+			ShowChoices(user)
+			return TRUE
+		if("color_clear")
+			vars[hex_vars[slot]] = null
+			to_chat(user, span_info("Цвет сброшен."))
+			ShowLoadoutMenu(user, slot)
+			ShowChoices(user)
+			return TRUE
+
 /datum/preferences/proc/ShowChoices(mob/user, tabchoice)
 	if(!user || !user.client)
 		return
@@ -585,23 +676,25 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<br><b>OOC Extra:</b> <a href='?_src_=prefs;preference=ooc_extra;task=input'>Изменить</a>"
 			dat += "<br><a href='?_src_=prefs;preference=ooc_preview;task=input'><b>Показать превью</b></a>"
 
-			dat += "<br><b>Доп. Предмет I:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>[loadout ? loadout.name : "None"] </a>"
-			if (loadout_1_hex)
-				dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'> <span style='border: 1px solid #161616; background-color: [loadout_1_hex ? loadout_1_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+			dat += "<br><b>Доп. Предмет I:</b> <a href='?_src_=prefs;preference=loadout_menu;task=input;slot=1'>[loadout ? "<span class='loadout_icon_[REF(loadout)]'></span> [loadout.name]" : "None"]</a>"
+			if(loadout_1_hex)
+				dat += " <a href='?_src_=prefs;preference=loadout_menu;task=color;slot=1'><span style='border: 1px solid #161616; background-color: [loadout_1_hex];'>&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
-				dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'>(C)</a>"
+				dat += " <a href='?_src_=prefs;preference=loadout_menu;task=color;slot=1'>(C)</a>"
 
-			dat += "<br><b>Доп. Предмет II:</b> <a href='?_src_=prefs;preference=loadout_item2;task=input'>[loadout2 ? loadout2.name : "None"] </a>"
-			if (loadout_2_hex)
-				dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'> <span style='border: 1px solid #161616; background-color: [loadout_2_hex ? loadout_2_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+			dat += "<br><b>Доп. Предмет II:</b> <a href='?_src_=prefs;preference=loadout_menu;task=input;slot=2'>[loadout2 ? "<span class='loadout_icon_[REF(loadout2)]'></span> [loadout2.name]" : "None"]</a>"
+			if(loadout_2_hex)
+				dat += " <a href='?_src_=prefs;preference=loadout_menu;task=color;slot=2'><span style='border: 1px solid #161616; background-color: [loadout_2_hex];'>&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
-				dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'>(C)</a>"
+				dat += " <a href='?_src_=prefs;preference=loadout_menu;task=color;slot=2'>(C)</a>"
 
-			dat += "<br><b>Доп. Предмет III:</b> <a href='?_src_=prefs;preference=loadout_item3;task=input'>[loadout3 ? loadout3.name : "None"]</a>"
-			if (loadout_3_hex)
-				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_3_hex ? loadout_3_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+			dat += "<br><b>Доп. Предмет III:</b> <a href='?_src_=prefs;preference=loadout_menu;task=input;slot=3'>[loadout3 ? "<span class='loadout_icon_[REF(loadout3)]'></span> [loadout3.name]" : "None"]</a>"
+			if(loadout_3_hex)
+				dat += " <a href='?_src_=prefs;preference=loadout_menu;task=color;slot=3'><span style='border: 1px solid #161616; background-color: [loadout_3_hex];'>&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
-				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'>(C)</a>"
+				dat += " <a href='?_src_=prefs;preference=loadout_menu;task=color;slot=3'>(C)</a>"
+
+			dat += "<br><b>Спец. Предмет:</b> <a href='?_src_=prefs;preference=triumph_loadout;task=input'>[triumph_loadout ? triumph_loadout.name : "Ничего"]</a>"
 
 			dat += "<br><b>Быть фамильяром:</b><a href='?_src_=prefs;preference=familiar_prefs;task=input'>Изменить</a>"
 
@@ -1344,6 +1437,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				expires = " The ban is for [DisplayTimeText(text2num(ban_details["duration"]) MINUTES)] and expires on [ban_details["expiration_time"]] (server time)."
 			to_chat(user, span_danger("You, or another user of this computer or connection ([ban_details["key"]]) is banned from playing [href_list["bancheck"]].<br>The ban reason is: [ban_details["reason"]]<br>This ban (BanID #[ban_details["id"]]) was applied by [ban_details["admin_key"]] on [ban_details["bantime"]] during round ID [ban_details["round_id"]].<br>[expires]"))
 			return
+	if(href_list["preference"] == "loadout_menu")
+		return handle_loadout_menu(user, href_list)
 	if(href_list["preference"] == "job")
 		switch(href_list["task"])
 			if("close")
@@ -2083,96 +2178,31 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("familiar_prefs")
 					familiar_prefs.fam_show_ui()
 
-				if("loadout_item")
-					var/list/loadouts_available = list("None")
-					for (var/path as anything in GLOB.loadout_items)
-						var/datum/loadout_item/loadout = GLOB.loadout_items[path]
-						var/donoritem = loadout.donoritem
-						if(donoritem && !loadout.donator_ckey_check(user.ckey))
-							continue
-						if (!loadout.name)
-							continue
-						loadouts_available[loadout.name] = loadout
+				if("loadout_menu")
+					return handle_loadout_menu(user, href_list)
 
-					var/loadout_input = tgui_input_list(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK", loadouts_available)
-					if(loadout_input)
-						if(loadout_input == "None")
-							loadout = null
-							to_chat(user, "Who needs stuff anyway?")
-						else
-							loadout = loadouts_available[loadout_input]
-							to_chat(user, "<font color='yellow'><b>[loadout.name]</b></font>")
-							if(loadout.desc)
-								to_chat(user, "[loadout.desc]")
-				if("loadout_item2")
-					var/list/loadouts_available = list("None")
-					for (var/path as anything in GLOB.loadout_items)
-						var/datum/loadout_item/loadout2 = GLOB.loadout_items[path]
-						var/donoritem = loadout2.donoritem
-						if(donoritem && !loadout2.donator_ckey_check(user.ckey))
+				if("triumph_loadout")
+					var/list/triumph_loadouts_available = list("Ничего")
+					for (var/path as anything in GLOB.triumph_loadout_items)
+						var/datum/triumph_loadout_item/triumph_item = GLOB.triumph_loadout_items[path]
+						if (!triumph_item.name)
 							continue
-						if (!loadout2.name)
-							continue
-						loadouts_available[loadout2.name] = loadout2
+						triumph_loadouts_available[triumph_item.name] = triumph_item
 
-					var/loadout_input2 = tgui_input_list(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK", loadouts_available)
-					if(loadout_input2)
-						if(loadout_input2 == "None")
-							loadout2 = null
-							to_chat(user, "Who needs stuff anyway?")
+					var/triumph_loadout_input = tgui_input_list(user, "Выберите спец. предмет за триумфы. Скидка для доверенных - 50%.", "СПЕЦ. ПРЕДМЕТ", triumph_loadouts_available)
+					if(triumph_loadout_input)
+						if(triumph_loadout_input == "Ничего")
+							triumph_loadout = null
+							to_chat(user, "Спец. предмет отменён.")
 						else
-							loadout2 = loadouts_available[loadout_input2]
-							to_chat(user, "<font color='yellow'><b>[loadout2.name]</b></font>")
-							if(loadout2.desc)
-								to_chat(user, "[loadout2.desc]")
-				if("loadout_item3")
-					var/list/loadouts_available = list("None")
-					for (var/path as anything in GLOB.loadout_items)
-						var/datum/loadout_item/loadout3 = GLOB.loadout_items[path]
-						var/donoritem = loadout3.donoritem
-						if(donoritem && !loadout3.donator_ckey_check(user.ckey))
-							continue
-						if (!loadout3.name)
-							continue
-						loadouts_available[loadout3.name] = loadout3
+							triumph_loadout = triumph_loadouts_available[triumph_loadout_input]
+							to_chat(user, "<font color='yellow'><b>[triumph_loadout.name]</b> - [triumph_loadout.tr_cost] триумфов</font>")
+							if(triumph_loadout.desc)
+								to_chat(user, "[triumph_loadout.desc]")
 
-					var/loadout_input3 = tgui_input_list(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK", loadouts_available)
-					if(loadout_input3)
-						if(loadout_input3 == "None")
-							loadout3 = null
-							to_chat(user, "Who needs stuff anyway?")
-						else
-							loadout3 = loadouts_available[loadout_input3]
-							to_chat(user, "<font color='yellow'><b>[loadout3.name]</b></font>")
-							if(loadout3.desc)
-								to_chat(user, "[loadout3.desc]")
-				if("loadout1hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item One Colour") as null|anything in colorlist
-					if (choice && colorlist[choice])
-						loadout_1_hex = colorlist[choice]
-						if (loadout)
-							to_chat(user, "The colour for your [loadout::name] has been set to <b>[choice]</b>.")
-					else
-						loadout_1_hex = null
-						to_chat(user, "The colour for your <b>first</b> loadout item has been cleared.")
-				if("loadout2hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item Two Colour") as null|anything in colorlist
-					if (choice && colorlist[choice])
-						loadout_2_hex = colorlist[choice]
-						if (loadout2)
-							to_chat(user, "The colour for your [loadout2::name] has been set to <b>[choice]</b>.")
-					else
-						loadout_2_hex = null
-						to_chat(user, "The colour for your <b>second</b> loadout item has been cleared.")
-				if("loadout3hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item Three Colour") as null|anything in colorlist
-					if (choice && colorlist[choice])
-						loadout_3_hex = colorlist[choice]
-						if (loadout3)
-							to_chat(user, "The colour for your [loadout3::name] has been set to <b>[choice]</b>.")
-					else
-						loadout_3_hex = null
-						to_chat(user, "The colour for your <b>third</b> loadout item has been cleared.")
+				if("loadout_menu_color")
+					return handle_loadout_menu(user, href_list)
+
 				if("species")
 					var/list/species = list()
 					for(var/A in GLOB.roundstart_races)
