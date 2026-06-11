@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if(H.patron.parentpatron)
 		H.patron = new H.patron.parentpatron
 	neck = /obj/item/clothing/neck/roguetown/psicross/astrata
-	shirt = /obj/item/clothing/suit/roguetown/shirt/robe/priest
+	shirt = /obj/item/clothing/suit/roguetown/shirt/robe/monk
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/boots/jandarms/priboots
 	beltl = /obj/item/storage/keyring/priest

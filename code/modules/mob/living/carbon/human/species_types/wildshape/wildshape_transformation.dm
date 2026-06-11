@@ -75,7 +75,7 @@
 	// Must be done BEFORE mind.transfer_to() to avoid context issues
 	var/mob/living/carbon/human/H = src
 	W.devotion = H.devotion
-
+	
 	mind.transfer_to(W)
 	skills?.known_skills = list()
 	skills?.skill_experience = list()

@@ -132,7 +132,7 @@
 	charge_counter = 0
 	if(action)
 		action.UpdateButtonIcon()
-	
+
 	var/the_line = pick(user.patron.miracle_healing_lines)
 	the_line = replacetext(the_line, "%TARGET", "[target]")
 	target.visible_message(span_info(the_line))
