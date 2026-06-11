@@ -132,10 +132,10 @@
 	charge_counter = 0
 	if(action)
 		action.UpdateButtonIcon()
-	if(length(user.patron.miracle_healing_lines))
-		var/the_line = pick(user.patron.miracle_healing_lines)
-		the_line = replacetext(the_line, "%TARGET", "[target]")
-		target.visible_message(span_info(the_line))
+	
+	var/the_line = pick(user.patron.miracle_healing_lines)
+	the_line = replacetext(the_line, "%TARGET", "[target]")
+	target.visible_message(span_info(the_line))
 
 /obj/effect/proc_holder/spell/invoked/lesser_heal/proc/get_situational_bonus(mob/living/user, mob/living/target)
 	var/situational_info = user.patron.situational_bonus(user, target)

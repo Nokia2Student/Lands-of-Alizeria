@@ -138,8 +138,7 @@ SUBSYSTEM_DEF(ticker)
 
 	if(isemptylist(music))
 		music = world.file2list(ROUND_START_MUSIC_LIST, "\n")
-		if(length(music))
-			login_music = pick(music)
+		login_music = pick(music)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
